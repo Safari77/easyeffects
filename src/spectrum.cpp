@@ -36,6 +36,7 @@
 #include "plugin_base.hpp"
 #include "tags_plugin_name.hpp"
 #include "util.hpp"
+#include "chart.hpp"
 
 Spectrum::Spectrum(const std::string& tag,
                    const std::string& schema,
@@ -84,9 +85,38 @@ Spectrum::Spectrum(const std::string& tag,
                      self->bypass = g_settings_get_boolean(settings, key) == 0;
                    }),
                    this);
+
+  // Initialize statistics with default values
+  const size_t default_window_size = g_settings_get_uint(settings, "window-size");
+  const size_t default_histogram_bins = g_settings_get_uint(settings, "histogram-bins");
+  statistics_ = std::make_unique<AudioStatistics>(default_window_size, default_histogram_bins);
+
+  // In Spectrum::Spectrum (after statistics_ is created)
+  g_signal_connect(settings, "changed::histogram-bins",
+    G_CALLBACK(+[](GSettings* settings, gchar* key, Spectrum* self) {
+         const size_t new_bins = g_settings_get_uint(settings, key);
+         g_message("GSettings: Changing histogram bins to %zu", new_bins);
+         // Update the histogram bins in the AudioStatistics instance.
+         self->statistics_->update_histogram_bins(new_bins);
+         // (Optionally, you might want to recalc the histogram from the current buffer.)
+         // Emit the signal so that the UI can update the histogram chart.
+         self->signal_histogram_bins_changed.emit(new_bins);
+  }), this);
+
+  g_signal_connect(settings, "changed::window-size",
+    G_CALLBACK(+[](GSettings* settings, gchar* key, Spectrum* self) {
+         const size_t new_window_size = g_settings_get_uint(settings, key);
+         g_message("GSettings: Changing window size to %zu", new_window_size);
+         const size_t current_bins = self->statistics_->get_histogram_bins();
+         // Re-create the AudioStatistics instance with the new window size.
+         self->statistics_ = std::make_unique<AudioStatistics>(new_window_size, current_bins);
+         // Emit the signal (using the current bin count) so the UI updates.
+         self->signal_histogram_bins_changed.emit(current_bins);
+  }), this);
 }
 
 Spectrum::~Spectrum() {
+  statistics_.reset();
   if (connected_to_pw) {
     disconnect_from_pw();
   }
@@ -100,6 +130,14 @@ Spectrum::~Spectrum() {
   fftwf_destroy_plan(plan);
 
   util::debug(log_tag + name + " destroyed");
+}
+
+void Spectrum::update_statistics(const std::vector<float>& magnitudes) {
+  for (float db : magnitudes) {
+      // Assuming the values have been converted and clamped in process(),
+      // directly add them to the statistics.
+      statistics_->add_sample(db);
+  }
 }
 
 void Spectrum::setup() {
@@ -227,7 +265,27 @@ void Spectrum::process(std::span<float>& left_in,
   db_buffers[index] = latest_samples_mono;
 
   // Mark new data available AND mark as not busy anymore.
+
   db_control.store(index | DB_BIT_NEWDATA);
+
+  if (statistics_ && !bypass) {
+    // Process audio levels directly from time-domain samples
+    std::vector<float> levels(n_bands);
+    for (size_t n = 0; n < n_bands; n++) {
+        float sample = latest_samples_mono[n];
+        // Convert linear amplitude to dB
+        float db;
+        if (std::abs(sample) <= 1e-10f) {
+            db = -120.0f;
+        } else {
+            db = 20.0f * std::log10(std::abs(sample));
+            db = std::clamp(db, -120.0f, 0.0f);
+        }
+        levels[n] = db;
+    }
+
+    update_statistics(levels);
+    }
 }
 
 std::tuple<uint, uint, double*> Spectrum::compute_magnitudes() {
@@ -243,6 +301,7 @@ std::tuple<uint, uint, double*> Spectrum::compute_magnitudes() {
   do {
     curr_control &= ~DB_BIT_BUSY;
     next_control = (curr_control ^ DB_BIT_IDX) & DB_BIT_IDX;
+    _mm_pause();
   } while (!db_control.compare_exchange_weak(curr_control, next_control));
 
   // Buffer with data is at the index which was found inside db_control.

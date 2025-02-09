@@ -20,6 +20,7 @@
 #include "chart.hpp"
 #include <cairo.h>
 #include <fmt/format.h>
+#include <fmt/compile.h>
 #include <gdk/gdk.h>
 #include <glib-object.h>
 #include <gobject/gobject.h>
@@ -46,7 +47,7 @@ struct Data {
  public:
   ~Data() { util::debug("data struct destroyed"); }
 
-  bool draw_bar_border, fill_bars, is_visible, rounded_corners, dynamic_y_scale = true;
+  bool draw_bar_border, fill_bars, is_visible, rounded_corners, dynamic_y_scale = false;
 
   int x_axis_height, n_x_decimals, n_y_decimals;
 
@@ -79,6 +80,9 @@ struct _Chart {
 
 // NOLINTNEXTLINE
 G_DEFINE_TYPE(Chart, chart, GTK_TYPE_WIDGET)
+
+const char* const HISTOGRAM_DATA_KEY = "histogram-data";
+const char* const HISTOGRAM_RANGES_KEY = "histogram-ranges";
 
 void set_chart_type(Chart* self, const ChartType& value) {
   if (self->data == nullptr) {
@@ -214,6 +218,38 @@ void set_dynamic_y_scale(Chart* self, const bool& v) {
   self->data->global_max_y = 0.0;
 }
 
+void set_histogram_data(Chart* self, const std::vector<double>& data) {
+    // Get or create HistogramData
+    auto* hist_data = static_cast<HistogramData*>(
+        g_object_get_data(G_OBJECT(self), HISTOGRAM_DATA_KEY));
+    if (hist_data == nullptr) {
+        hist_data = new HistogramData();
+        g_object_set_data_full(G_OBJECT(self), HISTOGRAM_DATA_KEY, hist_data,
+            [](void* data) { delete static_cast<HistogramData*>(data); });
+    }
+    hist_data->data = data;
+    // Also update the chart's y_axis so that snapshot() uses the histogram values
+    if (self->data != nullptr) {
+        self->data->y_axis = data;
+    }
+}
+
+void set_histogram_ranges(Chart* self, double min, double max, size_t n_bins) {
+    auto* hist_data = static_cast<HistogramData*>(
+        g_object_get_data(G_OBJECT(self), HISTOGRAM_DATA_KEY));
+    if (hist_data == nullptr) {
+        hist_data = new HistogramData();
+        g_object_set_data_full(G_OBJECT(self), HISTOGRAM_DATA_KEY, hist_data,
+            [](void* data) { delete static_cast<HistogramData*>(data); });
+    }
+
+    g_message("set_histogram_ranges min=%f max=%f n_bins=%zu", min, max, n_bins);
+    hist_data->min_value = min;
+    hist_data->max_value = max;
+    hist_data->n_bins = n_bins;
+    hist_data->prev_n_bins = 0;
+}
+
 void set_x_data(Chart* self, const std::vector<double>& x) {
   if (!GTK_IS_WIDGET(self) || x.empty()) {
     return;
@@ -280,6 +316,32 @@ void set_y_data(Chart* self, const std::vector<double>& y) {
   }
 
   gtk_widget_queue_draw(GTK_WIDGET(self));
+}
+
+void set_histogram_x_data(Chart* self) {
+  auto* hist_data = static_cast<HistogramData*>(g_object_get_data(G_OBJECT(self), HISTOGRAM_DATA_KEY));
+  if (hist_data == nullptr || hist_data->n_bins == 0)
+    return;
+  // return if already up to date
+  if (hist_data->n_bins == hist_data->prev_n_bins) return;
+
+  hist_data->prev_n_bins = hist_data->n_bins;
+  std::vector<double> bin_centers(hist_data->n_bins);
+  std::vector<double> bin_norm(hist_data->n_bins);
+  double bin_width = (hist_data->max_value - hist_data->min_value) / static_cast<double>(hist_data->n_bins);
+  for (size_t i = 0; i < hist_data->n_bins; i++) {
+      double center = hist_data->min_value + (i + 0.5) * bin_width;
+      bin_centers[i] = center;
+      bin_norm[i] = (center - hist_data->min_value) / (hist_data->max_value - hist_data->min_value);
+  }
+  hist_data->x_axis_raw = bin_centers;
+  hist_data->x_axis_norm = bin_norm;
+
+  // Update the chart's x_axis and related properties.
+  self->data->x_axis = hist_data->x_axis_norm;
+  self->data->x_min = 0.0;
+  self->data->x_max = 1.0;
+  self->data->objects_x.resize(self->data->x_axis.size());
 }
 
 void on_pointer_motion(GtkEventControllerMotion* controller, double xpos, double ypos, Chart* self) {
@@ -365,15 +427,26 @@ auto draw_x_labels(Chart* self, GtkSnapshot* snapshot, const int& width, const i
 
   std::vector<double> labels;
 
+  // Determine the label range.
+  double x_min, x_max;
+  auto* hist_data = static_cast<HistogramData*>(g_object_get_data(G_OBJECT(self), HISTOGRAM_DATA_KEY));
+  if (hist_data != nullptr) {
+    // For histogram, use the raw dB range.
+    x_min = hist_data->min_value;
+    x_max = hist_data->max_value;
+  } else {
+    // Otherwise, use the chart's current range.
+    x_min = self->data->x_min;
+    x_max = self->data->x_max;
+  }
+
   switch (self->data->chart_scale) {
     case ChartScale::logarithmic: {
-      labels = util::logspace(self->data->x_min, self->data->x_max, n_x_labels);
-
+      labels = util::logspace(x_min, x_max, n_x_labels);
       break;
     }
     case ChartScale::linear: {
-      labels = util::linspace(self->data->x_min, self->data->x_max, n_x_labels);
-
+      labels = util::linspace(x_min, x_max, n_x_labels);
       break;
     }
   }
@@ -477,9 +550,8 @@ void snapshot(GtkWidget* widget, GtkSnapshot* snapshot) {
 
     auto border_color = std::to_array({self->data->color, self->data->color, self->data->color, self->data->color});
 
-    std::array<float, 4> border_width = {
-        static_cast<float>(self->data->line_width), static_cast<float>(self->data->line_width),
-        static_cast<float>(self->data->line_width), static_cast<float>(self->data->line_width)};
+    std::array<float, 4> border_width;
+    border_width.fill(static_cast<float>(self->data->line_width));
 
     float radius = (self->data->rounded_corners) ? 5.0F : 0.0F;
 
@@ -600,34 +672,53 @@ void snapshot(GtkWidget* widget, GtkSnapshot* snapshot) {
     }
 
     if (gtk_event_controller_motion_contains_pointer(GTK_EVENT_CONTROLLER_MOTION(self->controller_motion)) != 0) {
-      // We leave a withespace at the end to not stick the string at the window border.
-      const auto msg = fmt::format(ui::get_user_locale(), "x = {0:.{1}Lf} {2} y = {3:.{4}Lf} {5} ", self->data->mouse_x,
-                                   self->data->n_x_decimals, self->data->x_unit, self->data->mouse_y,
-                                   self->data->n_y_decimals, self->data->y_unit);
+      // If histogram data is available, show bin info on mouse over.
+      auto* hist_data = static_cast<HistogramData*>(g_object_get_data(G_OBJECT(self), HISTOGRAM_DATA_KEY));
+      if (hist_data && !hist_data->data.empty()) {
+        // Assume self->data->mouse_x is already normalized [0,1] (set in on_pointer_motion).
+        size_t bin_index = static_cast<size_t>(self->data->mouse_x * hist_data->data.size());
+        if (bin_index >= hist_data->data.size())
+          bin_index = hist_data->data.size() - 1;
+        double bin_center_db = hist_data->x_axis_raw[bin_index]; // use raw dB value
+        double bin_value = hist_data->data[bin_index] * 100.0; // percentage
+        auto msg = fmt::format(FMT_COMPILE("Bin Center: {:8.2f} dB   Value: {:6.2f}%"),
+                               bin_center_db, bin_value);
+        // Create layout and draw at a corner (for example, top-right)
+        auto* layout = gtk_widget_create_pango_layout(GTK_WIDGET(self), msg.c_str());
+        auto* desc = pango_font_description_from_string("monospace bold");
+        pango_layout_set_font_description(layout, desc);
+        pango_font_description_free(desc);
 
-      auto* layout = gtk_widget_create_pango_layout(GTK_WIDGET(self), msg.c_str());
+        int text_width = 0, text_height = 0;
+        pango_layout_get_pixel_size(layout, &text_width, &text_height);
 
-      auto* description = pango_font_description_from_string("monospace bold");
-
-      pango_layout_set_font_description(layout, description);
-      pango_font_description_free(description);
-
-      int text_width = 0;
-      int text_height = 0;
-
-      pango_layout_get_pixel_size(layout, &text_width, &text_height);
-
-      gtk_snapshot_save(snapshot);
-
-      auto point = GRAPHENE_POINT_INIT(width - static_cast<float>(text_width), 0.0F);
-
-      gtk_snapshot_translate(snapshot, &point);
-
-      gtk_snapshot_append_layout(snapshot, layout, &self->data->color);
-
-      gtk_snapshot_restore(snapshot);
-
-      g_object_unref(layout);
+        double widget_width = gtk_widget_get_width(GTK_WIDGET(self));
+        gtk_snapshot_save(snapshot);
+        auto point = GRAPHENE_POINT_INIT(static_cast<float>(widget_width - text_width), 0.0F);
+        gtk_snapshot_translate(snapshot, &point);
+        gtk_snapshot_append_layout(snapshot, layout, &self->data->color_axis_labels);
+        gtk_snapshot_restore(snapshot);
+        g_object_unref(layout);
+      } else {
+        // We leave a whitespace at the end to not stick the string at the window border.
+        const auto msg = fmt::format(FMT_COMPILE("x = {0:.{1}Lf} {2} y = {3:.{4}Lf} {5} "),
+                                     self->data->mouse_x, self->data->n_x_decimals,
+                                     self->data->x_unit, self->data->mouse_y,
+                                     self->data->n_y_decimals, self->data->y_unit);
+        auto* layout = gtk_widget_create_pango_layout(GTK_WIDGET(self), msg.c_str());
+        auto* description = pango_font_description_from_string("monospace bold");
+        pango_layout_set_font_description(layout, description);
+        pango_font_description_free(description);
+        int text_width = 0;
+        int text_height = 0;
+        pango_layout_get_pixel_size(layout, &text_width, &text_height);
+        gtk_snapshot_save(snapshot);
+        auto point = GRAPHENE_POINT_INIT(width - static_cast<float>(text_width), 0.0F);
+        gtk_snapshot_translate(snapshot, &point);
+        gtk_snapshot_append_layout(snapshot, layout, &self->data->color_axis_labels);
+        gtk_snapshot_restore(snapshot);
+        g_object_unref(layout);
+      }
     }
   }
 }

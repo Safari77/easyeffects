@@ -53,6 +53,26 @@
         <key name="avsync-delay" type="i">
             <range min="0" max="1000" />
             <default>0</default>
+          </key>
+
+        <key name="show-histogram" type="b">
+            <default>false</default>
+            <summary>Show amplitude histogram</summary>
         </key>
+        <key name="show-statistics" type="b">
+            <default>false</default>
+            <summary>Show moving window statistics</summary>
+        </key>
+        <key name="window-size" type="u">
+            <default>1024</default>
+            <range min="128" max="8192"/>
+            <summary>Size of the moving window for statistics</summary>
+        </key>
+        <key name="histogram-bins" type="u">
+            <default>50</default>
+            <range min="10" max="128"/>
+            <summary>Number of bins in the histogram</summary>
+        </key>
+
     </schema>
 </schemalist>

@@ -11,6 +11,9 @@ package-lock.json
 compile_commands.json
 .clangd
 .cache
+*~
+.*.sw?
+tags
 
 # Compiled python modules.
 *.pyc

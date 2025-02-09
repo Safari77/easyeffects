@@ -1,5 +1,5 @@
 /*
- *  Copyright © 2017-2024 Wellington Wallace
+ *  Copyright © 2017-2025 Wellington Wallace
  *
  *  This file is part of Easy Effects.
  *
@@ -43,13 +43,15 @@ struct Data {
 struct _PreferencesSpectrum {
   AdwPreferencesPage parent_instance;
 
-  GtkSwitch *show, *fill, *show_bar_border, *rounded_corners, *dynamic_y_scale;
+  GtkSwitch *show, *fill, *show_bar_border, *rounded_corners, *dynamic_y_scale,
+            *show_histogram, *show_statistics;
 
   GtkColorDialogButton *color_button, *axis_color_button;
 
   GtkDropDown* type;
 
-  GtkSpinButton *n_points, *height, *line_width, *minimum_frequency, *maximum_frequency, *avsync_delay;
+  GtkSpinButton *n_points, *height, *line_width, *minimum_frequency, *maximum_frequency, *avsync_delay,
+                *window_size, *histogram_bins;
 
   GSettings* settings;
 
@@ -121,8 +123,65 @@ void preferences_spectrum_class_init(PreferencesSpectrumClass* klass) {
   gtk_widget_class_bind_template_child(widget_class, PreferencesSpectrum, maximum_frequency);
   gtk_widget_class_bind_template_child(widget_class, PreferencesSpectrum, avsync_delay);
 
+  gtk_widget_class_bind_template_child(widget_class, PreferencesSpectrum, show_histogram);
+  gtk_widget_class_bind_template_child(widget_class, PreferencesSpectrum, show_statistics);
+  gtk_widget_class_bind_template_child(widget_class, PreferencesSpectrum, window_size);
+  gtk_widget_class_bind_template_child(widget_class, PreferencesSpectrum, histogram_bins);
+
   gtk_widget_class_bind_template_callback(widget_class, on_spectrum_color_set);
   gtk_widget_class_bind_template_callback(widget_class, on_spectrum_axis_color_set);
+}
+
+void setup_statistics_grid(PreferencesSpectrum* self) {
+  auto* statistics_grid = gtk_grid_new();
+
+  gtk_grid_set_column_spacing(GTK_GRID(statistics_grid), 6);
+  gtk_grid_set_row_spacing(GTK_GRID(statistics_grid), 6);
+  gtk_widget_set_margin_start(statistics_grid, 6);
+  gtk_widget_set_margin_end(statistics_grid, 6);
+  gtk_widget_set_margin_top(statistics_grid, 6);
+  gtk_widget_set_margin_bottom(statistics_grid, 6);
+
+  auto* statistics_frame = adw_preferences_group_new();
+  adw_preferences_group_set_title(ADW_PREFERENCES_GROUP(statistics_frame), "Statistics");
+  gtk_box_append(GTK_BOX(self), GTK_WIDGET(statistics_frame));
+  adw_preferences_group_add(ADW_PREFERENCES_GROUP(statistics_frame), statistics_grid);
+
+  // Show Histogram switch
+  auto* show_histogram_label = gtk_label_new("Show Histogram");
+  gtk_widget_set_halign(show_histogram_label, GTK_ALIGN_START);
+  gtk_grid_attach(GTK_GRID(statistics_grid), show_histogram_label, 0, 0, 1, 1);
+
+  self->show_histogram = GTK_SWITCH(gtk_switch_new());
+  gtk_widget_set_halign(GTK_WIDGET(self->show_histogram), GTK_ALIGN_END);
+  gtk_grid_attach(GTK_GRID(statistics_grid), GTK_WIDGET(self->show_histogram), 1, 0, 1, 1);
+
+  // Show Statistics switch
+  auto* show_statistics_label = gtk_label_new("Show Statistics");
+  gtk_widget_set_halign(show_statistics_label, GTK_ALIGN_START);
+  gtk_grid_attach(GTK_GRID(statistics_grid), show_statistics_label, 0, 1, 1, 1);
+
+  self->show_statistics = GTK_SWITCH(gtk_switch_new());
+  gtk_widget_set_halign(GTK_WIDGET(self->show_statistics), GTK_ALIGN_END);
+  gtk_grid_attach(GTK_GRID(statistics_grid), GTK_WIDGET(self->show_statistics), 1, 1, 1, 1);
+
+  // Window Size spinner
+  auto* window_size_label = gtk_label_new("Window Size");
+  gtk_widget_set_halign(window_size_label, GTK_ALIGN_START);
+  gtk_grid_attach(GTK_GRID(statistics_grid), window_size_label, 0, 2, 1, 1);
+
+  self->window_size = GTK_SPIN_BUTTON(gtk_spin_button_new_with_range(128, 8192, 128));
+  gtk_widget_set_halign(GTK_WIDGET(self->window_size), GTK_ALIGN_END);
+  gtk_grid_attach(GTK_GRID(statistics_grid), GTK_WIDGET(self->window_size), 1, 2, 1, 1);
+
+  // Histogram Bins spinner
+  auto* histogram_bins_label = gtk_label_new("Histogram Bins");
+  gtk_widget_set_halign(histogram_bins_label, GTK_ALIGN_START);
+  gtk_grid_attach(GTK_GRID(statistics_grid), histogram_bins_label, 0, 3, 1, 1);
+
+  self->histogram_bins = GTK_SPIN_BUTTON(gtk_spin_button_new_with_range(10, 128, 10));
+  gtk_widget_set_halign(GTK_WIDGET(self->histogram_bins), GTK_ALIGN_END);
+  gtk_grid_attach(GTK_GRID(statistics_grid), GTK_WIDGET(self->histogram_bins), 1, 3, 1, 1);
 }
 
 void preferences_spectrum_init(PreferencesSpectrum* self) {
@@ -193,9 +252,12 @@ void preferences_spectrum_init(PreferencesSpectrum* self) {
   // spectrum section gsettings bindings
 
   gsettings_bind_widgets<"show", "fill", "rounded-corners", "show-bar-border", "dynamic-y-scale", "n-points", "height",
-                         "line-width", "minimum-frequency", "maximum-frequency", "avsync-delay">(
+                         "line-width", "minimum-frequency", "maximum-frequency", "avsync-delay",
+                         "show-histogram", "show-statistics", "window-size", "histogram-bins">(
       self->settings, self->show, self->fill, self->rounded_corners, self->show_bar_border, self->dynamic_y_scale,
-      self->n_points, self->height, self->line_width, self->minimum_frequency, self->maximum_frequency, self->avsync_delay);
+      self->n_points, self->height, self->line_width, self->minimum_frequency, self->maximum_frequency,
+      self->avsync_delay,
+      self->show_histogram, self->show_statistics, self->window_size, self->histogram_bins);
 
   ui::gsettings_bind_enum_to_combo_widget(self->settings, "type", self->type);
 
@@ -217,6 +279,24 @@ void preferences_spectrum_init(PreferencesSpectrum* self) {
                          gtk_color_dialog_button_set_rgba(self->axis_color_button, &color);
                        }),
                        self));
+
+  setup_statistics_grid(self);
+  // Bind the new settings
+  g_settings_bind(self->settings, "show-histogram",
+                 self->show_histogram, "active",
+                 G_SETTINGS_BIND_DEFAULT);
+
+  g_settings_bind(self->settings, "show-statistics",
+                 self->show_statistics, "active",
+                 G_SETTINGS_BIND_DEFAULT);
+
+  g_settings_bind(self->settings, "window-size",
+                 self->window_size, "value",
+                 G_SETTINGS_BIND_DEFAULT);
+
+  g_settings_bind(self->settings, "histogram-bins",
+                 self->histogram_bins, "value",
+                 G_SETTINGS_BIND_DEFAULT);
 }
 
 auto create() -> PreferencesSpectrum* {

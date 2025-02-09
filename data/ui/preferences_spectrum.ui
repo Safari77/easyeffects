@@ -269,6 +269,78 @@
                     </object>
                 </child>
             </object>
+          </child>
+          <child>
+            <object class="AdwPreferencesGroup">
+                <property name="title" translatable="yes">Statistics</property>
+                <child>
+                    <object class="AdwActionRow">
+                        <property name="title" translatable="yes">Show Histogram</property>
+                        <property name="activatable-widget">show_histogram</property>
+                        <child>
+                            <object class="GtkSwitch" id="show_histogram">
+                                <property name="valign">center</property>
+                            </object>
+                        </child>
+                    </object>
+                </child>
+
+                <child>
+                    <object class="AdwActionRow">
+                        <property name="title" translatable="yes">Show Statistics</property>
+                        <property name="activatable-widget">show_statistics</property>
+                        <child>
+                            <object class="GtkSwitch" id="show_statistics">
+                                <property name="valign">center</property>
+                            </object>
+                        </child>
+                    </object>
+                </child>
+
+                <child>
+                    <object class="AdwActionRow">
+                        <property name="title" translatable="yes">Window Size</property>
+
+                        <child>
+                            <object class="GtkSpinButton" id="window_size">
+                                <property name="valign">center</property>
+                                <property name="digits">0</property>
+                                <property name="adjustment">
+                                    <object class="GtkAdjustment">
+                                        <property name="lower">128</property>
+                                        <property name="upper">8192</property>
+                                        <property name="value">1024</property>
+                                        <property name="step-increment">128</property>
+                                        <property name="page-increment">1024</property>
+                                    </object>
+                                </property>
+                            </object>
+                        </child>
+                    </object>
+                </child>
+
+                <child>
+                    <object class="AdwActionRow">
+                        <property name="title" translatable="yes">Histogram Bins</property>
+
+                        <child>
+                            <object class="GtkSpinButton" id="histogram_bins">
+                                <property name="valign">center</property>
+                                <property name="digits">0</property>
+                                <property name="adjustment">
+                                    <object class="GtkAdjustment">
+                                        <property name="lower">10</property>
+                                        <property name="upper">128</property>
+                                        <property name="value">50</property>
+                                        <property name="step-increment">1</property>
+                                        <property name="page-increment">10</property>
+                                    </object>
+                                </property>
+                            </object>
+                        </child>
+                    </object>
+                </child>
+            </object>
         </child>
     </template>
 

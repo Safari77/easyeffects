@@ -77,6 +77,21 @@ auto get_is_visible(Chart* self) -> bool;
 
 void set_dynamic_y_scale(Chart* self, const bool& v);
 
+struct HistogramData {
+    std::vector<double> data;
+    double min_value;
+    double max_value;
+    size_t n_bins;
+    size_t prev_n_bins;
+    std::vector<double> x_axis_raw;  // bin centers in dB
+    std::vector<double> x_axis_norm; // normalized positions for drawing
+};
+
+void set_histogram_data(Chart* self, const std::vector<double>& data);
+void set_histogram_x_data(Chart* self);
+
+void set_histogram_ranges(Chart* self, double min, double max, size_t n_bins);
+
 auto create() -> Chart*;
 
 }  // namespace ui::chart
