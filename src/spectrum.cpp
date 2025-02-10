@@ -132,14 +132,6 @@ Spectrum::~Spectrum() {
   util::debug(log_tag + name + " destroyed");
 }
 
-void Spectrum::update_statistics(const std::vector<float>& magnitudes) {
-  for (float db : magnitudes) {
-      // Assuming the values have been converted and clamped in process(),
-      // directly add them to the statistics.
-      statistics_->add_sample(db);
-  }
-}
-
 void Spectrum::setup() {
   std::ranges::fill(real_input, 0.0F);
   std::ranges::fill(latest_samples_mono, 0.0F);
@@ -269,23 +261,17 @@ void Spectrum::process(std::span<float>& left_in,
   db_control.store(index | DB_BIT_NEWDATA);
 
   if (statistics_ && !bypass) {
-    // Process audio levels directly from time-domain samples
-    std::vector<float> levels(n_bands);
-    for (size_t n = 0; n < n_bands; n++) {
-        float sample = latest_samples_mono[n];
-        // Convert linear amplitude to dB
-        float db;
-        if (std::abs(sample) <= 1e-10f) {
-            db = -120.0f;
-        } else {
-            db = 20.0f * std::log10(std::abs(sample));
-            db = std::clamp(db, -120.0f, 0.0f);
-        }
-        levels[n] = db;
+    for (float sample : latest_samples_mono) {
+      // Convert the sample to dB.
+      float db = (std::abs(sample) <= 1e-10f)
+                    ? -120.0f
+                    : 20.0f * std::log10(std::abs(sample));
+      // Clamp the dB value.
+      db = std::clamp(db, -120.0f, 0.0f);
+      // Update statistics directly.
+      statistics_->add_sample(db);
     }
-
-    update_statistics(levels);
-    }
+  }
 }
 
 std::tuple<uint, uint, double*> Spectrum::compute_magnitudes() {

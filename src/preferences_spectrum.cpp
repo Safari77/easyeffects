@@ -144,7 +144,6 @@ void setup_statistics_grid(PreferencesSpectrum* self) {
 
   auto* statistics_frame = adw_preferences_group_new();
   adw_preferences_group_set_title(ADW_PREFERENCES_GROUP(statistics_frame), "Statistics");
-  gtk_box_append(GTK_BOX(self), GTK_WIDGET(statistics_frame));
   adw_preferences_group_add(ADW_PREFERENCES_GROUP(statistics_frame), statistics_grid);
 
   // Show Histogram switch

@@ -171,8 +171,13 @@ class Spectrum : public PluginBase {
   std::tuple<uint, uint, double*> compute_magnitudes();  // rate, nbands, magnitudes
 
   const AudioStatistics& get_statistics() const { return *statistics_; }
-  void update_statistics(const std::vector<float>& magnitudes);
   sigc::signal<void(size_t)> signal_histogram_bins_changed;
+
+  void reset_statistics() {
+      if (statistics_) {
+          statistics_->reset();
+      }
+  }
 
  private:
   std::atomic<bool> fftw_ready = false;

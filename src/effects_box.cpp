@@ -144,8 +144,14 @@ void init_spectrum_frequency_axis(EffectsBox* self) {
 }
 
 static void update_histogram_visibility(EffectsBox* self) {
-   gtk_widget_set_visible(GTK_WIDGET(self->histogram_chart), g_settings_get_boolean(self->settings_spectrum, "show-histogram"));
-   gtk_widget_set_visible(self->statistics_label, g_settings_get_boolean(self->settings_spectrum, "show-statistics"));
+    if (self->histogram_chart && ui::chart::EE_IS_CHART(self->histogram_chart)) {
+        gtk_widget_set_visible(GTK_WIDGET(self->histogram_chart),
+            g_settings_get_boolean(self->settings_spectrum, "show-histogram"));
+    }
+    if (self->statistics_label) {
+        gtk_widget_set_visible(self->statistics_label,
+            g_settings_get_boolean(self->settings_spectrum, "show-statistics"));
+    }
 }
 
 void setup_spectrum(EffectsBox* self) {
@@ -195,46 +201,78 @@ void setup_spectrum(EffectsBox* self) {
   gtk_widget_set_size_request(GTK_WIDGET(self->spectrum_chart), -1,
                               g_settings_get_int(self->settings_spectrum, "height"));
 
-  if (g_settings_get_boolean(self->settings_spectrum, "show-histogram") &&
-    ui::chart::EE_IS_CHART(self->histogram_chart)) {
+  // Visual settings - use same color settings as spectrum
+  ui::chart::set_color(self->histogram_chart, chart_color);
+  ui::chart::set_axis_labels_color(self->histogram_chart, axis_labels_color);
+  ui::chart::set_fill_bars(self->histogram_chart, fill_bars);
+  ui::chart::set_line_width(self->histogram_chart, line_width);
+  ui::chart::set_chart_scale(self->histogram_chart, ui::chart::ChartScale::linear);
+  ui::chart::set_x_unit(self->histogram_chart, "dB");
+  ui::chart::set_y_unit(self->histogram_chart, "%");
 
-    // Visual settings - use same color settings as spectrum
-    ui::chart::set_color(self->histogram_chart, chart_color);
-    ui::chart::set_axis_labels_color(self->histogram_chart, axis_labels_color);
-    ui::chart::set_fill_bars(self->histogram_chart, fill_bars);
-    ui::chart::set_line_width(self->histogram_chart, line_width);
-    ui::chart::set_chart_scale(self->histogram_chart, ui::chart::ChartScale::linear);
-    ui::chart::set_x_unit(self->histogram_chart, "dB");
-    ui::chart::set_y_unit(self->histogram_chart, "%");
+  // Get number of bins from settings
+  const size_t n_bins = g_settings_get_uint(self->settings_spectrum, "histogram-bins");
+  // Since values are very small except bin[0], use logarithmic scale
+  // and adjust ranges to better show the distribution
+  ui::chart::set_histogram_ranges(ui::chart::EE_CHART(self->histogram_chart),
+                                -120.0,  // Minimum to show small values
+                                0.0,  // Maximum to show full range
+                                n_bins);
+  // Container setup
+  gtk_box_append(GTK_BOX(charts_box), GTK_WIDGET(self->histogram_chart));
+  gtk_widget_set_vexpand(GTK_WIDGET(self->histogram_chart), TRUE);
+  gtk_widget_set_size_request(GTK_WIDGET(self->histogram_chart), -1,
+                            std::min(g_settings_get_int(self->settings_spectrum, "height")/3, 100));
 
-    // Get number of bins from settings
-    const size_t n_bins = g_settings_get_uint(self->settings_spectrum, "histogram-bins");
-    // Since values are very small except bin[0], use logarithmic scale
-    // and adjust ranges to better show the distribution
-    ui::chart::set_histogram_ranges(ui::chart::EE_CHART(self->histogram_chart),
-                                  -120.0,  // Minimum to show small values
-                                  0.0,  // Maximum to show full range
-                                  n_bins);
-    // Container setup
-    gtk_box_append(GTK_BOX(charts_box), GTK_WIDGET(self->histogram_chart));
-    gtk_widget_set_vexpand(GTK_WIDGET(self->histogram_chart), TRUE);
-    gtk_widget_set_size_request(GTK_WIDGET(self->histogram_chart), -1,
-                              std::min(g_settings_get_int(self->settings_spectrum, "height")/3, 100));
 
-    gtk_widget_set_visible(GTK_WIDGET(self->histogram_chart), TRUE);
-  }
+  // Create an outer horizontal box for the statistics row.
+  GtkWidget *stats_row = gtk_box_new(GTK_ORIENTATION_HORIZONTAL, 0);
+  gtk_widget_set_hexpand(stats_row, TRUE);
 
-  if (g_settings_get_boolean(self->settings_spectrum, "show-statistics")) {
-    auto* stats_box = gtk_box_new(GTK_ORIENTATION_VERTICAL, 0);
-    gtk_widget_set_visible(stats_box, TRUE);
-    gtk_box_append(GTK_BOX(charts_box), stats_box);
+  // Create a left spacer that expands.
+  GtkWidget *left_spacer = gtk_box_new(GTK_ORIENTATION_HORIZONTAL, 0);
+  gtk_widget_set_hexpand(left_spacer, TRUE);
 
-    // Create and setup statistics widgets
-    self->statistics_label = gtk_label_new("");
-    gtk_label_set_justify(GTK_LABEL(self->statistics_label), GTK_JUSTIFY_LEFT);
-    gtk_box_append(GTK_BOX(stats_box), self->statistics_label);
-    gtk_widget_set_visible(self->statistics_label, g_settings_get_boolean(self->settings_spectrum, "show-statistics"));
-  }
+  // Create a middle box (nonexpanding) for the statistics label and Reset button.
+  GtkWidget *middle_box = gtk_box_new(GTK_ORIENTATION_HORIZONTAL, 2);
+  gtk_widget_set_halign(middle_box, GTK_ALIGN_CENTER);
+  gtk_widget_set_hexpand(middle_box, FALSE);
+
+  // Create the statistics label.
+  self->statistics_label = gtk_label_new("");
+  gtk_label_set_xalign(GTK_LABEL(self->statistics_label), 0.5);
+  gtk_widget_set_halign(self->statistics_label, GTK_ALIGN_CENTER);
+  gtk_widget_set_hexpand(self->statistics_label, FALSE);
+
+  // Create the Reset button.
+  GtkWidget *reset_button = gtk_button_new_with_label("⌫");
+  gtk_widget_set_halign(reset_button, GTK_ALIGN_START);
+  gtk_widget_set_hexpand(reset_button, FALSE);
+
+  // Pack the label and the reset button together in the middle box.
+  gtk_box_append(GTK_BOX(middle_box), self->statistics_label);
+  gtk_box_append(GTK_BOX(middle_box), reset_button);
+
+  // Create a right spacer that expands.
+  GtkWidget *right_spacer = gtk_box_new(GTK_ORIENTATION_HORIZONTAL, 0);
+  gtk_widget_set_hexpand(right_spacer, TRUE);
+
+  // Append left spacer, middle box, and right spacer into the stats_row.
+  gtk_box_append(GTK_BOX(stats_row), left_spacer);
+  gtk_box_append(GTK_BOX(stats_row), middle_box);
+  gtk_box_append(GTK_BOX(stats_row), right_spacer);
+
+  // Connect the Reset button to call reset_statistics().
+  g_signal_connect(reset_button, "clicked", G_CALLBACK(+[](GtkButton* /*button*/, gpointer user_data) {
+      EffectsBox* self = static_cast<EffectsBox*>(user_data);
+      if (self->data->effects_base && self->data->effects_base->spectrum) {
+          self->data->effects_base->spectrum->reset_statistics();
+          g_message("Statistics reset!");
+      }
+  }), self);
+  gtk_box_append(GTK_BOX(charts_box), stats_row);
+
+  update_histogram_visibility(self);
 
   // Add charts box to box_spectrum
   gtk_box_append(box_spectrum, charts_box);
@@ -351,31 +389,25 @@ void on_listen_mic_toggled(EffectsBox* self, GtkToggleButton* button) {
 }
 
 static gboolean histogram_data_update(GtkWidget* widget, GdkFrameClock* frame_clock, EffectsBox* self) {
-  if (!ui::chart::get_is_visible(self->histogram_chart)) {
-    return G_SOURCE_CONTINUE;
-  }
-
-  // Only update statistics if they are enabled and visible
   if (g_settings_get_boolean(self->settings_spectrum, "show-statistics") &&
-      GTK_IS_LABEL(self->statistics_label) &&
       gtk_widget_get_visible(GTK_WIDGET(self->statistics_label))) {
-
-      const auto& stats = self->data->effects_base->spectrum->get_statistics();
-      auto stats_text = fmt::format("<span font_desc=\"monospace bold\">Mean: {:4.2f} dB   Kurtosis: {:8.2f}</span>",
-                                    stats.get_mean(), stats.get_kurtosis());
-      gtk_label_set_markup(GTK_LABEL(self->statistics_label), stats_text.c_str());
+    const auto& stats = self->data->effects_base->spectrum->get_statistics();
+    auto stats_text = fmt::format("<span font_desc=\"monospace bold\">Mean: {:4.2f} dB   Kurtosis: {:8.2f}</span>",
+                                  stats.get_mean(), stats.get_kurtosis());
+    gtk_label_set_markup(GTK_LABEL(self->statistics_label), stats_text.c_str());
   }
 
-  if (self->histogram_chart && gtk_widget_get_visible(GTK_WIDGET(ui::chart::EE_CHART(self->histogram_chart)))) {
-      const auto& stats = self->data->effects_base->spectrum->get_statistics();
-      const auto& hist_data = stats.get_histogram_data();
+  if (self->histogram_chart && ui::chart::get_is_visible(self->histogram_chart)) {
+    const auto& stats = self->data->effects_base->spectrum->get_statistics();
+    const auto& hist_data = stats.get_histogram_data();
 
-      if (!hist_data.empty()) {
-          ui::chart::set_histogram_data(self->histogram_chart, hist_data);
-          ui::chart::set_histogram_x_data(EE_CHART(self->histogram_chart));
-          gtk_widget_queue_draw(GTK_WIDGET(ui::chart::EE_CHART(self->histogram_chart)));
-      }
+    if (!hist_data.empty()) {
+        ui::chart::set_histogram_data(self->histogram_chart, hist_data);
+        ui::chart::set_histogram_x_data(EE_CHART(self->histogram_chart));
+        gtk_widget_queue_draw(GTK_WIDGET(ui::chart::EE_CHART(self->histogram_chart)));
+    }
   }
+
   gtk_widget_queue_draw(GTK_WIDGET(ui::chart::EE_CHART(self->histogram_chart)));
   return G_SOURCE_CONTINUE;
 }
@@ -383,13 +415,22 @@ static gboolean histogram_data_update(GtkWidget* widget, GdkFrameClock* frame_cl
 static gboolean spectrum_data_update(GtkWidget* widget, GdkFrameClock* frame_clock, EffectsBox* self) {
   if (!ui::chart::get_is_visible(self->spectrum_chart)) {
     return G_SOURCE_CONTINUE;
+  }
 
-  if (self->spectrum_chart && gtk_widget_get_visible(GTK_WIDGET(ui::chart::EE_CHART(self->spectrum_chart)))) {
-    auto [rate, n_bands, magnitudes] = self->data->effects_base->spectrum->compute_magnitudes();
+  if (!schedule_signal_idle) {
+    return G_SOURCE_CONTINUE;
+  }
 
-    // No new data available, no redraw required.
-    if (rate == 0 || n_bands == 0 || magnitudes == nullptr) {
-      return G_SOURCE_CONTINUE;
+  auto [rate, n_bands, magnitudes] = self->data->effects_base->spectrum->compute_magnitudes();
+
+  // No new data available, no redraw required.
+  if (rate == 0 || n_bands == 0) {
+    return G_SOURCE_CONTINUE;
+  }
+
+  if (self->data->spectrum_rate != rate || self->data->spectrum_n_bands != n_bands) {
+    self->data->spectrum_rate = rate;
+    self->data->spectrum_n_bands = n_bands;
 
     init_spectrum_frequency_axis(self);
   }
@@ -414,39 +455,10 @@ static gboolean spectrum_data_update(GtkWidget* widget, GdkFrameClock* frame_clo
     } else {
       v = util::minimum_db_level;
     }
+  });
 
-    if (self->data->spectrum_rate != rate || self->data->spectrum_n_bands != n_bands) {
-      self->data->spectrum_rate = rate;
-      self->data->spectrum_n_bands = n_bands;
+  ui::chart::set_y_data(self->spectrum_chart, self->data->spectrum_mag);
 
-      init_spectrum_frequency_axis(self);
-    }
-
-    auto* acc = gsl_interp_accel_alloc();
-    auto* spline = gsl_spline_alloc(gsl_interp_steffen, n_bands);
-
-    gsl_spline_init(spline, self->data->spectrum_freqs.data(), magnitudes, n_bands);
-
-    for (size_t n = 0; n < self->data->spectrum_x_axis.size(); n++) {
-      self->data->spectrum_mag[n] = static_cast<float>(gsl_spline_eval(spline, self->data->spectrum_x_axis[n], acc));
-    }
-
-    gsl_spline_free(spline);
-    gsl_interp_accel_free(acc);
-
-    std::ranges::for_each(self->data->spectrum_mag, [](auto& v) {
-      v = 10.0F * std::log10(v);
-
-      if (!std::isinf(v)) {
-        v = (v > util::minimum_db_level) ? v : util::minimum_db_level;
-      } else {
-        v = util::minimum_db_level;
-      }
-    });
-
-    ui::chart::set_y_data(self->spectrum_chart, self->data->spectrum_mag);
-  }
-  gtk_widget_queue_draw(GTK_WIDGET(ui::chart::EE_CHART(self->spectrum_chart)));
   return G_SOURCE_CONTINUE;
 }
 
@@ -577,10 +589,7 @@ void setup(EffectsBox* self, app::Application* application, PipelineType pipelin
   // spectrum array
 
   gtk_widget_add_tick_callback(GTK_WIDGET(self->spectrum_chart), (GtkTickCallback)spectrum_data_update, self, NULL);
-<<<<<<< HEAD
   gtk_widget_add_tick_callback(GTK_WIDGET(self->histogram_chart), (GtkTickCallback)histogram_data_update, self, NULL);
-=======
->>>>>>> upstream/master
 
   // As we are showing the window we want the filters to send notifications about level meters, etc
 
@@ -711,8 +720,6 @@ void effects_box_init(EffectsBox* self) {
   gtk_menu_button_set_popover(self->menubutton_blocklist, GTK_WIDGET(self->blocklist_menu));
 
   setup_spectrum(self);
-
-  gtk_box_insert_child_after(GTK_BOX(self), GTK_WIDGET(self->spectrum_chart), nullptr);
 
   g_signal_connect(GTK_WIDGET(self->spectrum_chart), "show", G_CALLBACK(+[](GtkWidget* widget, EffectsBox* self) {
                      self->data->effects_base->spectrum->bypass = false;
