@@ -351,9 +351,8 @@ void on_listen_mic_toggled(EffectsBox* self, GtkToggleButton* button) {
 }
 
 static gboolean histogram_data_update(GtkWidget* widget, GdkFrameClock* frame_clock, EffectsBox* self) {
-  // First check if spectrum visualization is enabled and we have valid widgets
-  if (self == nullptr || !schedule_signal_idle) {
-      return G_SOURCE_CONTINUE;
+  if (!ui::chart::get_is_visible(self->histogram_chart)) {
+    return G_SOURCE_CONTINUE;
   }
 
   // Only update statistics if they are enabled and visible
@@ -382,10 +381,8 @@ static gboolean histogram_data_update(GtkWidget* widget, GdkFrameClock* frame_cl
 }
 
 static gboolean spectrum_data_update(GtkWidget* widget, GdkFrameClock* frame_clock, EffectsBox* self) {
-  // First check if spectrum visualization is enabled and we have valid widgets
-  if (self == nullptr || !schedule_signal_idle) {
-      return G_SOURCE_CONTINUE;
-  }
+  if (!ui::chart::get_is_visible(self->spectrum_chart)) {
+    return G_SOURCE_CONTINUE;
 
   if (self->spectrum_chart && gtk_widget_get_visible(GTK_WIDGET(ui::chart::EE_CHART(self->spectrum_chart)))) {
     auto [rate, n_bands, magnitudes] = self->data->effects_base->spectrum->compute_magnitudes();
@@ -393,6 +390,29 @@ static gboolean spectrum_data_update(GtkWidget* widget, GdkFrameClock* frame_clo
     // No new data available, no redraw required.
     if (rate == 0 || n_bands == 0 || magnitudes == nullptr) {
       return G_SOURCE_CONTINUE;
+
+    init_spectrum_frequency_axis(self);
+  }
+
+  auto* acc = gsl_interp_accel_alloc();
+  auto* spline = gsl_spline_alloc(gsl_interp_steffen, n_bands);
+
+  gsl_spline_init(spline, self->data->spectrum_freqs.data(), magnitudes, n_bands);
+
+  for (size_t n = 0; n < self->data->spectrum_x_axis.size(); n++) {
+    self->data->spectrum_mag[n] = static_cast<float>(gsl_spline_eval(spline, self->data->spectrum_x_axis[n], acc));
+  }
+
+  gsl_spline_free(spline);
+  gsl_interp_accel_free(acc);
+
+  std::ranges::for_each(self->data->spectrum_mag, [](auto& v) {
+    v = 10.0F * std::log10(v);
+
+    if (!std::isinf(v)) {
+      v = (v > util::minimum_db_level) ? v : util::minimum_db_level;
+    } else {
+      v = util::minimum_db_level;
     }
 
     if (self->data->spectrum_rate != rate || self->data->spectrum_n_bands != n_bands) {
@@ -557,7 +577,10 @@ void setup(EffectsBox* self, app::Application* application, PipelineType pipelin
   // spectrum array
 
   gtk_widget_add_tick_callback(GTK_WIDGET(self->spectrum_chart), (GtkTickCallback)spectrum_data_update, self, NULL);
+<<<<<<< HEAD
   gtk_widget_add_tick_callback(GTK_WIDGET(self->histogram_chart), (GtkTickCallback)histogram_data_update, self, NULL);
+=======
+>>>>>>> upstream/master
 
   // As we are showing the window we want the filters to send notifications about level meters, etc
 
