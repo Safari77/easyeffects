@@ -67,7 +67,7 @@ struct Data {
 
   std::string x_unit, y_unit;
 
-  std::vector<double> y_axis, x_axis, x_axis_log, objects_x;
+  std::vector<double> y_axis, raw_y_axis, x_axis, x_axis_log, objects_x;
 };
 
 struct _Chart {
@@ -290,6 +290,8 @@ void set_y_data(Chart* self, const std::vector<double>& y) {
     return;
   }
 
+  // Save raw values to be used later in the snapshot.
+  self->data->raw_y_axis = y;
   self->data->y_axis = y;
 
   auto min_y = std::ranges::min(y);
@@ -681,7 +683,7 @@ void snapshot(GtkWidget* widget, GtkSnapshot* snapshot) {
           bin_index = hist_data->data.size() - 1;
         double bin_center_db = hist_data->x_axis_raw[bin_index]; // use raw dB value
         double bin_value = hist_data->data[bin_index] * 100.0; // percentage
-        auto msg = fmt::format(FMT_COMPILE("Bin Center: {:8.2f} dB   Value: {:6.2f}%"),
+        auto msg = fmt::format(FMT_COMPILE("   Bin Center: {:8.2f} dB   Value: {:6.2f}%   "),
                                bin_center_db, bin_value);
         // Create layout and draw at a corner (for example, top-right)
         auto* layout = gtk_widget_create_pango_layout(GTK_WIDGET(self), msg.c_str());
@@ -700,11 +702,38 @@ void snapshot(GtkWidget* widget, GtkSnapshot* snapshot) {
         gtk_snapshot_restore(snapshot);
         g_object_unref(layout);
       } else {
+        double peak_dB = -100.0;
+        // If FFT data is available, compute the normalized frequency for mouse_x.
+        if (!self->data->x_axis.empty() && !self->data->raw_y_axis.empty()) {
+            // Convert mouse_x (in Hz) to its normalized value based on actual frequency bounds.
+            double normalized_mouse = (self->data->mouse_x - self->data->x_min) / (self->data->x_max - self->data->x_min);
+
+            // Use binary search (std::lower_bound) to find the closest position.
+            auto it = std::lower_bound(self->data->x_axis.begin(), self->data->x_axis.end(), normalized_mouse);
+            size_t closest_index = 0;
+            if (it == self->data->x_axis.end()) {
+                closest_index = self->data->x_axis.size() - 1;
+            } else if (it == self->data->x_axis.begin()) {
+                closest_index = 0;
+            } else {
+                size_t index = it - self->data->x_axis.begin();
+                double lower_val = *(it - 1);
+                double upper_val = *it;
+                closest_index = (normalized_mouse - lower_val < upper_val - normalized_mouse) ? index - 1 : index;
+            }
+
+            // Retrieve the actual dB value (from raw data) at the FFT bin closest to the mouse frequency.
+            peak_dB = self->data->raw_y_axis[closest_index];
+            g_message("peak_dB=%f normalized_mouse=%f mouse_x=%f closest_index=%zu",
+                      peak_dB, normalized_mouse, self->data->mouse_x, closest_index);
+        }
+
         // We leave a whitespace at the end to not stick the string at the window border.
-        const auto msg = fmt::format(FMT_COMPILE("x = {0:.{1}Lf} {2} y = {3:.{4}Lf} {5} "),
+        const auto msg = fmt::format(FMT_COMPILE("   x = {:7.{}Lf} {} y = {:6.{}Lf} {} peak = {:6.{}Lf} dB   "),
                                      self->data->mouse_x, self->data->n_x_decimals,
                                      self->data->x_unit, self->data->mouse_y,
-                                     self->data->n_y_decimals, self->data->y_unit);
+                                     self->data->n_y_decimals, self->data->y_unit,
+                                     peak_dB, self->data->n_y_decimals);
         auto* layout = gtk_widget_create_pango_layout(GTK_WIDGET(self), msg.c_str());
         auto* description = pango_font_description_from_string("monospace bold");
         pango_layout_set_font_description(layout, description);
