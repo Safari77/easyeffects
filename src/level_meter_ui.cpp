@@ -132,9 +132,9 @@ void setup(LevelMeterBox* self, std::shared_ptr<LevelMeter> level_meter, const s
               }
 
               gtk_label_set_text(self->true_peak_left_label,
-                                 fmt::format("{0:.0f} dB", util::linear_to_db(true_peak_L)).c_str());
+                                 fmt::format("{0:.1f} dB", util::linear_to_db(true_peak_L)).c_str());
               gtk_label_set_text(self->true_peak_right_label,
-                                 fmt::format("{0:.0f} dB", util::linear_to_db(true_peak_R)).c_str());
+                                 fmt::format("{0:.1f} dB", util::linear_to_db(true_peak_R)).c_str());
 
               gtk_level_bar_set_value(self->m_level, util::db_to_linear(momentary));
               gtk_label_set_text(self->m_label, fmt::format("{0:.0f} LUFS", momentary).c_str());
@@ -149,7 +149,7 @@ void setup(LevelMeterBox* self, std::shared_ptr<LevelMeter> level_meter, const s
               gtk_label_set_text(self->r_label, fmt::format("{0:.0f} LUFS", relative).c_str());
 
               gtk_level_bar_set_value(self->lra_level, util::db_to_linear(range));
-              gtk_label_set_text(self->lra_label, fmt::format("{0:.0f} LU", range).c_str());
+              gtk_label_set_text(self->lra_label, fmt::format("{0:.1f} LU", range).c_str());
             },
             [=]() { g_object_unref(self); });
       }));
