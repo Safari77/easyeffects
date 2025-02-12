@@ -702,7 +702,7 @@ void snapshot(GtkWidget* widget, GtkSnapshot* snapshot) {
         gtk_snapshot_restore(snapshot);
         g_object_unref(layout);
       } else {
-        double peak_dB = -100.0;
+        double peak_dB = util::minimum_db_d_level;
         // If FFT data is available, compute the normalized frequency for mouse_x.
         if (!self->data->x_axis.empty() && !self->data->raw_y_axis.empty()) {
             // Convert mouse_x (in Hz) to its normalized value based on actual frequency bounds.

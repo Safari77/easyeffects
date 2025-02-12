@@ -215,9 +215,7 @@ void setup_spectrum(EffectsBox* self) {
   // Since values are very small except bin[0], use logarithmic scale
   // and adjust ranges to better show the distribution
   ui::chart::set_histogram_ranges(ui::chart::EE_CHART(self->histogram_chart),
-                                -120.0,  // Minimum to show small values
-                                0.0,  // Maximum to show full range
-                                n_bins);
+                                util::minimum_db_d_level, 0.0, n_bins);
   // Container setup
   gtk_box_append(GTK_BOX(charts_box), GTK_WIDGET(self->histogram_chart));
   gtk_widget_set_vexpand(GTK_WIDGET(self->histogram_chart), TRUE);
@@ -524,7 +522,7 @@ void setup(EffectsBox* self, app::Application* application, PipelineType pipelin
   if (self->data->effects_base->spectrum) {
     self->data->effects_base->spectrum->signal_histogram_bins_changed.connect(
         [eb = self](size_t new_bins) {
-            ui::chart::set_histogram_ranges(EE_CHART(eb->histogram_chart), -120.0, 0.0, new_bins);
+            ui::chart::set_histogram_ranges(EE_CHART(eb->histogram_chart), util::minimum_db_d_level, 0.0, new_bins);
             gtk_widget_queue_draw(GTK_WIDGET(EE_CHART(eb->histogram_chart)));
         }
     );

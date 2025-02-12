@@ -90,7 +90,7 @@ public:
       g_message("update_histogram_bins %zu", new_bin_count);
       hist_ = gsl_histogram_alloc(new_bin_count);
       this->reset();
-      gsl_histogram_set_ranges_uniform(hist_, -120.0, 0.0);
+      gsl_histogram_set_ranges_uniform(hist_, util::minimum_db_d_level, 0.0);
     }
 
     std::vector<double> get_histogram_data() const {
@@ -114,11 +114,11 @@ public:
     void add_sample(float sample) {
       // Validate and clamp the input
       if (std::isnan(sample)) {
-          sample = -120.0f;  // Treat NaN as silence
+          sample = util::minimum_db_level; // Treat NaN as silence
       }
 
       // Clamp to valid dB range
-      double db = std::clamp(static_cast<double>(sample), -120.0, 0.0);
+      double db = std::clamp(static_cast<double>(sample), util::minimum_db_d_level, 0.0);
       //g_message("gsl_histogram_increment db=%f current_pos_=%zu", db, current_pos_);
       // Add to circular buffer
       buffer_[current_pos_] = db;

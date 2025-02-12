@@ -263,13 +263,7 @@ void Spectrum::process(std::span<float>& left_in,
   if (statistics_ && !bypass) {
     for (float sample : latest_samples_mono) {
       // Convert the sample to dB.
-      float db = (std::abs(sample) <= 1e-10f)
-                    ? -120.0f
-                    : 20.0f * std::log10(std::abs(sample));
-      // Clamp the dB value.
-      db = std::clamp(db, -120.0f, 0.0f);
-      // Update statistics directly.
-      statistics_->add_sample(db);
+      statistics_->add_sample(util::linear_to_db(std::abs(sample)));
     }
   }
 }
