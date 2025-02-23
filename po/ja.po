@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: easyeffects\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-25 16:10+0000\n"
-"PO-Revision-Date: 2023-03-23 03:20+0000\n"
+"POT-Creation-Date: 2025-02-22 14:35+0000\n"
+"PO-Revision-Date: 2025-02-22 05:12+0000\n"
 "Last-Translator: \"R.Suga\" <21r.suga@gmail.com>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/easyeffects/"
 "main/ja/>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.16.2-dev\n"
+"X-Generator: Weblate 5.10.1-dev\n"
 
 #. Translators: This is a variable for the application name, don't translate!
 #: data/com.github.wwmm.easyeffects.desktop.in:3
@@ -46,7 +46,7 @@ msgstr "有効"
 
 #: data/ui/app_info.ui:225
 msgid "Excluded App List: Add/remove this application"
-msgstr "除外されたアプリリスト: このアプリケーションを追加/削除"
+msgstr "除外されたアプリ一覧: このアプリケーションを追加/削除"
 
 #: data/ui/app_info.ui:226
 msgid "Exclude"
@@ -66,7 +66,7 @@ msgstr "アプリケーションの音量"
 
 #: data/ui/application_window.ui:6
 msgid "_Help"
-msgstr ""
+msgstr "_ヘルプ"
 
 #: data/ui/application_window.ui:12
 msgid "_Reset Settings"
@@ -86,7 +86,7 @@ msgstr "_Easy Effects について"
 
 #: data/ui/application_window.ui:32
 msgid "_Quit"
-msgstr ""
+msgstr "_終了"
 
 #: data/ui/application_window.ui:59 data/ui/crossfeed.ui:27
 #: data/ui/reverb.ui:25 src/presets_menu.cpp:159
@@ -115,11 +115,11 @@ msgstr "Easy Effects ウィンドウ"
 
 #: data/ui/apps_box.ui:17
 msgid "Applications List"
-msgstr "アプリケーションリスト"
+msgstr "アプリケーション一覧"
 
 #: data/ui/apps_box.ui:27
 msgid "Empty List"
-msgstr "空のリスト"
+msgstr "リストは空です"
 
 #: data/ui/apps_box.ui:28
 msgid "No Audio Application Available"
@@ -127,7 +127,7 @@ msgstr "オーディオアプリケーションがありません"
 
 #: data/ui/autogain.ui:29 data/ui/filter.ui:38
 msgid "Controls"
-msgstr ""
+msgstr "コントロール"
 
 #: data/ui/autogain.ui:33
 msgid "Target"
@@ -147,7 +147,7 @@ msgstr "リファレンス"
 
 #: data/ui/autogain.ui:109 data/ui/autogain.ui:158 data/ui/level_meter.ui:72
 msgid "Momentary"
-msgstr "瞬間的"
+msgstr "瞬間"
 
 #: data/ui/autogain.ui:110 data/ui/autogain.ui:196 data/ui/level_meter.ui:109
 msgid "Short-Term"
@@ -174,9 +174,8 @@ msgid "Geometric Mean (SI)"
 msgstr "幾何平均 (SI)"
 
 #: data/ui/autogain.ui:124
-#, fuzzy
 msgid "History"
-msgstr "履歴をリセット"
+msgstr "履歴"
 
 #: data/ui/autogain.ui:129 data/ui/autogain.ui:598 data/ui/bass_enhancer.ui:458
 #: data/ui/bass_loudness.ui:276 data/ui/compressor.ui:1307
@@ -198,7 +197,7 @@ msgstr "ラウドネス"
 
 #: data/ui/autogain.ui:270 data/ui/level_meter.ui:181
 msgid "Relative"
-msgstr "相対的"
+msgstr "相対"
 
 #: data/ui/autogain.ui:307 data/ui/level_meter.ui:217
 msgid "Range"
@@ -314,7 +313,7 @@ msgstr "量"
 #: data/ui/bass_enhancer.ui:141 data/ui/bass_enhancer.ui:420
 #: data/ui/exciter.ui:141 data/ui/exciter.ui:420
 msgid "Harmonics"
-msgstr "ハーモニクス"
+msgstr "倍音"
 
 #: data/ui/bass_enhancer.ui:175 data/ui/exciter.ui:175
 msgid "Scope"
@@ -322,11 +321,11 @@ msgstr "範囲"
 
 #: data/ui/bass_enhancer.ui:208
 msgid "Floor"
-msgstr "フロア"
+msgstr "下限"
 
 #: data/ui/bass_enhancer.ui:236
 msgid "Floor Value"
-msgstr "フロア値"
+msgstr "下限値"
 
 #: data/ui/bass_loudness.ui:69
 msgid "Link"
@@ -342,7 +341,7 @@ msgstr "除外アプリケーションに追加"
 
 #: data/ui/blocklist_menu.ui:86
 msgid "Excluded Applications List"
-msgstr "除外されたアプリケーションリスト"
+msgstr "除外されたアプリケーション一覧"
 
 #: data/ui/blocklist_menu.ui:99
 msgid "Show Excluded Applications"
@@ -352,9 +351,8 @@ msgstr "除外されたアプリケーションを表示"
 #: data/ui/expander.ui:25 data/ui/filter.ui:25 data/ui/gate.ui:25
 #: data/ui/limiter.ui:25 data/ui/loudness.ui:25
 #: data/ui/multiband_compressor.ui:105 data/ui/multiband_gate.ui:105
-#, fuzzy
 msgid "Show Native Window"
-msgstr "ウィンドウを閉じる"
+msgstr "ネイティブウィンドウ表示"
 
 #: data/ui/compressor.ui:51 src/tags_plugin_name.cpp:41
 msgid "Compressor"
@@ -372,12 +370,12 @@ msgstr "モード"
 #: data/ui/compressor.ui:76 data/ui/expander.ui:76
 #: data/ui/multiband_compressor_band.ui:100
 msgid "Downward"
-msgstr "下方向"
+msgstr "下向き"
 
 #: data/ui/compressor.ui:77 data/ui/expander.ui:77
 #: data/ui/multiband_compressor_band.ui:101
 msgid "Upward"
-msgstr "上方向"
+msgstr "上向き"
 
 #: data/ui/compressor.ui:78 data/ui/multiband_compressor_band.ui:102
 msgid "Boosting"
@@ -417,7 +415,7 @@ msgstr "しきい値"
 #: data/ui/compressor.ui:225 data/ui/expander.ui:146
 #: data/ui/multiband_compressor_band.ui:224
 msgid "Attack Time"
-msgstr "アタックタイム"
+msgstr "アタック時間"
 
 #: data/ui/compressor.ui:246 data/ui/expander.ui:167 data/ui/gate.ui:537
 #: data/ui/multiband_compressor_band.ui:248
@@ -483,9 +481,8 @@ msgstr "サイドチェーン"
 #: data/ui/expander.ui:446 data/ui/gate.ui:653 data/ui/gate.ui:659
 #: data/ui/multiband_compressor.ui:121 data/ui/multiband_compressor.ui:128
 #: data/ui/multiband_gate.ui:121 data/ui/multiband_gate.ui:128
-#, fuzzy
 msgid "Stereo Split Mode"
-msgstr "ステレオモード"
+msgstr "ステレオ分割モード"
 
 #: data/ui/compressor.ui:532 data/ui/expander.ui:453 data/ui/gate.ui:666
 #: data/ui/multiband_compressor_band.ui:455 data/ui/multiband_gate_band.ui:513
@@ -540,33 +537,28 @@ msgstr "サイドチェーンソース"
 
 #: data/ui/compressor.ui:567 data/ui/expander.ui:488 data/ui/gate.ui:701
 #: data/ui/multiband_compressor_band.ui:513 data/ui/multiband_gate_band.ui:571
-#, fuzzy
 msgid "Left/Right"
-msgstr "ディレイ 左 右"
+msgstr "左/右"
 
 #: data/ui/compressor.ui:568 data/ui/expander.ui:489 data/ui/gate.ui:702
 #: data/ui/multiband_compressor_band.ui:514 data/ui/multiband_gate_band.ui:572
-#, fuzzy
 msgid "Right/Left"
-msgstr "右"
+msgstr "右/左"
 
 #: data/ui/compressor.ui:569 data/ui/expander.ui:490 data/ui/gate.ui:703
 #: data/ui/multiband_compressor_band.ui:515 data/ui/multiband_gate_band.ui:573
-#, fuzzy
 msgid "Mid/Side"
-msgstr "サイド"
+msgstr "中央/サイド"
 
 #: data/ui/compressor.ui:570 data/ui/expander.ui:491 data/ui/gate.ui:704
 #: data/ui/multiband_compressor_band.ui:516 data/ui/multiband_gate_band.ui:574
-#, fuzzy
 msgid "Side/Mid"
-msgstr "サイド"
+msgstr "サイド/中央"
 
 #: data/ui/compressor.ui:581 data/ui/expander.ui:502 data/ui/gate.ui:715
 #: data/ui/multiband_compressor_band.ui:527 data/ui/multiband_gate_band.ui:585
-#, fuzzy
 msgid "Stereo Split Source"
-msgstr "ステレオモード"
+msgstr "ステレオ分割ソース"
 
 #: data/ui/compressor.ui:607 data/ui/deesser.ui:50 data/ui/expander.ui:528
 #: data/ui/gate.ui:741 data/ui/multiband_compressor_band.ui:551
@@ -596,9 +588,8 @@ msgid "Sidechain Mode"
 msgstr "サイドチェーンモード"
 
 #: data/ui/compressor.ui:633 data/ui/expander.ui:554 data/ui/gate.ui:767
-#, fuzzy
 msgid "Listen Sidechain"
-msgstr "外部サイドチェーン"
+msgstr "サイドチェーンを聞く"
 
 #: data/ui/compressor.ui:662 data/ui/equalizer_band.ui:108
 #: data/ui/expander.ui:583 data/ui/filter.ui:42 data/ui/gate.ui:796
@@ -628,12 +619,12 @@ msgstr "入力デバイス"
 
 #: data/ui/compressor.ui:734 data/ui/expander.ui:654 data/ui/gate.ui:867
 msgid "PreAmplification"
-msgstr "プリアンプリーション"
+msgstr "プリアンプ"
 
 #: data/ui/compressor.ui:770 data/ui/expander.ui:690 data/ui/gate.ui:903
 #: data/ui/multiband_compressor_band.ui:699 data/ui/multiband_gate_band.ui:756
 msgid "Reactivity"
-msgstr "反応性"
+msgstr "リアクティビティ"
 
 #: data/ui/compressor.ui:806 data/ui/expander.ui:726 data/ui/gate.ui:939
 #: data/ui/limiter.ui:241 data/ui/multiband_compressor_band.ui:732
@@ -701,7 +692,7 @@ msgstr "ゲイン"
 
 #: data/ui/compressor.ui:1048 data/ui/expander.ui:968 data/ui/gate.ui:1181
 msgid "Envelope"
-msgstr "包装"
+msgstr "エンベロープ"
 
 #: data/ui/compressor.ui:1102 data/ui/expander.ui:1022 data/ui/gate.ui:145
 #: data/ui/gate.ui:1235 data/ui/multiband_gate_band.ui:218
@@ -731,7 +722,7 @@ msgstr "インパルス"
 #: data/ui/convolver.ui:79 data/ui/convolver_menu_combine.ui:113
 #: data/ui/convolver_menu_combine.ui:116
 msgid "Combine"
-msgstr "コンバイン"
+msgstr "結合"
 
 #: data/ui/convolver.ui:86
 msgid "Stereo Width"
@@ -763,7 +754,7 @@ msgstr "長さ"
 
 #: data/ui/convolver_menu_combine.ui:15
 msgid "Combine Impulse Responses"
-msgstr "インパルス応答をコンバイン"
+msgstr "インパルスレスポンスを結合"
 
 #: data/ui/convolver_menu_combine.ui:48
 msgid "First Kernel"
@@ -779,7 +770,7 @@ msgstr "出力ファイル名"
 
 #: data/ui/convolver_menu_combine.ui:95
 msgid "Combined Kernel Name"
-msgstr "複合カーネル名"
+msgstr "結合されたカーネル名"
 
 #: data/ui/convolver_menu_impulses.ui:16
 msgid "Import Impulse"
@@ -822,28 +813,27 @@ msgstr "ミュート"
 
 #: data/ui/deepfilternet.ui:31
 msgid "Attenuation Limit"
-msgstr ""
+msgstr "減衰制限"
 
 #: data/ui/deepfilternet.ui:60
 msgid "Minimum Processing Threshold"
-msgstr ""
+msgstr "最小処理しきい値"
 
 #: data/ui/deepfilternet.ui:86
 msgid "Maximum ERB Processing threshold"
-msgstr ""
+msgstr "最大 ERB 処理しきい値"
 
 #: data/ui/deepfilternet.ui:112
 msgid "Maximum DF Processing Threshold"
-msgstr ""
+msgstr "最大 DF 処理しきい値"
 
 #: data/ui/deepfilternet.ui:138
 msgid "Minimum Processing Buffer"
-msgstr ""
+msgstr "最小処理バッファ"
 
 #: data/ui/deepfilternet.ui:163
-#, fuzzy
 msgid "Post Filter Beta"
-msgstr "フィルター長"
+msgstr "ポストフィルターベータ"
 
 #: data/ui/deesser.ui:40
 msgid "Detection"
@@ -929,16 +919,15 @@ msgstr "残留エコー抑制"
 
 #: data/ui/echo_canceller.ui:70
 msgid "Near End Echo Suppression"
-msgstr "ニアエンドエコー抑制"
+msgstr "Near End エコー抑制"
 
 #: data/ui/effects_box.ui:114
 msgid "Excluded Apps"
 msgstr "除外されたアプリ"
 
 #: data/ui/effects_box.ui:120
-#, fuzzy
 msgid "Enable/disable input monitoring"
-msgstr "このアプリケーションの有効化/無効化"
+msgstr "入力モニターの有効化/無効化"
 
 #: data/ui/equalizer.ui:29
 msgid "Bands"
@@ -959,7 +948,7 @@ msgstr "右ピッチ"
 
 #: data/ui/equalizer.ui:288
 msgid "Split Channels"
-msgstr "チャンネルの分割"
+msgstr "チャンネル分割"
 
 #: data/ui/equalizer.ui:294
 msgid "Flat Response"
@@ -967,20 +956,19 @@ msgstr "フラットレスポンス"
 
 #: data/ui/equalizer.ui:302
 msgid "Calculate Frequencies"
-msgstr "周波数の計算"
+msgstr "周波数計算"
 
 #: data/ui/equalizer.ui:310
 msgid "Sort Bands"
-msgstr "バンドの並べ替え"
+msgstr "バンド並べ替え"
 
 #: data/ui/equalizer.ui:325 src/presets_menu.cpp:144
 msgid "Import Preset"
 msgstr "プリセットをインポート"
 
 #: data/ui/equalizer.ui:359
-#, fuzzy
 msgid "Export Preset"
-msgstr "プリセットをインポート"
+msgstr "プリセットをエクスポート"
 
 #: data/ui/equalizer_band.ui:155 data/ui/filter.ui:127
 msgid "Slope"
@@ -993,28 +981,27 @@ msgstr "ソロ"
 
 #: data/ui/equalizer_band.ui:270 data/ui/filter.ui:244 data/ui/pitch.ui:28
 msgid "Quality"
-msgstr "品質"
+msgstr "Q値"
 
 #: data/ui/equalizer_band.ui:300 data/ui/filter.ui:192
 msgid "Width"
-msgstr "幅"
+msgstr "帯域幅"
 
 #: data/ui/exciter.ui:208
 msgid "Ceil"
-msgstr "切り上げ"
+msgstr "上限"
 
 #: data/ui/exciter.ui:236
 msgid "Ceil Value"
-msgstr "切り上げ値"
+msgstr "上限値"
 
 #: data/ui/expander.ui:51 src/tags_plugin_name.cpp:51
 msgid "Expander"
-msgstr ""
+msgstr "エキスパンダー"
 
 #: data/ui/expander.ui:86
-#, fuzzy
 msgid "Expander Mode"
-msgstr "バンドモード"
+msgstr "エキスパンダーモード"
 
 #: data/ui/expander.ui:609 data/ui/gate.ui:822
 msgid "Internal"
@@ -1037,12 +1024,10 @@ msgid "Remove this model file"
 msgstr "このモデルファイルを削除"
 
 #: data/ui/filter.ui:52
-#, fuzzy
 msgid "Low-Shelf"
 msgstr "ローシェルフ"
 
 #: data/ui/filter.ui:53
-#, fuzzy
 msgid "High-Shelf"
 msgstr "ハイシェルフ"
 
@@ -1051,9 +1036,8 @@ msgid "Bell"
 msgstr "ベル"
 
 #: data/ui/filter.ui:55
-#, fuzzy
 msgid "Band-Pass"
-msgstr "バンドバイパス"
+msgstr "バンドパス"
 
 #: data/ui/filter.ui:56
 msgid "Notch"
@@ -1064,24 +1048,20 @@ msgid "Resonance"
 msgstr "反響"
 
 #: data/ui/filter.ui:58
-#, fuzzy
 msgid "Ladder-Pass"
-msgstr "ローパス"
+msgstr "ラダーパス"
 
 #: data/ui/filter.ui:59
-#, fuzzy
 msgid "Ladder-Rejection"
-msgstr "バンドリダクション"
+msgstr "ラダーリジェクション"
 
 #: data/ui/filter.ui:60
-#, fuzzy
 msgid "All-Pass"
 msgstr "オールパス"
 
 #: data/ui/filter.ui:102
-#, fuzzy
 msgid "Equalizer Mode"
-msgstr "イコライザー"
+msgstr "イコライザーモード"
 
 #: data/ui/filter.ui:162 data/ui/multiband_compressor_band.ui:570
 #: data/ui/multiband_gate_band.ui:628 src/tags_plugin_name.cpp:52
@@ -1111,16 +1091,15 @@ msgstr "アタックゾーンスタート"
 
 #: data/ui/gate.ui:564
 msgid "Release Zone Start"
-msgstr "リリースゾーン開始"
+msgstr "リリースゾーンスタート"
 
 #: data/ui/level_meter.ui:28
-#, fuzzy
 msgid "True Peak"
-msgstr "周波数 2 ピーク"
+msgstr "トゥルーピーク"
 
 #: data/ui/level_meter.ui:328
 msgid "Reset History"
-msgstr "履歴をリセット"
+msgstr "履歴リセット"
 
 #: data/ui/limiter.ui:68
 msgid "Oversampling"
@@ -1132,51 +1111,51 @@ msgstr "ディザ"
 
 #: data/ui/limiter.ui:94
 msgid "Herm Thin"
-msgstr "Herm Thin"
+msgstr "エルミート補間 Thin"
 
 #: data/ui/limiter.ui:95
 msgid "Herm Wide"
-msgstr "Herm Wide"
+msgstr "エルミート補間 Wide"
 
 #: data/ui/limiter.ui:96
 msgid "Herm Tail"
-msgstr "Herm Tail"
+msgstr "エルミート補間 Tail"
 
 #: data/ui/limiter.ui:97
 msgid "Herm Duck"
-msgstr "Herm Duck"
+msgstr "エルミート補間 Duck"
 
 #: data/ui/limiter.ui:98
 msgid "Exp Thin"
-msgstr "Exp Thin"
+msgstr "指数補間 Thin"
 
 #: data/ui/limiter.ui:99
 msgid "Exp Wide"
-msgstr "Exp Wide"
+msgstr "指数補間 Wide"
 
 #: data/ui/limiter.ui:100
 msgid "Exp Tail"
-msgstr "Exp Tail"
+msgstr "指数補間 Tail"
 
 #: data/ui/limiter.ui:101
 msgid "Exp Duck"
-msgstr "Exp Duck"
+msgstr "指数補間 Duck"
 
 #: data/ui/limiter.ui:102
 msgid "Line Thin"
-msgstr "Line Thin"
+msgstr "線形補間 Thin"
 
 #: data/ui/limiter.ui:103
 msgid "Line Wide"
-msgstr "Line Wide"
+msgstr "線形補間 Wide"
 
 #: data/ui/limiter.ui:104
 msgid "Line Tail"
-msgstr "Line Tail"
+msgstr "線形補間 Tail"
 
 #: data/ui/limiter.ui:105
 msgid "Line Duck"
-msgstr "Line Duck"
+msgstr "線形補間 Duck"
 
 #: data/ui/limiter.ui:125 data/ui/multiband_compressor.ui:56
 #: data/ui/multiband_gate.ui:56
@@ -1270,7 +1249,7 @@ msgstr "SC プリアンプ"
 #: data/ui/limiter.ui:229 data/ui/multiband_compressor_band.ui:692
 #: data/ui/multiband_gate_band.ui:749
 msgid "Sidechain PreAmplification"
-msgstr "サイドチェーン PreAmplification"
+msgstr "サイドチェーンプリアンプ"
 
 #: data/ui/limiter.ui:400
 msgid "Boost"
@@ -1364,7 +1343,7 @@ msgstr "ブラウン MT"
 
 #: data/ui/multiband_compressor.ui:114 data/ui/multiband_gate.ui:114
 msgid "Show Native User Interface"
-msgstr ""
+msgstr "ネイティブユーザーインターフェース表示"
 
 #: data/ui/multiband_compressor.ui:143 data/ui/multiband_gate.ui:143
 msgid "Operating Mode"
@@ -1379,9 +1358,8 @@ msgid "Modern"
 msgstr "モダン"
 
 #: data/ui/multiband_compressor.ui:158 data/ui/multiband_gate.ui:158
-#, fuzzy
 msgid "Linear Phase"
-msgstr "位相反転"
+msgstr "リニアフェーズ"
 
 #: data/ui/multiband_compressor.ui:266 data/ui/multiband_gate.ui:266
 msgid "Bands List"
@@ -1433,30 +1411,27 @@ msgstr "バンド圧縮モード"
 
 #: data/ui/multiband_compressor_band.ui:129 data/ui/multiband_gate_band.ui:98
 msgid "Band Bypass"
-msgstr "バンドバイパス"
+msgstr "バイパス"
 
 #: data/ui/multiband_compressor_band.ui:427 data/ui/multiband_gate_band.ui:485
 msgid "Band Sidechain Options"
 msgstr "バンドサイドチェーンオプション"
 
 #: data/ui/multiband_compressor_band.ui:500 data/ui/multiband_gate_band.ui:558
-#, fuzzy
 msgid "Stereo Split"
-msgstr "ステレオモード"
+msgstr "ステレオ分割"
 
 #: data/ui/multiband_compressor_band.ui:582 data/ui/multiband_gate_band.ui:640
-#, fuzzy
 msgid "Low-Cut"
-msgstr "ローカットフィルター"
+msgstr "ローカット"
 
 #: data/ui/multiband_compressor_band.ui:609 data/ui/multiband_gate_band.ui:667
 msgid "Low-Cut Filter Frequency"
 msgstr "ローカットフィルター周波数"
 
 #: data/ui/multiband_compressor_band.ui:619 data/ui/multiband_gate_band.ui:677
-#, fuzzy
 msgid "High-Cut"
-msgstr "ハイカットフィルター"
+msgstr "ハイカット"
 
 #: data/ui/multiband_compressor_band.ui:647 data/ui/multiband_gate_band.ui:705
 msgid "High-Cut Filter Frequency"
@@ -1527,9 +1502,8 @@ msgid "Library Version"
 msgstr "ライブラリバージョン"
 
 #: data/ui/pipe_manager_box.ui:138
-#, fuzzy
 msgid "Core Version"
-msgstr "ヘッダーバージョン"
+msgstr "コアバージョン"
 
 #: data/ui/pipe_manager_box.ui:149
 msgid "Sampling Rate"
@@ -1556,6 +1530,8 @@ msgid ""
 "Only Local Presets can be autoloaded. A Community Preset should be imported "
 "locally in order to be selected and associated to a specific device."
 msgstr ""
+"ローカルプリセットのみ自動で読み込めます。コミュニティプリセットはローカルに"
+"インポートし特定のデバイスに割り当てる必要があります。"
 
 #: data/ui/pipe_manager_box.ui:277
 msgid "Output Devices"
@@ -1567,15 +1543,15 @@ msgstr "出力プリセット"
 
 #: data/ui/pipe_manager_box.ui:301 data/ui/pipe_manager_box.ui:426
 msgid "Create Association"
-msgstr "アソシエーションを作成"
+msgstr "アソシエーション作成"
 
 #: data/ui/pipe_manager_box.ui:314
 msgid "Add Autoloading Output Preset"
-msgstr "自動読み込み出力プリセットを追加"
+msgstr "自動読み込み出力プリセット追加"
 
 #: data/ui/pipe_manager_box.ui:334
 msgid "Output Autoloading Presets List"
-msgstr "自動読み込み出力プリセットリスト"
+msgstr "自動読み込み出力プリセット一覧"
 
 #: data/ui/pipe_manager_box.ui:407
 msgid "Input Devices"
@@ -1587,11 +1563,11 @@ msgstr "入力プリセット"
 
 #: data/ui/pipe_manager_box.ui:439
 msgid "Add Autoloading Input Preset"
-msgstr "自動読み込み入力プリセットを追加"
+msgstr "自動読み込み入力プリセット追加"
 
 #: data/ui/pipe_manager_box.ui:458
 msgid "Input Autoloading Presets List"
-msgstr "自動読み込み入力プリセットリスト"
+msgstr "自動読み込み入力プリセット一覧"
 
 #: data/ui/pipe_manager_box.ui:488
 msgid "Modules"
@@ -1599,7 +1575,7 @@ msgstr "モジュール"
 
 #: data/ui/pipe_manager_box.ui:506
 msgid "Modules List"
-msgstr "モジュールリスト"
+msgstr "モジュール一覧"
 
 #: data/ui/pipe_manager_box.ui:520
 msgid "Clients"
@@ -1607,7 +1583,7 @@ msgstr "クライアント"
 
 #: data/ui/pipe_manager_box.ui:538
 msgid "Clients List"
-msgstr "クライアントリスト"
+msgstr "クライアント一覧"
 
 #: data/ui/pipe_manager_box.ui:552
 msgid "Test Signal"
@@ -1636,7 +1612,7 @@ msgstr "両方"
 
 #: data/ui/pipe_manager_box.ui:607
 msgid "Both Channels"
-msgstr "両方チャンネル"
+msgstr "両チャンネル"
 
 #: data/ui/pipe_manager_box.ui:616
 msgid "Waveform"
@@ -1652,26 +1628,23 @@ msgstr "ホワイトノイズ"
 
 #: data/ui/pitch.ui:32
 msgid "Quick Seek"
-msgstr ""
+msgstr "クイックシーク"
 
 #: data/ui/pitch.ui:45
 msgid "Anti-aliasing"
-msgstr ""
+msgstr "アンチエイリアス"
 
 #: data/ui/pitch.ui:58
-#, fuzzy
 msgid "Sequence Length"
-msgstr "周波数範囲"
+msgstr "シーケンス長"
 
 #: data/ui/pitch.ui:80
-#, fuzzy
 msgid "Seek Window"
-msgstr "ウィンドウを閉じる"
+msgstr "ウィンドウシーク"
 
 #: data/ui/pitch.ui:102
-#, fuzzy
 msgid "Overlap Length"
-msgstr "フィルター長"
+msgstr "オーバーラップ長"
 
 #: data/ui/pitch.ui:130 src/tags_plugin_name.cpp:60
 msgid "Pitch"
@@ -1682,14 +1655,12 @@ msgid "Semitones"
 msgstr "半音"
 
 #: data/ui/pitch.ui:156
-#, fuzzy
 msgid "Tempo Difference"
-msgstr "リファレンス"
+msgstr "テンポの変化"
 
 #: data/ui/pitch.ui:178
-#, fuzzy
 msgid "Rate Difference"
-msgstr "リファレンス"
+msgstr "速度の変化"
 
 #: data/ui/plugin_row.ui:50
 msgid "Remove this effect"
@@ -1705,24 +1676,23 @@ msgstr "このエフェクトの位置を変更する"
 
 #: data/ui/plugins_box.ui:28
 msgid "Show/hide effects list"
-msgstr ""
+msgstr "エフェクト一覧を表示/非表示"
 
 #: data/ui/plugins_box.ui:42
 msgid "Add Effect"
-msgstr "エフェクトの追加"
+msgstr "エフェクト追加"
 
 #: data/ui/plugins_box.ui:65
-#, fuzzy
 msgid "Go to the previous effect"
-msgstr "このエフェクトを削除"
+msgstr "前のエフェクトへ"
 
 #: data/ui/plugins_box.ui:80
 msgid "Go to the next effect"
-msgstr ""
+msgstr "次のエフェクトへ"
 
 #: data/ui/plugins_box.ui:131
 msgid "Used Plugins List"
-msgstr "使用プラグインリスト"
+msgstr "使用されているプラグイン一覧"
 
 #: data/ui/plugins_box.ui:192
 msgid "No Effects"
@@ -1734,11 +1704,11 @@ msgstr "オーディオストリームは変更されていません"
 
 #: data/ui/plugins_menu.ui:19
 msgid "Search Plugin"
-msgstr "プラグインを検索"
+msgstr "プラグイン検索"
 
 #: data/ui/plugins_menu.ui:74
 msgid "Plugins List"
-msgstr "プラグインリスト"
+msgstr "プラグイン一覧"
 
 #: data/ui/preferences_general.ui:5
 msgid "_General"
@@ -1781,28 +1751,24 @@ msgid "Inactivity Timeout"
 msgstr "非アクティブタイムアウト"
 
 #: data/ui/preferences_general.ui:91
-#, fuzzy
 msgid "Input Pipeline"
-msgstr "入力デバイス"
+msgstr "入力パイプライン"
 
 #: data/ui/preferences_general.ui:120
-#, fuzzy
 msgid "Update Interval"
-msgstr "翻訳の更新"
+msgstr "更新間隔"
 
 #: data/ui/preferences_general.ui:121
-#, fuzzy
 msgid "Related to Level Meters and Spectrum"
-msgstr "更新間隔（レベルメータ、スペクトラム）"
+msgstr "レベルメーターとスペクトラムに影響します"
 
 #: data/ui/preferences_general.ui:143
-#, fuzzy
 msgid "Update Frequency"
-msgstr "スプリット周波数 1"
+msgstr "更新頻度"
 
 #: data/ui/preferences_general.ui:144
 msgid "Related to LV2 Plugins"
-msgstr ""
+msgstr "LV2 プラグインに影響します"
 
 #: data/ui/preferences_general.ui:168 data/ui/preferences_spectrum.ui:47
 msgid "Style"
@@ -1817,18 +1783,16 @@ msgid "Hide Menus on Outside Clicks"
 msgstr "外側クリックでメニュー非表示"
 
 #: data/ui/preferences_general.ui:197
-#, fuzzy
 msgid "Experimental Features"
-msgstr "実験的"
+msgstr "実験的機能"
 
 #: data/ui/preferences_general.ui:200
-#, fuzzy
 msgid "Native Plugin Window"
-msgstr "ウィンドウを閉じる"
+msgstr "ネイティブプラグインウィンドウ"
 
 #: data/ui/preferences_general.ui:201
 msgid "Allows The Native Plugin Window to be Shown/Hidden"
-msgstr ""
+msgstr "ネイティブプラグインウィンドウの表示/非表示を許可します"
 
 #: data/ui/preferences_spectrum.ui:5
 msgid "_Spectrum"
@@ -1836,7 +1800,7 @@ msgstr "_スペクトラム"
 
 #: data/ui/preferences_spectrum.ui:24
 msgid "Compensating Delay (ms)"
-msgstr ""
+msgstr "遅延補正 (ms)"
 
 #: data/ui/preferences_spectrum.ui:50
 msgid "Shape"
@@ -1856,7 +1820,7 @@ msgstr "ドット"
 
 #: data/ui/preferences_spectrum.ui:71
 msgid "Points"
-msgstr "ポイント"
+msgstr "ポイント数"
 
 #: data/ui/preferences_spectrum.ui:92
 msgid "Height"
@@ -1880,7 +1844,7 @@ msgstr "角丸"
 
 #: data/ui/preferences_spectrum.ui:172
 msgid "Dynamic Scale"
-msgstr ""
+msgstr "動的スケール"
 
 #: data/ui/preferences_spectrum.ui:186
 msgid "Color"
@@ -1908,12 +1872,11 @@ msgstr "最大"
 
 #: data/ui/preset_row.ui:38 src/convolver_menu_impulses.cpp:225
 msgid "Load"
-msgstr "ロード"
+msgstr "読み込み"
 
 #: data/ui/preset_row.ui:39
-#, fuzzy
 msgid "Discard the current settings and load this preset"
-msgstr "現在の設定をこのプリセットファイルに保存"
+msgstr "現在の設定を破棄し、このプリセットを読み込む"
 
 #: data/ui/preset_row.ui:48
 msgid "Save current settings to this preset file"
@@ -1925,30 +1888,27 @@ msgstr "このプリセットファイルを削除"
 
 #: data/ui/preset_community_row.ui:55
 msgid "Try"
-msgstr ""
+msgstr "試す"
 
 #: data/ui/preset_community_row.ui:56
-#, fuzzy
 msgid "Try this community preset"
-msgstr "出力プリセットを検索"
+msgstr "このコミュニティプリセットを試す"
 
 #: data/ui/preset_community_row.ui:65
-#, fuzzy
 msgid "Import"
-msgstr "モデルのインポート"
+msgstr "インポート"
 
 #: data/ui/preset_community_row.ui:66
 msgid "Import this community preset into the local presets list"
-msgstr ""
+msgstr "このコミュニティプリセットをローカルプリセット一覧にインポートする"
 
 #: data/ui/presets_menu.ui:26
 msgid "Local"
-msgstr ""
+msgstr "ローカル"
 
 #: data/ui/presets_menu.ui:48
-#, fuzzy
 msgid "New Preset Name"
-msgstr "新規入力プリセット名"
+msgstr "新規プリセット名"
 
 #: data/ui/presets_menu.ui:56
 msgid "Create a new preset"
@@ -1956,53 +1916,51 @@ msgstr "プリセットを作成"
 
 #: data/ui/presets_menu.ui:70
 msgid "Import a preset from the local storage"
-msgstr ""
+msgstr "ローカルストレージからプリセットをインポート"
 
 #: data/ui/presets_menu.ui:86
-#, fuzzy
 msgid "Search Local Preset"
-msgstr "入力プリセットを検索"
+msgstr "ローカルプリセットを検索"
 
 #: data/ui/presets_menu.ui:147
-#, fuzzy
 msgid "Local Presets List"
-msgstr "入力プリセットリスト"
+msgstr "ローカルプリセット一覧"
 
 #: data/ui/presets_menu.ui:191
 msgid "Community"
-msgstr ""
+msgstr "コミュニティ"
 
 #: data/ui/presets_menu.ui:208
-#, fuzzy
 msgid "Search Community Preset"
-msgstr "出力プリセットを検索"
+msgstr "コミュニティプリセットを検索"
 
 #: data/ui/presets_menu.ui:271
-#, fuzzy
 msgid "Community Presets List"
-msgstr "出力プリセットリスト"
+msgstr "コミュニティプリセット一覧"
 
 #: data/ui/presets_menu.ui:286
 msgid "No Community Presets Installed"
-msgstr ""
+msgstr "コミュニティプリセットはインストールされていません"
 
 #: data/ui/presets_menu.ui:287
 msgid ""
 "Community Presets packages can be installed from the repository of your "
 "favorite distribution."
 msgstr ""
+"コミュニティプリセットパッケージはディストリビューションのリポジトリからイン"
+"ストールできます。"
 
 #: data/ui/presets_menu.ui:298
 msgid "Refresh"
-msgstr ""
+msgstr "更新"
 
 #: data/ui/presets_menu.ui:299
 msgid "Refresh to show new installed community presets"
-msgstr ""
+msgstr "更新して新しくインストールされたコミュニティプリセットを表示"
 
 #: data/ui/reverb.ui:41
 msgid "High Frequency Damping"
-msgstr "高周波ダンピング"
+msgstr "高周波減衰値"
 
 #: data/ui/reverb.ui:72
 msgid "Room Size"
@@ -2034,11 +1992,11 @@ msgstr "実験的"
 
 #: data/ui/reverb.ui:106
 msgid "Diffusion"
-msgstr "拡散"
+msgstr "残響"
 
 #: data/ui/reverb.ui:142
 msgid "Pre Delay"
-msgstr "プリディレイ"
+msgstr "追加ディレイ"
 
 #: data/ui/reverb.ui:174
 msgid "Decay Time"
@@ -2046,7 +2004,7 @@ msgstr "減衰時間"
 
 #: data/ui/reverb.ui:275
 msgid "Bass Cut"
-msgstr "ベースカット"
+msgstr "低音カット"
 
 #: data/ui/reverb.ui:309
 msgid "Treble Cut"
@@ -2058,7 +2016,7 @@ msgstr "環境"
 
 #: data/ui/reverb.ui:575
 msgid "Empty Walls"
-msgstr "何もない壁"
+msgstr "空の壁"
 
 #: data/ui/reverb.ui:588
 msgid "Room"
@@ -2078,7 +2036,7 @@ msgstr "占有面積の大きいホール"
 
 #: data/ui/rnnoise.ui:31
 msgid "Import Model"
-msgstr "モデルのインポート"
+msgstr "モデルインポート"
 
 #: data/ui/rnnoise.ui:47 data/ui/speex.ui:59
 msgid "Voice Detection"
@@ -2096,7 +2054,7 @@ msgstr "標準モデル"
 
 #: data/ui/rnnoise.ui:204
 msgid "RNNoise Models List"
-msgstr "RNNoise モデルリスト"
+msgstr "RNNoise モデル一覧"
 
 #: data/ui/rnnoise.ui:228
 msgid "Model Not Loaded"
@@ -2104,7 +2062,7 @@ msgstr "モデルがロードされていません"
 
 #: data/ui/rnnoise.ui:234
 msgid "Active Model"
-msgstr "アクティブモデル"
+msgstr "有効なモデル"
 
 #: data/ui/rnnoise.ui:242
 msgid "Standard RNNoise Model"
@@ -2116,7 +2074,7 @@ msgstr "概要"
 
 #: data/ui/shortcuts.ui:16
 msgid "Show help"
-msgstr ""
+msgstr "ヘルプを表示"
 
 #: data/ui/shortcuts.ui:23
 msgid "Fullscreen/Restore from fullscreen"
@@ -2152,11 +2110,11 @@ msgstr "スタート"
 
 #: data/ui/speex.ui:117
 msgid "Continue"
-msgstr "続ける"
+msgstr "継続"
 
 #: data/ui/speex.ui:141
 msgid "Noise Suppression"
-msgstr "ノイズ対策"
+msgstr "ノイズ抑制"
 
 #: data/ui/speex.ui:145
 msgid "Level"
@@ -2184,11 +2142,11 @@ msgstr "LR > LR (ステレオデフォルト)"
 
 #: data/ui/stereo_tools.ui:139
 msgid "LR > MS (Stereo to Mid-Side)"
-msgstr "LR > MS (ステレオからミッドサイド)"
+msgstr "LR > MS (ステレオからM/S)"
 
 #: data/ui/stereo_tools.ui:140
 msgid "MS > LR (Mid-Side to Stereo)"
-msgstr "MS > LR (ミッドサイドからステレオ)"
+msgstr "MS > LR (M/Sからステレオ)"
 
 #: data/ui/stereo_tools.ui:141
 msgid "LR > LL (Mono Left Channel)"
@@ -2200,7 +2158,7 @@ msgstr "LR > RR (モノラル右チャンネル)"
 
 #: data/ui/stereo_tools.ui:143
 msgid "LR > L+R (Mono Sum L+R)"
-msgstr "LR > L+R (モノラル合計 L+R)"
+msgstr "LR > L+R (モノラル統合 L+R)"
 
 #: data/ui/stereo_tools.ui:144
 msgid "LR > RL (Stereo Flip Channels)"
@@ -2220,11 +2178,11 @@ msgstr "サイドバランス"
 
 #: data/ui/stereo_tools.ui:304
 msgid "Middle Level"
-msgstr "中間レベル"
+msgstr "中央レベル"
 
 #: data/ui/stereo_tools.ui:339
 msgid "Middle Panorama"
-msgstr "中間パノラマ"
+msgstr "中央パノラマ"
 
 #: data/ui/stereo_tools.ui:417
 msgid "Output Balance"
@@ -2252,7 +2210,7 @@ msgstr "実行中"
 
 #: src/app_info.cpp:102
 msgid "Suspended"
-msgstr "サスペンド"
+msgstr "停止"
 
 #: src/app_info.cpp:104
 msgid "Idle"
@@ -2272,19 +2230,17 @@ msgstr "不明"
 
 #: src/app_info.cpp:282
 msgid "Undefined Name - Process ID "
-msgstr ""
+msgstr "未定義の名前 - プロセス ID "
 
 #: src/app_info.cpp:292
 msgid "channels"
 msgstr "チャンネル"
 
 #: src/application.cpp:301
-#, fuzzy
 msgid "Output Preset"
 msgstr "出力プリセット"
 
 #: src/application.cpp:302
-#, fuzzy
 msgid "Input Preset"
 msgstr "入力プリセット"
 
@@ -2299,15 +2255,15 @@ msgstr ""
 
 #: src/application.cpp:609
 msgid "Print the easyeffects version"
-msgstr ""
+msgstr "Easy Effectsのバージョンを表示"
 
 #: src/application.cpp:612
 msgid "Reset Easy Effects."
-msgstr "Easy Effects をリセット。"
+msgstr "Easy Effects をリセットします。"
 
 #: src/application.cpp:615
 msgid "Hide the Window."
-msgstr "ウィンドウを隠す。"
+msgstr "ウィンドウを隠します。"
 
 #: src/application.cpp:618
 msgid "Global bypass. 1 to enable, 2 to disable and 3 to get status"
@@ -2319,18 +2275,19 @@ msgstr "利用可能なプリセットを表示します。"
 
 #: src/application.cpp:624
 msgid "Load a preset. Example: easyeffects -l music"
-msgstr "プリセットを読み込む。例: easyeffects -l music"
+msgstr "プリセットを読み込みます。例: easyeffects -l music"
 
 #: src/application.cpp:627
-#, fuzzy
 msgid "Show the active presets."
-msgstr "利用可能なプリセットを表示します。"
+msgstr "有効なプリセットを表示します。"
 
 #: src/application.cpp:630
 msgid ""
 "Show the loaded preset of a specific category. Takes 'input' or 'output' as "
 "a value. Example: easyeffects -s input"
 msgstr ""
+"指定されたカテゴリーの読み込まれたプリセットを表示します。'input' または "
+"'output' を指定してください。例: easyeffects -s input"
 
 #: src/application_ui.cpp:344
 msgid "_Output"
@@ -2350,8 +2307,7 @@ msgstr "このファイルは正しくありません"
 
 #: src/convolver_menu_impulses.cpp:130
 msgid "The Impulse File May Be Corrupted or Unsupported"
-msgstr ""
-"インパルスファイルが破損しているか、サポートされていない可能性があります"
+msgstr "インパルスファイルが破損しているか、サポートされていません"
 
 #: src/convolver_menu_impulses.cpp:135
 msgid "Only Stereo Impulse Files Are Supported"
@@ -2376,15 +2332,15 @@ msgstr "インパルスレスポンス"
 
 #: src/convolver_menu_impulses.cpp:293
 msgid "Load Impulse"
-msgstr "インパルスを読み込み"
+msgstr "インパルス読み込み"
 
 #: src/convolver_menu_impulses.cpp:296
 msgid "Remove Impulse"
-msgstr "インパルスを削除"
+msgstr "インパルス削除"
 
 #: src/convolver_ui.cpp:382
 msgid "No Impulse File Loaded"
-msgstr "読み込まれたインパルスファイルはありません"
+msgstr "インパルスファイルが読み込まれていません"
 
 #: src/convolver_ui.cpp:408
 msgid "Failed To Load The Impulse File"
@@ -2396,7 +2352,7 @@ msgstr "レコーダー"
 
 #: src/effects_box.cpp:379 src/plugins_box.cpp:827
 msgid "Players"
-msgstr "プレイヤー"
+msgstr "プレーヤー"
 
 #: src/effects_box.cpp:402
 msgid "Effects"
@@ -2415,26 +2371,24 @@ msgid ""
 "APO Preset Not Loaded. File Format May Be Not Supported. Please Check Its "
 "Content."
 msgstr ""
-"APO プリセットが読み込まれていません。ファイル形式が間違っている可能性があり"
-"ます。内容を確認してください。"
+"APO プリセットが読み込まれていません。ファイル形式がサポートされていない可能"
+"性があります。内容を確認してください。"
 
 #: src/equalizer_ui.cpp:616
 msgid "Split channels not yet supported when exporting APO presets."
-msgstr ""
+msgstr "APO プリセットのチャンネル分割エクスポートはサポートされていません。"
 
 #: src/equalizer_ui.cpp:624
-#, fuzzy
 msgid "Export EqualizerAPO Preset File"
-msgstr "APO プリセットファイルをインポート"
+msgstr "EqualizerAPO プリセットファイルをエクスポート"
 
 #: src/equalizer_ui.cpp:625
 msgid "Save"
-msgstr ""
+msgstr "保存"
 
 #: src/equalizer_ui.cpp:632
-#, fuzzy
 msgid "EqualizerAPO Presets"
-msgstr "APO プリセット"
+msgstr "EqualizerAPO プリセット"
 
 #: src/equalizer_ui.cpp:853
 msgid "Import GraphicEQ Preset File"
@@ -2474,75 +2428,70 @@ msgstr "追加"
 
 #. Placeholders in case of issues
 #: src/presets_manager.cpp:439
-#, fuzzy
 msgid "Community Preset"
-msgstr "プリセットをインポート"
+msgstr "コミュニティプリセット"
 
 #: src/presets_manager.cpp:439
 msgid "Package"
-msgstr ""
+msgstr "パッケージ"
 
 #: src/presets_manager.cpp:1155 src/presets_manager.cpp:1162
 #: src/presets_manager.cpp:1171 src/presets_manager.cpp:1178
 #: src/presets_manager.cpp:1187 src/presets_manager.cpp:1195
 msgid "Preset Not Loaded Correctly"
-msgstr ""
+msgstr "プリセットが正しく読み込まれていません"
 
 #: src/presets_manager.cpp:1155
-#, fuzzy
 msgid "Wrong Format in Excluded Apps List"
-msgstr "除外されたアプリケーションリスト"
+msgstr "間違った形式の除外されたアプリ一覧"
 
 #: src/presets_manager.cpp:1162
 msgid "Generic Error While Loading Excluded Apps List"
-msgstr ""
+msgstr "除外されたアプリ一覧の読み込み中に発生した一般的なエラー"
 
 #: src/presets_manager.cpp:1171
 msgid "Wrong Format in Effects List"
-msgstr ""
+msgstr "エフェクト一覧の間違った形式"
 
 #: src/presets_manager.cpp:1178
 msgid "Generic Error While Loading Effects List"
-msgstr ""
+msgstr "エフェクト一覧の読み込み中に発生した一般的なエラー"
 
 #: src/presets_manager.cpp:1188
 msgid "One or More Parameters Have a Wrong Format"
-msgstr ""
+msgstr "1つ以上のパラメータに間違った形式が設定されています"
 
 #: src/presets_manager.cpp:1196
 msgid "Generic Error While Loading The Effect"
-msgstr ""
+msgstr "エフェクトの読み込み中に発生した一般的なエラー"
 
 #: src/presets_menu.cpp:398
 msgid "Save?"
-msgstr ""
+msgstr "保存しますか？"
 
 #: src/presets_menu.cpp:417
 msgid "Delete?"
-msgstr ""
+msgstr "削除しますか？"
 
 #: src/presets_menu.cpp:558
-#, fuzzy
 msgid "No Preset Loaded"
-msgstr "新規入力プリセット名"
+msgstr "プリセットが読み込まれていません"
 
 #: src/presets_menu.cpp:573
-#, fuzzy
 msgid "Last Local Preset Loaded"
-msgstr "入力プリセットリスト"
+msgstr "最後に読み込まれたローカルプリセット"
 
 #: src/presets_menu.cpp:573
-#, fuzzy
 msgid "Last Community Preset Loaded"
-msgstr "プリセットをインポート"
+msgstr "最後に読み込まれたコミュニティプリセット"
 
 #: src/rnnoise_ui.cpp:116
 msgid ""
 "Selected Model Not Loaded. Its Format May Be Unsupported. Fell Back To The "
 "Standard Model."
 msgstr ""
-"選択されたモデルが読み込まれていません。そのフォーマットはサポートされていな"
-"い可能性があります。標準モデルに戻しました。"
+"選択されたモデルが読み込まれていません。サポートされていないフォーマットの可"
+"能性があります。標準モデルに戻しました。"
 
 #: src/rnnoise_ui.cpp:159
 msgid "Import Model File"
@@ -2558,7 +2507,7 @@ msgstr "ベースエンハンサー"
 
 #: src/tags_plugin_name.cpp:40
 msgid "Bass Loudness"
-msgstr "低音ラウドネス"
+msgstr "ベースラウドネス"
 
 #: src/tags_plugin_name.cpp:42
 msgid "Convolver"
@@ -2574,7 +2523,7 @@ msgstr "クリスタライザー"
 
 #: src/tags_plugin_name.cpp:45
 msgid "Deep Noise Remover"
-msgstr ""
+msgstr "ディープノイズリムーバー"
 
 #: src/tags_plugin_name.cpp:46
 msgid "Deesser"
@@ -2593,9 +2542,8 @@ msgid "Exciter"
 msgstr "エキサイター"
 
 #: src/tags_plugin_name.cpp:54
-#, fuzzy
 msgid "Level Meter"
-msgstr "出力レベルメーター"
+msgstr "レベルメーター"
 
 #: src/tags_plugin_name.cpp:55
 msgid "Limiter"
@@ -2633,7 +2581,7 @@ msgstr "ステレオツール"
 #: src/ui_helpers.cpp:93
 #, c++-format
 msgid "{} Not Available"
-msgstr "{} 利用不可"
+msgstr "{} は利用できません"
 
 #: src/ui_helpers.cpp:97
 #, c++-format
@@ -2644,6 +2592,10 @@ msgid ""
 "using the 'Quit' option inside the menu in order to make the effect availble "
 "to use."
 msgstr ""
+"{} エフェクトに必要なソフトウェア「{}」がインストールされていません。Easy "
+"Effects の Flatpak 版を利用するかソフトウェアをインストールしてください。ソフ"
+"トウェアをインストールした後は Easy Effects メニュー内の「Quit」から再起動し"
+"て有効化してください。"
 
 #: src/ui_helpers.cpp:104
 #, c++-format
@@ -2653,6 +2605,9 @@ msgid ""
 "Consider using the Easy Effects Flatpak package or building your own Easy "
 "Effects package."
 msgstr ""
+"{} エフェクトは Easy Effects のコンパイル時に無効化されました。そのため、この"
+"エフェクトに必要なソフトウェア「{}」は利用できません。Easy Effects の "
+"Flatpak 版を利用するか自分で Easy Effects をビルドしてください。"
 
 #: src/ui_helpers.cpp:149 src/ui_helpers.cpp:169
 msgid "-inf"
@@ -2660,9 +2615,9 @@ msgstr "-inf"
 
 #. For translators: {} is replaced by the library used by the plugin. I.e. "Using Calf Studio".
 #: src/ui_helpers.cpp:254
-#, fuzzy, c++-format
+#, c++-format
 msgid "Using {}"
-msgstr "使用中"
+msgstr "{} を使用しています"
 
 #~ msgid "Ceiling"
 #~ msgstr "シーリング"
