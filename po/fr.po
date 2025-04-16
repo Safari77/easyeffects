@@ -7,9 +7,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-04-12 01:56+0000\n"
-"PO-Revision-Date: 2024-12-19 04:01+0000\n"
-"Last-Translator: Bundy01 <Bundy01@users.noreply.hosted.weblate.org>\n"
+"POT-Creation-Date: 2025-04-15 23:55+0000\n"
+"PO-Revision-Date: 2025-04-15 18:56+0000\n"
+"Last-Translator: Bundy01 <bundy01@users.noreply.hosted.weblate.org>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/easyeffects/main/"
 "fr/>\n"
 "Language: fr\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 5.9.2-dev\n"
+"X-Generator: Weblate 5.11-dev\n"
 
 #. Translators: This is a variable for the application name, don't translate!
 #: data/com.github.wwmm.easyeffects.desktop.in:3
@@ -47,7 +47,7 @@ msgstr "Activer"
 
 #: data/ui/app_info.ui:225
 msgid "Excluded App List: Add/remove this application"
-msgstr "Liste des Applications Exclues : Ajouter/supprimer cette application"
+msgstr "Liste des Applications Exclues : Ajouter / supprimer cette application"
 
 #: data/ui/app_info.ui:226
 msgid "Exclude"
