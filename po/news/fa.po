@@ -1,97 +1,93 @@
-# Slovak translation for Pulseeffects.
+# SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# Mlocik97 <Mlocik97@gmail.com>, 2020.
-# Jose Riha <jose1711 gmail com>, 2021.
+# This file is distributed under the same license as the easyeffects-news package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: \n"
+"Project-Id-Version: easyeffects-news\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-23 18:01+0000\n"
-"PO-Revision-Date: 2023-08-09 08:17+0000\n"
-"Last-Translator: Giusy Digital <kurmikon@yahoo.com>\n"
-"Language-Team: Slovak <https://hosted.weblate.org/projects/easyeffects/"
-"changelog/sk/>\n"
-"Language: sk\n"
+"POT-Creation-Date: 2025-08-15 00:24+0000\n"
+"PO-Revision-Date: 2025-08-23 18:06+0000\n"
+"Last-Translator: Ab <vultazhh@gmail.com>\n"
+"Language-Team: Persian <https://hosted.weblate.org/projects/easyeffects/"
+"changelog/fa/>\n"
+"Language: fa\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Weblate 5.0-dev\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 5.13\n"
 
 #: data/com.github.wwmm.easyeffects.metainfo.xml.in:4
-#, fuzzy
 msgid "Easy Effects"
 msgstr "Easy Effects"
 
 #: data/com.github.wwmm.easyeffects.metainfo.xml.in:5
 msgid "Audio Effects for PipeWire Applications"
-msgstr "Zvukové efekty pre aplikácie využívajúce PipeWire"
+msgstr "جلوه‌های صوتی برای برنامه‌های PipeWire"
 
 #: data/com.github.wwmm.easyeffects.metainfo.xml.in:9
-#, fuzzy
 msgid ""
 "Easy Effects is an advanced audio manipulation tool. It includes an "
 "equalizer, limiter, compressor and a reverberation tool, just to mention a "
 "few. To complement this there is also a built in spectrum analyzer."
 msgstr ""
-"EasyEffects je pokročilý nástroj pre úpravu zvuku. Obsahuje ekvalizér, "
-"obmedzovač, kompresor, nástroj ozveny a množstvo ďalších efektov. Pre "
-"doplnenie je napríklad zabudovaný aj analyzátor spektra."
+"Easy Effects یک ابزار پیشرفته برای دستکاری صدا است. این برنامه شامل اکولایزر،"
+" لیمیتر، کمپرسور و ابزار طنین صدا می‌شود که تنها چند نمونه از آنها هستند. "
+"برای تکمیل این موارد، یک تحلیلگر طیف صدا نیز در آن تعبیه شده است."
 
 #: data/com.github.wwmm.easyeffects.metainfo.xml.in:10
-#, fuzzy
 msgid ""
 "Easy Effects is the successor to PulseEffects. Easy Effects only supports "
 "PipeWire's audio server. PulseAudio users should instead use PulseEffects."
 msgstr ""
-"EasyEffects je následovník PulseEffects. EasyEffects podporuje len zvukový "
-"server PipeWire. Použivatelia PulseAudio by mali používať PulseEffects."
+"Easy Effects جانشین PulseEffects است. Easy Effects فقط از سرور صوتی PipeWire "
+"پشتیبانی می‌کند. کاربران PulseAudio باید به جای آن از PulseEffects استفاده "
+"کنند."
 
 #: data/com.github.wwmm.easyeffects.metainfo.xml.in:11
-#, fuzzy
 msgid ""
 "Because Easy Effects uses the default PipeWire sound server it will work "
 "with most, if not all, applications you use. All supported applications are "
 "presented in the main window, where each can be enabled individually."
 msgstr ""
-"Pretože EasyEffects štandardne používa zvukový server PulseWire, funguje s "
-"väčšinou (ak nie so všetkými) aplikácií. Všetky podprované programy sú "
-"zobrazené v hlavnom okne, kde je ich možné individuálne povoliť."
+"از آنجا که Easy Effects از سرور صدای پیش‌فرض PipeWire استفاده می‌کند، با اکثر "
+"برنامه‌هایی که استفاده می‌کنید، اگر نگوییم همه، کار خواهد کرد. همه برنامه‌های "
+"پشتیبانی‌شده در پنجره اصلی نمایش داده می‌شوند، جایی که هر کدام را می‌توان به‌"
+"صورت جداگانه فعال کرد."
 
 #: data/com.github.wwmm.easyeffects.metainfo.xml.in:12
-#, fuzzy
 msgid ""
 "Besides manipulating sound output, Easy Effects is able to apply effects to "
 "an input device, such as a microphone. This is, for example, useful in audio "
 "recording, but it also works well during voice conversations."
 msgstr ""
-"Popri práci s úpravou výstupného zvuku, EasyEffects je možné použiť aj na "
-"úpravu vstupných zvukov z mikrofónu. To môžete využiť napríklad pri "
-"nahrávaní, ale funguje to dobre aj pri audiohovoroch."
+"علاوه بر دستکاری خروجی صدا، Easy Effects قادر است افکت‌ها را به یک دستگاه "
+"ورودی مانند میکروفون اعمال کند. این قابلیت، به عنوان مثال، در ضبط صدا مفید "
+"است، اما در مکالمات صوتی نیز به خوبی کار می‌کند."
 
 #: data/com.github.wwmm.easyeffects.metainfo.xml.in:13
-#, fuzzy
 msgid ""
 "When Easy Effects is launched it will conveniently remember the "
 "configuration used in the last session. It is also possible to save all the "
 "current settings as profiles."
 msgstr ""
-"Keď je EasyEffects spustený, zapamätá si posledné používané nastavenia. "
-"Taktiež je možné uložiť všetky aktuálne nastavenia ako profily."
+"وقتی Easy Effects اجرا می‌شود، به راحتی پیکربندی استفاده شده در آخرین جلسه را "
+"به خاطر می‌سپارد. همچنین می‌توان تمام تنظیمات فعلی را به عنوان پروفایل ذخیره "
+"کرد."
 
 #: data/com.github.wwmm.easyeffects.metainfo.xml.in:42
 msgid "The main page showing two audio output apps"
-msgstr "Hlavná stránka ukazujújca dve výstupové aplikácie."
+msgstr "صفحه اصلی که دو برنامه خروجی صدا را نشان می‌دهد"
 
 #: data/com.github.wwmm.easyeffects.metainfo.xml.in:46
 msgid "The bass enhancer page showing audio controls"
-msgstr ""
+msgstr "صفحه تقویت‌کننده باس که کنترل‌های صوتی را نشان می‌دهد"
 
 #: data/com.github.wwmm.easyeffects.metainfo.xml.in:50
 msgid "The convolver page showing audio controls"
-msgstr ""
+msgstr "صفحه کانوالور که کنترل‌های صوتی را نشان می‌دهد"
 
 #: data/com.github.wwmm.easyeffects.metainfo.xml.in:58
 #: data/com.github.wwmm.easyeffects.metainfo.xml.in:68
@@ -139,7 +135,7 @@ msgstr ""
 #: data/com.github.wwmm.easyeffects.metainfo.xml.in:636
 #: data/com.github.wwmm.easyeffects.metainfo.xml.in:649
 msgid "Features:"
-msgstr ""
+msgstr "ویژگی ها:"
 
 #: data/com.github.wwmm.easyeffects.metainfo.xml.in:59
 #: data/com.github.wwmm.easyeffects.metainfo.xml.in:71
@@ -186,13 +182,15 @@ msgstr ""
 #: data/com.github.wwmm.easyeffects.metainfo.xml.in:628
 #: data/com.github.wwmm.easyeffects.metainfo.xml.in:641
 msgid "Bug fixes:"
-msgstr ""
+msgstr "رفع اشکال:"
 
 #: data/com.github.wwmm.easyeffects.metainfo.xml.in:60
 msgid ""
 "Fixed a bug in the pitch plugin that made the cents and the octaves control "
 "to not be reapplied when EasyEffects was restarted"
 msgstr ""
+"اشکالی در افزونه pitch که باعث می‌شد کنترل سنت‌ها و اکتاوها هنگام راه‌اندازی "
+"مجدد EasyEffects دوباره اعمال نشوند، برطرف شد"
 
 #: data/com.github.wwmm.easyeffects.metainfo.xml.in:61
 #: data/com.github.wwmm.easyeffects.metainfo.xml.in:74
@@ -224,31 +222,36 @@ msgstr ""
 #: data/com.github.wwmm.easyeffects.metainfo.xml.in:510
 #: data/com.github.wwmm.easyeffects.metainfo.xml.in:526
 msgid "Other notes:"
-msgstr ""
+msgstr "سایر نکات:"
 
 #: data/com.github.wwmm.easyeffects.metainfo.xml.in:69
 msgid "The Pitch plugin has new cents and octaves parameters."
-msgstr ""
+msgstr "افزونه‌ی Pitch پارامترهای جدید سنت و اکتاو دارد."
 
 #: data/com.github.wwmm.easyeffects.metainfo.xml.in:70
 msgid "The client-rt.conf is ignored on 1.4.0 or newer PipeWire versions."
 msgstr ""
+"فایل client-rt.conf در نسخه‌های ۱.۴.۰ یا جدیدتر PipeWire نادیده گرفته می‌شود."
 
 #: data/com.github.wwmm.easyeffects.metainfo.xml.in:72
 msgid ""
 "APO export does not crash anymore when an unsupported LSP Equalizer filter "
 "is set."
 msgstr ""
+"وقتی یک فیلتر LSP Equalizer پشتیبانی نشده تنظیم شود، خروجی APO دیگر از کار "
+"نمی‌افتد."
 
 #: data/com.github.wwmm.easyeffects.metainfo.xml.in:73
 msgid "Fixed a bug in LADSPA wrapper."
-msgstr ""
+msgstr "اشکالی در بسته‌بندی LADSPA برطرف شد."
 
 #: data/com.github.wwmm.easyeffects.metainfo.xml.in:82
 msgid ""
 "Improved compatibility with future PipeWire releases. This version will "
 "avoid compilation errors like issue 3620"
 msgstr ""
+"سازگاری بهبود یافته با نسخه‌های آینده PipeWire. این نسخه از خطاهای کامپایل "
+"مانند مشکل ۳۶۲۰ جلوگیری می‌کند"
 
 #: data/com.github.wwmm.easyeffects.metainfo.xml.in:92
 #: data/com.github.wwmm.easyeffects.metainfo.xml.in:113
@@ -260,25 +263,32 @@ msgstr ""
 #: data/com.github.wwmm.easyeffects.metainfo.xml.in:485
 #: data/com.github.wwmm.easyeffects.metainfo.xml.in:611
 msgid "Updated translations"
-msgstr "Aktualizované preklady"
+msgstr "ترجمه های به روز شده"
 
 #: data/com.github.wwmm.easyeffects.metainfo.xml.in:94
 msgid ""
 "Added a workaround for a glibc(or maybe libstdc++) bug that affects locale "
 "management. What in turns breaks our spinbuttons on some locales."
 msgstr ""
+"یک راه حل برای رفع اشکال glibc (یا شاید libstdc++) که بر مدیریت زبان تأثیر "
+"می‌گذارد، اضافه شد. این مشکل در برخی از زبان‌ها باعث از کار افتادن دکمه‌های "
+"چرخشی ما می‌شود."
 
 #: data/com.github.wwmm.easyeffects.metainfo.xml.in:104
 msgid ""
 "Fixed a bug that makes the application crash when the option Linux Studio "
 "Plugins package is not installed."
 msgstr ""
+"اشکالی که باعث می‌شد برنامه در صورت عدم نصب بسته افزونه‌های لینوکس استودیو، از "
+"کار بیفتد، برطرف شد."
 
 #: data/com.github.wwmm.easyeffects.metainfo.xml.in:115
 msgid ""
 "Fixed a bug in the crystalizer plugin where the scale values were not being "
 "properly applied."
 msgstr ""
+"اشکالی در افزونه کریستالایزر که در آن مقادیر مقیاس به درستی اعمال نمی‌شد، "
+"برطرف شد."
 
 #: data/com.github.wwmm.easyeffects.metainfo.xml.in:124
 msgid ""
@@ -286,26 +296,33 @@ msgid ""
 "drawing so it matches the latency offset applied by the user on programs "
 "like Pavucontrol."
 msgstr ""
+"جبران تأخیر را می‌توان روی افزونه طیف اعمال کرد. این افزونه ترسیم خود را به "
+"تأخیر می‌اندازد تا با جبران تأخیر اعمال شده توسط کاربر در برنامه‌هایی مانند "
+"Pavucontrol مطابقت داشته باشد."
 
 #: data/com.github.wwmm.easyeffects.metainfo.xml.in:126
 msgid ""
 "The command line option that shows EasyEffects version should work properly "
 "now."
 msgstr ""
+"گزینه خط فرمان که نسخه EasyEffects را نشان می‌دهد، اکنون باید به درستی کار "
+"کند."
 
 #: data/com.github.wwmm.easyeffects.metainfo.xml.in:127
 msgid "Fixed a regression in the autoload preset code."
-msgstr ""
+msgstr "مشکل رگرسیون در کد از پیش تعیین‌شده‌ی بارگذاری خودکار برطرف شد."
 
 #: data/com.github.wwmm.easyeffects.metainfo.xml.in:136
 msgid ""
 "The loudness plugin exposes the ISO 226:2023 standard that is now available "
 "in the LSP plugin."
 msgstr ""
+"افزونه loudness استاندارد ISO 226:2023 را که اکنون در افزونه LSP موجود است، "
+"در معرض نمایش قرار می‌دهد."
 
 #: data/com.github.wwmm.easyeffects.metainfo.xml.in:138
 msgid "Performance optmizations to the spectrum plugin and the LADSPA wrapper"
-msgstr ""
+msgstr "بهینه‌سازی عملکرد افزونه طیف و بسته‌بندی LADSPA"
 
 #: data/com.github.wwmm.easyeffects.metainfo.xml.in:140
 msgid ""
@@ -313,6 +330,8 @@ msgid ""
 "volume and mute controls. THis could cause these operations to fail in some "
 "situations"
 msgstr ""
+"ما قبل از تنظیم کنترل‌های حجم صدا و بی‌صدا کردن جریان، حلقه اصلی نخ PipeWire "
+"را قفل نمی‌کردیم. این امر می‌تواند در برخی شرایط باعث عدم موفقیت این عملیات شود"
 
 #: data/com.github.wwmm.easyeffects.metainfo.xml.in:149
 msgid ""
@@ -322,28 +341,40 @@ msgid ""
 "volunteers. You can search them on the repositories of your favorite "
 "distribution."
 msgstr ""
+"پیش‌تنظیمات انجمن پیاده‌سازی شده‌اند. کاربران می‌توانند بسته‌هایی حاوی چندین پیش‌"
+"تنظیم Easy Effects را نصب کنند تا آنها را وارد کرده و در داخل برنامه اعمال "
+"کنند. این بسته‌ها توسط داوطلبان نگهداری و ارسال می‌شوند. می‌توانید آنها را در "
+"مخازن توزیع مورد علاقه خود جستجو کنید."
 
 #: data/com.github.wwmm.easyeffects.metainfo.xml.in:150
 msgid ""
 "Added the ability of collapsing the sidebar to hide the effects list and "
 "expand the area of the effects user interface."
 msgstr ""
+"قابلیت جمع کردن نوار کناری برای مخفی کردن لیست افکت‌ها و گسترش ناحیه رابط "
+"کاربری افکت‌ها اضافه شد."
 
 #: data/com.github.wwmm.easyeffects.metainfo.xml.in:151
 msgid ""
 "EasyEffects won't touch streams that define PW_KEY_TARGET_OBJECT to an "
 "output device that is different from the one EasyEffects is using."
 msgstr ""
+"EasyEffects به جریان‌هایی که PW_KEY_TARGET_OBJECT را برای دستگاه خروجی‌ای "
+"متفاوت از دستگاهی که EasyEffects از آن استفاده می‌کند، تعریف می‌کنند، کاری "
+"نخواهد داشت."
 
 #: data/com.github.wwmm.easyeffects.metainfo.xml.in:152
 msgid "Equalizer APO import feature can now apply Band-Pass filters."
 msgstr ""
+"قابلیت وارد کردن اکولایزر APO اکنون می‌تواند فیلترهای Band-Pass را اعمال کند."
 
 #: data/com.github.wwmm.easyeffects.metainfo.xml.in:154
 msgid ""
 "A change in GTK 4.14.1 prevented to apply the values inserted into the text "
 "field of our SpinButton widgets. This issue is now resolved."
 msgstr ""
+"تغییری در GTK 4.14.1 مانع از اعمال مقادیر وارد شده در فیلد متنی ویجت‌های "
+"SpinButton ما می‌شد. این مشکل اکنون برطرف شده است."
 
 #: data/com.github.wwmm.easyeffects.metainfo.xml.in:155
 msgid ""
@@ -351,12 +382,17 @@ msgid ""
 "anymore. So we removed it from our user interface (you can use the plugin "
 "input gain to retrieve the same functionality)."
 msgstr ""
+"آخرین نسخه‌های افزونه Maximizer دیگر کنترل سقف را ندارند. بنابراین ما آن را "
+"از رابط کاربری خود حذف کردیم (می‌توانید از افزایش ورودی افزونه برای بازیابی "
+"همان عملکرد استفاده کنید)."
 
 #: data/com.github.wwmm.easyeffects.metainfo.xml.in:156
 msgid ""
 "Equalizer APO import feature does not crash anymore on Flatpak when invalid "
 "values are provided."
 msgstr ""
+"ویژگی واردات اکولایزر APO دیگر در Flatpak هنگام ارائه مقادیر نامعتبر خراب "
+"نمی‌شود."
 
 #: data/com.github.wwmm.easyeffects.metainfo.xml.in:158
 msgid ""
@@ -364,6 +400,9 @@ msgid ""
 "invited to read and follow the guidelines linked inside the README of "
 "EasyEffects master branch."
 msgstr ""
+"برای اینکه پیش‌تنظیم‌های انجمن به درستی ارسال شوند، از بسته‌بندان دعوت می‌شود "
+"دستورالعمل‌های پیوند داده شده در README شاخه اصلی EasyEffects را مطالعه و "
+"دنبال کنند."
 
 #: data/com.github.wwmm.easyeffects.metainfo.xml.in:159
 msgid ""
@@ -371,6 +410,9 @@ msgid ""
 "before 7.2.0 version are deprecated. Please reload the irs/model file inside "
 "the Convolver/RNNoise UI and resave the preset."
 msgstr ""
+"پیش‌تنظیم‌هایی که قبل از نسخه ۷.۲.۰ با افکت‌های Convolver و/یا Noise Reduction "
+"(RNNoise) ایجاد شده‌اند، منسوخ شده‌اند. لطفاً فایل irs/model را در رابط کاربری "
+"Convolver/RNNoise مجدداً بارگذاری کرده و پیش‌تنظیم را دوباره ذخیره کنید."
 
 #: data/com.github.wwmm.easyeffects.metainfo.xml.in:167
 msgid ""
@@ -378,12 +420,16 @@ msgid ""
 "before the limiter even if the last two plugins in the pipeline are a "
 "limiter followed by a level meter."
 msgstr ""
+"سیستم مدیریت خط لوله بهبود یافته است. افکت‌های غیر محدودکننده قبل از "
+"محدودکننده قرار می‌گیرند، حتی اگر دو پلاگین آخر در خط لوله یک محدودکننده و پس "
+"از آن یک سطح‌سنج باشند."
 
 #: data/com.github.wwmm.easyeffects.metainfo.xml.in:169
 msgid ""
 "Fixed a regression that prevented the level meters to be updated under "
 "certain conditions."
 msgstr ""
+"مشکل رگرسیونی که مانع از به‌روزرسانی سطح‌سنج‌ها در شرایط خاص می‌شد، برطرف شد."
 
 #: data/com.github.wwmm.easyeffects.metainfo.xml.in:178
 msgid ""
@@ -391,12 +437,14 @@ msgid ""
 "allow latency offset to be properly applied by video players when PipeWire > "
 "1.0.3 is released."
 msgstr ""
+"اکنون در دستگاه‌های مجازی خود monitor.passthrough = true را تنظیم می‌کنیم. این "
+"کار باعث می‌شود که پخش‌کننده‌های ویدیو بتوانند هنگام انتشار PipeWire > 1.0.3، "
+"جبران تأخیر را به درستی اعمال کنند."
 
 #: data/com.github.wwmm.easyeffects.metainfo.xml.in:179
 #: data/com.github.wwmm.easyeffects.metainfo.xml.in:326
-#, fuzzy
 msgid "Updated translations."
-msgstr "Aktualizované preklady"
+msgstr "ترجمه‌های به‌روز شده."
 
 #: data/com.github.wwmm.easyeffects.metainfo.xml.in:189
 msgid ""
@@ -405,75 +453,96 @@ msgid ""
 "EE is recording from. THe stream has to be started when EE is already "
 "running for this logic to take effect."
 msgstr ""
+"EasyEffects سعی می‌کند از انتقال به جریان‌های منابع مجازی خود که کاربر برای "
+"آنها یک target.object سفارشی تنظیم کرده است که با میکروفونی که EE از آن ضبط "
+"می‌کند متفاوت است، جلوگیری کند. برای اینکه این منطق اعمال شود، جریان باید "
+"زمانی شروع شود که EE در حال اجرا است."
 
 #: data/com.github.wwmm.easyeffects.metainfo.xml.in:191
 msgid "The equalizer can export basic APO preset files"
-msgstr ""
+msgstr "اکولایزر می‌تواند فایل‌های از پیش تعیین‌شده‌ی APO پایه را خروجی بگیرد"
 
 #: data/com.github.wwmm.easyeffects.metainfo.xml.in:192
 msgid ""
 "Our players/recorders tab will show the audio client binary name in the "
 "cases were no app name is defined."
 msgstr ""
+"تب پخش‌کننده‌ها/ضبط‌کننده‌های ما، در مواردی که نام برنامه تعریف نشده باشد، نام "
+"جفتی کلاینت صوتی را نشان می‌دهد."
 
 #: data/com.github.wwmm.easyeffects.metainfo.xml.in:193
 msgid ""
 "EasyEffects version can be shown in the command line through the option --"
 "version"
 msgstr ""
+"نسخه EasyEffects را می‌توان در خط فرمان از طریق گزینه --version نشان داد"
 
 #: data/com.github.wwmm.easyeffects.metainfo.xml.in:195
 msgid ""
 "A workaround for a bug in gtk4 GtkLevelBar was implemented and will be kept "
 "in place until gtk developers fiz things on their side"
 msgstr ""
+"یک راه حل موقت برای رفع اشکال در gtk4 GtkLevelBar پیاده‌سازی شده است و تا "
+"زمانی که توسعه‌دهندگان gtk مشکلات را از سمت خود برطرف کنند، به قوت خود باقی "
+"خواهد ماند"
 
 #: data/com.github.wwmm.easyeffects.metainfo.xml.in:206
 msgid ""
 "Fixed a regression introduced in 7.1.2 that could cause EasyEffects to crash"
 msgstr ""
+"رگرسیون معرفی شده در نسخه ۷.۱.۲ که می‌توانست باعث از کار افتادن EasyEffects "
+"شود، برطرف شد"
 
 #: data/com.github.wwmm.easyeffects.metainfo.xml.in:217
 msgid "The DeepFilterNet plugin can now be added to the preset file"
-msgstr ""
+msgstr "افزونه DeepFilterNet اکنون می‌تواند به فایل از پیش تعیین‌شده اضافه شود"
 
 #: data/com.github.wwmm.easyeffects.metainfo.xml.in:226
 msgid ""
 "The spectrum has a new option that allows the dynamic vertical scale to be "
 "disabled."
 msgstr ""
+"طیف گزینه جدیدی دارد که امکان غیرفعال کردن مقیاس عمودی پویا را فراهم می‌کند."
 
 #: data/com.github.wwmm.easyeffects.metainfo.xml.in:227
 msgid "Improved compatibility with the latest LSP releases."
-msgstr ""
+msgstr "سازگاری بهبود یافته با آخرین نسخه‌های LSP."
 
 #: data/com.github.wwmm.easyeffects.metainfo.xml.in:229
 msgid "Fixed an incorrect drawing of the impulse response file characteristics"
-msgstr ""
+msgstr "ترسیم نادرست ویژگی‌های فایل پاسخ ضربه‌ای برطرف شد"
 
 #: data/com.github.wwmm.easyeffects.metainfo.xml.in:239
 msgid ""
 "Fixed a small bug the prevented the noise reduction voice activity threshold "
 "from being properly initialized."
 msgstr ""
+"اشکال کوچکی که مانع از مقداردهی اولیه صحیح آستانه فعالیت صوتی کاهش نویز می‌شد،"
+" برطرف شد."
 
 #: data/com.github.wwmm.easyeffects.metainfo.xml.in:248
 msgid ""
 "Added a new control to the noise reduction plugin that allows the voice "
 "detection to be disabled."
 msgstr ""
+"یک کنترل جدید به افزونه کاهش نویز اضافه شد که امکان غیرفعال کردن تشخیص صدا "
+"را فراهم می‌کند."
 
 #: data/com.github.wwmm.easyeffects.metainfo.xml.in:258
 msgid ""
 "The Filter effect has been improved with new parameters since it has been "
 "ported from Calf Studio to Linux Studio Plugins."
 msgstr ""
+"افکت فیلتر از زمانی که از Calf Studio به Linux Studio Plugins منتقل شده، با "
+"پارامترهای جدید بهبود یافته است."
 
 #: data/com.github.wwmm.easyeffects.metainfo.xml.in:259
 msgid ""
 "Noise reduction by RNNoise has been improved with the addition of Release "
 "and VAD Threshold controls."
 msgstr ""
+"کاهش نویز توسط RNNoise با اضافه شدن کنترل‌های Release و VAD Threshold بهبود "
+"یافته است."
 
 #: data/com.github.wwmm.easyeffects.metainfo.xml.in:260
 msgid ""
@@ -686,9 +755,8 @@ msgid "The documentation has been updated."
 msgstr ""
 
 #: data/com.github.wwmm.easyeffects.metainfo.xml.in:369
-#, fuzzy
 msgid "Improved presets autoloading."
-msgstr "Aktualizované preklady"
+msgstr ""
 
 #: data/com.github.wwmm.easyeffects.metainfo.xml.in:370
 msgid "The Autogain silence threshold can now be configured by the user."
@@ -749,9 +817,8 @@ msgid "Improved debug messages"
 msgstr ""
 
 #: data/com.github.wwmm.easyeffects.metainfo.xml.in:400
-#, fuzzy
 msgid "Improved translations"
-msgstr "Aktualizované preklady"
+msgstr ""
 
 #: data/com.github.wwmm.easyeffects.metainfo.xml.in:402
 msgid ""
@@ -868,9 +935,8 @@ msgid ""
 msgstr ""
 
 #: data/com.github.wwmm.easyeffects.metainfo.xml.in:447
-#, fuzzy
 msgid "Many translation updates"
-msgstr "Aktualizované preklady"
+msgstr ""
 
 #: data/com.github.wwmm.easyeffects.metainfo.xml.in:449
 msgid ""
@@ -1366,2109 +1432,3 @@ msgid ""
 "New libraries are being used and some of the librarires that were optional "
 "before are now required"
 msgstr ""
-
-#~ msgid "Wellington Wallace"
-#~ msgstr "Wellington Wallace"
-
-#, fuzzy
-#~ msgid "and #1427"
-#~ msgstr "Pásma"
-
-#~ msgid "we do not waste CPU power processing silence."
-#~ msgstr "neplýtvame výkonom procesora počas ticha."
-
-#~ msgid "mean."
-#~ msgstr "geometrický priemer."
-
-#~ msgid "This release adds the following feature:"
-#~ msgstr "Toto vydanie pridáva následujúcu vlastnosť:"
-
-#~ msgid "Equalizer, Compressor and Other Audio Effects"
-#~ msgstr "Ekvalizér, kompresor a ďalšie audio efekty"
-
-#~ msgid "limiter;compressor;reverberation;equalizer;autovolume;"
-#~ msgstr "obmedzovač;kompresor;ozvena;ekvalizér;automatická hlasitosť;"
-
-#~ msgid "\"Presets\""
-#~ msgstr "\"Predvoľby\""
-
-#, fuzzy
-#~ msgid "Enable"
-#~ msgstr "Povolené"
-
-#, fuzzy
-#~ msgid "Mute Application"
-#~ msgstr "Aplikácie"
-
-#, fuzzy
-#~ msgid "Application Volume"
-#~ msgstr "Aplikácie"
-
-#, fuzzy
-#~ msgid "_Preferences"
-#~ msgstr "Referenčný Signál"
-
-#, fuzzy
-#~ msgid "_Shortcuts"
-#~ msgstr "Krátkodobá"
-
-#, fuzzy
-#~ msgid "_Reset Settings"
-#~ msgstr "Nastavenia"
-
-#, fuzzy
-#~ msgid "_About EasyEffects"
-#~ msgstr "Vstupné efekty"
-
-#~ msgid "Presets"
-#~ msgstr "Predvoľby"
-
-#, fuzzy
-#~ msgid "Presets Menu"
-#~ msgstr "Predvoľby"
-
-#~ msgid "Global Bypass"
-#~ msgstr "Globálne premostenie"
-
-#, fuzzy
-#~ msgid "EasyEffects Window"
-#~ msgstr "PulseEffects"
-
-#, fuzzy
-#~ msgid "Applications List"
-#~ msgstr "Aplikácie"
-
-#, fuzzy
-#~ msgid "Empty List"
-#~ msgstr "Prázdne steny"
-
-#, fuzzy
-#~ msgid "No Audio Application Available"
-#~ msgstr "Aplikácie"
-
-#~ msgid "Target"
-#~ msgstr "Cieľ"
-
-#, fuzzy
-#~ msgid "Maximum History"
-#~ msgstr "Maximálna"
-
-#, fuzzy
-#~ msgid "Reference"
-#~ msgstr "Referenčný Signál"
-
-#~ msgid "Momentary"
-#~ msgstr "Okamžitá"
-
-#, fuzzy
-#~ msgid "Short-Term"
-#~ msgstr "Krátkodobá"
-
-#~ msgid "Integrated"
-#~ msgstr "Integrovaná"
-
-#, fuzzy
-#~ msgid "Geometric Mean (MSI)"
-#~ msgstr "Použiť geometrický priemer"
-
-#, fuzzy
-#~ msgid "Geometric Mean (MS)"
-#~ msgstr "Použiť geometrický priemer"
-
-#, fuzzy
-#~ msgid "Geometric Mean (MI)"
-#~ msgstr "Použiť geometrický priemer"
-
-#, fuzzy
-#~ msgid "Geometric Mean (SI)"
-#~ msgstr "Použiť geometrický priemer"
-
-#~ msgid "Reset History"
-#~ msgstr "Vymazať históriu"
-
-#~ msgid "Relative"
-#~ msgstr "Relatívna"
-
-#~ msgid "Range"
-#~ msgstr "Rozsah"
-
-#~ msgid "Loudness"
-#~ msgstr "Hlasitosť"
-
-#~ msgid "Output Gain"
-#~ msgstr "Výstupný Zisk"
-
-#~ msgid "Input"
-#~ msgstr "Vstup"
-
-#, fuzzy
-#~ msgid "Plugin Input Gain"
-#~ msgstr "Výstupný Zisk"
-
-#~ msgid "Output"
-#~ msgstr "Výstup"
-
-#, fuzzy
-#~ msgid "Plugin Output Gain"
-#~ msgstr "Výstupný Zisk"
-
-#~ msgid "Reset"
-#~ msgstr "Obnoviť pôvodné hodnoty"
-
-#~ msgid "Name"
-#~ msgstr "Názov"
-
-#, fuzzy
-#~ msgid "Preset"
-#~ msgstr "Predvoľby"
-
-#, fuzzy
-#~ msgid "Remove this autoload preset"
-#~ msgstr "Odstrániť predvoľbu"
-
-#~ msgid "Listen"
-#~ msgstr "Počúvať"
-
-#~ msgid "Blend Harmonics"
-#~ msgstr "Miešať harmonické kmity"
-
-#~ msgid "3rd"
-#~ msgstr "3."
-
-#~ msgid "2nd"
-#~ msgstr "2."
-
-#~ msgid "Amount"
-#~ msgstr "Množstvo"
-
-#~ msgid "Harmonics"
-#~ msgstr "Harmonickosť"
-
-#~ msgid "Scope"
-#~ msgstr "Rozsah"
-
-#~ msgid "Floor"
-#~ msgstr "Spodná hranica"
-
-#, fuzzy
-#~ msgid "Floor Value"
-#~ msgstr "Spodná hranica"
-
-#, fuzzy
-#~ msgid "Application Name"
-#~ msgstr "Aplikácie"
-
-#, fuzzy
-#~ msgid "Add to Excluded Applications"
-#~ msgstr "Zobraziť aplikácie zo zoznamu blokovaných na hlavnej karte"
-
-#, fuzzy
-#~ msgid "Excluded Applications List"
-#~ msgstr "Aplikácie"
-
-#, fuzzy
-#~ msgid "Show Excluded Applications"
-#~ msgstr "Zobraziť aplikácie zo zoznamu blokovaných na hlavnej karte"
-
-#~ msgid "Compressor"
-#~ msgstr "Kompresor"
-
-#~ msgid "Mode"
-#~ msgstr "Režim"
-
-#~ msgid "Downward"
-#~ msgstr "Dole"
-
-#~ msgid "Upward"
-#~ msgstr "Hore"
-
-#~ msgid "Compression Mode"
-#~ msgstr "Mód kompresora"
-
-#~ msgid "Boost Threshold"
-#~ msgstr "Zvýrazniť prah"
-
-#, fuzzy
-#~ msgid "Boost Amount"
-#~ msgstr "Množstvo"
-
-#~ msgid "Attack"
-#~ msgstr "Nábeh"
-
-#, fuzzy
-#~ msgid "Time"
-#~ msgstr "V reálnom čase"
-
-#~ msgid "Threshold"
-#~ msgstr "Prah"
-
-#, fuzzy
-#~ msgid "Attack Time"
-#~ msgstr "Nábeh"
-
-#, fuzzy
-#~ msgid "Attack Threshold"
-#~ msgstr "Prah"
-
-#~ msgid "Release"
-#~ msgstr "Uvoľnenie"
-
-#, fuzzy
-#~ msgid "Release Time"
-#~ msgstr "Uvoľnenie"
-
-#, fuzzy
-#~ msgid "Release Threshold"
-#~ msgstr "Relatívny prah uvoľnenia"
-
-#~ msgid "Ratio"
-#~ msgstr "Pomer"
-
-#~ msgid "Knee"
-#~ msgstr "Prechod"
-
-#~ msgid "Makeup"
-#~ msgstr "Pozdvihnutie"
-
-#~ msgid "Sidechain"
-#~ msgstr "Postranný reťazec"
-
-#~ msgid "Peak"
-#~ msgstr "Vrchol"
-
-#~ msgid "RMS"
-#~ msgstr "RMS"
-
-#~ msgid "Low-Pass"
-#~ msgstr "Dolná priepusť"
-
-#~ msgid "Uniform"
-#~ msgstr "Rovnomerný"
-
-#, fuzzy
-#~ msgid "Sidechain Mode"
-#~ msgstr "Postranný reťazec"
-
-#~ msgid "Source"
-#~ msgstr "Zdroj"
-
-#~ msgid "Middle"
-#~ msgstr "Stredný"
-
-#~ msgid "Side"
-#~ msgstr "Postranný"
-
-#~ msgid "Left"
-#~ msgstr "Ľavý"
-
-#~ msgid "Right"
-#~ msgstr "Pravý"
-
-#, fuzzy
-#~ msgid "Sidechain Source"
-#~ msgstr "Postranný reťazec"
-
-#~ msgid "Type"
-#~ msgstr "Typ"
-
-#~ msgid "Feed-forward"
-#~ msgstr "Kanál-Vpred"
-
-#~ msgid "Feed-back"
-#~ msgstr "Kanál-Vzad"
-
-#, fuzzy
-#~ msgid "Sidechain Type"
-#~ msgstr "Postranný reťazec"
-
-#, fuzzy
-#~ msgid "Input Device"
-#~ msgstr "Obmedzovač na vstupe"
-
-#, fuzzy
-#~ msgid "PreAmplification"
-#~ msgstr "Predzosilnenie"
-
-#~ msgid "Reactivity"
-#~ msgstr "Reaktivita"
-
-#~ msgid "Lookahead"
-#~ msgstr "Výhľad"
-
-#, fuzzy
-#~ msgid "Sidechain Filters"
-#~ msgstr "Postranný reťazec"
-
-#, fuzzy
-#~ msgid "High-Pass"
-#~ msgstr "Horné pásmo"
-
-#~ msgid "Frequency"
-#~ msgstr "Frekvencia"
-
-#~ msgid "Off"
-#~ msgstr "Vyp"
-
-#~ msgid "12 dB/oct"
-#~ msgstr "Nízka pásmová priepusť 12dB/okt"
-
-#~ msgid "24 dB/oct"
-#~ msgstr "Nízka pásmová priepusť 24dB/okt"
-
-#~ msgid "36 dB/oct"
-#~ msgstr "Nízka pásmová priepusť 36dB/okt"
-
-#, fuzzy
-#~ msgid "High-Pass Filter Mode"
-#~ msgstr "Režim filtra vysokej priepuste"
-
-#, fuzzy
-#~ msgid "High-Pass Filter Frequency"
-#~ msgstr "Frekvencia vysokej priepuste"
-
-#, fuzzy
-#~ msgid "Low-Pass Filter Mode"
-#~ msgstr "Režim filtra vysokej priepuste"
-
-#~ msgid "Gain"
-#~ msgstr "Zisk"
-
-#, fuzzy
-#~ msgid "Envelope"
-#~ msgstr "Sklon"
-
-#~ msgid "Curve"
-#~ msgstr "Krivka"
-
-#~ msgid "L"
-#~ msgstr "Ľ"
-
-#, fuzzy
-#~ msgid "Left Channel"
-#~ msgstr "Kanály"
-
-#~ msgid "R"
-#~ msgstr "P"
-
-#, fuzzy
-#~ msgid "Right Channel"
-#~ msgstr "Rozdeliť kanály"
-
-#, fuzzy
-#~ msgid "Impulses"
-#~ msgstr "Odpoveď impulzu"
-
-#~ msgid "Stereo Width"
-#~ msgstr "Šírka sterea"
-
-#~ msgid "Spectrum"
-#~ msgstr "Spektrum"
-
-#, fuzzy
-#~ msgid "Log Scale"
-#~ msgstr "Mierka"
-
-#, fuzzy
-#~ msgid "Autogain"
-#~ msgstr "Automatická hlasitosť"
-
-#~ msgid "Rate"
-#~ msgstr "Kmitočet"
-
-#~ msgid "Samples"
-#~ msgstr "Vzorky"
-
-#~ msgid "Duration"
-#~ msgstr "Trvanie"
-
-#, fuzzy
-#~ msgid "Combine Impulse Responses"
-#~ msgstr "Odpoveď impulzu"
-
-#, fuzzy
-#~ msgid "Output File Name"
-#~ msgstr "Výstup"
-
-#~ msgid "Import Impulse"
-#~ msgstr "Importovať impulz"
-
-#, fuzzy
-#~ msgid "Search Impulse File"
-#~ msgstr "Načítať súbor impulzu"
-
-#, fuzzy
-#~ msgid "Impulse Files List"
-#~ msgstr "Načítať súbor impulzu"
-
-#~ msgid "Default"
-#~ msgstr "Predvolený"
-
-#~ msgid "Cutoff"
-#~ msgstr "Zrezanie"
-
-#~ msgid "Feed"
-#~ msgstr "Kanál"
-
-#~ msgid "Bypass"
-#~ msgstr "Premostiť"
-
-#~ msgid "Mute"
-#~ msgstr "Stíšený"
-
-#~ msgid "Detection"
-#~ msgstr "Detekcia"
-
-#~ msgid "Wide"
-#~ msgstr "Široký"
-
-#~ msgid "Split"
-#~ msgstr "Rozdeliť"
-
-#~ msgid "F1 Split"
-#~ msgstr "Rozdeliť F1"
-
-#, fuzzy
-#~ msgid "Frequency 1 Split"
-#~ msgstr "Frekvencia"
-
-#~ msgid "F2 Peak"
-#~ msgstr "Vrchol F2"
-
-#, fuzzy
-#~ msgid "Frequency 2 Peak"
-#~ msgstr "Frekvencia"
-
-#~ msgid "F1 Gain"
-#~ msgstr "Zisk F1"
-
-#, fuzzy
-#~ msgid "Frequency 1 Gain"
-#~ msgstr "Frekvencia"
-
-#~ msgid "F2 Level"
-#~ msgstr "Úroveň F2"
-
-#, fuzzy
-#~ msgid "Frequency 2 Level"
-#~ msgstr "Frekvencia"
-
-#~ msgid "F2 Peak Q"
-#~ msgstr "F2 vrchol Q"
-
-#, fuzzy
-#~ msgid "Frequency 2 Peak Q"
-#~ msgstr "Frekvencia"
-
-#~ msgid "Laxity"
-#~ msgstr "Nedbanlivosť"
-
-#~ msgid "Detected"
-#~ msgstr "Zistené"
-
-#, fuzzy
-#~ msgid "Reduction"
-#~ msgstr "Redukcia"
-
-#~ msgid "Frame Size"
-#~ msgstr "Veľkosť rámca"
-
-#, fuzzy
-#~ msgid "Filter Length"
-#~ msgstr "Filter"
-
-#~ msgid "Bands"
-#~ msgstr "Pásma"
-
-#~ msgid "IIR"
-#~ msgstr "IIR"
-
-#~ msgid "FIR"
-#~ msgstr "FIR"
-
-#~ msgid "FFT"
-#~ msgstr "FFT"
-
-#~ msgid "Split Channels"
-#~ msgstr "Rozdeliť kanály"
-
-#~ msgid "Flat Response"
-#~ msgstr "Vyhladiť"
-
-#~ msgid "Calculate Frequencies"
-#~ msgstr "Vypočítať frekvencie"
-
-#, fuzzy
-#~ msgid "Load APO Preset"
-#~ msgstr "APO predvoľby"
-
-#~ msgid "Bell"
-#~ msgstr "Zvonček"
-
-#~ msgid "High Pass"
-#~ msgstr "Horné pásmo"
-
-#~ msgid "High Shelf"
-#~ msgstr "Horný prah"
-
-#~ msgid "Low Pass"
-#~ msgstr "Spodné pásmo"
-
-#~ msgid "Low Shelf"
-#~ msgstr "Spodný prah"
-
-#~ msgid "Notch"
-#~ msgstr "Zárez"
-
-#~ msgid "Resonance"
-#~ msgstr "Rezonancia"
-
-#, fuzzy
-#~ msgid "All Pass"
-#~ msgstr "Dolné Pásmo"
-
-#, fuzzy
-#~ msgid "Band Type"
-#~ msgstr "Premostiť"
-
-#, fuzzy
-#~ msgid "Band Mode"
-#~ msgstr "Pásma"
-
-#~ msgid "Slope"
-#~ msgstr "Sklon"
-
-#, fuzzy
-#~ msgid "Band Slope"
-#~ msgstr "Sklon"
-
-#~ msgid "Width"
-#~ msgstr "Šírka"
-
-#~ msgid "Quality"
-#~ msgstr "Kvalita"
-
-#~ msgid "Solo"
-#~ msgstr "Sólo"
-
-#, fuzzy
-#~ msgid "Ceil"
-#~ msgstr "Strop"
-
-#, fuzzy
-#~ msgid "Description"
-#~ msgstr "Detekcia"
-
-#, fuzzy
-#~ msgid "Remove this model file"
-#~ msgstr "Odstrániť predvoľbu"
-
-#~ msgid "12dB/oct Lowpass"
-#~ msgstr "Nízka pásmová priepusť 12dB/okt"
-
-#~ msgid "24dB/oct Lowpass"
-#~ msgstr "Nízka pásmová priepusť 24dB/okt"
-
-#~ msgid "36dB/oct Lowpass"
-#~ msgstr "Nízka pásmová priepusť 36dB/okt"
-
-#~ msgid "12dB/oct Highpass"
-#~ msgstr "Vysoká pásmová priepusť 12dB/okt"
-
-#~ msgid "24dB/oct Highpass"
-#~ msgstr "Vysoká pásmová priepusť 24dB/okt"
-
-#~ msgid "36dB/oct Highpass"
-#~ msgstr "Vysoká pásmová priepusť 36dB/okt"
-
-#~ msgid "6dB/oct Bandpass"
-#~ msgstr "Pásmová priepusť 6dB/okt"
-
-#~ msgid "12dB/oct Bandpass"
-#~ msgstr "Pásmová priepusť 12dB/okt"
-
-#~ msgid "18dB/oct Bandpass"
-#~ msgstr "Pásmová priepusť 18dB/okt"
-
-#~ msgid "6dB/oct Bandreject"
-#~ msgstr "Vylúčenie pásma 6dB/okt"
-
-#~ msgid "12dB/oct Bandreject"
-#~ msgstr "Vylúčenie pásma 12dB/okt"
-
-#~ msgid "18dB/oct Bandreject"
-#~ msgstr "Vylúčenie pásma 18dB/okt"
-
-#~ msgid "Inertia"
-#~ msgstr "Zotrvačnosť"
-
-#~ msgid "Gate"
-#~ msgstr "Brána"
-
-#, fuzzy
-#~ msgid "Release Zone Start"
-#~ msgstr "Uvoľnenie"
-
-#, fuzzy
-#~ msgid "Internal"
-#~ msgstr "Integrovaná"
-
-#~ msgid "Gating"
-#~ msgstr "Hradlo"
-
-#~ msgid "Oversampling"
-#~ msgstr "Prevzorkovanie"
-
-#, fuzzy
-#~ msgid "Herm Wide"
-#~ msgstr "Široký"
-
-#, fuzzy
-#~ msgid "Exp Wide"
-#~ msgstr "Široký"
-
-#, fuzzy
-#~ msgid "Line Thin"
-#~ msgstr "Šírka čiary"
-
-#, fuzzy
-#~ msgid "Line Wide"
-#~ msgstr "Šírka čiary"
-
-#, fuzzy
-#~ msgid "Line Tail"
-#~ msgstr "Šírka čiary"
-
-#~ msgid "None"
-#~ msgstr "Žiadny"
-
-#, fuzzy
-#~ msgid "Sidechain PreAmplification"
-#~ msgstr "Predzosilnenie"
-
-#~ msgid "Stereo Link"
-#~ msgstr "Spojenie sterea"
-
-#, fuzzy
-#~ msgid "External Sidechain"
-#~ msgstr "Postranný reťazec"
-
-#, fuzzy
-#~ msgid "Auto Leveling"
-#~ msgstr "Automatické úrovne"
-
-#, fuzzy
-#~ msgid "Auto Leveling Attack"
-#~ msgstr "Automatické úrovne"
-
-#, fuzzy
-#~ msgid "Auto Leveling Release"
-#~ msgstr "Automatické úrovne"
-
-#, fuzzy
-#~ msgid "Auto Leveling Knee"
-#~ msgstr "Automatické úrovne"
-
-#, fuzzy
-#~ msgid "Gain Left"
-#~ msgstr "Ľavý"
-
-#, fuzzy
-#~ msgid "Gain Right"
-#~ msgstr "Pravý"
-
-#, fuzzy
-#~ msgid "Sidechain Left"
-#~ msgstr "Postranný reťazec"
-
-#, fuzzy
-#~ msgid "Sidechain Right"
-#~ msgstr "Postranný reťazec"
-
-#~ msgid "Standard"
-#~ msgstr "Štandardný"
-
-#~ msgid "Flat"
-#~ msgstr "Rovný"
-
-#~ msgid "FFT Size"
-#~ msgstr "Veľkosť FFT"
-
-#, fuzzy
-#~ msgid "Output Volume"
-#~ msgstr "Výstup"
-
-#~ msgid "Ceiling"
-#~ msgstr "Strop"
-
-#, fuzzy
-#~ msgid "Operating Mode"
-#~ msgstr "Importovať model"
-
-#, fuzzy
-#~ msgid "Modern"
-#~ msgstr "Režim"
-
-#, fuzzy
-#~ msgid "Sidechain Boost"
-#~ msgstr "Postranný reťazec"
-
-#, fuzzy
-#~ msgid "Bands List"
-#~ msgstr "Pásma"
-
-#, fuzzy
-#~ msgid "Band 1"
-#~ msgstr "Pásma"
-
-#, fuzzy
-#~ msgid "Band 2"
-#~ msgstr "Pásma"
-
-#, fuzzy
-#~ msgid "Band 3"
-#~ msgstr "Pásma"
-
-#, fuzzy
-#~ msgid "Band 4"
-#~ msgstr "Pásma"
-
-#, fuzzy
-#~ msgid "Band 5"
-#~ msgstr "Pásma"
-
-#, fuzzy
-#~ msgid "Band 6"
-#~ msgstr "Pásma"
-
-#, fuzzy
-#~ msgid "Band 7"
-#~ msgstr "Pásma"
-
-#, fuzzy
-#~ msgid "Band 8"
-#~ msgstr "Pásma"
-
-#, fuzzy
-#~ msgid "Band End"
-#~ msgstr "Pásma"
-
-#, fuzzy
-#~ msgid "Band Compression Mode"
-#~ msgstr "Mód kompresora"
-
-#, fuzzy
-#~ msgid "Band Bypass"
-#~ msgstr "Premostiť"
-
-#, fuzzy
-#~ msgid "Band Sidechain Options"
-#~ msgstr "Postranný reťazec"
-
-#, fuzzy
-#~ msgid "Low-Cut Filter"
-#~ msgstr "Režim filtra nízkej priepuste"
-
-#, fuzzy
-#~ msgid "Low-Cut Filter Frequency"
-#~ msgstr "Režim filtra nízkej priepuste"
-
-#, fuzzy
-#~ msgid "High-Cut Filter"
-#~ msgstr "Horný prechod"
-
-#, fuzzy
-#~ msgid "High-Cut Filter Frequency"
-#~ msgstr "Horný prechod"
-
-#, fuzzy
-#~ msgid "Band Gain"
-#~ msgstr "Vstupné Zosilnenie"
-
-#, fuzzy
-#~ msgid "Band Curve"
-#~ msgstr "Krivka"
-
-#, fuzzy
-#~ msgid "Split Mode"
-#~ msgstr "Rozdeliť"
-
-#~ msgid "Split 1/2"
-#~ msgstr "Rozdeliť 1/2"
-
-#, fuzzy
-#~ msgid "Split Frequency 1"
-#~ msgstr "Frekvencia"
-
-#~ msgid "Split 2/3"
-#~ msgstr "Rozdeliť 2/3"
-
-#, fuzzy
-#~ msgid "Split Frequency 2"
-#~ msgstr "Frekvencia"
-
-#~ msgid "Split 3/4"
-#~ msgstr "Rozdeliť 3/4"
-
-#, fuzzy
-#~ msgid "Split Frequency 3"
-#~ msgstr "Frekvencia"
-
-#~ msgid "Sub Band"
-#~ msgstr "Spodné pásmo"
-
-#, fuzzy
-#~ msgid "Band 1 Bypass"
-#~ msgstr "Premostiť"
-
-#, fuzzy
-#~ msgid "Band 1 Solo"
-#~ msgstr "Pásma"
-
-#, fuzzy
-#~ msgid "Band 1 Detection"
-#~ msgstr "Redukcia zosilnenia"
-
-#, fuzzy
-#~ msgid "Band 1 Attack"
-#~ msgstr "Nábeh"
-
-#, fuzzy
-#~ msgid "Band 1 Release"
-#~ msgstr "Uvoľnenie"
-
-#, fuzzy
-#~ msgid "Band 1 Threshold"
-#~ msgstr "Prah"
-
-#, fuzzy
-#~ msgid "Band 1 Ratio"
-#~ msgstr "Pásma"
-
-#, fuzzy
-#~ msgid "Band 1 Knee"
-#~ msgstr "Pásma"
-
-#, fuzzy
-#~ msgid "Band 1 Makeup"
-#~ msgstr "Pozdvihnutie"
-
-#~ msgid "Max Reduction"
-#~ msgstr "Redukcia"
-
-#, fuzzy
-#~ msgid "Band 1 Max Reduction"
-#~ msgstr "Redukcia zosilnenia"
-
-#~ msgid "Low Band"
-#~ msgstr "Nízke pásmo"
-
-#, fuzzy
-#~ msgid "Band 2 Bypass"
-#~ msgstr "Premostiť"
-
-#, fuzzy
-#~ msgid "Band 2 Solo"
-#~ msgstr "Pásma"
-
-#, fuzzy
-#~ msgid "Band 2 Detection"
-#~ msgstr "Redukcia zosilnenia"
-
-#, fuzzy
-#~ msgid "Band 2 Attack"
-#~ msgstr "Nábeh"
-
-#, fuzzy
-#~ msgid "Band 2 Release"
-#~ msgstr "Uvoľnenie"
-
-#, fuzzy
-#~ msgid "Band 2 Threshold"
-#~ msgstr "Prah"
-
-#, fuzzy
-#~ msgid "Band 2 Ratio"
-#~ msgstr "Pásma"
-
-#, fuzzy
-#~ msgid "Band 2 Knee"
-#~ msgstr "Pásma"
-
-#, fuzzy
-#~ msgid "Band 2 Makeup"
-#~ msgstr "Pozdvihnutie"
-
-#, fuzzy
-#~ msgid "Band 2 Max Reduction"
-#~ msgstr "Redukcia zosilnenia"
-
-#~ msgid "Mid Band"
-#~ msgstr "Stredné pásmo"
-
-#, fuzzy
-#~ msgid "Band 3 Bypass"
-#~ msgstr "Premostiť"
-
-#, fuzzy
-#~ msgid "Band 3 Solo"
-#~ msgstr "Pásma"
-
-#, fuzzy
-#~ msgid "Band 3 Detection"
-#~ msgstr "Redukcia zosilnenia"
-
-#, fuzzy
-#~ msgid "Band 3 Attack"
-#~ msgstr "Nábeh"
-
-#, fuzzy
-#~ msgid "Band 3 Release"
-#~ msgstr "Uvoľnenie"
-
-#, fuzzy
-#~ msgid "Band 3 Threshold"
-#~ msgstr "Prah"
-
-#, fuzzy
-#~ msgid "Band 3 Ratio"
-#~ msgstr "Pásma"
-
-#, fuzzy
-#~ msgid "Band 3 Knee"
-#~ msgstr "Pásma"
-
-#, fuzzy
-#~ msgid "Band 3 Makeup"
-#~ msgstr "Pozdvihnutie"
-
-#, fuzzy
-#~ msgid "Band 3 Max Reduction"
-#~ msgstr "Redukcia zosilnenia"
-
-#~ msgid "High Band"
-#~ msgstr "Vysoké pásmo"
-
-#, fuzzy
-#~ msgid "Band 4 Bypass"
-#~ msgstr "Premostiť"
-
-#, fuzzy
-#~ msgid "Band 4 Solo"
-#~ msgstr "Pásma"
-
-#, fuzzy
-#~ msgid "Band 4 Detection"
-#~ msgstr "Redukcia zosilnenia"
-
-#, fuzzy
-#~ msgid "Band 4 Attack"
-#~ msgstr "Nábeh"
-
-#, fuzzy
-#~ msgid "Band 4 Release"
-#~ msgstr "Uvoľnenie"
-
-#, fuzzy
-#~ msgid "Band 4 Threshold"
-#~ msgstr "Prah"
-
-#, fuzzy
-#~ msgid "Band 4 Ratio"
-#~ msgstr "Pásma"
-
-#, fuzzy
-#~ msgid "Band 4 Knee"
-#~ msgstr "Pásma"
-
-#, fuzzy
-#~ msgid "Band 4 Makeup"
-#~ msgstr "Pozdvihnutie"
-
-#, fuzzy
-#~ msgid "Band 4 Max Reduction"
-#~ msgstr "Redukcia zosilnenia"
-
-#~ msgid "General"
-#~ msgstr "Všeobecné"
-
-#, fuzzy
-#~ msgid "Use Default Input"
-#~ msgstr "Použiť predvolený"
-
-#, fuzzy
-#~ msgid "Custom Input Device"
-#~ msgstr "Obmedzovač na vstupe"
-
-#, fuzzy
-#~ msgid "Use Default Output"
-#~ msgstr "Použiť predvolený"
-
-#, fuzzy
-#~ msgid "Custom Output Device"
-#~ msgstr "Výstupné efekty"
-
-#, fuzzy
-#~ msgid "Server Information"
-#~ msgstr "Ozvena (reverb)"
-
-#, fuzzy
-#~ msgid "Header Version"
-#~ msgstr "Verzia"
-
-#, fuzzy
-#~ msgid "Library Version"
-#~ msgstr "Verzia"
-
-#, fuzzy
-#~ msgid "Sampling Rate"
-#~ msgstr "Predvolená rýchlosť vzorkovania"
-
-#, fuzzy
-#~ msgid "Minimum Quantum"
-#~ msgstr "Minimálna frekvencia"
-
-#, fuzzy
-#~ msgid "Maximum Quantum"
-#~ msgstr "Maximálny zisk"
-
-#, fuzzy
-#~ msgid "Default Quantum"
-#~ msgstr "Predvolené Zoslabnutie"
-
-#, fuzzy
-#~ msgid "Output Devices"
-#~ msgstr "Výstupné efekty"
-
-#~ msgid "Output Presets"
-#~ msgstr "Výstupné predvoľby:"
-
-#~ msgid "Output Autoloading Presets List"
-#~ msgstr "Výstupné predvoľby:"
-
-#, fuzzy
-#~ msgid "Input Devices"
-#~ msgstr "Obmedzovač na vstupe"
-
-#, fuzzy
-#~ msgid "Input Presets"
-#~ msgstr "Vstupné predvoľby: "
-
-#, fuzzy
-#~ msgid "Input Autoloading Presets List"
-#~ msgstr "Vstupné predvoľby: "
-
-#~ msgid "Modules"
-#~ msgstr "Moduly"
-
-#, fuzzy
-#~ msgid "Modules List"
-#~ msgstr "Moduly"
-
-#~ msgid "Clients"
-#~ msgstr "Klienti"
-
-#, fuzzy
-#~ msgid "Clients List"
-#~ msgstr "Klienti"
-
-#, fuzzy
-#~ msgid "Test Signal"
-#~ msgstr "Skúšobné signály"
-
-#~ msgid "State"
-#~ msgstr "Stav"
-
-#, fuzzy
-#~ msgid "Enabled"
-#~ msgstr "Povolené"
-
-#~ msgid "Channels"
-#~ msgstr "Kanály"
-
-#, fuzzy
-#~ msgid "Both Channels"
-#~ msgstr "Kanály"
-
-#, fuzzy
-#~ msgid "Sine Wave"
-#~ msgstr "Sínusová tabuľka"
-
-#~ msgid "White Noise"
-#~ msgstr "Biely šum"
-
-#, fuzzy
-#~ msgid "High Speed"
-#~ msgstr "Horný prah"
-
-#, fuzzy
-#~ msgid "High Quality"
-#~ msgstr "Kvalita"
-
-#, fuzzy
-#~ msgid "Formant"
-#~ msgstr "Formát"
-
-#, fuzzy
-#~ msgid "Preserved"
-#~ msgstr "Predvoľby"
-
-#, fuzzy
-#~ msgid "Crisp"
-#~ msgstr "Krehkosť"
-
-#, fuzzy
-#~ msgid "Detector"
-#~ msgstr "Detekcia"
-
-#, fuzzy
-#~ msgid "Compound"
-#~ msgstr "Kompresia"
-
-#, fuzzy
-#~ msgid "Soft"
-#~ msgstr "Softclip"
-
-#~ msgid "Cents"
-#~ msgstr "Centy"
-
-#~ msgid "Semitones"
-#~ msgstr "Poltóny"
-
-#~ msgid "Octaves"
-#~ msgstr "Oktávy"
-
-#, fuzzy
-#~ msgid "Remove this effect"
-#~ msgstr "Odstrániť predvoľbu"
-
-#, fuzzy
-#~ msgid "Add Effect"
-#~ msgstr "Vstupné predvoľby: "
-
-#, fuzzy
-#~ msgid "No Effects"
-#~ msgstr "EasyEffects"
-
-#, fuzzy
-#~ msgid "_General"
-#~ msgstr "Všeobecné"
-
-#, fuzzy
-#~ msgid "Service"
-#~ msgstr "Server"
-
-#, fuzzy
-#~ msgid "Process All Output Streams"
-#~ msgstr "Spracovať všetky výstupy"
-
-#, fuzzy
-#~ msgid "Process All Input Streams"
-#~ msgstr "Spracovať všetky vstupy"
-
-#, fuzzy
-#~ msgid "Inactivity Timeout"
-#~ msgstr "Čas. limit aktivity"
-
-#~ msgid "Use Dark Theme"
-#~ msgstr "Použiť tmavý motív"
-
-#, fuzzy
-#~ msgid "_Spectrum"
-#~ msgstr "Spektrum"
-
-#~ msgid "Bars"
-#~ msgstr "Pruhy"
-
-#~ msgid "Lines"
-#~ msgstr "Čiary"
-
-#~ msgid "Points"
-#~ msgstr "Body"
-
-#~ msgid "Height"
-#~ msgstr "Výška"
-
-#~ msgid "Line Width"
-#~ msgstr "Šírka čiary"
-
-#~ msgid "Fill"
-#~ msgstr "Výplň"
-
-#, fuzzy
-#~ msgid "Color"
-#~ msgstr "Farba osi"
-
-#, fuzzy
-#~ msgid "Frequency Range"
-#~ msgstr "Frekvencia"
-
-#, fuzzy
-#~ msgid "Minimum"
-#~ msgstr "Maximálna"
-
-#~ msgid "Maximum"
-#~ msgstr "Maximálna"
-
-#~ msgid "Load"
-#~ msgstr "Načítať"
-
-#~ msgid "Save current settings to this preset file"
-#~ msgstr "Uložiť aktuálne nastavenia do tejto predvoľby"
-
-#~ msgid "Remove this preset file"
-#~ msgstr "Odstrániť predvoľbu"
-
-#, fuzzy
-#~ msgid "New Output Preset Name"
-#~ msgstr "Výstupné predvoľby: "
-
-#, fuzzy
-#~ msgid "Create a new preset"
-#~ msgstr "Vytvoriť predvoľbu"
-
-#, fuzzy
-#~ msgid "Import a preset"
-#~ msgstr "Načítať predvoľbu"
-
-#, fuzzy
-#~ msgid "Search Output Preset"
-#~ msgstr "Výstupné predvoľby: "
-
-#, fuzzy
-#~ msgid "Output Presets List"
-#~ msgstr "Výstupné predvoľby: "
-
-#, fuzzy
-#~ msgid "New Input Preset Name"
-#~ msgstr "Vstupné predvoľby: "
-
-#, fuzzy
-#~ msgid "Search Input Preset"
-#~ msgstr "Vstupné predvoľby: "
-
-#, fuzzy
-#~ msgid "Input Presets List"
-#~ msgstr "Vstupné predvoľby: "
-
-#~ msgid "High Frequency Damping"
-#~ msgstr "Vysokofrekvenčné tlmenie"
-
-#~ msgid "Room Size"
-#~ msgstr "Veľkosť miestnosti"
-
-#~ msgid "Small"
-#~ msgstr "Malá"
-
-#~ msgid "Medium"
-#~ msgstr "Stredná"
-
-#~ msgid "Large"
-#~ msgstr "Veľká"
-
-#~ msgid "Tunnel"
-#~ msgstr "Tunel"
-
-#~ msgid "Large/smooth"
-#~ msgstr "Veľká/hladká"
-
-#~ msgid "Experimental"
-#~ msgstr "Experimentálna"
-
-#~ msgid "Diffusion"
-#~ msgstr "Rozptyl"
-
-#~ msgid "Pre Delay"
-#~ msgstr "Predoneskorenie"
-
-#~ msgid "Decay Time"
-#~ msgstr "Čas dozvuku"
-
-#, fuzzy
-#~ msgid "Wet Amount"
-#~ msgstr "Množstvo"
-
-#, fuzzy
-#~ msgid "Wet Level"
-#~ msgstr "Cieľová úroveň"
-
-#, fuzzy
-#~ msgid "Dry Amount"
-#~ msgstr "Množstvo"
-
-#, fuzzy
-#~ msgid "Dry Level"
-#~ msgstr "Úroveň F2"
-
-#~ msgid "Bass Cut"
-#~ msgstr "Odrezanie basov"
-
-#~ msgid "Treble Cut"
-#~ msgstr "Odrezanie výšok"
-
-#~ msgid "Ambience"
-#~ msgstr "Okolie"
-
-#~ msgid "Empty Walls"
-#~ msgstr "Prázdne steny"
-
-#~ msgid "Room"
-#~ msgstr "Miestnosť"
-
-#~ msgid "Large Empty Hall"
-#~ msgstr "Veľká miestnosť (prázdna)"
-
-#~ msgid "Disco"
-#~ msgstr "Disko"
-
-#~ msgid "Large Occupied Hall"
-#~ msgstr "Veľká miestnosť (plná)"
-
-#~ msgid "Import Model"
-#~ msgstr "Importovať model"
-
-#, fuzzy
-#~ msgid "Models"
-#~ msgstr "Režim"
-
-#, fuzzy
-#~ msgid "Standard Model"
-#~ msgstr "Štandardný model RNNoise"
-
-#, fuzzy
-#~ msgid "RNNoise Models List"
-#~ msgstr "Štandardný model RNNoise"
-
-#~ msgid "Active Model"
-#~ msgstr "Aktívny model"
-
-#~ msgid "Standard RNNoise Model"
-#~ msgstr "Štandardný model RNNoise"
-
-#, fuzzy
-#~ msgid "Overview"
-#~ msgstr "Server"
-
-#, fuzzy
-#~ msgid "Open the EasyEffects Manual"
-#~ msgstr "Obnoviť PulseEffects"
-
-#, fuzzy
-#~ msgid "Close the Window"
-#~ msgstr "Skryť okno"
-
-#, fuzzy
-#~ msgid "Quit EasyEffects"
-#~ msgstr "Vstupné efekty"
-
-#~ msgid "Balance"
-#~ msgstr "Vyváženie"
-
-#, fuzzy
-#~ msgid "Input Balance"
-#~ msgstr "Vyváženie"
-
-#~ msgid "Softclip"
-#~ msgstr "Softclip"
-
-#, fuzzy
-#~ msgid "Softclip Level"
-#~ msgstr "Softclip"
-
-#~ msgid "Stereo Matrix"
-#~ msgstr "Stereo matica"
-
-#~ msgid "LR > LR (Stereo Default)"
-#~ msgstr "ĽP > PĽ (štandardné Stereo)"
-
-#~ msgid "LR > MS (Stereo to Mid-Side)"
-#~ msgstr "ĽP > SS (stereo ku strednej strane)"
-
-#~ msgid "MS > LR (Mid-Side to Stereo)"
-#~ msgstr "SS > ĽP (stredná strana ku stereu)"
-
-#~ msgid "LR > LL (Mono Left Channel)"
-#~ msgstr "ĽP > ĽĽ (mono ľavý kanál)"
-
-#~ msgid "LR > RR (Mono Right Channel)"
-#~ msgstr "ĽP > PP (mono pravý kanál)"
-
-#~ msgid "LR > L+R (Mono Sum L+R)"
-#~ msgstr "ĽP > Ľ+P (mono sčítanie Ľ+P)"
-
-#~ msgid "LR > RL (Stereo Flip Channels)"
-#~ msgstr "ĽP > PĽ (stereo preklopené Kanály)"
-
-#~ msgid "Stereo Mode"
-#~ msgstr "Režim sterea"
-
-#~ msgid "Invert Phase"
-#~ msgstr "Preklopiť fázu"
-
-#~ msgid "Side Level"
-#~ msgstr "Úroveň strán"
-
-#~ msgid "Side Balance"
-#~ msgstr "Vyváženie strán"
-
-#~ msgid "Middle Level"
-#~ msgstr "Stredová úroveň"
-
-#~ msgid "Middle Panorama"
-#~ msgstr "Stredná paronáma"
-
-#, fuzzy
-#~ msgid "Output Balance"
-#~ msgstr "Výstupný Zisk"
-
-#~ msgid "Delay L/R"
-#~ msgstr "Oneskorenie Ľ/P"
-
-#~ msgid "Delay Left Right"
-#~ msgstr "Oneskorenie Ľavo/Pravo"
-
-#~ msgid "Stereo Base"
-#~ msgstr "Základ sterea"
-
-#~ msgid "Stereo Phase"
-#~ msgstr "Fáza sterea"
-
-#, fuzzy
-#~ msgid "Running"
-#~ msgstr "beží"
-
-#, fuzzy
-#~ msgid "Suspended"
-#~ msgstr "pozastavené"
-
-#, fuzzy
-#~ msgid "Creating"
-#~ msgstr "vytváram"
-
-#, fuzzy
-#~ msgid "Error"
-#~ msgstr "chyba"
-
-#, fuzzy
-#~ msgid "channels"
-#~ msgstr "Kanály"
-
-#~ msgid "Output Presets: "
-#~ msgstr "Výstupné predvoľby: "
-
-#~ msgid "Input Presets: "
-#~ msgstr "Vstupné predvoľby: "
-
-#~ msgid "Audio effects for PipeWire applications"
-#~ msgstr "Zvukové efekty pre aplikácie využívajúce PipeWire"
-
-#, fuzzy
-#~ msgid "Quit EasyEffects. Useful when running in service mode."
-#~ msgstr "Ukončiť PulseEffect. Užitočné pre beh v režime služby."
-
-#~ msgid "Load a preset. Example: easyeffects -l music"
-#~ msgstr "Načítať predvoľby. Napr.: easyffects -l music"
-
-#~ msgid "Reset EasyEffects."
-#~ msgstr "Obnoviť EasyEffects."
-
-#~ msgid "Hide the Window."
-#~ msgstr "Skryť okno."
-
-#~ msgid "Global bypass. 1 to enable, 2 to disable and 3 to get status"
-#~ msgstr ""
-#~ "Globálne premostenie. 1 pre zapnutie, 2 pre vypnutie, 3 pre získanie stavu"
-
-#~ msgid "Show available presets."
-#~ msgstr "Zobraziť dostupné predvoľby."
-
-#~ msgid "PipeWire"
-#~ msgstr "PipeWire"
-
-#, fuzzy
-#~ msgid "Impulse File Not Imported"
-#~ msgstr "Načítať súbor impulzu"
-
-#~ msgid "Import Impulse File"
-#~ msgstr "Načítať súbor impulzu"
-
-#~ msgid "Open"
-#~ msgstr "Otvoriť"
-
-#~ msgid "Cancel"
-#~ msgstr "Zrušiť"
-
-#~ msgid "Impulse Response"
-#~ msgstr "Odpoveď impulzu"
-
-#~ msgid "Load Impulse"
-#~ msgstr "Načítať impulz"
-
-#, fuzzy
-#~ msgid "Remove Impulse"
-#~ msgstr "Importovať impulz"
-
-#, fuzzy
-#~ msgid "No Impulse File Loaded"
-#~ msgstr "Načítať súbor impulzu"
-
-#, fuzzy
-#~ msgid "Failed To Load The Impulse File"
-#~ msgstr "Nedá sa načítať súbor s impulzom"
-
-#, fuzzy
-#~ msgid "Recorders"
-#~ msgstr "Okraj"
-
-#~ msgid "Players"
-#~ msgstr "Prehrávače"
-
-#, fuzzy
-#~ msgid "Effects"
-#~ msgstr "EasyEffects"
-
-#~ msgid "infinity"
-#~ msgstr "nekonečno"
-
-#~ msgid "Import APO Preset File"
-#~ msgstr "Načítať APO predvoľbu"
-
-#~ msgid "APO Presets"
-#~ msgstr "APO predvoľby"
-
-#, fuzzy
-#~ msgid "Remove Autoloading Preset"
-#~ msgstr "Odstrániť predvoľbu"
-
-#, fuzzy
-#~ msgid "Output Device"
-#~ msgstr "Výstupné efekty"
-
-#~ msgid "Add"
-#~ msgstr "Pridať"
-
-#, fuzzy
-#~ msgid "Import Preset"
-#~ msgstr "Načítať predvoľbu"
-
-#~ msgid "Import Model File"
-#~ msgstr "Importovať model zo súboru"
-
-#, fuzzy
-#~ msgid "RNNoise Models"
-#~ msgstr "Štandardný model RNNoise"
-
-#~ msgid "Bass Enhancer"
-#~ msgstr "Vylepšovač hĺbok"
-
-#, fuzzy
-#~ msgid "Bass Loudness"
-#~ msgstr "Hlasitosť"
-
-#~ msgid "Convolver"
-#~ msgstr "Zbaľovač"
-
-#~ msgid "Crossfeed"
-#~ msgstr "Prelínanie kanálov"
-
-#~ msgid "Crystalizer"
-#~ msgstr "Kryštalizátor"
-
-#~ msgid "Deesser"
-#~ msgstr "Deesser"
-
-#~ msgid "Delay"
-#~ msgstr "Oneskorenie"
-
-#~ msgid "Echo Canceller"
-#~ msgstr "Rušenie ozveny"
-
-#~ msgid "Equalizer"
-#~ msgstr "Ekvalizér"
-
-#~ msgid "Exciter"
-#~ msgstr "Budič"
-
-#~ msgid "Filter"
-#~ msgstr "Filter"
-
-#~ msgid "Limiter"
-#~ msgstr "Obmedzovač"
-
-#~ msgid "Maximizer"
-#~ msgstr "Zosilňovač"
-
-#~ msgid "Multiband Compressor"
-#~ msgstr "Viacpásmový kompresor"
-
-#~ msgid "Multiband Gate"
-#~ msgstr "Viacpásmová brána"
-
-#~ msgid "Pitch"
-#~ msgstr "Výška tónu"
-
-#, fuzzy
-#~ msgid "Reverberation"
-#~ msgstr "Ozvena (reverb)"
-
-#~ msgid "Noise Reduction"
-#~ msgstr "Redukcia šumu"
-
-#~ msgid "Stereo Tools"
-#~ msgstr "Stereo nástroje"
-
-#~ msgid "Average"
-#~ msgstr "Priemerná"
-
-#~ msgid "Failed"
-#~ msgstr "Zlyhalo"
-
-#, fuzzy
-#~ msgid "Use Default"
-#~ msgstr "Použiť predvolený"
-
-#, fuzzy
-#~ msgid "Remove this plugin"
-#~ msgstr "Odstrániť predvoľbu"
-
-#~ msgid "Import Presets"
-#~ msgstr "Načítať predvoľbu"
-
-#~ msgid "Start Service at Login"
-#~ msgstr "Spustiť službu pri prihlásení"
-
-#, fuzzy
-#~ msgid "Activate"
-#~ msgstr "Aktívny model"
-
-#~ msgid "Add to Blocklist"
-#~ msgstr "Pridať na zoznam blokovaných"
-
-#~ msgid "Blocklist"
-#~ msgstr "Zoznam blokovaných"
-
-#, fuzzy
-#~ msgid "Microphone"
-#~ msgstr "Kalibrovať mikrofón"
-
-#, fuzzy
-#~ msgid "enabled"
-#~ msgstr "Povolené"
-
-#, fuzzy
-#~ msgid "disabled"
-#~ msgstr "Povolené"
-
-#~ msgid "Format"
-#~ msgstr "Formát"
-
-#~ msgid "Latency"
-#~ msgstr "Odozva"
-
-#~ msgid "idle"
-#~ msgstr "nečinné"
-
-#~ msgid "running"
-#~ msgstr "beží"
-
-#~ msgid "suspended"
-#~ msgstr "pozastavené"
-
-#~ msgid "creating"
-#~ msgstr "vytváram"
-
-#~ msgid "error"
-#~ msgstr "chyba"
-
-#~ msgid "unknown"
-#~ msgstr "neznáme"
-
-#~ msgid "Faster"
-#~ msgstr "Rýchlo"
-
-#~ msgid "Preserve Formant"
-#~ msgstr "Zachovať zložku rozhodujúcu o farbe zvuku"
-
-#~ msgid "Cmoy"
-#~ msgstr "Slúchadlový zosilňovač (CMoy)"
-
-#~ msgid "Jmeier"
-#~ msgstr "Jmeier"
-
-#~ msgid "RLC (BT)"
-#~ msgstr "RLC (BT)"
-
-#~ msgid "RLC (MT)"
-#~ msgstr "RLC (MT)"
-
-#~ msgid "BWC (BT)"
-#~ msgstr "BWC (BT)"
-
-#~ msgid "BWC (MT)"
-#~ msgstr "BWC (MT)"
-
-#~ msgid "LRX (BT)"
-#~ msgstr "LRX (BT)"
-
-#~ msgid "LRX (MT)"
-#~ msgstr "LRX (MT)"
-
-#~ msgid "APO (DR)"
-#~ msgstr "APO (DR)"
-
-#~ msgid "LR4"
-#~ msgstr "LR4"
-
-#~ msgid "LR8"
-#~ msgstr "LR8"
-
-#, fuzzy
-#~ msgid "Output Channel"
-#~ msgstr "Výstupný Zisk"
-
-#, fuzzy
-#~ msgid "Channel"
-#~ msgstr "Kanály"
-
-#, fuzzy
-#~ msgid "Value"
-#~ msgstr "Spodná hranica"
-
-#, fuzzy
-#~ msgid "Output Effects"
-#~ msgstr "Výstupné efekty"
-
-#~ msgid "Settings"
-#~ msgstr "Nastavenia"
-
-#, fuzzy
-#~ msgid "Settings Menu"
-#~ msgstr "Nastavenia"
-
-#, fuzzy
-#~ msgid "Documentation"
-#~ msgstr "Trvanie"
-
-#, fuzzy
-#~ msgid "Enable Test Signal"
-#~ msgstr "Skúšobné signály"
-
-#, fuzzy
-#~ msgid "Signal"
-#~ msgstr "Skúšobné signály"
-
-#~ msgid "Show Spectrum"
-#~ msgstr "Zobraziť spektrum"
-
-#~ msgid "Border"
-#~ msgstr "Okraj"
-
-#~ msgid "Spectrum Type"
-#~ msgstr "Typ spektra"
-
-#~ msgid "Spectrum Color"
-#~ msgstr "Farba spektra"
-
-#, fuzzy
-#~ msgid "Remove Model"
-#~ msgstr "Aktívny model"
-
-#~ msgid "Maximum Gain Reduction"
-#~ msgstr "Najvyššia redukcia zisku"
-
-#, fuzzy
-#~ msgid "Wet"
-#~ msgstr "Váhy"
-
-#~ msgid "Dry"
-#~ msgstr "Skúšobný"
-
-#~ msgid "S/C Level"
-#~ msgstr "S/C Úroveň"
-
-#~ msgid "Short Term"
-#~ msgstr "Krátkodobá"
-
-#, fuzzy
-#~ msgid "Low-pass"
-#~ msgstr "Dolná priepusť"
-
-#~ msgid "Set the volume and turn on/off effects"
-#~ msgstr "Nastaviť hlasitosť a zapnúť/vypnúť efekty"
-
-#~ msgid "Includes an equalizer with built-in presets"
-#~ msgstr "Zahŕňa ekvalizér s prednastavenými profilmi"
-
-#~ msgid "Input Limiter"
-#~ msgstr "Obmedzovač na vstupe"
-
-#~ msgid "Calibration"
-#~ msgstr "Kalibrácia"
-
-#~ msgid "Automatic Smoothing Control"
-#~ msgstr "Automatické vyhladenie"
-
-#~ msgid "Limit"
-#~ msgstr "Obmedzenie"
-
-#~ msgid "ASC"
-#~ msgstr "ASC"
-
-#~ msgid "Attenuation"
-#~ msgstr "Zoslabenie"
-
-#~ msgid "ISO226-2003"
-#~ msgstr "ISO226-2003"
-
-#~ msgid "Fletcher-Munson"
-#~ msgstr "Fletcher-Munson"
-
-#~ msgid "Robinson-Dadson"
-#~ msgstr "Robinson-Dadson"
-
-#~ msgid "Audio Effects for PulseAudio Applications"
-#~ msgstr "Zvukové efekty pre aplikácie využívajúce PulseAudio"
-
-#~ msgid "Audio effects for PulseAudio applications"
-#~ msgstr "Zvukové efekty pre aplikácie PulseAudio"
-
-#~ msgid "Help"
-#~ msgstr "Pomocník"
-
-#~ msgid "Calibration Microphone"
-#~ msgstr "Kalibrovať mikrofón"
-
-#~ msgid "Based on"
-#~ msgstr "Na základe"
-
-#~ msgid "Detect Silence"
-#~ msgstr "Detekcia ticha"
-
-#~ msgid "Provided by"
-#~ msgstr "Poskytuje"
-
-#~ msgid "Reconnect the microphone to apply new changes made to the Blocklist"
-#~ msgstr ""
-#~ "Znovu pripojiť mikrofón pre použitie zmien vykonaných v zozname "
-#~ "blokovaných"
-
-#~ msgid "Restart the player to apply new changes made to the Blocklist"
-#~ msgstr "Reštartovať prehrávač, aby sa uplatnili zmeny v zozname blokovaných"
-
-#~ msgid "Sine"
-#~ msgstr "Sínus"
-
-#~ msgid "Square"
-#~ msgstr "Štvorec"
-
-#~ msgid "Saw"
-#~ msgstr "Píla"
-
-#~ msgid "Triangle"
-#~ msgstr "Trojuholník"
-
-#~ msgid "Silence"
-#~ msgstr "Ticho"
-
-#~ msgid "Pink Noise"
-#~ msgstr "Ružový Šum"
-
-#~ msgid "Ticks"
-#~ msgstr "Tiky"
-
-#~ msgid "Gaussian Noise"
-#~ msgstr "Gaussový šum"
-
-#~ msgid "Red Noise"
-#~ msgstr "Červený šum"
-
-#~ msgid "Blue Noise"
-#~ msgstr "Modrý šum"
-
-#~ msgid "Violet Noise"
-#~ msgstr "Fialový Šum"
-
-#~ msgid "Volume"
-#~ msgstr "Hlasitosť"
-
-#~ msgid "Window"
-#~ msgstr "Okno"
-
-#~ msgid "Measure Noise"
-#~ msgstr "Merať šum"
-
-#~ msgid "Subtract Noise"
-#~ msgstr "Odčítať šum"
-
-#~ msgid "Low-pass Frequency"
-#~ msgstr "Frekvencia nízkej priepuste"
-
-#~ msgid "Advanced"
-#~ msgstr "Pokročilé"
-
-#~ msgid "Import Impulse Response File"
-#~ msgstr "Importovať súbor s odpoveďou impulzu"
-
-#~ msgid "Select the impulse Response File"
-#~ msgstr "Vyberte súbor s odpoveďou impulzu"
-
-#~ msgid "Aggressive Mode"
-#~ msgstr "Agresívny režim"
-
-#~ msgid "Before"
-#~ msgstr "Pred"
-
-#~ msgid "After"
-#~ msgstr "Po"
-
-#~ msgid "Loudness Range"
-#~ msgstr "Dynamický Rozsah"
-
-#~ msgid "Apply APO Preset"
-#~ msgstr "Použiť APO predvoľby"
-
-#~ msgid "Apply"
-#~ msgstr "Použiť"
-
-#~ msgid "Muted"
-#~ msgstr "Stíšený"
-
-#~ msgid "Distant Headphones"
-#~ msgstr "Vzdialené slúchadlá"
-
-#~ msgid "Niceness"
-#~ msgstr "Hodnota nice"
-
-#~ msgid "Priority Type"
-#~ msgstr "Typ priority"
-
-#~ msgid "Priority"
-#~ msgstr "Priorita"
-
-#~ msgid "About"
-#~ msgstr "O programe"
-
-#~ msgid "Loudness Compensator"
-#~ msgstr "Kompenzácia hlasitosti"
-
-#~ msgid ""
-#~ "Automatically apply this preset whenever the currently used device is "
-#~ "plugged in the system"
-#~ msgstr ""
-#~ "Automaticky použiť toto nastavenie, ak je aktuálne používané zariadenie "
-#~ "pripojené"
-
-#~ msgid "Default Source"
-#~ msgstr "Predvolený bdroj"
-
-#~ msgid "Protocol"
-#~ msgstr "Protokol"
-
-#~ msgid "Default Sample Format"
-#~ msgstr "Predvolený formát vzorkovania"
-
-#~ msgid "Channel Mapping"
-#~ msgstr "Priradenie kanála"
-
-#~ msgid "File"
-#~ msgstr "Súbor"
-
-#~ msgid "Configuration"
-#~ msgstr "Konfigurácia"
-
-#~ msgid "Resamplers"
-#~ msgstr "Prevzorkovače"
-
-#~ msgid "Pipeline Input"
-#~ msgstr "Pipeline vstup"
-
-#~ msgid "Buffer"
-#~ msgstr "Vyrovnávacia pamäť"
-
-#~ msgid "Pipeline Output"
-#~ msgstr "Pipeline výstup"
-
-#~ msgid "Block Size"
-#~ msgstr "Veľkosť bloku"
-
-#~ msgid "Use Custom Color"
-#~ msgstr "Použiť vlastnú Farbu"
-
-#~ msgid "Use Gradient"
-#~ msgstr "Použiť tieňovanie"
-
-#~ msgid "Sampling"
-#~ msgstr "Vzorkovanie"
-
-#~ msgid "Maximum Frequency"
-#~ msgstr "Maximálna frekvencia"
-
-#~ msgid "Gradient Color"
-#~ msgstr "Farba prechodu"
-
-#~ msgid "WebRTC"
-#~ msgstr "WebRTC"
-
-#~ msgid "Extended Filter"
-#~ msgstr "Rozšírený filter"
-
-#~ msgid "Low"
-#~ msgstr "Nízky"
-
-#~ msgid "Moderate"
-#~ msgstr "Stredný"
-
-#~ msgid "High"
-#~ msgstr "Vysoký"
-
-#, fuzzy
-#~ msgid "Suppression Level"
-#~ msgstr "Redukcia zosilnenia"
-
-#~ msgid "Delay Agnostic"
-#~ msgstr "Absolútne oneskorenie"
-
-#~ msgid "Very High"
-#~ msgstr "Veľmi vysoká"
-
-#~ msgid "Noise Suppressor"
-#~ msgstr "Potlačenie šumu"
-
-#~ msgid "Adaptive Digital"
-#~ msgstr "Prispôsobivý digitálny"
-
-#~ msgid "Fixed Digital"
-#~ msgstr "Pevný digitálny"
-
-#~ msgid "Gain Controller"
-#~ msgstr "Ovládač zosilnenia"
-
-#~ msgid "Detection Likelihood"
-#~ msgstr "Pravdepodobnosť zistenia"
-
-#~ msgid "Very Low"
-#~ msgstr "Veľmi nízka"
-
-#~ msgid "Voice Detector"
-#~ msgstr "Detekcia reči"
-
-#~ msgid "Resampler"
-#~ msgstr "Prevzorkovač"
-
-#~ msgid "paused"
-#~ msgstr "pozastavené"
-
-#~ msgid "playing"
-#~ msgstr "hrá"
-
-#~ msgid "Pulseaudio"
-#~ msgstr "Pulseaudio"
-
-#~ msgid "Import APO Presets"
-#~ msgstr "Načítať APO predvoľbu"
-
-#, fuzzy
-#~ msgid "Gain Detection"
-#~ msgstr "Redukcia zosilnenia"
-
-#~ msgid "Exponent"
-#~ msgstr "Exponent"
