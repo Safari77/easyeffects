@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: easyeffects\n"
 "Report-Msgid-Bugs-To: https://github.com/wwmm/easyeffects/issues\n"
-"POT-Creation-Date: 2025-12-24 13:30-0300\n"
+"POT-Creation-Date: 2025-12-27 21:40-0300\n"
 "PO-Revision-Date: 2025-09-23 14:01+0000\n"
 "Last-Translator: Danial Behzadi <dani.behzi@ubuntu.com>\n"
 "Language-Team: Persian <https://hosted.weblate.org/projects/easyeffects/main/"
@@ -834,7 +834,7 @@ msgstr "ترکیب"
 msgid "Impulses"
 msgstr "ایمپالس ها"
 
-#: src/contents/ui/Convolver.qml:222 src/plugin_base.cpp:286
+#: src/contents/ui/Convolver.qml:222 src/plugin_base.cpp:324
 msgid "Spectrum"
 msgstr "طیف"
 
@@ -2134,12 +2134,12 @@ msgid "No Clients"
 msgstr "مشتریان"
 
 #: src/contents/ui/PipeWirePage.qml:296
-#: src/contents/ui/PreferencesSheet.qml:301
+#: src/contents/ui/PreferencesSheet.qml:314
 msgid "State"
 msgstr "ایالت"
 
 #: src/contents/ui/PipeWirePage.qml:303
-#: src/contents/ui/PreferencesSheet.qml:308
+#: src/contents/ui/PreferencesSheet.qml:321
 msgid "Enabled"
 msgstr "فعال شد"
 
@@ -2326,305 +2326,317 @@ msgid "Mic monitor plays to output effects pipeline"
 msgstr ""
 
 #: src/contents/ui/PreferencesSheet.qml:212
+msgid "Copy the input audio buffer"
+msgstr ""
+
+#: src/contents/ui/PreferencesSheet.qml:213
+msgid ""
+"Use a copy of the input audio buffer given by the sound server when "
+"processing audio inside Easy Effects plugins. This fixes audio glitches that "
+"can happen when external applications are recording from Easy Effects "
+"virtual devices monitors."
+msgstr ""
+
+#: src/contents/ui/PreferencesSheet.qml:225
 #, fuzzy
 msgid "Enable the inactivity timeout"
 msgstr "زمان‌سنج بی‌فعالیتی"
 
-#: src/contents/ui/PreferencesSheet.qml:213
+#: src/contents/ui/PreferencesSheet.qml:226
 msgid ""
 "When all streams are inactive, Easy Effects pipeline remains loaded for an "
 "extra amount of time."
 msgstr ""
 
-#: src/contents/ui/PreferencesSheet.qml:225
+#: src/contents/ui/PreferencesSheet.qml:238
 #, fuzzy
 msgid "Inactivity timeout"
 msgstr "زمان‌سنج بی‌فعالیتی"
 
-#: src/contents/ui/PreferencesSheet.qml:240
+#: src/contents/ui/PreferencesSheet.qml:253
 #, fuzzy
 msgid "Level meters frame rate cap"
 msgstr "فعال/غیرفعال کردن این برنامه"
 
-#: src/contents/ui/PreferencesSheet.qml:241
+#: src/contents/ui/PreferencesSheet.qml:254
 msgid "Maximum level meter update rate."
 msgstr ""
 
-#: src/contents/ui/PreferencesSheet.qml:255
+#: src/contents/ui/PreferencesSheet.qml:268
 #, fuzzy
 msgid "Level meters label"
 msgstr "سطح سنج"
 
-#: src/contents/ui/PreferencesSheet.qml:256
+#: src/contents/ui/PreferencesSheet.qml:269
 msgid ""
 "The time it takes for the level meter labels to be updated when the current "
 "level is below the last highest one."
 msgstr ""
 
-#: src/contents/ui/PreferencesSheet.qml:273
+#: src/contents/ui/PreferencesSheet.qml:286
 #, fuzzy
 msgid "Enable level meters animation"
 msgstr "فعال/غیرفعال کردن این برنامه"
 
-#: src/contents/ui/PreferencesSheet.qml:282
+#: src/contents/ui/PreferencesSheet.qml:295
 msgid "Level meters animation duration"
 msgstr ""
 
-#: src/contents/ui/PreferencesSheet.qml:320
+#: src/contents/ui/PreferencesSheet.qml:333
 msgid "Audio delay compensation"
 msgstr ""
 
-#: src/contents/ui/PreferencesSheet.qml:335
+#: src/contents/ui/PreferencesSheet.qml:348
 msgid "Graph"
 msgstr ""
 
-#: src/contents/ui/PreferencesSheet.qml:342
+#: src/contents/ui/PreferencesSheet.qml:355
 msgid "Shape"
 msgstr "شکل"
 
-#: src/contents/ui/PreferencesSheet.qml:346
+#: src/contents/ui/PreferencesSheet.qml:359
 msgid "Bars"
 msgstr "میله‌ها"
 
-#: src/contents/ui/PreferencesSheet.qml:346
+#: src/contents/ui/PreferencesSheet.qml:359
 msgid "Lines"
 msgstr "خطوط"
 
-#: src/contents/ui/PreferencesSheet.qml:346
+#: src/contents/ui/PreferencesSheet.qml:359
 msgid "Dots"
 msgstr "نقطه‌ها"
 
-#: src/contents/ui/PreferencesSheet.qml:346
+#: src/contents/ui/PreferencesSheet.qml:359
 msgid "Area"
 msgstr ""
 
-#: src/contents/ui/PreferencesSheet.qml:356
+#: src/contents/ui/PreferencesSheet.qml:369
 #, fuzzy
 msgid "Dynamic scale"
 msgstr "مقیاس پویا"
 
-#: src/contents/ui/PreferencesSheet.qml:368
+#: src/contents/ui/PreferencesSheet.qml:381
 msgid "Logarithmic frequency axis"
 msgstr ""
 
-#: src/contents/ui/PreferencesSheet.qml:380
+#: src/contents/ui/PreferencesSheet.qml:393
 msgid "Points"
 msgstr "امتیازها"
 
-#: src/contents/ui/PreferencesSheet.qml:395
+#: src/contents/ui/PreferencesSheet.qml:408
 msgid "Height"
 msgstr "ارتفاع"
 
-#: src/contents/ui/PreferencesSheet.qml:402
+#: src/contents/ui/PreferencesSheet.qml:415
 msgid "px"
 msgstr ""
 
-#: src/contents/ui/PreferencesSheet.qml:409
+#: src/contents/ui/PreferencesSheet.qml:422
 #, fuzzy
 msgid "Spectrum frame rate cap"
 msgstr "فعال/غیرفعال کردن این برنامه"
 
-#: src/contents/ui/PreferencesSheet.qml:410
+#: src/contents/ui/PreferencesSheet.qml:423
 msgid "Maximum spectrum update rate."
 msgstr ""
 
-#: src/contents/ui/PreferencesSheet.qml:425
+#: src/contents/ui/PreferencesSheet.qml:438
 msgid "Frequency Range"
 msgstr "محدوده فرکانس"
 
-#: src/contents/ui/PreferencesSheet.qml:432
+#: src/contents/ui/PreferencesSheet.qml:445
 msgid "Minimum"
 msgstr "حداقل"
 
-#: src/contents/ui/PreferencesSheet.qml:448
+#: src/contents/ui/PreferencesSheet.qml:461
 msgid "Maximum"
 msgstr "حداکثر"
 
-#: src/contents/ui/PreferencesSheet.qml:470
+#: src/contents/ui/PreferencesSheet.qml:483
 msgid "Database autosave interval"
 msgstr ""
 
-#: src/contents/ui/PreferencesSheet.qml:484
+#: src/contents/ui/PreferencesSheet.qml:497
 #, fuzzy
 msgid "Most used presets"
 msgstr "کراس‌فید"
 
-#: src/contents/ui/PreferencesSheet.qml:502
+#: src/contents/ui/PreferencesSheet.qml:515
 msgid "Window"
 msgstr ""
 
-#: src/contents/ui/PreferencesSheet.qml:511
+#: src/contents/ui/PreferencesSheet.qml:524
 msgid "Force KDE's Breeze theme when Easy Effects starts"
 msgstr ""
 
-#: src/contents/ui/PreferencesSheet.qml:512
+#: src/contents/ui/PreferencesSheet.qml:525
 msgid ""
 "It is necessary to restart the service for changes in this setting to take "
 "effect."
 msgstr ""
 
-#: src/contents/ui/PreferencesSheet.qml:525
+#: src/contents/ui/PreferencesSheet.qml:538
 #, fuzzy
 msgid "Reduce effects list controls"
 msgstr "نمایش/پنهان کردن فهرست افکت‌ها"
 
-#: src/contents/ui/PreferencesSheet.qml:526
+#: src/contents/ui/PreferencesSheet.qml:539
 msgid ""
 "Action buttons in the effects list are moved inside a context menu for a "
 "more compact view."
 msgstr ""
 
-#: src/contents/ui/PreferencesSheet.qml:537
-#: src/contents/ui/PreferencesSheet.qml:561
+#: src/contents/ui/PreferencesSheet.qml:550
+#: src/contents/ui/PreferencesSheet.qml:574
 #, fuzzy
 msgid "Color scheme"
 msgstr "رنگ"
 
-#: src/contents/ui/PreferencesSheet.qml:550
+#: src/contents/ui/PreferencesSheet.qml:563
 msgid "Graphs"
 msgstr ""
 
-#: src/contents/ui/PreferencesSheet.qml:565
+#: src/contents/ui/PreferencesSheet.qml:578
 #, fuzzy
 msgid "Automatic"
 msgstr "افزایش خودکار"
 
-#: src/contents/ui/PreferencesSheet.qml:565
+#: src/contents/ui/PreferencesSheet.qml:578
 #, fuzzy
 msgid "Light"
 msgstr "راست"
 
-#: src/contents/ui/PreferencesSheet.qml:565
+#: src/contents/ui/PreferencesSheet.qml:578
 msgid "Dark"
 msgstr ""
 
-#: src/contents/ui/PreferencesSheet.qml:576
+#: src/contents/ui/PreferencesSheet.qml:589
 #, fuzzy
 msgid "Color theme"
 msgstr "رنگ"
 
-#: src/contents/ui/PreferencesSheet.qml:580
+#: src/contents/ui/PreferencesSheet.qml:593
 msgid "Green"
 msgstr ""
 
-#: src/contents/ui/PreferencesSheet.qml:580
+#: src/contents/ui/PreferencesSheet.qml:593
 msgid "Green neon"
 msgstr ""
 
-#: src/contents/ui/PreferencesSheet.qml:580
+#: src/contents/ui/PreferencesSheet.qml:593
 msgid "Mix"
 msgstr "مخلوط"
 
-#: src/contents/ui/PreferencesSheet.qml:580
+#: src/contents/ui/PreferencesSheet.qml:593
 #, fuzzy
 msgid "Orange"
 msgstr "محدوده"
 
-#: src/contents/ui/PreferencesSheet.qml:580
+#: src/contents/ui/PreferencesSheet.qml:593
 msgid "Yellow"
 msgstr ""
 
-#: src/contents/ui/PreferencesSheet.qml:580
+#: src/contents/ui/PreferencesSheet.qml:593
 msgid "Blue"
 msgstr ""
 
-#: src/contents/ui/PreferencesSheet.qml:580
+#: src/contents/ui/PreferencesSheet.qml:593
 msgid "Purple"
 msgstr ""
 
-#: src/contents/ui/PreferencesSheet.qml:580
+#: src/contents/ui/PreferencesSheet.qml:593
 msgid "Grey"
 msgstr ""
 
-#: src/contents/ui/PreferencesSheet.qml:580
+#: src/contents/ui/PreferencesSheet.qml:593
 msgid "User"
 msgstr ""
 
-#: src/contents/ui/PreferencesSheet.qml:588
+#: src/contents/ui/PreferencesSheet.qml:601
 msgctxt "@label"
 msgid "Background"
 msgstr ""
 
-#: src/contents/ui/PreferencesSheet.qml:597
+#: src/contents/ui/PreferencesSheet.qml:610
 msgctxt "@label"
 msgid "Plot area background"
 msgstr ""
 
-#: src/contents/ui/PreferencesSheet.qml:606
+#: src/contents/ui/PreferencesSheet.qml:619
 msgctxt "@label"
 msgid "Series colors"
 msgstr ""
 
-#: src/contents/ui/PreferencesSheet.qml:615
+#: src/contents/ui/PreferencesSheet.qml:628
 #, fuzzy
 msgctxt "@label"
 msgid "Axis labels text color"
 msgstr "برچسب‌های محور"
 
-#: src/contents/ui/PreferencesSheet.qml:624
+#: src/contents/ui/PreferencesSheet.qml:637
 msgctxt "@label"
 msgid "Axis labels background color"
 msgstr ""
 
-#: src/contents/ui/PreferencesSheet.qml:633
+#: src/contents/ui/PreferencesSheet.qml:646
 msgctxt "@label"
 msgid "Border color"
 msgstr ""
 
-#: src/contents/ui/PreferencesSheet.qml:642
+#: src/contents/ui/PreferencesSheet.qml:655
 #, fuzzy
 msgid "Line width"
 msgstr "پهنای خط"
 
-#: src/contents/ui/PreferencesSheet.qml:656
+#: src/contents/ui/PreferencesSheet.qml:669
 msgid "Show grid lines"
 msgstr ""
 
-#: src/contents/ui/PreferencesSheet.qml:674
+#: src/contents/ui/PreferencesSheet.qml:687
 #, fuzzy
 msgid "Autoload delay"
 msgstr "افزایش خودکار"
 
-#: src/contents/ui/PreferencesSheet.qml:675
+#: src/contents/ui/PreferencesSheet.qml:688
 msgid ""
 "Delay between receiving a new device route and the call to autoload a preset."
 msgstr ""
 
-#: src/contents/ui/PreferencesSheet.qml:691
+#: src/contents/ui/PreferencesSheet.qml:704
 msgid "Ignore the blocklist from presets"
 msgstr ""
 
-#: src/contents/ui/PreferencesSheet.qml:692
+#: src/contents/ui/PreferencesSheet.qml:705
 msgid ""
 "If enabled, the list of excluded apps set in the loaded preset is ignored "
 "and does not replace the one set by the user."
 msgstr ""
 
-#: src/contents/ui/PreferencesSheet.qml:713
+#: src/contents/ui/PreferencesSheet.qml:726
 #, fuzzy
 msgid "Global shortcuts"
 msgstr "_میانبرها"
 
-#: src/contents/ui/PreferencesSheet.qml:714
+#: src/contents/ui/PreferencesSheet.qml:727
 msgid "Enables support for XDG global shortcuts."
 msgstr ""
 
-#: src/contents/ui/PreferencesSheet.qml:726
+#: src/contents/ui/PreferencesSheet.qml:739
 #, fuzzy
 msgid "Native window of effects"
 msgstr "نمایش پنجره بومی"
 
-#: src/contents/ui/PreferencesSheet.qml:727
+#: src/contents/ui/PreferencesSheet.qml:740
 #, fuzzy
 msgid "Allows the native user interface of effects to be shown/hidden."
 msgstr "امکان نمایش/پنهان‌سازی پنجره افزونه بومی"
 
-#: src/contents/ui/PreferencesSheet.qml:739
+#: src/contents/ui/PreferencesSheet.qml:752
 #, fuzzy
 msgid "Update frequency"
 msgstr "فرکانس به‌روزرسانی"
 
-#: src/contents/ui/PreferencesSheet.qml:740
+#: src/contents/ui/PreferencesSheet.qml:753
 #, fuzzy
 msgid "Related to LV2 plugins."
 msgstr "مرتبط با افزونه‌های LV2"
@@ -3194,15 +3206,15 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr ""
 
-#: src/plugin_base.cpp:274
+#: src/plugin_base.cpp:312
 msgid "(Mic)"
 msgstr ""
 
-#: src/plugin_base.cpp:277
+#: src/plugin_base.cpp:315
 msgid "(Speakers)"
 msgstr ""
 
-#: src/plugin_base.cpp:284
+#: src/plugin_base.cpp:322
 msgid "Output Level Meter"
 msgstr "سطح سنج خروجی"
 

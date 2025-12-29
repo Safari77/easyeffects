@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: easyeffects\n"
 "Report-Msgid-Bugs-To: https://github.com/wwmm/easyeffects/issues\n"
-"POT-Creation-Date: 2025-12-24 13:30-0300\n"
-"PO-Revision-Date: 2025-12-19 18:00+0000\n"
+"POT-Creation-Date: 2025-12-27 21:40-0300\n"
+"PO-Revision-Date: 2025-12-26 03:00+0000\n"
 "Last-Translator: Володимир <vlzuykov@gmail.com>\n"
 "Language-Team: Ukrainian <https://hosted.weblate.org/projects/easyeffects/"
 "main/uk/>\n"
@@ -487,7 +487,7 @@ msgstr "RMS"
 #: src/contents/ui/MultibandCompressor.qml:421
 #: src/contents/ui/MultibandGate.qml:394
 msgid "Low-pass"
-msgstr "ФНЧ"
+msgstr "ФНЧ (Low-pass)"
 
 #: src/contents/ui/Compressor.qml:287 src/contents/ui/Expander.qml:247
 #: src/contents/ui/Gate.qml:265 src/contents/ui/MultibandCompressor.qml:421
@@ -602,7 +602,7 @@ msgstr "Випередження"
 #: src/contents/ui/Expander.qml:350 src/contents/ui/Filter.qml:49
 #: src/contents/ui/Gate.qml:369
 msgid "High-pass"
-msgstr "ФВЧ"
+msgstr "ФВЧ (High-pass)"
 
 #: src/contents/ui/Compressor.qml:398 src/contents/ui/Compressor.qml:412
 #: src/contents/ui/EqualizerBandMenu.qml:30 src/contents/ui/Expander.qml:354
@@ -783,7 +783,7 @@ msgstr "Об'єднати"
 msgid "Impulses"
 msgstr "Імпульси"
 
-#: src/contents/ui/Convolver.qml:222 src/plugin_base.cpp:286
+#: src/contents/ui/Convolver.qml:222 src/plugin_base.cpp:324
 msgid "Spectrum"
 msgstr "Спектр"
 
@@ -1235,7 +1235,7 @@ msgstr "Підсилення"
 
 #: src/contents/ui/EqualizerBandMenu.qml:121 src/contents/ui/Filter.qml:155
 msgid "Quality"
-msgstr "Діапазон"
+msgstr "Добротність"
 
 #: src/contents/ui/EqualizerBandMenu.qml:144 src/contents/ui/Filter.qml:124
 msgid "Width"
@@ -1593,7 +1593,7 @@ msgstr "Автоматичний рівень"
 
 #: src/contents/ui/Limiter.qml:450
 msgid "Smooth"
-msgstr ""
+msgstr "Гладкий"
 
 #: src/contents/ui/Limiter.qml:618
 msgid "Threshold boost"
@@ -1945,12 +1945,12 @@ msgid "No Clients"
 msgstr "Немає клієнтів"
 
 #: src/contents/ui/PipeWirePage.qml:296
-#: src/contents/ui/PreferencesSheet.qml:301
+#: src/contents/ui/PreferencesSheet.qml:314
 msgid "State"
 msgstr "Стан"
 
 #: src/contents/ui/PipeWirePage.qml:303
-#: src/contents/ui/PreferencesSheet.qml:308
+#: src/contents/ui/PreferencesSheet.qml:321
 msgid "Enabled"
 msgstr "Увімкнено"
 
@@ -2129,10 +2129,22 @@ msgid "Mic monitor plays to output effects pipeline"
 msgstr "Прослуховування мікрофона через вихідний конвеєр ефектів"
 
 #: src/contents/ui/PreferencesSheet.qml:212
+msgid "Copy the input audio buffer"
+msgstr ""
+
+#: src/contents/ui/PreferencesSheet.qml:213
+msgid ""
+"Use a copy of the input audio buffer given by the sound server when "
+"processing audio inside Easy Effects plugins. This fixes audio glitches that "
+"can happen when external applications are recording from Easy Effects "
+"virtual devices monitors."
+msgstr ""
+
+#: src/contents/ui/PreferencesSheet.qml:225
 msgid "Enable the inactivity timeout"
 msgstr "Увімкнути час очікування при бездіяльності"
 
-#: src/contents/ui/PreferencesSheet.qml:213
+#: src/contents/ui/PreferencesSheet.qml:226
 msgid ""
 "When all streams are inactive, Easy Effects pipeline remains loaded for an "
 "extra amount of time."
@@ -2140,23 +2152,23 @@ msgstr ""
 "Коли всі потоки неактивні, конвеєр Easy Effects залишається завантаженим "
 "протягом додаткового часу."
 
-#: src/contents/ui/PreferencesSheet.qml:225
+#: src/contents/ui/PreferencesSheet.qml:238
 msgid "Inactivity timeout"
 msgstr "Час очікування при бездіяльності"
 
-#: src/contents/ui/PreferencesSheet.qml:240
+#: src/contents/ui/PreferencesSheet.qml:253
 msgid "Level meters frame rate cap"
 msgstr "Обмеження частоти кадрів рівня"
 
-#: src/contents/ui/PreferencesSheet.qml:241
+#: src/contents/ui/PreferencesSheet.qml:254
 msgid "Maximum level meter update rate."
 msgstr "Максимальна частота оновлення рівня."
 
-#: src/contents/ui/PreferencesSheet.qml:255
+#: src/contents/ui/PreferencesSheet.qml:268
 msgid "Level meters label"
 msgstr "Позначки індикаторів рівня"
 
-#: src/contents/ui/PreferencesSheet.qml:256
+#: src/contents/ui/PreferencesSheet.qml:269
 msgid ""
 "The time it takes for the level meter labels to be updated when the current "
 "level is below the last highest one."
@@ -2164,99 +2176,99 @@ msgstr ""
 "Час, необхідний для оновлення позначок індикатора рівня, коли поточний "
 "рівень нижчий за останній найвищий."
 
-#: src/contents/ui/PreferencesSheet.qml:273
+#: src/contents/ui/PreferencesSheet.qml:286
 msgid "Enable level meters animation"
 msgstr "Увімкнути анімацію індикаторів рівня"
 
-#: src/contents/ui/PreferencesSheet.qml:282
+#: src/contents/ui/PreferencesSheet.qml:295
 msgid "Level meters animation duration"
 msgstr "Тривалість анімації рівня"
 
-#: src/contents/ui/PreferencesSheet.qml:320
+#: src/contents/ui/PreferencesSheet.qml:333
 msgid "Audio delay compensation"
 msgstr "Компенсація затримки звуку"
 
-#: src/contents/ui/PreferencesSheet.qml:335
+#: src/contents/ui/PreferencesSheet.qml:348
 msgid "Graph"
 msgstr "Графік"
 
-#: src/contents/ui/PreferencesSheet.qml:342
+#: src/contents/ui/PreferencesSheet.qml:355
 msgid "Shape"
 msgstr "Форма"
 
-#: src/contents/ui/PreferencesSheet.qml:346
+#: src/contents/ui/PreferencesSheet.qml:359
 msgid "Bars"
 msgstr "Стовпці"
 
-#: src/contents/ui/PreferencesSheet.qml:346
+#: src/contents/ui/PreferencesSheet.qml:359
 msgid "Lines"
 msgstr "Лінії"
 
-#: src/contents/ui/PreferencesSheet.qml:346
+#: src/contents/ui/PreferencesSheet.qml:359
 msgid "Dots"
 msgstr "Крапки"
 
-#: src/contents/ui/PreferencesSheet.qml:346
+#: src/contents/ui/PreferencesSheet.qml:359
 msgid "Area"
 msgstr "Площа"
 
-#: src/contents/ui/PreferencesSheet.qml:356
+#: src/contents/ui/PreferencesSheet.qml:369
 msgid "Dynamic scale"
 msgstr "Динамічний масштаб"
 
-#: src/contents/ui/PreferencesSheet.qml:368
+#: src/contents/ui/PreferencesSheet.qml:381
 msgid "Logarithmic frequency axis"
 msgstr "Логарифмічна вісь частоти"
 
-#: src/contents/ui/PreferencesSheet.qml:380
+#: src/contents/ui/PreferencesSheet.qml:393
 msgid "Points"
 msgstr "Роздільна здатність"
 
-#: src/contents/ui/PreferencesSheet.qml:395
+#: src/contents/ui/PreferencesSheet.qml:408
 msgid "Height"
 msgstr "Висота"
 
-#: src/contents/ui/PreferencesSheet.qml:402
+#: src/contents/ui/PreferencesSheet.qml:415
 msgid "px"
 msgstr "пікс"
 
-#: src/contents/ui/PreferencesSheet.qml:409
+#: src/contents/ui/PreferencesSheet.qml:422
 msgid "Spectrum frame rate cap"
 msgstr "Обмеження частоти кадрів спектру"
 
-#: src/contents/ui/PreferencesSheet.qml:410
+#: src/contents/ui/PreferencesSheet.qml:423
 msgid "Maximum spectrum update rate."
 msgstr "Максимальна швидкість оновлення спектру."
 
-#: src/contents/ui/PreferencesSheet.qml:425
+#: src/contents/ui/PreferencesSheet.qml:438
 msgid "Frequency Range"
 msgstr "Діапазон частот"
 
-#: src/contents/ui/PreferencesSheet.qml:432
+#: src/contents/ui/PreferencesSheet.qml:445
 msgid "Minimum"
 msgstr "Мінімум"
 
-#: src/contents/ui/PreferencesSheet.qml:448
+#: src/contents/ui/PreferencesSheet.qml:461
 msgid "Maximum"
 msgstr "Максимум"
 
-#: src/contents/ui/PreferencesSheet.qml:470
+#: src/contents/ui/PreferencesSheet.qml:483
 msgid "Database autosave interval"
 msgstr "Інтервал автоматичного збереження бази даних"
 
-#: src/contents/ui/PreferencesSheet.qml:484
+#: src/contents/ui/PreferencesSheet.qml:497
 msgid "Most used presets"
 msgstr "Найчастіше застосовувані пресети"
 
-#: src/contents/ui/PreferencesSheet.qml:502
+#: src/contents/ui/PreferencesSheet.qml:515
 msgid "Window"
 msgstr "Вікно"
 
-#: src/contents/ui/PreferencesSheet.qml:511
+#: src/contents/ui/PreferencesSheet.qml:524
 msgid "Force KDE's Breeze theme when Easy Effects starts"
 msgstr "Примусово вмикати тему KDE Breeze при запуску Easy Effects"
 
-#: src/contents/ui/PreferencesSheet.qml:512
+#: src/contents/ui/PreferencesSheet.qml:525
 msgid ""
 "It is necessary to restart the service for changes in this setting to take "
 "effect."
@@ -2264,11 +2276,11 @@ msgstr ""
 "Необхідно перезапустити службу для того, щоб зміни цього налаштування набули "
 "чинності."
 
-#: src/contents/ui/PreferencesSheet.qml:525
+#: src/contents/ui/PreferencesSheet.qml:538
 msgid "Reduce effects list controls"
 msgstr "Приховати елементи керування у списку ефектів"
 
-#: src/contents/ui/PreferencesSheet.qml:526
+#: src/contents/ui/PreferencesSheet.qml:539
 msgid ""
 "Action buttons in the effects list are moved inside a context menu for a "
 "more compact view."
@@ -2276,121 +2288,121 @@ msgstr ""
 "Кнопки дій у списку ефектів переміщено в контекстне меню для більш "
 "компактного відображення."
 
-#: src/contents/ui/PreferencesSheet.qml:537
-#: src/contents/ui/PreferencesSheet.qml:561
+#: src/contents/ui/PreferencesSheet.qml:550
+#: src/contents/ui/PreferencesSheet.qml:574
 msgid "Color scheme"
 msgstr "Колірна схема"
 
-#: src/contents/ui/PreferencesSheet.qml:550
+#: src/contents/ui/PreferencesSheet.qml:563
 msgid "Graphs"
 msgstr "Графіки"
 
-#: src/contents/ui/PreferencesSheet.qml:565
+#: src/contents/ui/PreferencesSheet.qml:578
 msgid "Automatic"
 msgstr "Автоматична"
 
-#: src/contents/ui/PreferencesSheet.qml:565
+#: src/contents/ui/PreferencesSheet.qml:578
 msgid "Light"
 msgstr "Світла"
 
-#: src/contents/ui/PreferencesSheet.qml:565
+#: src/contents/ui/PreferencesSheet.qml:578
 msgid "Dark"
 msgstr "Темна"
 
-#: src/contents/ui/PreferencesSheet.qml:576
+#: src/contents/ui/PreferencesSheet.qml:589
 msgid "Color theme"
 msgstr "Колірна тема"
 
-#: src/contents/ui/PreferencesSheet.qml:580
+#: src/contents/ui/PreferencesSheet.qml:593
 msgid "Green"
 msgstr "Зелена"
 
-#: src/contents/ui/PreferencesSheet.qml:580
+#: src/contents/ui/PreferencesSheet.qml:593
 msgid "Green neon"
 msgstr "Зелений неон"
 
-#: src/contents/ui/PreferencesSheet.qml:580
+#: src/contents/ui/PreferencesSheet.qml:593
 msgid "Mix"
 msgstr "Змішана"
 
-#: src/contents/ui/PreferencesSheet.qml:580
+#: src/contents/ui/PreferencesSheet.qml:593
 msgid "Orange"
 msgstr "Помаранчева"
 
-#: src/contents/ui/PreferencesSheet.qml:580
+#: src/contents/ui/PreferencesSheet.qml:593
 msgid "Yellow"
 msgstr "Жовта"
 
-#: src/contents/ui/PreferencesSheet.qml:580
+#: src/contents/ui/PreferencesSheet.qml:593
 msgid "Blue"
 msgstr "Синя"
 
-#: src/contents/ui/PreferencesSheet.qml:580
+#: src/contents/ui/PreferencesSheet.qml:593
 msgid "Purple"
 msgstr "Фіолетова"
 
-#: src/contents/ui/PreferencesSheet.qml:580
+#: src/contents/ui/PreferencesSheet.qml:593
 msgid "Grey"
 msgstr "Сіра"
 
-#: src/contents/ui/PreferencesSheet.qml:580
+#: src/contents/ui/PreferencesSheet.qml:593
 msgid "User"
 msgstr "Користувач"
 
-#: src/contents/ui/PreferencesSheet.qml:588
+#: src/contents/ui/PreferencesSheet.qml:601
 msgctxt "@label"
 msgid "Background"
 msgstr "Фон"
 
-#: src/contents/ui/PreferencesSheet.qml:597
+#: src/contents/ui/PreferencesSheet.qml:610
 msgctxt "@label"
 msgid "Plot area background"
 msgstr "Фон площі ділянки"
 
-#: src/contents/ui/PreferencesSheet.qml:606
+#: src/contents/ui/PreferencesSheet.qml:619
 msgctxt "@label"
 msgid "Series colors"
 msgstr "Кольори лінійки"
 
-#: src/contents/ui/PreferencesSheet.qml:615
+#: src/contents/ui/PreferencesSheet.qml:628
 msgctxt "@label"
 msgid "Axis labels text color"
 msgstr "Колір тексту міток осей"
 
-#: src/contents/ui/PreferencesSheet.qml:624
+#: src/contents/ui/PreferencesSheet.qml:637
 msgctxt "@label"
 msgid "Axis labels background color"
 msgstr "Колір фону міток осей"
 
-#: src/contents/ui/PreferencesSheet.qml:633
+#: src/contents/ui/PreferencesSheet.qml:646
 msgctxt "@label"
 msgid "Border color"
 msgstr "Колір контурів"
 
-#: src/contents/ui/PreferencesSheet.qml:642
+#: src/contents/ui/PreferencesSheet.qml:655
 msgid "Line width"
 msgstr "Ширина лінії"
 
-#: src/contents/ui/PreferencesSheet.qml:656
+#: src/contents/ui/PreferencesSheet.qml:669
 msgid "Show grid lines"
 msgstr "Показувати лінії сітки"
 
-#: src/contents/ui/PreferencesSheet.qml:674
+#: src/contents/ui/PreferencesSheet.qml:687
 msgid "Autoload delay"
 msgstr "Затримка автозавантаження"
 
-#: src/contents/ui/PreferencesSheet.qml:675
+#: src/contents/ui/PreferencesSheet.qml:688
 msgid ""
 "Delay between receiving a new device route and the call to autoload a preset."
 msgstr ""
 "Затримка між отриманням нового маршруту пристрою та викликом "
 "автозавантаження пресету."
 
-#: src/contents/ui/PreferencesSheet.qml:691
+#: src/contents/ui/PreferencesSheet.qml:704
 msgid "Ignore the blocklist from presets"
 msgstr "Ігнорувати список блокування з пресетів"
 
-#: src/contents/ui/PreferencesSheet.qml:692
+#: src/contents/ui/PreferencesSheet.qml:705
 msgid ""
 "If enabled, the list of excluded apps set in the loaded preset is ignored "
 "and does not replace the one set by the user."
@@ -2398,27 +2410,27 @@ msgstr ""
 "Якщо ввімкнено, список виключених програм, встановлений у завантаженому "
 "пресеті, ігнорується та не замінює той, що встановлений користувачем."
 
-#: src/contents/ui/PreferencesSheet.qml:713
+#: src/contents/ui/PreferencesSheet.qml:726
 msgid "Global shortcuts"
 msgstr "Глобальні скорочення"
 
-#: src/contents/ui/PreferencesSheet.qml:714
+#: src/contents/ui/PreferencesSheet.qml:727
 msgid "Enables support for XDG global shortcuts."
 msgstr "Увімкнути підтримку глобальних скорочень XDG."
 
-#: src/contents/ui/PreferencesSheet.qml:726
+#: src/contents/ui/PreferencesSheet.qml:739
 msgid "Native window of effects"
 msgstr "Рідне вікно ефектів"
 
-#: src/contents/ui/PreferencesSheet.qml:727
+#: src/contents/ui/PreferencesSheet.qml:740
 msgid "Allows the native user interface of effects to be shown/hidden."
 msgstr "Дозволяє показувати/приховувати власний інтерфейс користувача ефектів."
 
-#: src/contents/ui/PreferencesSheet.qml:739
+#: src/contents/ui/PreferencesSheet.qml:752
 msgid "Update frequency"
 msgstr "Частота оновлення"
 
-#: src/contents/ui/PreferencesSheet.qml:740
+#: src/contents/ui/PreferencesSheet.qml:753
 msgid "Related to LV2 plugins."
 msgstr "Стосується плагінів LV2."
 
@@ -2910,15 +2922,15 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "Ваші електронні адреси"
 
-#: src/plugin_base.cpp:274
+#: src/plugin_base.cpp:312
 msgid "(Mic)"
 msgstr "(Мікрофон)"
 
-#: src/plugin_base.cpp:277
+#: src/plugin_base.cpp:315
 msgid "(Speakers)"
 msgstr "(Колонки)"
 
-#: src/plugin_base.cpp:284
+#: src/plugin_base.cpp:322
 msgid "Output Level Meter"
 msgstr "Індикатор рівня вихідного сигналу"
 
