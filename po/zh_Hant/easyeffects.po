@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: easyeffects\n"
 "Report-Msgid-Bugs-To: https://github.com/wwmm/easyeffects/issues\n"
-"POT-Creation-Date: 2025-12-27 21:40-0300\n"
-"PO-Revision-Date: 2025-12-25 07:00+0000\n"
+"POT-Creation-Date: 2025-12-30 14:23-0300\n"
+"PO-Revision-Date: 2025-12-29 09:00+0000\n"
 "Last-Translator: 麋麓 BigELK176 <BigELK176@gmail.com>\n"
 "Language-Team: Chinese (Traditional Han script) <https://hosted.weblate.org/"
 "projects/easyeffects/main/zh_Hant/>\n"
@@ -1845,12 +1845,16 @@ msgid "Recorders"
 msgstr "錄音器"
 
 #: src/contents/ui/PageStreamsEffects.qml:731
+msgid "Excluded apps"
+msgstr "已經排除的應用程式"
+
+#: src/contents/ui/PageStreamsEffects.qml:740
 msgid "Input monitoring"
 msgstr "輸入監控"
 
-#: src/contents/ui/PageStreamsEffects.qml:744
-msgid "Excluded apps"
-msgstr "已經排除的應用程式"
+#: src/contents/ui/PageStreamsEffects.qml:753
+msgid "Send audio to the virtual source"
+msgstr ""
 
 #: src/contents/ui/PipeWirePage.qml:25
 msgid "General"
@@ -2115,7 +2119,7 @@ msgstr "麥克風監聽播放輸出音效管道"
 
 #: src/contents/ui/PreferencesSheet.qml:212
 msgid "Copy the input audio buffer"
-msgstr ""
+msgstr "複製輸入音源緩衝"
 
 #: src/contents/ui/PreferencesSheet.qml:213
 msgid ""
@@ -2124,6 +2128,8 @@ msgid ""
 "can happen when external applications are recording from Easy Effects "
 "virtual devices monitors."
 msgstr ""
+"在 Easy Effects 插件內處理音源時，使用聲音伺服器提供的輸入音源緩衝的副本。這"
+"修復了外部應用程序從 Easy Effects 虛擬設備監視器錄製時可能發生的音源差錯。"
 
 #: src/contents/ui/PreferencesSheet.qml:225
 msgid "Enable the inactivity timeout"
