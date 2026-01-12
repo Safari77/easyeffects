@@ -32,6 +32,8 @@ import org.kde.kirigami as Kirigami
 Kirigami.ApplicationWindow {
     id: appWindow
 
+    // We need to set visible to false in order to fix an issue related to
+    // --hide-window option. See #4491.
     visible: false
     width: DbMain.width
     height: DbMain.height
@@ -64,10 +66,31 @@ Kirigami.ApplicationWindow {
 
     onVisibleChanged: {
         if (appWindow.visible) {
+            /**
+             * When the window is reopened, its state (maximized, minimized,
+             * fullscreen, etc.) is lost.
+             * This happens both after restarting the application and when
+             * switching its visibility through the tray.
+             * Until this issue is fixed with a proper Wayland protocol, we can
+             * adopt the approach used in qBittorrent: save the visibility
+             * property into the database when hiding the window and restore
+             * its value when the window is shown.
+             */
+
+            /**
+             * The idea was doing what is described above. But for some reason Qt sometimes shows a warning about
+             * visible conflicting with visibility. And in the worse cases the window may never be shown. It does not
+             * matter how many times we restart EE. So for now letś disable the visibility management.
+             */
+
+            // appWindow.visibility = DbMain.visibility;
+
             DB.Manager.enableAutosave(true);
 
             openMappedPage(DbMain.visiblePage);
         } else {
+            // DbMain.visibility = appWindow.visibility;
+
             DB.Manager.saveAll();
 
             pageStack.clear();
@@ -75,6 +98,18 @@ Kirigami.ApplicationWindow {
     }
 
     onClosing: {
+        onCloseWindow();
+    }
+
+    Component.onDestruction: {
+        onCloseWindow();
+    }
+
+    function onCloseWindow() {
+        // DbMain.visibility = appWindow.visibility;
+
+        DB.Manager.saveAll();
+
         DB.Manager.enableAutosave(false);
     }
 

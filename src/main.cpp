@@ -323,11 +323,15 @@ int main(int argc, char* argv[]) {
 
   SignalHandler signalHandler;
 
+  if (DbMain::englishLanguage()) {
+    KLocalizedString::setLanguages({QStringLiteral("C")});
+  }
+
   KLocalizedString::setApplicationDomain(APPLICATION_DOMAIN);
 
   KAboutData about(QStringLiteral(APPLICATION_DOMAIN), QStringLiteral(APPLICATION_NAME),
                    QStringLiteral(PROJECT_VERSION), i18n("Global audio effects"), KAboutLicense::GPL_V3,
-                   i18n("© 2017-2026 EasyEffects Team"));
+                   i18n("© 2017-2026 Easy Effects Team"));
 
   about.addAuthor(i18n("Wellington Wallace"), i18nc("@info:credit", "Developer"),
                   QStringLiteral("wellingtonwallace@gmail.com"));

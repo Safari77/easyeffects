@@ -11,6 +11,10 @@
             <label>Height of the main window.</label>
             <default>600</default>
         </entry>
+        <entry name="visibility" type="Int">
+            <label>Visibility of the main window.</label>
+            <default>1</default>
+        </entry>
         <entry name="enableServiceMode" type="Bool">
             <label>Enable Service Mode</label>
             <default>true</default>
@@ -25,6 +29,10 @@
         </entry>
         <entry name="noWindowAfterStarting" type="Bool">
             <label>Never show our window after the application initialization when running in service mode.</label>
+            <default>false</default>
+        </entry>
+        <entry name="englishLanguage" type="Bool">
+            <label>Do not translate the user interface and show the application in the original English language.</label>
             <default>false</default>
         </entry>
         <entry name="reducePluginsListControls" type="Bool">
