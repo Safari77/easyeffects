@@ -20,7 +20,10 @@
 #include "spectrum.hpp"
 #include <fftw3.h>
 #include <qlist.h>
+#include <qnamespace.h>
+#include <qobjectdefs.h>
 #include <qtypes.h>
+#include <QApplication>
 #include <QString>
 #include <algorithm>
 #include <cassert>
@@ -112,6 +115,8 @@ Spectrum::~Spectrum() {
 void Spectrum::reset() {}
 
 void Spectrum::setup() {
+  std::scoped_lock<std::mutex> lock(data_mutex);
+
   std::ranges::fill(real_input, 0.0F);
   std::ranges::fill(latest_samples_mono, 0.0F);
 
@@ -127,10 +132,22 @@ void Spectrum::setup() {
     return;
   }
 
-  if (lv2_wrapper->get_rate() != rate) {
-    util::debug(std::format("{} creating instance of comp delay x2 stereo for spectrum A/V sync", log_tag));
-    lv2_wrapper->create_instance(rate);
-  }
+  ready = false;
+
+  // NOLINTBEGIN(clang-analyzer-cplusplus.NewDeleteLeaks)
+  QMetaObject::invokeMethod(
+      QApplication::instance(),
+      [this] {
+        util::debug(std::format("{} creating instance of comp delay x2 stereo for spectrum A/V sync", log_tag));
+
+        lv2_wrapper->create_instance(rate);
+
+        std::scoped_lock<std::mutex> lock(data_mutex);
+
+        ready = true;
+      },
+      Qt::QueuedConnection);
+  // NOLINTEND(clang-analyzer-cplusplus.NewDeleteLeaks)
 }
 
 void Spectrum::process(std::span<float>& left_in,
@@ -140,7 +157,7 @@ void Spectrum::process(std::span<float>& left_in,
   std::ranges::copy(left_in, left_out.begin());
   std::ranges::copy(right_in, right_out.begin());
 
-  if (bypass || !fftw_ready) {
+  if (bypass || !fftw_ready || !ready) {
     return;
   }
 

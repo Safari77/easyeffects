@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: easyeffects\n"
 "Report-Msgid-Bugs-To: https://github.com/wwmm/easyeffects/issues\n"
-"POT-Creation-Date: 2026-01-14 13:16-0300\n"
+"POT-Creation-Date: 2026-01-18 19:04-0300\n"
 "PO-Revision-Date: 2025-09-23 14:01+0000\n"
 "Last-Translator: Danial Behzadi <dani.behzi@ubuntu.com>\n"
 "Language-Team: Persian <https://hosted.weblate.org/projects/easyeffects/main/"
@@ -127,9 +127,10 @@ msgstr ""
 #: src/contents/ui/Autogain.qml:69 src/contents/ui/BassEnhancer.qml:105
 #: src/contents/ui/BassLoudness.qml:58 src/contents/ui/Crossfeed.qml:73
 #: src/contents/ui/DeepFilterNet.qml:93 src/contents/ui/Exciter.qml:106
-#: src/contents/ui/Filter.qml:58 src/contents/ui/Loudness.qml:58
-#: src/contents/ui/Maximizer.qml:59 src/contents/ui/Pitch.qml:59
-#: src/contents/ui/Reverb.qml:59 src/contents/ui/Speex.qml:58
+#: src/contents/ui/Filter.qml:58 src/contents/ui/Karaoke.qml:57
+#: src/contents/ui/Loudness.qml:58 src/contents/ui/Maximizer.qml:59
+#: src/contents/ui/Pitch.qml:59 src/contents/ui/Reverb.qml:59
+#: src/contents/ui/Speex.qml:58
 msgid "Controls"
 msgstr "کنترل ها"
 
@@ -188,7 +189,7 @@ msgstr "حداکثر سابقه"
 
 #: src/contents/ui/Autogain.qml:143 src/contents/ui/Autogain.qml:198
 #: src/contents/ui/BassLoudness.qml:66 src/contents/ui/LevelMeter.qml:146
-#: src/tags_plugin_name.cpp:45
+#: src/tags_plugin_name.cpp:46
 msgid "Loudness"
 msgstr "بلندی صدا"
 
@@ -209,14 +210,14 @@ msgstr "افزایش خروجی"
 #: src/contents/ui/Autogain.qml:231 src/contents/ui/BassEnhancer.qml:203
 #: src/contents/ui/BassLoudness.qml:123 src/contents/ui/Compressor.qml:872
 #: src/contents/ui/Convolver.qml:518 src/contents/ui/Crossfeed.qml:147
-#: src/contents/ui/Crusher.qml:233 src/contents/ui/Crystalizer.qml:124
+#: src/contents/ui/Crusher.qml:233 src/contents/ui/Crystalizer.qml:153
 #: src/contents/ui/DeepFilterNet.qml:194 src/contents/ui/Deesser.qml:317
 #: src/contents/ui/Delay.qml:373 src/contents/ui/EchoCanceller.qml:155
 #: src/contents/ui/Equalizer.qml:302 src/contents/ui/Exciter.qml:208
 #: src/contents/ui/Expander.qml:822 src/contents/ui/Filter.qml:217
-#: src/contents/ui/Gate.qml:951 src/contents/ui/LevelMeter.qml:215
-#: src/contents/ui/Limiter.qml:606 src/contents/ui/Loudness.qml:172
-#: src/contents/ui/Maximizer.qml:119
+#: src/contents/ui/Gate.qml:951 src/contents/ui/Karaoke.qml:85
+#: src/contents/ui/LevelMeter.qml:215 src/contents/ui/Limiter.qml:606
+#: src/contents/ui/Loudness.qml:172 src/contents/ui/Maximizer.qml:119
 #: src/contents/ui/MultibandCompressor.qml:965
 #: src/contents/ui/MultibandGate.qml:938 src/contents/ui/Pitch.qml:265
 #: src/contents/ui/Reverb.qml:316 src/contents/ui/RNNoise.qml:76
@@ -306,13 +307,13 @@ msgstr "گوش کن"
 #: src/contents/ui/BassEnhancer.qml:245 src/contents/ui/BassLoudness.qml:141
 #: src/contents/ui/Compressor.qml:924 src/contents/ui/Convolver.qml:553
 #: src/contents/ui/Crossfeed.qml:173 src/contents/ui/Crusher.qml:265
-#: src/contents/ui/Crystalizer.qml:172 src/contents/ui/Deesser.qml:359
+#: src/contents/ui/Crystalizer.qml:201 src/contents/ui/Deesser.qml:359
 #: src/contents/ui/Delay.qml:425 src/contents/ui/EchoCanceller.qml:183
 #: src/contents/ui/Equalizer.qml:386 src/contents/ui/Exciter.qml:250
 #: src/contents/ui/Expander.qml:874 src/contents/ui/Filter.qml:249
-#: src/contents/ui/Gate.qml:1003 src/contents/ui/Limiter.qml:658
-#: src/contents/ui/Loudness.qml:214 src/contents/ui/Main.qml:613
-#: src/contents/ui/Maximizer.qml:151
+#: src/contents/ui/Gate.qml:1003 src/contents/ui/Karaoke.qml:103
+#: src/contents/ui/Limiter.qml:658 src/contents/ui/Loudness.qml:214
+#: src/contents/ui/Main.qml:613 src/contents/ui/Maximizer.qml:151
 #: src/contents/ui/MultibandCompressor.qml:1014
 #: src/contents/ui/MultibandGate.qml:987 src/contents/ui/Reverb.qml:356
 #: src/contents/ui/RNNoise.qml:346 src/contents/ui/Speex.qml:192
@@ -353,7 +354,7 @@ msgstr "به برنامه‌های حذف‌شده اضافه کنید"
 #: src/contents/ui/ConvolverImpulseDialog.qml:90
 #: src/contents/ui/MenuAddPlugins.qml:55
 #: src/contents/ui/PageStreamsEffects.qml:98
-#: src/contents/ui/PresetsAutoloadPage.qml:154
+#: src/contents/ui/PresetsAutoloadPage.qml:162
 #: src/contents/ui/PresetsCommunityPage.qml:105
 #: src/contents/ui/PresetsLocalPage.qml:194 src/contents/ui/RNNoise.qml:231
 msgid "Empty List"
@@ -506,7 +507,7 @@ msgstr "خارجی"
 
 #: src/contents/ui/Compressor.qml:278 src/contents/ui/Expander.qml:238
 #: src/contents/ui/Gate.qml:256 src/contents/ui/Limiter.qml:228
-#: src/contents/ui/PageStreamsEffects.qml:432
+#: src/contents/ui/PageStreamsEffects.qml:440
 #, fuzzy
 msgid "Input device"
 msgstr "دستگاه ورودی"
@@ -1006,20 +1007,24 @@ msgstr "بی صدا"
 msgid "Bypass"
 msgstr "دور زدن"
 
-#: src/contents/ui/Crystalizer.qml:103
+#: src/contents/ui/Crystalizer.qml:110
 #, fuzzy
 msgid "Oversampling quality"
 msgstr "نمونه برداری بیش از حد"
 
-#: src/contents/ui/Crystalizer.qml:141 src/contents/ui/Limiter.qml:87
+#: src/contents/ui/Crystalizer.qml:128
+msgid "Transition band"
+msgstr ""
+
+#: src/contents/ui/Crystalizer.qml:170 src/contents/ui/Limiter.qml:87
 msgid "Oversampling"
 msgstr "نمونه برداری بیش از حد"
 
-#: src/contents/ui/Crystalizer.qml:151
+#: src/contents/ui/Crystalizer.qml:180
 msgid "Adaptive intensity"
 msgstr ""
 
-#: src/contents/ui/Crystalizer.qml:161
+#: src/contents/ui/Crystalizer.qml:190
 #, fuzzy
 msgid "Fixed quantum"
 msgstr "حداقل کوانتومی"
@@ -1786,7 +1791,7 @@ msgstr "اوج واقعی"
 msgid "Dithering"
 msgstr "پریشان"
 
-#: src/contents/ui/Limiter.qml:117 src/tags_plugin_name.cpp:44
+#: src/contents/ui/Limiter.qml:117 src/tags_plugin_name.cpp:45
 msgid "Limiter"
 msgstr "محدود کننده"
 
@@ -1924,7 +1929,7 @@ msgstr "_خروج"
 msgid "Go back"
 msgstr ""
 
-#: src/contents/ui/Main.qml:499 src/contents/ui/PageStreamsEffects.qml:734
+#: src/contents/ui/Main.qml:499 src/contents/ui/PageStreamsEffects.qml:742
 msgid "Effects"
 msgstr "جلوه ها"
 
@@ -2058,49 +2063,49 @@ msgstr "بدون افکت"
 msgid "Audio stream not modified"
 msgstr "جریان صوتی تغییر نکرده است"
 
-#: src/contents/ui/PageStreamsEffects.qml:367
+#: src/contents/ui/PageStreamsEffects.qml:375
 #, fuzzy
 msgid "Add effect"
 msgstr "افزودن افکت"
 
-#: src/contents/ui/PageStreamsEffects.qml:375
+#: src/contents/ui/PageStreamsEffects.qml:383
 msgid "Close"
 msgstr ""
 
-#: src/contents/ui/PageStreamsEffects.qml:379
+#: src/contents/ui/PageStreamsEffects.qml:387
 msgid "Expand the list of effects pipeline"
 msgstr ""
 
-#: src/contents/ui/PageStreamsEffects.qml:379
+#: src/contents/ui/PageStreamsEffects.qml:387
 msgid "Reduce the list of effects pipeline"
 msgstr ""
 
-#: src/contents/ui/PageStreamsEffects.qml:432
-#: src/contents/ui/PageStreamsEffects.qml:721
+#: src/contents/ui/PageStreamsEffects.qml:440
+#: src/contents/ui/PageStreamsEffects.qml:729
 msgid "Players"
 msgstr "پلیرها"
 
-#: src/contents/ui/PageStreamsEffects.qml:441
+#: src/contents/ui/PageStreamsEffects.qml:449
 #, fuzzy
 msgid "Output device"
 msgstr "دستگاه خروجی"
 
-#: src/contents/ui/PageStreamsEffects.qml:441
-#: src/contents/ui/PageStreamsEffects.qml:721
+#: src/contents/ui/PageStreamsEffects.qml:449
+#: src/contents/ui/PageStreamsEffects.qml:729
 msgid "Recorders"
 msgstr "ضبط کننده ها"
 
-#: src/contents/ui/PageStreamsEffects.qml:752
+#: src/contents/ui/PageStreamsEffects.qml:760
 #, fuzzy
 msgid "Excluded apps"
 msgstr "برنامه های مستثنی شده"
 
-#: src/contents/ui/PageStreamsEffects.qml:761
+#: src/contents/ui/PageStreamsEffects.qml:769
 #, fuzzy
 msgid "Input monitoring"
 msgstr "فعال‌سازی پایش ورودی"
 
-#: src/contents/ui/PageStreamsEffects.qml:774
+#: src/contents/ui/PageStreamsEffects.qml:782
 msgid "Send audio to the virtual source"
 msgstr ""
 
@@ -2244,7 +2249,7 @@ msgstr "پنجره جستجو"
 msgid "Overlap length"
 msgstr "طول هم‌پوشانی"
 
-#: src/contents/ui/Pitch.qml:163 src/tags_plugin_name.cpp:49
+#: src/contents/ui/Pitch.qml:163 src/tags_plugin_name.cpp:50
 msgid "Pitch"
 msgstr "گام"
 
@@ -2704,37 +2709,37 @@ msgid "Related to LV2 plugins."
 msgstr "مرتبط با افزونه‌های LV2"
 
 #: src/contents/ui/PresetsAutoloadPage.qml:54
-#: src/contents/ui/PresetsAutoloadPage.qml:190
+#: src/contents/ui/PresetsAutoloadPage.qml:198
 msgid "Device"
 msgstr "دستگاه"
 
 #: src/contents/ui/PresetsAutoloadPage.qml:60
-#: src/contents/ui/PresetsAutoloadPage.qml:234
+#: src/contents/ui/PresetsAutoloadPage.qml:242
 msgid "Route"
 msgstr ""
 
-#: src/contents/ui/PresetsAutoloadPage.qml:103
-#: src/contents/ui/PresetsAutoloadPage.qml:248
+#: src/contents/ui/PresetsAutoloadPage.qml:111
+#: src/contents/ui/PresetsAutoloadPage.qml:256
 #, fuzzy
 msgid "Local preset"
 msgstr "فهرست پیش‌تنظیم‌های محلی"
 
-#: src/contents/ui/PresetsAutoloadPage.qml:114
+#: src/contents/ui/PresetsAutoloadPage.qml:122
 #, fuzzy
 msgid "Create"
 msgstr "در حال ایجاد"
 
-#: src/contents/ui/PresetsAutoloadPage.qml:116
+#: src/contents/ui/PresetsAutoloadPage.qml:124
 #, fuzzy
 msgid "Create a new autoload preset"
 msgstr "حذف پیش‌تنظیم بارگذاری خودکار"
 
-#: src/contents/ui/PresetsAutoloadPage.qml:205
+#: src/contents/ui/PresetsAutoloadPage.qml:213
 #, fuzzy
 msgid "Remove this autoload preset"
 msgstr "حذف پیش‌تنظیم بارگذاری خودکار"
 
-#: src/contents/ui/PresetsAutoloadPage.qml:219
+#: src/contents/ui/PresetsAutoloadPage.qml:227
 msgid "Description"
 msgstr "توضیحات"
 
@@ -3280,39 +3285,39 @@ msgstr ""
 msgid "Output Level Meter"
 msgstr "سطح سنج خروجی"
 
-#: src/presets_manager.cpp:780 src/presets_manager.cpp:787
-#: src/presets_manager.cpp:797 src/presets_manager.cpp:804
-#: src/presets_manager.cpp:814 src/presets_manager.cpp:823
+#: src/presets_manager.cpp:781 src/presets_manager.cpp:788
+#: src/presets_manager.cpp:798 src/presets_manager.cpp:805
+#: src/presets_manager.cpp:815 src/presets_manager.cpp:824
 #, fuzzy
 msgid "Preset not loaded correctly"
 msgstr "پیش‌تنظیم به‌درستی بارگذاری نشد"
 
-#: src/presets_manager.cpp:780
+#: src/presets_manager.cpp:781
 #, fuzzy
 msgid "Wrong format in excluded apps list"
 msgstr "فرمت نادرست در فهرست برنامه‌های مستثنی‌شده"
 
-#: src/presets_manager.cpp:788
+#: src/presets_manager.cpp:789
 #, fuzzy
 msgid "Generic error while loading excluded apps list"
 msgstr "خطای عمومی هنگام بارگذاری فهرست برنامه‌های مستثنی‌شده"
 
-#: src/presets_manager.cpp:797
+#: src/presets_manager.cpp:798
 #, fuzzy
 msgid "Wrong format in effects list"
 msgstr "فرمت نادرست در فهرست جلوه ها"
 
-#: src/presets_manager.cpp:804
+#: src/presets_manager.cpp:805
 #, fuzzy
 msgid "Generic error while loading effects list"
 msgstr "خطای عمومی هنگام بارگذاری فهرست جلوه ها"
 
-#: src/presets_manager.cpp:815
+#: src/presets_manager.cpp:816
 #, fuzzy
 msgid "One or more parameters have a wrong format"
 msgstr "یک یا چند پارامتر فرمت نادرستی دارند"
 
-#: src/presets_manager.cpp:824
+#: src/presets_manager.cpp:825
 #, fuzzy
 msgid "Generic error while loading the effect"
 msgstr "خطای عمومی هنگام بارگذاری جلوه"
@@ -3378,34 +3383,38 @@ msgid "Exciter"
 msgstr "محرک"
 
 #: src/tags_plugin_name.cpp:43
+msgid "Karaoke"
+msgstr ""
+
+#: src/tags_plugin_name.cpp:44
 msgid "Level Meter"
 msgstr "سطح سنج"
 
-#: src/tags_plugin_name.cpp:46
+#: src/tags_plugin_name.cpp:47
 msgid "Maximizer"
 msgstr "ماکسیمایزر"
 
-#: src/tags_plugin_name.cpp:47
+#: src/tags_plugin_name.cpp:48
 msgid "Multiband Compressor"
 msgstr "کمپرسور چند بانده"
 
-#: src/tags_plugin_name.cpp:48
+#: src/tags_plugin_name.cpp:49
 msgid "Multiband Gate"
 msgstr "دروازه چند بانده"
 
-#: src/tags_plugin_name.cpp:50
+#: src/tags_plugin_name.cpp:51
 msgid "Reverberation"
 msgstr "طنین"
 
-#: src/tags_plugin_name.cpp:51
+#: src/tags_plugin_name.cpp:52
 msgid "Noise Reduction"
 msgstr "کاهش نویز"
 
-#: src/tags_plugin_name.cpp:52
+#: src/tags_plugin_name.cpp:53
 msgid "Speech Processor"
 msgstr "پردازشگر گفتار"
 
-#: src/tags_plugin_name.cpp:53
+#: src/tags_plugin_name.cpp:54
 msgid "Stereo Tools"
 msgstr "ابزارهای استریو"
 

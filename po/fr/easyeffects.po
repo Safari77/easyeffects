@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://github.com/wwmm/easyeffects/issues\n"
-"POT-Creation-Date: 2026-01-14 13:16-0300\n"
-"PO-Revision-Date: 2026-01-11 07:01+0000\n"
+"POT-Creation-Date: 2026-01-18 19:04-0300\n"
+"PO-Revision-Date: 2026-01-19 11:01+0000\n"
 "Last-Translator: Bundy01 <bundy01@users.noreply.hosted.weblate.org>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/easyeffects/main/"
 "fr/>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 5.15.1\n"
+"X-Generator: Weblate 5.16-dev\n"
 
 #: src/autostart.cpp:92
 msgid ""
@@ -122,9 +122,10 @@ msgstr "À propos"
 #: src/contents/ui/Autogain.qml:69 src/contents/ui/BassEnhancer.qml:105
 #: src/contents/ui/BassLoudness.qml:58 src/contents/ui/Crossfeed.qml:73
 #: src/contents/ui/DeepFilterNet.qml:93 src/contents/ui/Exciter.qml:106
-#: src/contents/ui/Filter.qml:58 src/contents/ui/Loudness.qml:58
-#: src/contents/ui/Maximizer.qml:59 src/contents/ui/Pitch.qml:59
-#: src/contents/ui/Reverb.qml:59 src/contents/ui/Speex.qml:58
+#: src/contents/ui/Filter.qml:58 src/contents/ui/Karaoke.qml:57
+#: src/contents/ui/Loudness.qml:58 src/contents/ui/Maximizer.qml:59
+#: src/contents/ui/Pitch.qml:59 src/contents/ui/Reverb.qml:59
+#: src/contents/ui/Speex.qml:58
 msgid "Controls"
 msgstr "Contrôles"
 
@@ -177,7 +178,7 @@ msgstr "Historique maximal"
 
 #: src/contents/ui/Autogain.qml:143 src/contents/ui/Autogain.qml:198
 #: src/contents/ui/BassLoudness.qml:66 src/contents/ui/LevelMeter.qml:146
-#: src/tags_plugin_name.cpp:45
+#: src/tags_plugin_name.cpp:46
 msgid "Loudness"
 msgstr "Sonie"
 
@@ -197,14 +198,14 @@ msgstr "Gain de sortie"
 #: src/contents/ui/Autogain.qml:231 src/contents/ui/BassEnhancer.qml:203
 #: src/contents/ui/BassLoudness.qml:123 src/contents/ui/Compressor.qml:872
 #: src/contents/ui/Convolver.qml:518 src/contents/ui/Crossfeed.qml:147
-#: src/contents/ui/Crusher.qml:233 src/contents/ui/Crystalizer.qml:124
+#: src/contents/ui/Crusher.qml:233 src/contents/ui/Crystalizer.qml:153
 #: src/contents/ui/DeepFilterNet.qml:194 src/contents/ui/Deesser.qml:317
 #: src/contents/ui/Delay.qml:373 src/contents/ui/EchoCanceller.qml:155
 #: src/contents/ui/Equalizer.qml:302 src/contents/ui/Exciter.qml:208
 #: src/contents/ui/Expander.qml:822 src/contents/ui/Filter.qml:217
-#: src/contents/ui/Gate.qml:951 src/contents/ui/LevelMeter.qml:215
-#: src/contents/ui/Limiter.qml:606 src/contents/ui/Loudness.qml:172
-#: src/contents/ui/Maximizer.qml:119
+#: src/contents/ui/Gate.qml:951 src/contents/ui/Karaoke.qml:85
+#: src/contents/ui/LevelMeter.qml:215 src/contents/ui/Limiter.qml:606
+#: src/contents/ui/Loudness.qml:172 src/contents/ui/Maximizer.qml:119
 #: src/contents/ui/MultibandCompressor.qml:965
 #: src/contents/ui/MultibandGate.qml:938 src/contents/ui/Pitch.qml:265
 #: src/contents/ui/Reverb.qml:316 src/contents/ui/RNNoise.qml:76
@@ -287,13 +288,13 @@ msgstr "Écouter"
 #: src/contents/ui/BassEnhancer.qml:245 src/contents/ui/BassLoudness.qml:141
 #: src/contents/ui/Compressor.qml:924 src/contents/ui/Convolver.qml:553
 #: src/contents/ui/Crossfeed.qml:173 src/contents/ui/Crusher.qml:265
-#: src/contents/ui/Crystalizer.qml:172 src/contents/ui/Deesser.qml:359
+#: src/contents/ui/Crystalizer.qml:201 src/contents/ui/Deesser.qml:359
 #: src/contents/ui/Delay.qml:425 src/contents/ui/EchoCanceller.qml:183
 #: src/contents/ui/Equalizer.qml:386 src/contents/ui/Exciter.qml:250
 #: src/contents/ui/Expander.qml:874 src/contents/ui/Filter.qml:249
-#: src/contents/ui/Gate.qml:1003 src/contents/ui/Limiter.qml:658
-#: src/contents/ui/Loudness.qml:214 src/contents/ui/Main.qml:613
-#: src/contents/ui/Maximizer.qml:151
+#: src/contents/ui/Gate.qml:1003 src/contents/ui/Karaoke.qml:103
+#: src/contents/ui/Limiter.qml:658 src/contents/ui/Loudness.qml:214
+#: src/contents/ui/Main.qml:613 src/contents/ui/Maximizer.qml:151
 #: src/contents/ui/MultibandCompressor.qml:1014
 #: src/contents/ui/MultibandGate.qml:987 src/contents/ui/Reverb.qml:356
 #: src/contents/ui/RNNoise.qml:346 src/contents/ui/Speex.qml:192
@@ -331,7 +332,7 @@ msgstr "Ajouter aux applications exclues"
 #: src/contents/ui/ConvolverImpulseDialog.qml:90
 #: src/contents/ui/MenuAddPlugins.qml:55
 #: src/contents/ui/PageStreamsEffects.qml:98
-#: src/contents/ui/PresetsAutoloadPage.qml:154
+#: src/contents/ui/PresetsAutoloadPage.qml:162
 #: src/contents/ui/PresetsCommunityPage.qml:105
 #: src/contents/ui/PresetsLocalPage.qml:194 src/contents/ui/RNNoise.qml:231
 msgid "Empty List"
@@ -355,13 +356,15 @@ msgstr "Supprimer cette application"
 
 #: src/contents/ui/BlocklistDialog.qml:200
 msgid "Use media name"
-msgstr ""
+msgstr "Utiliser le nom du média"
 
 #: src/contents/ui/BlocklistDialog.qml:201
 msgid ""
 "Also use a combination of node and media name when deciding if a stream "
 "should be blocked"
 msgstr ""
+"Utilisez également une combinaison du nom du nœud et du nom du média pour "
+"décider si un flux doit être bloqué"
 
 #: src/contents/ui/BlocklistDialog.qml:212
 msgid "Show excluded apps"
@@ -477,7 +480,7 @@ msgstr "Externe"
 
 #: src/contents/ui/Compressor.qml:278 src/contents/ui/Expander.qml:238
 #: src/contents/ui/Gate.qml:256 src/contents/ui/Limiter.qml:228
-#: src/contents/ui/PageStreamsEffects.qml:432
+#: src/contents/ui/PageStreamsEffects.qml:440
 msgid "Input device"
 msgstr "Périphérique d’entrée"
 
@@ -949,22 +952,25 @@ msgstr "Couper le son"
 msgid "Bypass"
 msgstr "Contourner"
 
-#: src/contents/ui/Crystalizer.qml:103
+#: src/contents/ui/Crystalizer.qml:110
 msgid "Oversampling quality"
 msgstr "Qualité du suréchantillonnage"
 
-#: src/contents/ui/Crystalizer.qml:141 src/contents/ui/Limiter.qml:87
+#: src/contents/ui/Crystalizer.qml:128
+msgid "Transition band"
+msgstr "Bande de transition"
+
+#: src/contents/ui/Crystalizer.qml:170 src/contents/ui/Limiter.qml:87
 msgid "Oversampling"
 msgstr "Sur-échantillonnage"
 
-#: src/contents/ui/Crystalizer.qml:151
+#: src/contents/ui/Crystalizer.qml:180
 msgid "Adaptive intensity"
 msgstr "Intensité adaptative"
 
-#: src/contents/ui/Crystalizer.qml:161
-#, fuzzy
+#: src/contents/ui/Crystalizer.qml:190
 msgid "Fixed quantum"
-msgstr "Quantum minimal"
+msgstr "Quantum fixe"
 
 #: src/contents/ui/DeepFilterNet.qml:51
 msgid "Attenuation limit"
@@ -1641,7 +1647,7 @@ msgstr "Pic réel/24 bits"
 msgid "Dithering"
 msgstr "Tramage"
 
-#: src/contents/ui/Limiter.qml:117 src/tags_plugin_name.cpp:44
+#: src/contents/ui/Limiter.qml:117 src/tags_plugin_name.cpp:45
 msgid "Limiter"
 msgstr "Limiteur"
 
@@ -1768,7 +1774,7 @@ msgstr "Quitter"
 msgid "Go back"
 msgstr "Revenir en arrière"
 
-#: src/contents/ui/Main.qml:499 src/contents/ui/PageStreamsEffects.qml:734
+#: src/contents/ui/Main.qml:499 src/contents/ui/PageStreamsEffects.qml:742
 msgid "Effects"
 msgstr "Effets"
 
@@ -1889,45 +1895,45 @@ msgstr "Aucun Effet"
 msgid "Audio stream not modified"
 msgstr "Flux audio non modifié"
 
-#: src/contents/ui/PageStreamsEffects.qml:367
+#: src/contents/ui/PageStreamsEffects.qml:375
 msgid "Add effect"
 msgstr "Ajouter un effet"
 
-#: src/contents/ui/PageStreamsEffects.qml:375
+#: src/contents/ui/PageStreamsEffects.qml:383
 msgid "Close"
 msgstr "Fermer"
 
-#: src/contents/ui/PageStreamsEffects.qml:379
+#: src/contents/ui/PageStreamsEffects.qml:387
 msgid "Expand the list of effects pipeline"
 msgstr "Développer la liste des effets du pipeline"
 
-#: src/contents/ui/PageStreamsEffects.qml:379
+#: src/contents/ui/PageStreamsEffects.qml:387
 msgid "Reduce the list of effects pipeline"
 msgstr "Réduire la liste des effects du pipeline"
 
-#: src/contents/ui/PageStreamsEffects.qml:432
-#: src/contents/ui/PageStreamsEffects.qml:721
+#: src/contents/ui/PageStreamsEffects.qml:440
+#: src/contents/ui/PageStreamsEffects.qml:729
 msgid "Players"
 msgstr "Lecteurs"
 
-#: src/contents/ui/PageStreamsEffects.qml:441
+#: src/contents/ui/PageStreamsEffects.qml:449
 msgid "Output device"
 msgstr "Périphérique de sortie"
 
-#: src/contents/ui/PageStreamsEffects.qml:441
-#: src/contents/ui/PageStreamsEffects.qml:721
+#: src/contents/ui/PageStreamsEffects.qml:449
+#: src/contents/ui/PageStreamsEffects.qml:729
 msgid "Recorders"
 msgstr "Enregistreurs"
 
-#: src/contents/ui/PageStreamsEffects.qml:752
+#: src/contents/ui/PageStreamsEffects.qml:760
 msgid "Excluded apps"
 msgstr "Applications exclues"
 
-#: src/contents/ui/PageStreamsEffects.qml:761
+#: src/contents/ui/PageStreamsEffects.qml:769
 msgid "Input monitoring"
 msgstr "Surveillance de l'entrée"
 
-#: src/contents/ui/PageStreamsEffects.qml:774
+#: src/contents/ui/PageStreamsEffects.qml:782
 msgid "Send audio to the virtual source"
 msgstr "Envoyer l'audio vers la source virtuelle"
 
@@ -2054,7 +2060,7 @@ msgstr "Fenêtre de recherche"
 msgid "Overlap length"
 msgstr "Longueur de recouvrement"
 
-#: src/contents/ui/Pitch.qml:163 src/tags_plugin_name.cpp:49
+#: src/contents/ui/Pitch.qml:163 src/tags_plugin_name.cpp:50
 msgid "Pitch"
 msgstr "Hauteur"
 
@@ -2515,33 +2521,33 @@ msgid "Related to LV2 plugins."
 msgstr "Associé aux plugins LV2."
 
 #: src/contents/ui/PresetsAutoloadPage.qml:54
-#: src/contents/ui/PresetsAutoloadPage.qml:190
+#: src/contents/ui/PresetsAutoloadPage.qml:198
 msgid "Device"
 msgstr "Périphérique"
 
 #: src/contents/ui/PresetsAutoloadPage.qml:60
-#: src/contents/ui/PresetsAutoloadPage.qml:234
+#: src/contents/ui/PresetsAutoloadPage.qml:242
 msgid "Route"
 msgstr "Route"
 
-#: src/contents/ui/PresetsAutoloadPage.qml:103
-#: src/contents/ui/PresetsAutoloadPage.qml:248
+#: src/contents/ui/PresetsAutoloadPage.qml:111
+#: src/contents/ui/PresetsAutoloadPage.qml:256
 msgid "Local preset"
 msgstr "Préréglage local"
 
-#: src/contents/ui/PresetsAutoloadPage.qml:114
+#: src/contents/ui/PresetsAutoloadPage.qml:122
 msgid "Create"
 msgstr "Créer"
 
-#: src/contents/ui/PresetsAutoloadPage.qml:116
+#: src/contents/ui/PresetsAutoloadPage.qml:124
 msgid "Create a new autoload preset"
 msgstr "Créer un nouveau préréglage de chargement automatique"
 
-#: src/contents/ui/PresetsAutoloadPage.qml:205
+#: src/contents/ui/PresetsAutoloadPage.qml:213
 msgid "Remove this autoload preset"
 msgstr "Supprimer ce préréglage auto-chargeant"
 
-#: src/contents/ui/PresetsAutoloadPage.qml:219
+#: src/contents/ui/PresetsAutoloadPage.qml:227
 msgid "Description"
 msgstr "Description"
 
@@ -3024,34 +3030,34 @@ msgstr "(Haut-Parleurs)"
 msgid "Output Level Meter"
 msgstr "Indicateur de Niveau en Sortie"
 
-#: src/presets_manager.cpp:780 src/presets_manager.cpp:787
-#: src/presets_manager.cpp:797 src/presets_manager.cpp:804
-#: src/presets_manager.cpp:814 src/presets_manager.cpp:823
+#: src/presets_manager.cpp:781 src/presets_manager.cpp:788
+#: src/presets_manager.cpp:798 src/presets_manager.cpp:805
+#: src/presets_manager.cpp:815 src/presets_manager.cpp:824
 msgid "Preset not loaded correctly"
 msgstr "Le préréglage n'a pas été chargé correctement"
 
-#: src/presets_manager.cpp:780
+#: src/presets_manager.cpp:781
 msgid "Wrong format in excluded apps list"
 msgstr "Format incorrect dans la liste des applications exclues"
 
-#: src/presets_manager.cpp:788
+#: src/presets_manager.cpp:789
 msgid "Generic error while loading excluded apps list"
 msgstr ""
 "Erreur générique lors du chargement de la liste des applications exclues"
 
-#: src/presets_manager.cpp:797
+#: src/presets_manager.cpp:798
 msgid "Wrong format in effects list"
 msgstr "Format incorrect dans la liste des effets"
 
-#: src/presets_manager.cpp:804
+#: src/presets_manager.cpp:805
 msgid "Generic error while loading effects list"
 msgstr "Erreur générique lors du chargement de la liste des effets"
 
-#: src/presets_manager.cpp:815
+#: src/presets_manager.cpp:816
 msgid "One or more parameters have a wrong format"
 msgstr "Un ou plusieurs paramètres ont un format incorrect"
 
-#: src/presets_manager.cpp:824
+#: src/presets_manager.cpp:825
 msgid "Generic error while loading the effect"
 msgstr "Erreur générique lors du chargement de l'effet"
 
@@ -3116,34 +3122,38 @@ msgid "Exciter"
 msgstr "Excitateur"
 
 #: src/tags_plugin_name.cpp:43
+msgid "Karaoke"
+msgstr "Karaoké"
+
+#: src/tags_plugin_name.cpp:44
 msgid "Level Meter"
 msgstr "Indicateur de Niveau"
 
-#: src/tags_plugin_name.cpp:46
+#: src/tags_plugin_name.cpp:47
 msgid "Maximizer"
 msgstr "Maximiseur"
 
-#: src/tags_plugin_name.cpp:47
+#: src/tags_plugin_name.cpp:48
 msgid "Multiband Compressor"
 msgstr "Compresseur Multibande"
 
-#: src/tags_plugin_name.cpp:48
+#: src/tags_plugin_name.cpp:49
 msgid "Multiband Gate"
 msgstr "Porte Multibande"
 
-#: src/tags_plugin_name.cpp:50
+#: src/tags_plugin_name.cpp:51
 msgid "Reverberation"
 msgstr "Réverbération"
 
-#: src/tags_plugin_name.cpp:51
+#: src/tags_plugin_name.cpp:52
 msgid "Noise Reduction"
 msgstr "Réduction du Bruit"
 
-#: src/tags_plugin_name.cpp:52
+#: src/tags_plugin_name.cpp:53
 msgid "Speech Processor"
 msgstr "Processeur Vocal"
 
-#: src/tags_plugin_name.cpp:53
+#: src/tags_plugin_name.cpp:54
 msgid "Stereo Tools"
 msgstr "Outils Stéréo"
 

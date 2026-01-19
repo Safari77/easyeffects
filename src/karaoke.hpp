@@ -19,25 +19,28 @@
 
 #pragma once
 
+#include <bs2bclass.h>
+#include <fftw3.h>
 #include <qtmetamacros.h>
+#include <qtypes.h>
 #include <QString>
 #include <span>
 #include <string>
-#include "easyeffects_db_stereo_tools.h"
+#include "easyeffects_db_karaoke.h"
 #include "pipeline_type.hpp"
 #include "plugin_base.hpp"
 #include "pw_manager.hpp"
 
-class StereoTools : public PluginBase {
+class Karaoke : public PluginBase {
   Q_OBJECT
 
  public:
-  StereoTools(const std::string& tag, pw::Manager* pipe_manager, PipelineType pipe_type, QString instance_id);
-  StereoTools(const StereoTools&) = delete;
-  auto operator=(const StereoTools&) -> StereoTools& = delete;
-  StereoTools(const StereoTools&&) = delete;
-  auto operator=(const StereoTools&&) -> StereoTools& = delete;
-  ~StereoTools() override;
+  Karaoke(const std::string& tag, pw::Manager* pipe_manager, PipelineType pipe_type, QString instance_id);
+  Karaoke(const Karaoke&) = delete;
+  auto operator=(const Karaoke&) -> Karaoke& = delete;
+  Karaoke(const Karaoke&&) = delete;
+  auto operator=(const Karaoke&&) -> Karaoke& = delete;
+  ~Karaoke() override;
 
   void reset() override;
 
@@ -57,12 +60,6 @@ class StereoTools : public PluginBase {
 
   auto get_latency_seconds() -> float override;
 
-  double correlation_port_value = 0.0;
-
  private:
-  bool ready = false;
-
-  float dry = 0.0F, wet = 1.0F;
-
-  db::StereoTools* settings = nullptr;
+  db::Karaoke* settings = nullptr;
 };
