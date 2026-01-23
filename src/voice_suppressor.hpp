@@ -44,6 +44,8 @@ class VoiceSuppressor : public PluginBase {
 
   void reset() override;
 
+  void clear_data() override;
+
   void setup() override;
 
   void process(std::span<float>& left_in,
@@ -101,5 +103,10 @@ class VoiceSuppressor : public PluginBase {
 
   std::vector<float> env_mask;
 
+  std::vector<double> fft_mag_L, fft_mag_R;
+  std::vector<double> old_fft_mag_L, old_fft_mag_R;
+
   void free_fftw();
+
+  auto compute_spectral_flux(double* data, double* previous_data) const -> double;
 };

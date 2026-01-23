@@ -114,7 +114,26 @@ Spectrum::~Spectrum() {
 
 void Spectrum::reset() {}
 
+void Spectrum::clear_data() {
+  if (lv2_wrapper == nullptr) {
+    return;
+  }
+
+  {
+    std::scoped_lock<std::mutex> lock(data_mutex);
+
+    lv2_wrapper->destroy_instance();
+  }
+
+  setup();
+}
+
 void Spectrum::setup() {
+  if (rate == 0 || n_samples == 0) {
+    // Some signals may be emitted before PipeWire calls our setup function
+    return;
+  }
+
   std::scoped_lock<std::mutex> lock(data_mutex);
 
   std::ranges::fill(real_input, 0.0F);
@@ -136,7 +155,7 @@ void Spectrum::setup() {
 
   // NOLINTBEGIN(clang-analyzer-cplusplus.NewDeleteLeaks)
   QMetaObject::invokeMethod(
-      QApplication::instance(),
+      baseWorker,
       [this] {
         util::debug(std::format("{} creating instance of comp delay x2 stereo for spectrum A/V sync", log_tag));
 

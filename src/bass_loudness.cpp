@@ -81,7 +81,26 @@ void BassLoudness::reset() {
   settings->setDefaults();
 }
 
+void BassLoudness::clear_data() {
+  if (lv2_wrapper == nullptr) {
+    return;
+  }
+
+  {
+    std::scoped_lock<std::mutex> lock(data_mutex);
+
+    lv2_wrapper->destroy_instance();
+  }
+
+  setup();
+}
+
 void BassLoudness::setup() {
+  if (rate == 0 || n_samples == 0) {
+    // Some signals may be emitted before PipeWire calls our setup function
+    return;
+  }
+
   std::scoped_lock<std::mutex> lock(data_mutex);
 
   if (!lv2_wrapper->found_plugin) {
@@ -94,7 +113,7 @@ void BassLoudness::setup() {
 
   // NOLINTBEGIN(clang-analyzer-cplusplus.NewDeleteLeaks)
   QMetaObject::invokeMethod(
-      QApplication::instance(),
+      baseWorker,
       [this] {
         lv2_wrapper->create_instance(rate);
 
