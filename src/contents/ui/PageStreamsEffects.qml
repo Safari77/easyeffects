@@ -40,7 +40,7 @@ Kirigami.Page {
     padding: 0
 
     Component.onCompleted: {
-        updateStackPages();
+        Qt.callLater(updateStackPages);
     }
 
     function updateStackPages() {

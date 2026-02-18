@@ -27,6 +27,8 @@ import org.kde.kirigami as Kirigami
 Item {
     id: widgetRoot
 
+    property double lastUpdateTime: 0
+    property double updateInterval: 33
     property int seriesType: 0
     property int colorScheme: GraphsTheme.ColorScheme.Dark
     property int colorTheme: GraphsTheme.Theme.QtGreenNeon
@@ -83,6 +85,12 @@ Item {
             return;
         }
 
+        var currentTime = Date.now();
+        if ((currentTime - lastUpdateTime) < updateInterval) {
+            return; // Skip this frame completely.
+        }
+        lastUpdateTime = currentTime;
+
         let minX = Number.POSITIVE_INFINITY;
         let maxX = Number.NEGATIVE_INFINITY;
         let minY = Number.POSITIVE_INFINITY;
@@ -90,7 +98,6 @@ Item {
 
         for (let n = 0; n < inputData.length; n++) {
             const point = inputData[n];
-
             minX = Math.min(minX, point.x);
             maxX = Math.max(maxX, point.x);
             minY = Math.min(minY, point.y);
@@ -98,47 +105,60 @@ Item {
         }
 
         if (dynamicXScale) {
-            xMin = minX;
-            xMax = maxX;
+            xMin = minX; xMax = maxX;
         } else {
-            xMin = Math.min(minX, xMin);
-            xMax = Math.max(maxX, xMax);
+            xMin = Math.min(minX, xMin); xMax = Math.max(maxX, xMax);
         }
 
         if (dynamicYScale) {
-            yMin = minY;
-            yMax = maxY;
+            yMin = minY; yMax = maxY;
         } else {
-            yMin = Math.min(minY, yMin);
-            yMax = Math.max(maxY, yMax);
+            yMin = Math.min(minY, yMin); yMax = Math.max(maxY, yMax);
         }
 
-        //We do not want the object received as argument to be modified here
-        let processedData = Array.from(inputData);
+        // IF BARS (Series 0): Bypass the "processedData" array entirely
+        if (widgetRoot.seriesType === 0) {
+            // Ensure Repeater count matches data
+            if (customBarRepeater.model !== inputData.length) {
+                customBarRepeater.model = inputData.length;
+            }
 
+            // Pre-calculate axis math
+            var axisMinY = logarithimicVerticalAxis ? yMinLog : yMin;
+            var axisMaxY = logarithimicVerticalAxis ? yMaxLog : yMax;
+            var yRange = axisMaxY - axisMinY;
+            if (yRange <= 0) yRange = 1;
+
+            // Direct Loop: Read Input -> Write Scale
+            for (let i = 0; i < inputData.length; i++) {
+                var item = customBarRepeater.itemAt(i);
+                if (item) {
+                    // Read raw value
+                    var rawY = inputData[i].y;
+                    var val = logarithimicVerticalAxis ? Math.log10(rawY) : rawY;
+                    // Normalize
+                    var norm = (val - axisMinY) / yRange;
+                    if (norm < 0) norm = 0;
+                    if (norm > 1) norm = 1;
+
+                    // Update GPU Matrix
+                    item.scale = norm;
+                }
+            }
+            return;
+        }
+
+        // Only create this heavy array if we are NOT using our optimized Bars
+        let processedData = Array.from(inputData);
         for (let n = 0; n < processedData.length; n++) {
             const point = inputData[n];
-
             processedData[n].x = logarithimicHorizontalAxis ? Math.log10(point.x) : point.x;
             processedData[n].y = logarithimicVerticalAxis ? Math.log10(point.y) : point.y;
         }
 
-        if (splineSeries.visible === true) {
-            splineSeries.replace(processedData);
-        }
-
-        if (scatterSeries.visible === true)
-            scatterSeries.replace(processedData);
-
-        if (areaSeries.visible === true)
-            areaLineSeries.replace(processedData);
-
-        if (barSeries.visible === true) {
-            barSeriesSet.clear();
-            for (let n = 0; n < processedData.length; n++) {
-                barSeriesSet.append(processedData[n].y);
-            }
-        }
+        if (splineSeries.visible === true) splineSeries.replace(processedData);
+        if (scatterSeries.visible === true) scatterSeries.replace(processedData);
+        if (areaSeries.visible === true) areaLineSeries.replace(processedData);
     }
 
     function clearData() {
@@ -371,6 +391,45 @@ Item {
                 color: chart.theme.labelTextColor
                 horizontalAlignment: Qt.AlignRight
                 anchors.right: parent.right
+            }
+        }
+    }
+
+    Item {
+        id: customBarContainer
+        // Map exactly to the plot area
+        x: chart.plotArea.x
+        y: chart.plotArea.y
+        width: chart.plotArea.width
+        height: chart.plotArea.height
+
+        // Ensure it sits above the background grid
+        z: 10
+        visible: widgetRoot.seriesType === 0
+        clip: true // Prevents bars from poking out if calculations go wrong
+
+        Repeater {
+            id: customBarRepeater
+            model: 0
+
+            Rectangle {
+                id: barDelegate
+
+                required property int index
+
+                // Calculate width once
+                property real barWidth: customBarContainer.width / (customBarRepeater.count || 1)
+
+                x: index * barWidth
+                width: Math.max(1, barWidth - 1)
+                height: customBarContainer.height
+                // Scale from the bottom up
+                transformOrigin: Item.Bottom
+                scale: 0 // Start invisible
+
+                // Theme Color
+                color: widgetRoot.colorTheme !== GraphsTheme.Theme.UserDefined ?
+                       qtTheme.seriesColors[0] : userTheme.seriesColors[0]
             }
         }
     }
