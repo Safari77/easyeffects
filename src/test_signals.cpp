@@ -168,7 +168,6 @@ TestSignals::TestSignals(pw::Manager* pipe_manager) : pm(pipe_manager), random_g
   pw_properties_set(props_filter, PW_KEY_APP_ID, tags::app::id);
   pw_properties_set(props_filter, PW_KEY_NODE_NAME, filter_name);
   pw_properties_set(props_filter, PW_KEY_NODE_DESCRIPTION, "Easy Effects Filter");
-  pw_properties_set(props_filter, PW_KEY_NODE_DRIVER, "true");
   pw_properties_set(props_filter, PW_KEY_MEDIA_TYPE, "Audio");
   pw_properties_set(props_filter, PW_KEY_MEDIA_CATEGORY, "Source");
   pw_properties_set(props_filter, PW_KEY_MEDIA_ROLE, "DSP");
@@ -265,7 +264,7 @@ void TestSignals::set_state(const bool& state) {
   pink_b0 = pink_b1 = pink_b2 = 0.0F;
 
   if (state) {
-    for (const auto& link : pm->link_nodes(node_id, pm->ee_sink_node.id, false, false)) {
+    for (const auto& link : pm->link_nodes(node_id, pm->ee_sink_node.id, false)) {
       list_proxies.push_back(link);
     }
   } else {

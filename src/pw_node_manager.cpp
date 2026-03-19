@@ -678,11 +678,12 @@ auto NodeManager::load_virtual_devices(pw_core* core) -> std::pair<pw_proxy*, pw
   pw_properties* props_sink = pw_properties_new(nullptr, nullptr);
 
   pw_properties_set(props_sink, PW_KEY_APP_ID, tags::app::id);
+  pw_properties_set(props_sink, PW_KEY_MEDIA_CLASS, tags::pipewire::media_class::sink);
   pw_properties_set(props_sink, PW_KEY_NODE_NAME, tags::pipewire::ee_sink_name);
   pw_properties_set(props_sink, PW_KEY_NODE_DESCRIPTION, "Easy Effects Sink");
   pw_properties_set(props_sink, PW_KEY_NODE_VIRTUAL, "true");
+  pw_properties_set(props_sink, PW_KEY_NODE_GROUP, "ee_sink_group");
   pw_properties_set(props_sink, "factory.name", "support.null-audio-sink");
-  pw_properties_set(props_sink, PW_KEY_MEDIA_CLASS, tags::pipewire::media_class::sink);
   pw_properties_set(props_sink, "audio.position", "FL,FR");
   pw_properties_set(props_sink, "monitor.channel-volumes", "false");
   pw_properties_set(props_sink, "monitor.passthrough", "true");
@@ -698,11 +699,12 @@ auto NodeManager::load_virtual_devices(pw_core* core) -> std::pair<pw_proxy*, pw
   pw_properties* props_source = pw_properties_new(nullptr, nullptr);
 
   pw_properties_set(props_source, PW_KEY_APP_ID, tags::app::id);
+  pw_properties_set(props_source, PW_KEY_MEDIA_CLASS, tags::pipewire::media_class::virtual_source);
   pw_properties_set(props_source, PW_KEY_NODE_NAME, tags::pipewire::ee_source_name);
   pw_properties_set(props_source, PW_KEY_NODE_DESCRIPTION, "Easy Effects Source");
   pw_properties_set(props_source, PW_KEY_NODE_VIRTUAL, "true");
+  pw_properties_set(props_source, PW_KEY_NODE_GROUP, "ee_source_group");
   pw_properties_set(props_source, "factory.name", "support.null-audio-sink");
-  pw_properties_set(props_source, PW_KEY_MEDIA_CLASS, tags::pipewire::media_class::virtual_source);
   pw_properties_set(props_source, "audio.position", "FL,FR");
   pw_properties_set(props_source, "monitor.channel-volumes", "false");
   pw_properties_set(props_source, "monitor.passthrough", "true");
