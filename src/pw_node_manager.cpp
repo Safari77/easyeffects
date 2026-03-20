@@ -81,9 +81,9 @@ void NodeManager::setNodeMute(uint64_t serial, bool state) {
     auto builder = SPA_POD_BUILDER_INIT(buffer.data(), sizeof(buffer));  // NOLINT
 
     // NOLINTNEXTLINE
-    pw_node_set_param((pw_node*)proxy, SPA_PARAM_Props, 0,
-                      (spa_pod*)spa_pod_builder_add_object(&builder, SPA_TYPE_OBJECT_Props, SPA_PARAM_Props,
-                                                           SPA_PROP_mute, SPA_POD_Bool(state)));
+    pw_node_set_param(reinterpret_cast<pw_node*>(proxy), SPA_PARAM_Props, 0,
+                      reinterpret_cast<spa_pod*>(spa_pod_builder_add_object(
+                          &builder, SPA_TYPE_OBJECT_Props, SPA_PARAM_Props, SPA_PROP_mute, SPA_POD_Bool(state))));
   }
 }
 
@@ -99,10 +99,10 @@ void NodeManager::setNodeVolume(uint64_t serial, uint n_vol_ch, float value) {
     auto builder = SPA_POD_BUILDER_INIT(buffer.data(), sizeof(buffer));  // NOLINT
 
     // NOLINTNEXTLINE
-    pw_node_set_param(
-        (struct pw_node*)proxy, SPA_PARAM_Props, 0,
-        (spa_pod*)spa_pod_builder_add_object(&builder, SPA_TYPE_OBJECT_Props, SPA_PARAM_Props, SPA_PROP_channelVolumes,
-                                             SPA_POD_Array(sizeof(float), SPA_TYPE_Float, n_vol_ch, volumes.data())));
+    pw_node_set_param(reinterpret_cast<pw_node*>(proxy), SPA_PARAM_Props, 0,
+                      reinterpret_cast<spa_pod*>(spa_pod_builder_add_object(
+                          &builder, SPA_TYPE_OBJECT_Props, SPA_PARAM_Props, SPA_PROP_channelVolumes,
+                          SPA_POD_Array(sizeof(float), SPA_TYPE_Float, n_vol_ch, volumes.data()))));
   }
 }
 
@@ -143,15 +143,6 @@ auto NodeManager::registerNode(pw_registry* registry, uint32_t id, const char* t
 
   if (const auto* key_media_role = spa_dict_lookup(props, PW_KEY_MEDIA_ROLE)) {
     media_role = key_media_role;
-  }
-
-  constexpr auto class_array =
-      std::to_array({tags::pipewire::media_class::output_stream, tags::pipewire::media_class::input_stream,
-                     tags::pipewire::media_class::sink, tags::pipewire::media_class::source,
-                     tags::pipewire::media_class::virtual_source, tags::pipewire::media_class::virtual_sink});
-
-  if (!is_ee_filter && !std::ranges::any_of(class_array, [&](const auto& str) { return str == media_class; })) {
-    return false;
   }
 
   QString node_name;
@@ -540,7 +531,7 @@ void NodeManager::onNodeParam(void* data,
   }
 
   spa_pod_prop* pod_prop = nullptr;
-  auto* obj = (spa_pod_object*)param;
+  auto* obj = reinterpret_cast<const spa_pod_object*>(param);
 
   SPA_POD_OBJECT_FOREACH(obj, pod_prop) {
     switch (pod_prop->key) {

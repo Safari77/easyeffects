@@ -13,6 +13,19 @@ Description:
 - 
 
 ---
+Version: 8.1.6
+Date: 2026-03-19
+
+Description: 
+- Features∶
+- Updated translations
+
+- Bug fixes∶
+- Fixed a regression that made applications like PipeWeaver not work properly together with EasyEffects
+
+- Other notes∶
+
+---
 Version: 8.1.5
 Date: 2026-03-17
 
