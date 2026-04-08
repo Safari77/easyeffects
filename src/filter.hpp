@@ -19,7 +19,9 @@
 
 #pragma once
 
+#include <qqmlintegration.h>
 #include <qtmetamacros.h>
+#include <qtypes.h>
 #include <QString>
 #include <span>
 #include <string>
@@ -30,6 +32,8 @@
 
 class Filter : public PluginBase {
   Q_OBJECT
+  QML_NAMED_ELEMENT(BackendFilter)
+  QML_UNCREATABLE("Use the c++ instance")
 
  public:
   Filter(const std::string& tag, pw::Manager* pipe_manager, PipelineType pipe_type, QString instance_id);
@@ -62,7 +66,7 @@ class Filter : public PluginBase {
  private:
   uint latency_n_frames = 0U;
 
-  db::Filter* settings = nullptr;
+  DbFilter* settings = nullptr;
 
   bool ready = false;
 };

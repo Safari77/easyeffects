@@ -21,6 +21,7 @@
 
 #include <qlist.h>
 #include <qobject.h>
+#include <qqmlintegration.h>
 #include <qtmetamacros.h>
 #include <sys/types.h>
 #include <span>
@@ -34,6 +35,8 @@
 
 class Equalizer : public PluginBase {
   Q_OBJECT
+  QML_NAMED_ELEMENT(BackendEqualizer)
+  QML_UNCREATABLE("Use the c++ instance")
 
  public:
   Equalizer(const std::string& tag, pw::Manager* pipe_manager, PipelineType pipe_type, QString instance_id);
@@ -78,8 +81,8 @@ class Equalizer : public PluginBase {
   static constexpr int max_bands = 32;
 
  private:
-  db::Equalizer* settings = nullptr;
-  db::EqualizerChannel *settings_left = nullptr, *settings_right = nullptr;
+  DbEqualizer* settings = nullptr;
+  DbEqualizerChannel *settings_left = nullptr, *settings_right = nullptr;
 
   bool ready = false;
 

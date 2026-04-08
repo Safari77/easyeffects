@@ -21,24 +21,25 @@ import QtQuick
 import QtQuick.Controls as Controls
 import QtQuick.Layouts
 import ee.tags.plugin.name as TagsPluginName // qmllint disable
+import ee.ui
 import org.kde.kirigami as Kirigami
 
 Kirigami.ScrollablePage {
     id: bassLoudnessPage
 
     required property string name
-    required property var pluginDB
+    required property DbBassLoudness pluginDB
     required property var pipelineInstance
-    property var pluginBackend
+    property BackendBassLoudness pluginBackend
 
     function updateMeters() {
-        if (!pluginBackend)
+        if (!bassLoudnessPage.pluginBackend)
             return;
 
-        inputOutputLevels.setInputLevelLeft(pluginBackend.getInputLevelLeft());
-        inputOutputLevels.setInputLevelRight(pluginBackend.getInputLevelRight());
-        inputOutputLevels.setOutputLevelLeft(pluginBackend.getOutputLevelLeft());
-        inputOutputLevels.setOutputLevelRight(pluginBackend.getOutputLevelRight());
+        inputOutputLevels.setInputLevelLeft(bassLoudnessPage.pluginBackend.getInputLevelLeft());
+        inputOutputLevels.setInputLevelRight(bassLoudnessPage.pluginBackend.getInputLevelRight());
+        inputOutputLevels.setOutputLevelLeft(bassLoudnessPage.pluginBackend.getOutputLevelLeft());
+        inputOutputLevels.setOutputLevelRight(bassLoudnessPage.pluginBackend.getOutputLevelRight());
     }
 
     Component.onCompleted: {

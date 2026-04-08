@@ -20,6 +20,7 @@
 #pragma once
 
 #include <qobject.h>
+#include <qqmlintegration.h>
 #include <qtmetamacros.h>
 #include <span>
 #include <string>
@@ -30,6 +31,8 @@
 
 class Deesser : public PluginBase {
   Q_OBJECT
+  QML_NAMED_ELEMENT(BackendDeesser)
+  QML_UNCREATABLE("Use the c++ instance")
 
  public:
   Deesser(const std::string& tag, pw::Manager* pipe_manager, PipelineType pipe_type, QString instance_id);
@@ -63,7 +66,7 @@ class Deesser : public PluginBase {
   Q_INVOKABLE [[nodiscard]] float getDetectedLevel() const;
 
  private:
-  db::Deesser* settings = nullptr;
+  DbDeesser* settings = nullptr;
 
   bool ready = false;
 

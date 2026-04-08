@@ -21,6 +21,7 @@
 
 #include <pipewire/proxy.h>
 #include <qobject.h>
+#include <qqmlintegration.h>
 #include <qtmetamacros.h>
 #include <sys/types.h>
 #include <span>
@@ -33,6 +34,8 @@
 
 class Expander : public PluginBase {
   Q_OBJECT
+  QML_NAMED_ELEMENT(BackendExpander)
+  QML_UNCREATABLE("Use the c++ instance")
 
  public:
   Expander(const std::string& tag, pw::Manager* pipe_manager, PipelineType pipe_type, QString instance_id);
@@ -76,7 +79,7 @@ class Expander : public PluginBase {
   Q_INVOKABLE [[nodiscard]] float getEnvelopeLevelRight() const;
 
  private:
-  db::Expander* settings = nullptr;
+  DbExpander* settings = nullptr;
 
   bool ready = false;
 

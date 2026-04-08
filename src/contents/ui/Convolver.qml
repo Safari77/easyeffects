@@ -23,6 +23,7 @@ import QtQuick.Controls as Controls
 import QtQuick.Layouts
 import ee.presets as Presets
 import ee.tags.plugin.name as TagsPluginName // qmllint disable
+import ee.ui
 import org.kde.kirigami as Kirigami
 import org.kde.kirigamiaddons.formcard as FormCard
 
@@ -30,18 +31,18 @@ Kirigami.ScrollablePage {
     id: convolverPage
 
     required property string name
-    required property var pluginDB
+    required property DbConvolver pluginDB
     required property var pipelineInstance
-    property var pluginBackend: null
+    property BackendConvolver pluginBackend
 
     function updateMeters() {
-        if (!pluginBackend)
+        if (!convolverPage.pluginBackend)
             return;
 
-        inputOutputLevels.setInputLevelLeft(pluginBackend.getInputLevelLeft());
-        inputOutputLevels.setInputLevelRight(pluginBackend.getInputLevelRight());
-        inputOutputLevels.setOutputLevelLeft(pluginBackend.getOutputLevelLeft());
-        inputOutputLevels.setOutputLevelRight(pluginBackend.getOutputLevelRight());
+        inputOutputLevels.setInputLevelLeft(convolverPage.pluginBackend.getInputLevelLeft());
+        inputOutputLevels.setInputLevelRight(convolverPage.pluginBackend.getInputLevelRight());
+        inputOutputLevels.setOutputLevelLeft(convolverPage.pluginBackend.getOutputLevelLeft());
+        inputOutputLevels.setOutputLevelRight(convolverPage.pluginBackend.getOutputLevelRight());
     }
 
     function validChartMag(chartMag) {
@@ -114,7 +115,7 @@ Kirigami.ScrollablePage {
                 convolverChart.updateData(convolverPage.pluginBackend.chartMagRfftLog);
         }
 
-        target: convolverPage.pluginBackend
+        target: convolverPage.pluginBackend // qmllint disable
     }
 
     ConvolverImpulseDialog {

@@ -21,6 +21,7 @@
 
 #include <pipewire/proxy.h>
 #include <qlist.h>
+#include <qqmlintegration.h>
 #include <qtmetamacros.h>
 #include <sys/types.h>
 #include <QString>
@@ -35,6 +36,8 @@
 
 class MultibandCompressor : public PluginBase {
   Q_OBJECT
+  QML_NAMED_ELEMENT(BackendMultibandCompressor)
+  QML_UNCREATABLE("Use the c++ instance")
 
  public:
   MultibandCompressor(const std::string& tag, pw::Manager* pipe_manager, PipelineType pipe_type, QString instance_id);
@@ -84,7 +87,7 @@ class MultibandCompressor : public PluginBase {
 
   static constexpr uint n_bands = tags::multiband_compressor::n_bands;
 
-  db::MultibandCompressor* settings = nullptr;
+  DbMultibandCompressor* settings = nullptr;
 
   QList<float> frequency_range_end, envelope_left, envelope_right, curve_left, curve_right, reduction_left,
       reduction_right;

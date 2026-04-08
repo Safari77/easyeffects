@@ -179,70 +179,68 @@ void Manager::create_plugin_db(const QString& parentGroup,
     auto id = tags::plugin_name::get_id(name);
 
     if (name.startsWith(tags::plugin_name::BaseName::autogain)) {
-      ensureExists(makeKey(tags::plugin_name::BaseName::autogain, id),
-                   [&] { return new db::Autogain(parentGroup, id); });
+      ensureExists(makeKey(tags::plugin_name::BaseName::autogain, id), [&] { return new DbAutogain(parentGroup, id); });
 
     } else if (name.startsWith(tags::plugin_name::BaseName::bassEnhancer)) {
       ensureExists(makeKey(tags::plugin_name::BaseName::bassEnhancer, id),
-                   [&] { return new db::BassEnhancer(parentGroup, id); });
+                   [&] { return new DbBassEnhancer(parentGroup, id); });
 
     } else if (name.startsWith(tags::plugin_name::BaseName::bassLoudness)) {
       ensureExists(makeKey(tags::plugin_name::BaseName::bassLoudness, id),
-                   [&] { return new db::BassLoudness(parentGroup, id); });
+                   [&] { return new DbBassLoudness(parentGroup, id); });
 
     } else if (name.startsWith(tags::plugin_name::BaseName::compressor)) {
       ensureExists(makeKey(tags::plugin_name::BaseName::compressor, id),
-                   [&] { return new db::Compressor(parentGroup, id); });
+                   [&] { return new DbCompressor(parentGroup, id); });
 
     } else if (name.startsWith(tags::plugin_name::BaseName::convolver)) {
       ensureExists(makeKey(tags::plugin_name::BaseName::convolver, id),
-                   [&] { return new db::Convolver(parentGroup, id); });
+                   [&] { return new DbConvolver(parentGroup, id); });
 
     } else if (name.startsWith(tags::plugin_name::BaseName::crossfeed)) {
       ensureExists(makeKey(tags::plugin_name::BaseName::crossfeed, id),
-                   [&] { return new db::Crossfeed(parentGroup, id); });
+                   [&] { return new DbCrossfeed(parentGroup, id); });
 
     } else if (name.startsWith(tags::plugin_name::BaseName::crusher)) {
-      ensureExists(makeKey(tags::plugin_name::BaseName::crusher, id), [&] { return new db::Crusher(parentGroup, id); });
+      ensureExists(makeKey(tags::plugin_name::BaseName::crusher, id), [&] { return new DbCrusher(parentGroup, id); });
 
     } else if (name.startsWith(tags::plugin_name::BaseName::crystalizer)) {
       ensureExists(makeKey(tags::plugin_name::BaseName::crystalizer, id),
-                   [&] { return new db::Crystalizer(parentGroup, id); });
+                   [&] { return new DbCrystalizer(parentGroup, id); });
 
     } else if (name.startsWith(tags::plugin_name::BaseName::delay)) {
-      ensureExists(makeKey(tags::plugin_name::BaseName::delay, id), [&] { return new db::Delay(parentGroup, id); });
+      ensureExists(makeKey(tags::plugin_name::BaseName::delay, id), [&] { return new DbDelay(parentGroup, id); });
 
     } else if (name.startsWith(tags::plugin_name::BaseName::deepfilternet)) {
       ensureExists(makeKey(tags::plugin_name::BaseName::deepfilternet, id),
-                   [&] { return new db::DeepFilterNet(parentGroup, id); });
+                   [&] { return new DbDeepFilterNet(parentGroup, id); });
 
     } else if (name.startsWith(tags::plugin_name::BaseName::deesser)) {
-      ensureExists(makeKey(tags::plugin_name::BaseName::deesser, id), [&] { return new db::Deesser(parentGroup, id); });
+      ensureExists(makeKey(tags::plugin_name::BaseName::deesser, id), [&] { return new DbDeesser(parentGroup, id); });
 
     } else if (name.startsWith(tags::plugin_name::BaseName::echoCanceller)) {
       ensureExists(makeKey(tags::plugin_name::BaseName::echoCanceller, id),
-                   [&] { return new db::EchoCanceller(parentGroup, id); });
+                   [&] { return new DbEchoCanceller(parentGroup, id); });
 
     } else if (name.startsWith(tags::plugin_name::BaseName::equalizer)) {
       ensureExists(makeKey(tags::plugin_name::BaseName::equalizer, id),
-                   [&] { return new db::Equalizer(parentGroup, id); });
+                   [&] { return new DbEqualizer(parentGroup, id); });
       ensureExists(makeKey(tags::plugin_name::BaseName::equalizer, id, "left"),
-                   [&] { return new db::EqualizerChannel(parentGroup, id, "left"); });
+                   [&] { return new DbEqualizerChannel(parentGroup, id, "left"); });
       ensureExists(makeKey(tags::plugin_name::BaseName::equalizer, id, "right"),
-                   [&] { return new db::EqualizerChannel(parentGroup, id, "right"); });
+                   [&] { return new DbEqualizerChannel(parentGroup, id, "right"); });
 
     } else if (name.startsWith(tags::plugin_name::BaseName::exciter)) {
-      ensureExists(makeKey(tags::plugin_name::BaseName::exciter, id), [&] { return new db::Exciter(parentGroup, id); });
+      ensureExists(makeKey(tags::plugin_name::BaseName::exciter, id), [&] { return new DbExciter(parentGroup, id); });
 
     } else if (name.startsWith(tags::plugin_name::BaseName::expander)) {
-      ensureExists(makeKey(tags::plugin_name::BaseName::expander, id),
-                   [&] { return new db::Expander(parentGroup, id); });
+      ensureExists(makeKey(tags::plugin_name::BaseName::expander, id), [&] { return new DbExpander(parentGroup, id); });
 
     } else if (name.startsWith(tags::plugin_name::BaseName::filter)) {
-      ensureExists(makeKey(tags::plugin_name::BaseName::filter, id), [&] { return new db::Filter(parentGroup, id); });
+      ensureExists(makeKey(tags::plugin_name::BaseName::filter, id), [&] { return new DbFilter(parentGroup, id); });
 
     } else if (name.startsWith(tags::plugin_name::BaseName::gate)) {
-      ensureExists(makeKey(tags::plugin_name::BaseName::gate, id), [&] { return new db::Gate(parentGroup, id); });
+      ensureExists(makeKey(tags::plugin_name::BaseName::gate, id), [&] { return new DbGate(parentGroup, id); });
 
     } else if (name.startsWith(tags::plugin_name::BaseName::voiceSuppressor)) {
       ensureExists(makeKey(tags::plugin_name::BaseName::voiceSuppressor, id),
@@ -250,26 +248,25 @@ void Manager::create_plugin_db(const QString& parentGroup,
 
     } else if (name.startsWith(tags::plugin_name::BaseName::levelMeter)) {
       ensureExists(makeKey(tags::plugin_name::BaseName::levelMeter, id),
-                   [&] { return new db::LevelMeter(parentGroup, id); });
+                   [&] { return new DbLevelMeter(parentGroup, id); });
 
     } else if (name.startsWith(tags::plugin_name::BaseName::limiter)) {
-      ensureExists(makeKey(tags::plugin_name::BaseName::limiter, id), [&] { return new db::Limiter(parentGroup, id); });
+      ensureExists(makeKey(tags::plugin_name::BaseName::limiter, id), [&] { return new DbLimiter(parentGroup, id); });
 
     } else if (name.startsWith(tags::plugin_name::BaseName::loudness)) {
-      ensureExists(makeKey(tags::plugin_name::BaseName::loudness, id),
-                   [&] { return new db::Loudness(parentGroup, id); });
+      ensureExists(makeKey(tags::plugin_name::BaseName::loudness, id), [&] { return new DbLoudness(parentGroup, id); });
 
     } else if (name.startsWith(tags::plugin_name::BaseName::maximizer)) {
       ensureExists(makeKey(tags::plugin_name::BaseName::maximizer, id),
-                   [&] { return new db::Maximizer(parentGroup, id); });
+                   [&] { return new DbMaximizer(parentGroup, id); });
 
     } else if (name.startsWith(tags::plugin_name::BaseName::multibandCompressor)) {
       ensureExists(makeKey(tags::plugin_name::BaseName::multibandCompressor, id),
-                   [&] { return new db::MultibandCompressor(parentGroup, id); });
+                   [&] { return new DbMultibandCompressor(parentGroup, id); });
 
     } else if (name.startsWith(tags::plugin_name::BaseName::multibandGate)) {
       ensureExists(makeKey(tags::plugin_name::BaseName::multibandGate, id),
-                   [&] { return new db::MultibandGate(parentGroup, id); });
+                   [&] { return new DbMultibandGate(parentGroup, id); });
 
     } else if (name.startsWith(tags::plugin_name::BaseName::pitch)) {
       ensureExists(makeKey(tags::plugin_name::BaseName::pitch, id), [&] { return new db::Pitch(parentGroup, id); });

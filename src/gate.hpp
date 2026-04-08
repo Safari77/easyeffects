@@ -20,6 +20,7 @@
 #pragma once
 
 #include <pipewire/proxy.h>
+#include <qqmlintegration.h>
 #include <qtmetamacros.h>
 #include <sys/types.h>
 #include <QString>
@@ -33,6 +34,8 @@
 
 class Gate : public PluginBase {
   Q_OBJECT
+  QML_NAMED_ELEMENT(BackendGate)
+  QML_UNCREATABLE("Use the c++ instance")
 
  public:
   Gate(const std::string& tag, pw::Manager* pipe_manager, PipelineType pipe_type, QString instance_id);
@@ -96,7 +99,7 @@ class Gate : public PluginBase {
 
   bool ready = false;
 
-  db::Gate* settings = nullptr;
+  DbGate* settings = nullptr;
 
   std::vector<pw_proxy*> list_proxies;
 

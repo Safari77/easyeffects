@@ -20,6 +20,7 @@
 #pragma once
 
 #include <qobject.h>
+#include <qqmlintegration.h>
 #include <qtmetamacros.h>
 #include <memory>
 #include <span>
@@ -34,6 +35,8 @@
 
 class DeepFilterNet : public PluginBase {
   Q_OBJECT
+  QML_NAMED_ELEMENT(BackendDeepFilterNet)
+  QML_UNCREATABLE("Use the c++ instance")
 
  public:
   DeepFilterNet(const std::string& tag, pw::Manager* pipe_manager, PipelineType pipe_type, QString instance_id);
@@ -66,7 +69,7 @@ class DeepFilterNet : public PluginBase {
   Q_INVOKABLE void resetHistory();
 
  private:
-  db::DeepFilterNet* settings = nullptr;
+  DbDeepFilterNet* settings = nullptr;
 
   std::unique_ptr<ladspa::LadspaWrapper> ladspa_wrapper;
 

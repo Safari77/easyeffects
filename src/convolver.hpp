@@ -22,6 +22,7 @@
 #include <qlist.h>
 #include <qobject.h>
 #include <qpoint.h>
+#include <qqmlintegration.h>
 #include <qtmetamacros.h>
 #include <sys/types.h>
 #include <zita-convolver.h>
@@ -53,6 +54,8 @@ class ConvolverWorker : public QObject {
 
 class Convolver : public PluginBase {
   Q_OBJECT
+  QML_NAMED_ELEMENT(BackendConvolver)
+  QML_UNCREATABLE("Use the c++ instance")
 
   Q_PROPERTY(bool kernelIsInitialized MEMBER kernel_is_initialized NOTIFY kernelInitializedChanged)
   Q_PROPERTY(bool kernelIsSofa MEMBER kernelIsSofa NOTIFY kernelIsSofaChanged)
@@ -153,7 +156,7 @@ class Convolver : public PluginBase {
   void kernelCombinationStopped();
 
  private:
-  db::Convolver* settings = nullptr;
+  DbConvolver* settings = nullptr;
 
   bool kernel_is_initialized = false;
   bool kernelIsSofa = false;

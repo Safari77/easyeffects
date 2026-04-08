@@ -21,6 +21,7 @@
 
 #include <ebur128.h>
 #include <qobject.h>
+#include <qqmlintegration.h>
 #include <qtmetamacros.h>
 #include <sys/types.h>
 #include <span>
@@ -33,6 +34,8 @@
 
 class LevelMeter : public PluginBase {
   Q_OBJECT
+  QML_NAMED_ELEMENT(BackendLevelMeter)
+  QML_UNCREATABLE("Use the c++ instance")
 
  public:
   LevelMeter(const std::string& tag, pw::Manager* pipe_manager, PipelineType pipe_type, QString instance_i);
@@ -79,7 +82,7 @@ class LevelMeter : public PluginBase {
   Q_INVOKABLE void resetHistory();
 
  private:
-  db::LevelMeter* settings = nullptr;
+  DbLevelMeter* settings = nullptr;
 
   bool ebur128_ready = false;
 

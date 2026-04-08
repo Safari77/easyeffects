@@ -21,6 +21,7 @@ import QtQuick
 import QtQuick.Controls as Controls
 import QtQuick.Layouts
 import ee.tags.plugin.name as TagsPluginName // qmllint disable
+import ee.ui
 import org.kde.kirigami as Kirigami
 import org.kde.kirigamiaddons.formcard as FormCard
 
@@ -28,18 +29,18 @@ Kirigami.ScrollablePage {
     id: crusherPage
 
     required property string name
-    required property var pluginDB
+    required property DbCrusher pluginDB
     required property var pipelineInstance
-    property var pluginBackend
+    property BackendCrusher pluginBackend
 
     function updateMeters() {
-        if (!pluginBackend)
+        if (!crusherPage.pluginBackend)
             return;
 
-        inputOutputLevels.setInputLevelLeft(pluginBackend.getInputLevelLeft());
-        inputOutputLevels.setInputLevelRight(pluginBackend.getInputLevelRight());
-        inputOutputLevels.setOutputLevelLeft(pluginBackend.getOutputLevelLeft());
-        inputOutputLevels.setOutputLevelRight(pluginBackend.getOutputLevelRight());
+        inputOutputLevels.setInputLevelLeft(crusherPage.pluginBackend.getInputLevelLeft());
+        inputOutputLevels.setInputLevelRight(crusherPage.pluginBackend.getInputLevelRight());
+        inputOutputLevels.setOutputLevelLeft(crusherPage.pluginBackend.getOutputLevelLeft());
+        inputOutputLevels.setOutputLevelRight(crusherPage.pluginBackend.getOutputLevelRight());
     }
 
     Component.onCompleted: {

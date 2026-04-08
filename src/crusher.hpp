@@ -19,6 +19,7 @@
 
 #pragma once
 
+#include <qqmlintegration.h>
 #include <qtmetamacros.h>
 #include <QString>
 #include <span>
@@ -30,6 +31,8 @@
 
 class Crusher : public PluginBase {
   Q_OBJECT
+  QML_NAMED_ELEMENT(BackendCrusher)
+  QML_UNCREATABLE("Use the c++ instance")
 
  public:
   Crusher(const std::string& tag, pw::Manager* pipe_manager, PipelineType pipe_type, QString instance_id);
@@ -60,7 +63,7 @@ class Crusher : public PluginBase {
   auto get_latency_seconds() -> float override;
 
  private:
-  db::Crusher* settings = nullptr;
+  DbCrusher* settings = nullptr;
 
   bool ready = false;
 };

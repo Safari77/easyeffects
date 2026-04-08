@@ -20,6 +20,7 @@
 #pragma once
 
 #include <qobject.h>
+#include <qqmlintegration.h>
 #include <qtmetamacros.h>
 #include <sys/types.h>
 #include <span>
@@ -31,6 +32,8 @@
 
 class Delay : public PluginBase {
   Q_OBJECT
+  QML_NAMED_ELEMENT(BackendDelay)
+  QML_UNCREATABLE("Use the c++ instance")
 
  public:
   Delay(const std::string& tag, pw::Manager* pipe_manager, PipelineType pipe_type, QString instance_id);
@@ -61,7 +64,7 @@ class Delay : public PluginBase {
   auto get_latency_seconds() -> float override;
 
  private:
-  db::Delay* settings = nullptr;
+  DbDelay* settings = nullptr;
 
   bool ready = false;
 

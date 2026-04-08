@@ -20,6 +20,7 @@
 #pragma once
 
 #include <pipewire/proxy.h>
+#include <qqmlintegration.h>
 #include <qtmetamacros.h>
 #include <sys/types.h>
 #include <QString>
@@ -33,6 +34,8 @@
 
 class Limiter : public PluginBase {
   Q_OBJECT
+  QML_NAMED_ELEMENT(BackendLimiter)
+  QML_UNCREATABLE("Use the c++ instance")
 
  public:
   Limiter(const std::string& tag, pw::Manager* pipe_manager, PipelineType pipe_type, QString instance_id);
@@ -79,7 +82,7 @@ class Limiter : public PluginBase {
 
   bool ready = false;
 
-  db::Limiter* settings = nullptr;
+  DbLimiter* settings = nullptr;
 
   std::vector<pw_proxy*> list_proxies;
 

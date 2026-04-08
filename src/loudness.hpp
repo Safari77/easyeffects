@@ -20,6 +20,7 @@
 #pragma once
 
 #include <qobject.h>
+#include <qqmlintegration.h>
 #include <qtmetamacros.h>
 #include <sys/types.h>
 #include <span>
@@ -31,6 +32,8 @@
 
 class Loudness : public PluginBase {
   Q_OBJECT
+  QML_NAMED_ELEMENT(BackendLoudness)
+  QML_UNCREATABLE("Use the c++ instance")
 
  public:
   Loudness(const std::string& tag, pw::Manager* pipe_manager, PipelineType pipe_type, QString instance_id);
@@ -61,7 +64,7 @@ class Loudness : public PluginBase {
   auto get_latency_seconds() -> float override;
 
  private:
-  db::Loudness* settings = nullptr;
+  DbLoudness* settings = nullptr;
 
   bool ready = false;
 

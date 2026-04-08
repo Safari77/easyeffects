@@ -337,9 +337,9 @@ static auto parse_apo_config_line(const std::string& line, struct APO_Band& filt
   return true;
 }
 
-auto import_apo_preset(db::Equalizer* settings,
-                       db::EqualizerChannel* settings_left,
-                       db::EqualizerChannel* settings_right,
+auto import_apo_preset(DbEqualizer* settings,
+                       DbEqualizerChannel* settings_left,
+                       DbEqualizerChannel* settings_right,
                        const std::string& file_path) -> bool {
   std::filesystem::path p{file_path};
 
@@ -376,13 +376,13 @@ auto import_apo_preset(db::Equalizer* settings,
   // Sort bands by freq is made by user through Equalizer::sort_bands()
   // std::ranges::stable_sort(bands, {}, &APO_Band::freq);
 
-  const auto max_bands = settings->getMaxValue(num_bands).value<int>();
+  const auto max_bands = static_cast<int>(settings->getMaxValue(num_bands));
   const auto apo_bands = static_cast<int>(bands.size());
 
   // Apply APO parameters obtained
   settings->setInputGain(preamp);
 
-  std::vector<db::EqualizerChannel*> settings_channels;
+  std::vector<DbEqualizerChannel*> settings_channels;
 
   /**
    * When split channel mode is disabled, we can:
@@ -417,8 +417,8 @@ auto import_apo_preset(db::Equalizer* settings,
       if (n < apo_bands) {
         // Band frequency and type
 
-        if (bands[n].freq >= channel->getMinValue(band_frequency[n].data()).value<float>() &&
-            bands[n].freq <= channel->getMaxValue(band_frequency[n].data()).value<float>()) {
+        if (bands[n].freq >= channel->getMinValue(band_frequency[n].data()) &&
+            bands[n].freq <= channel->getMaxValue(band_frequency[n].data())) {
           channel->setProperty(band_frequency[n].data(), bands[n].freq);
 
           std::string current_band_type;
@@ -440,8 +440,8 @@ auto import_apo_preset(db::Equalizer* settings,
 
         // Band gain
 
-        if (bands[n].gain >= channel->getMinValue(band_gain[n].data()).value<float>() &&
-            bands[n].gain <= channel->getMaxValue(band_gain[n].data()).value<float>()) {
+        if (bands[n].gain >= channel->getMinValue(band_gain[n].data()) &&
+            bands[n].gain <= channel->getMaxValue(band_gain[n].data())) {
           channel->setProperty(band_gain[n].data(), bands[n].gain);
 
         } else {
@@ -450,8 +450,8 @@ auto import_apo_preset(db::Equalizer* settings,
 
         // Band quality
 
-        if (bands[n].quality >= channel->getMinValue(band_q[n].data()).value<float>() &&
-            bands[n].quality <= channel->getMaxValue(band_q[n].data()).value<float>()) {
+        if (bands[n].quality >= channel->getMinValue(band_q[n].data()) &&
+            bands[n].quality <= channel->getMaxValue(band_q[n].data())) {
           channel->setProperty(band_q[n].data(), bands[n].quality);
 
         } else {
@@ -562,9 +562,9 @@ static auto parse_graphiceq_config(const std::string& str, std::vector<struct Gr
   return !bands.empty();
 }
 
-auto import_graphiceq_preset(db::Equalizer* settings,
-                             db::EqualizerChannel* settings_left,
-                             db::EqualizerChannel* settings_right,
+auto import_graphiceq_preset(DbEqualizer* settings,
+                             DbEqualizerChannel* settings_left,
+                             DbEqualizerChannel* settings_right,
                              const std::string& file_path) -> bool {
   std::filesystem::path p{file_path};
 
@@ -597,7 +597,7 @@ auto import_graphiceq_preset(db::Equalizer* settings,
   // Sort bands by freq is made by user through Equalizer::sort_bands()
   // std::ranges::stable_sort(bands, {}, &GraphicEQ_Band::freq);
 
-  const auto max_bands = settings->getMaxValue(num_bands).value<int>();
+  const auto max_bands = static_cast<int>(settings->getMaxValue(num_bands));
   const auto geq_bands = static_cast<int>(bands.size());
 
   // Reset preamp
@@ -605,7 +605,7 @@ auto import_graphiceq_preset(db::Equalizer* settings,
 
   // Apply GraphicEQ parameters obtained
 
-  std::vector<db::EqualizerChannel*> settings_channels;
+  std::vector<DbEqualizerChannel*> settings_channels;
 
   // Whether to apply the parameters to both channels or the selected one only
   if (!settings->splitChannels()) {
@@ -629,8 +629,8 @@ auto import_graphiceq_preset(db::Equalizer* settings,
       if (n < geq_bands) {
         // Band frequency and type
 
-        if (bands[n].freq >= channel->getMinValue(band_frequency[n].data()).value<float>() &&
-            bands[n].freq <= channel->getMaxValue(band_frequency[n].data()).value<float>()) {
+        if (bands[n].freq >= channel->getMinValue(band_frequency[n].data()) &&
+            bands[n].freq <= channel->getMaxValue(band_frequency[n].data())) {
           channel->setProperty(band_frequency[n].data(), bands[n].freq);
           channel->setProperty(band_type[n].data(), channel->bandTypeLabels().indexOf("Bell"));
         } else {
@@ -642,8 +642,8 @@ auto import_graphiceq_preset(db::Equalizer* settings,
 
         // Band gain
 
-        if (bands[n].gain >= channel->getMinValue(band_gain[n].data()).value<float>() &&
-            bands[n].gain <= channel->getMaxValue(band_gain[n].data()).value<float>()) {
+        if (bands[n].gain >= channel->getMinValue(band_gain[n].data()) &&
+            bands[n].gain <= channel->getMaxValue(band_gain[n].data())) {
           channel->setProperty(band_gain[n].data(), bands[n].gain);
 
         } else {
@@ -667,9 +667,9 @@ auto import_graphiceq_preset(db::Equalizer* settings,
   return true;
 }
 
-auto export_apo_preset(db::Equalizer* settings,
-                       db::EqualizerChannel* settings_left,
-                       db::EqualizerChannel* settings_right,
+auto export_apo_preset(DbEqualizer* settings,
+                       DbEqualizerChannel* settings_left,
+                       DbEqualizerChannel* settings_right,
                        const std::string& file_path) -> bool {
   std::ofstream write_buffer(file_path);
 
@@ -678,7 +678,7 @@ auto export_apo_preset(db::Equalizer* settings,
   write_buffer << "Preamp: " << util::to_string(preamp) << " db"
                << "\n";
 
-  db::EqualizerChannel* settings_channel = nullptr;
+  DbEqualizerChannel* settings_channel = nullptr;
 
   // Whether to export the parameters from the left or the right channel.
   if (!settings->splitChannels()) {

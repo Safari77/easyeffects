@@ -25,6 +25,7 @@ import QtQuick.Controls as Controls
 import QtQuick.Dialogs
 import QtQuick.Layouts
 import ee.tags.plugin.name as TagsPluginName // qmllint disable
+import ee.ui
 import org.kde.kirigami as Kirigami
 import org.kde.kirigamiaddons.formcard as FormCard
 
@@ -32,11 +33,11 @@ Kirigami.ScrollablePage {
     id: equalizerPage
 
     required property string name
-    required property var pluginDB
-    required property var leftDB
-    required property var rightDB
+    required property DbEqualizer pluginDB
+    required property DbEqualizerChannel leftDB
+    required property DbEqualizerChannel rightDB
     required property var pipelineInstance
-    property var pluginBackend
+    property BackendEqualizer pluginBackend
 
     function updateMeters() {
         if (!pluginBackend)
@@ -55,9 +56,7 @@ Kirigami.ScrollablePage {
     EqualizerBandMenu {
         id: bandMenu
 
-        bandDB: {
-            equalizerPage.pluginDB.splitChannels ? (equalizerPage.pluginDB.viewLeftChannel ? equalizerPage.leftDB : equalizerPage.rightDB) : equalizerPage.leftDB;
-        }
+        bandDB: equalizerPage.pluginDB.splitChannels ? (equalizerPage.pluginDB.viewLeftChannel ? equalizerPage.leftDB : equalizerPage.rightDB) : equalizerPage.leftDB // qmllint disable
     }
 
     FileDialog {
@@ -280,9 +279,8 @@ Kirigami.ScrollablePage {
                     Controls.ScrollBar.horizontal: listViewScrollBar
 
                     delegate: EqualizerBand {
-                        bandDB: {
-                            equalizerPage.pluginDB.splitChannels ? (equalizerPage.pluginDB.viewLeftChannel ? equalizerPage.leftDB : equalizerPage.rightDB) : equalizerPage.leftDB;
-                        }
+                        bandDB: equalizerPage.pluginDB.splitChannels ? (equalizerPage.pluginDB.viewLeftChannel ? equalizerPage.leftDB : equalizerPage.rightDB) : equalizerPage.leftDB // qmllint disable
+
                         menu: bandMenu
                     }
                 }

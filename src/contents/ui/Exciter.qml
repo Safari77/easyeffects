@@ -22,24 +22,25 @@ import QtQuick.Controls as Controls
 import QtQuick.Layouts
 import "Common.js" as Common
 import ee.tags.plugin.name as TagsPluginName // qmllint disable
+import ee.ui
 import org.kde.kirigami as Kirigami
 
 Kirigami.ScrollablePage {
     id: exciterPage
 
     required property string name
-    required property var pluginDB
+    required property DbExciter pluginDB
     required property var pipelineInstance
-    property var pluginBackend
+    property BackendExciter pluginBackend
 
     function updateMeters() {
-        if (!pluginBackend)
+        if (!exciterPage.pluginBackend)
             return;
 
-        inputOutputLevels.setInputLevelLeft(pluginBackend.getInputLevelLeft());
-        inputOutputLevels.setInputLevelRight(pluginBackend.getInputLevelRight());
-        inputOutputLevels.setOutputLevelLeft(pluginBackend.getOutputLevelLeft());
-        inputOutputLevels.setOutputLevelRight(pluginBackend.getOutputLevelRight());
+        inputOutputLevels.setInputLevelLeft(exciterPage.pluginBackend.getInputLevelLeft());
+        inputOutputLevels.setInputLevelRight(exciterPage.pluginBackend.getInputLevelRight());
+        inputOutputLevels.setOutputLevelLeft(exciterPage.pluginBackend.getOutputLevelLeft());
+        inputOutputLevels.setOutputLevelRight(exciterPage.pluginBackend.getOutputLevelRight());
         harmonicsLevel.setValue(exciterPage.pluginBackend.getHarmonicsLevel());
     }
 

@@ -20,6 +20,7 @@
 #pragma once
 
 #include <pipewire/proxy.h>
+#include <qqmlintegration.h>
 #include <qtmetamacros.h>
 #include <sys/types.h>
 #include <QString>
@@ -33,6 +34,8 @@
 
 class Compressor : public PluginBase {
   Q_OBJECT
+  QML_NAMED_ELEMENT(BackendCompressor)
+  QML_UNCREATABLE("Use the c++ instance")
 
  public:
   Compressor(const std::string& tag, pw::Manager* pipe_manager, PipelineType pipe_type, QString instance_id);
@@ -86,7 +89,7 @@ class Compressor : public PluginBase {
   float curve_left = 0.0F, curve_right = 0.0F;
   float envelope_left = 0.0F, envelope_right = 0.0F;
 
-  db::Compressor* settings = nullptr;
+  DbCompressor* settings = nullptr;
 
   std::vector<pw_proxy*> list_proxies;
 

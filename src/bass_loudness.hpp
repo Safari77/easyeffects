@@ -20,6 +20,7 @@
 #pragma once
 
 #include <qobject.h>
+#include <qqmlintegration.h>
 #include <qtmetamacros.h>
 #include <span>
 #include <string>
@@ -30,6 +31,8 @@
 
 class BassLoudness : public PluginBase {
   Q_OBJECT
+  QML_NAMED_ELEMENT(BackendBassLoudness)
+  QML_UNCREATABLE("Use the c++ instance")
 
  public:
   BassLoudness(const std::string& tag, pw::Manager* pipe_manager, PipelineType pipe_type, QString instance_id);
@@ -60,7 +63,7 @@ class BassLoudness : public PluginBase {
   auto get_latency_seconds() -> float override;
 
  private:
-  db::BassLoudness* settings = nullptr;
+  DbBassLoudness* settings = nullptr;
 
   bool ready = false;
 };

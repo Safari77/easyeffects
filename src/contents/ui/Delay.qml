@@ -21,6 +21,7 @@ import QtQuick
 import QtQuick.Controls as Controls
 import QtQuick.Layouts
 import ee.tags.plugin.name as TagsPluginName // qmllint disable
+import ee.ui
 import org.kde.kirigami as Kirigami
 import org.kde.kirigamiaddons.formcard as FormCard
 
@@ -28,18 +29,18 @@ Kirigami.ScrollablePage {
     id: delayPage
 
     required property string name
-    required property var pluginDB
+    required property DbDelay pluginDB
     required property var pipelineInstance
-    property var pluginBackend
+    property BackendDelay pluginBackend
 
     function updateMeters() {
-        if (!pluginBackend)
+        if (!delayPage.pluginBackend)
             return;
 
-        inputOutputLevels.setInputLevelLeft(pluginBackend.getInputLevelLeft());
-        inputOutputLevels.setInputLevelRight(pluginBackend.getInputLevelRight());
-        inputOutputLevels.setOutputLevelLeft(pluginBackend.getOutputLevelLeft());
-        inputOutputLevels.setOutputLevelRight(pluginBackend.getOutputLevelRight());
+        inputOutputLevels.setInputLevelLeft(delayPage.pluginBackend.getInputLevelLeft());
+        inputOutputLevels.setInputLevelRight(delayPage.pluginBackend.getInputLevelRight());
+        inputOutputLevels.setOutputLevelLeft(delayPage.pluginBackend.getOutputLevelLeft());
+        inputOutputLevels.setOutputLevelRight(delayPage.pluginBackend.getOutputLevelRight());
     }
 
     Component.onCompleted: {

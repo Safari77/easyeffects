@@ -22,6 +22,7 @@ import QtQuick.Controls as Controls
 import QtQuick.Layouts
 import "Common.js" as Common
 import ee.tags.plugin.name as TagsPluginName // qmllint disable
+import ee.ui
 import org.kde.kirigami as Kirigami
 import org.kde.kirigamiaddons.formcard as FormCard
 
@@ -29,20 +30,20 @@ Kirigami.ScrollablePage {
     id: deesserPage
 
     required property string name
-    required property var pluginDB
+    required property DbDeesser pluginDB
     required property var pipelineInstance
-    property var pluginBackend
+    property BackendDeesser pluginBackend
 
     function updateMeters() {
-        if (!pluginBackend)
+        if (!deesserPage.pluginBackend)
             return;
 
-        inputOutputLevels.setInputLevelLeft(pluginBackend.getInputLevelLeft());
-        inputOutputLevels.setInputLevelRight(pluginBackend.getInputLevelRight());
-        inputOutputLevels.setOutputLevelLeft(pluginBackend.getOutputLevelLeft());
-        inputOutputLevels.setOutputLevelRight(pluginBackend.getOutputLevelRight());
-        detectionLevel.setValue(pluginBackend.getDetectedLevel());
-        gainReduction.setValue(pluginBackend.getCompressionLevel());
+        inputOutputLevels.setInputLevelLeft(deesserPage.pluginBackend.getInputLevelLeft());
+        inputOutputLevels.setInputLevelRight(deesserPage.pluginBackend.getInputLevelRight());
+        inputOutputLevels.setOutputLevelLeft(deesserPage.pluginBackend.getOutputLevelLeft());
+        inputOutputLevels.setOutputLevelRight(deesserPage.pluginBackend.getOutputLevelRight());
+        detectionLevel.setValue(deesserPage.pluginBackend.getDetectedLevel());
+        gainReduction.setValue(deesserPage.pluginBackend.getCompressionLevel());
     }
 
     Component.onCompleted: {

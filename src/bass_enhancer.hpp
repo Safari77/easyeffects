@@ -19,6 +19,7 @@
 
 #pragma once
 
+#include <qqmlintegration.h>
 #include <qtmetamacros.h>
 #include <QString>
 #include <span>
@@ -30,6 +31,8 @@
 
 class BassEnhancer : public PluginBase {
   Q_OBJECT
+  QML_NAMED_ELEMENT(BackendBassEnhancer)
+  QML_UNCREATABLE("Use the c++ instance")
 
  public:
   BassEnhancer(const std::string& tag, pw::Manager* pipe_manager, PipelineType pipe_type, QString instance_id);
@@ -66,5 +69,5 @@ class BassEnhancer : public PluginBase {
 
   float harmonics_port_value = 0.0;
 
-  db::BassEnhancer* settings = nullptr;
+  DbBassEnhancer* settings = nullptr;
 };

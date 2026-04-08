@@ -20,6 +20,7 @@
 #pragma once
 
 #include <qlist.h>
+#include <qqmlintegration.h>
 #include <qtmetamacros.h>
 #include <sys/types.h>
 #include <QString>
@@ -39,6 +40,8 @@
 
 class Crystalizer : public PluginBase {
   Q_OBJECT
+  QML_NAMED_ELEMENT(BackendCrystalizer)
+  QML_UNCREATABLE("Use the c++ instance")
 
   Q_PROPERTY(int numBands MEMBER nbands CONSTANT)
 
@@ -105,7 +108,7 @@ class Crystalizer : public PluginBase {
   float global_previous_L = 0.0F;
   float global_previous_R = 0.0F;
 
-  db::Crystalizer* settings = nullptr;
+  DbCrystalizer* settings = nullptr;
 
   std::vector<float> data_L;
   std::vector<float> data_R;
