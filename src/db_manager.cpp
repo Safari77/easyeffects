@@ -244,7 +244,7 @@ void Manager::create_plugin_db(const QString& parentGroup,
 
     } else if (name.startsWith(tags::plugin_name::BaseName::voiceSuppressor)) {
       ensureExists(makeKey(tags::plugin_name::BaseName::voiceSuppressor, id),
-                   [&] { return new db::VoiceSuppressor(parentGroup, id); });
+                   [&] { return new DbVoiceSuppressor(parentGroup, id); });
 
     } else if (name.startsWith(tags::plugin_name::BaseName::levelMeter)) {
       ensureExists(makeKey(tags::plugin_name::BaseName::levelMeter, id),
@@ -269,20 +269,20 @@ void Manager::create_plugin_db(const QString& parentGroup,
                    [&] { return new DbMultibandGate(parentGroup, id); });
 
     } else if (name.startsWith(tags::plugin_name::BaseName::pitch)) {
-      ensureExists(makeKey(tags::plugin_name::BaseName::pitch, id), [&] { return new db::Pitch(parentGroup, id); });
+      ensureExists(makeKey(tags::plugin_name::BaseName::pitch, id), [&] { return new DbPitch(parentGroup, id); });
 
     } else if (name.startsWith(tags::plugin_name::BaseName::reverb)) {
-      ensureExists(makeKey(tags::plugin_name::BaseName::reverb, id), [&] { return new db::Reverb(parentGroup, id); });
+      ensureExists(makeKey(tags::plugin_name::BaseName::reverb, id), [&] { return new DbReverb(parentGroup, id); });
 
     } else if (name.startsWith(tags::plugin_name::BaseName::rnnoise)) {
-      ensureExists(makeKey(tags::plugin_name::BaseName::rnnoise, id), [&] { return new db::RNNoise(parentGroup, id); });
+      ensureExists(makeKey(tags::plugin_name::BaseName::rnnoise, id), [&] { return new DbRNNoise(parentGroup, id); });
 
     } else if (name.startsWith(tags::plugin_name::BaseName::speex)) {
-      ensureExists(makeKey(tags::plugin_name::BaseName::speex, id), [&] { return new db::Speex(parentGroup, id); });
+      ensureExists(makeKey(tags::plugin_name::BaseName::speex, id), [&] { return new DbSpeex(parentGroup, id); });
 
     } else if (name.startsWith(tags::plugin_name::BaseName::stereoTools)) {
       ensureExists(makeKey(tags::plugin_name::BaseName::stereoTools, id),
-                   [&] { return new db::StereoTools(parentGroup, id); });
+                   [&] { return new DbStereoTools(parentGroup, id); });
     }
   }
 
