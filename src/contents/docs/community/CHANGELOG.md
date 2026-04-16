@@ -1,5 +1,31 @@
 # Changelog
  
+## 8.2.0
+### 2026-04-14
+
+ 
+### Features:
+
+### Bug fixes:
+- Fixed a regression in the deep noise remover plugin. When the plugin was restarted its settings were not being reapplied.
+
+### Other notes: 
+
+ 
+## 8.1.9
+### 2026-04-13
+
+ 
+### Features:
+- Small performance improvements to our QML code
+- Updated translations
+
+### Bug fixes:
+- When running inside Flatpak's sandbox we create Qt's lock and server file in the folder QStandardPaths::TempLocation. This seems to avoid the application not being able to start after a unclean exit.
+
+### Other notes:
+
+ 
 ## 8.1.8
 ### 2026-03-29
 
