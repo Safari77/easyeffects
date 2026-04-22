@@ -35,6 +35,7 @@
 #include "easyeffects_db_compressor.h"
 #include "easyeffects_db_convolver.h"
 #include "easyeffects_db_crossfeed.h"
+#include "easyeffects_db_crosstalk_canceller.h"
 #include "easyeffects_db_crusher.h"
 #include "easyeffects_db_crystalizer.h"
 #include "easyeffects_db_deepfilternet.h"
@@ -201,6 +202,10 @@ void Manager::create_plugin_db(const QString& parentGroup,
       ensureExists(makeKey(tags::plugin_name::BaseName::crossfeed, id),
                    [&] { return new DbCrossfeed(parentGroup, id); });
 
+    } else if (name.startsWith(tags::plugin_name::BaseName::crosstalkCanceller)) {
+      ensureExists(makeKey(tags::plugin_name::BaseName::crosstalkCanceller, id),
+                   [&] { return new DbCrosstalkCanceller(parentGroup, id); });
+
     } else if (name.startsWith(tags::plugin_name::BaseName::crusher)) {
       ensureExists(makeKey(tags::plugin_name::BaseName::crusher, id), [&] { return new DbCrusher(parentGroup, id); });
 
@@ -242,10 +247,6 @@ void Manager::create_plugin_db(const QString& parentGroup,
     } else if (name.startsWith(tags::plugin_name::BaseName::gate)) {
       ensureExists(makeKey(tags::plugin_name::BaseName::gate, id), [&] { return new DbGate(parentGroup, id); });
 
-    } else if (name.startsWith(tags::plugin_name::BaseName::voiceSuppressor)) {
-      ensureExists(makeKey(tags::plugin_name::BaseName::voiceSuppressor, id),
-                   [&] { return new DbVoiceSuppressor(parentGroup, id); });
-
     } else if (name.startsWith(tags::plugin_name::BaseName::levelMeter)) {
       ensureExists(makeKey(tags::plugin_name::BaseName::levelMeter, id),
                    [&] { return new DbLevelMeter(parentGroup, id); });
@@ -283,6 +284,9 @@ void Manager::create_plugin_db(const QString& parentGroup,
     } else if (name.startsWith(tags::plugin_name::BaseName::stereoTools)) {
       ensureExists(makeKey(tags::plugin_name::BaseName::stereoTools, id),
                    [&] { return new DbStereoTools(parentGroup, id); });
+    } else if (name.startsWith(tags::plugin_name::BaseName::voiceSuppressor)) {
+      ensureExists(makeKey(tags::plugin_name::BaseName::voiceSuppressor, id),
+                   [&] { return new DbVoiceSuppressor(parentGroup, id); });
     }
   }
 

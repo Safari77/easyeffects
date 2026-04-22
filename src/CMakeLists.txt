@@ -34,6 +34,7 @@ qt_add_qml_module(easyeffects
         compressor.hpp
         convolver.hpp
         crossfeed.hpp
+        crosstalk_canceller.hpp
         crusher.hpp
         crystalizer.hpp
         deepfilternet.hpp
@@ -68,6 +69,7 @@ qt_add_qml_module(easyeffects
         contents/ui/ConvolverImpulseDialog.qml
         contents/ui/ConvolverSofaDialog.qml
         contents/ui/Crossfeed.qml
+        contents/ui/CrosstalkCanceller.qml
         contents/ui/Crusher.qml
         contents/ui/Crystalizer.qml
         contents/ui/CrystalizerBand.qml
@@ -118,6 +120,7 @@ qt_add_qml_module(easyeffects
         contents/ui/ShortcutsSheet.qml
         contents/ui/Speex.qml
         contents/ui/StereoTools.qml
+        contents/ui/TrayIcon.qml
         contents/ui/Validators.qml
         contents/ui/VoiceSuppressor.qml
         contents/ui/Common.js
@@ -173,6 +176,8 @@ target_sources(easyeffects PRIVATE
     convolver_zita.cpp
     crossfeed.cpp
     crossfeed_preset.cpp
+    crosstalk_canceller.cpp
+    crosstalk_canceller_preset.cpp
     crusher.cpp
     crusher_preset.cpp
     crystalizer.cpp
