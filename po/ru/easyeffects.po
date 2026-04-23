@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://github.com/wwmm/easyeffects/issues\n"
-"POT-Creation-Date: 2026-04-21 16:35-0300\n"
-"PO-Revision-Date: 2026-03-02 17:09+0000\n"
+"POT-Creation-Date: 2026-04-22 23:50-0300\n"
+"PO-Revision-Date: 2026-04-22 12:09+0000\n"
 "Last-Translator: Andrei Stepanov <adem4ik@gmail.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/easyeffects/main/"
 "ru/>\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Weblate 5.17-dev\n"
+"X-Generator: Weblate 5.17.1-dev\n"
 
 #: src/autostart.cpp:92
 msgid ""
@@ -310,7 +310,7 @@ msgstr "Прослушать"
 #: src/contents/ui/Exciter.qml:250 src/contents/ui/Expander.qml:874
 #: src/contents/ui/Filter.qml:249 src/contents/ui/Gate.qml:1003
 #: src/contents/ui/Limiter.qml:658 src/contents/ui/Loudness.qml:214
-#: src/contents/ui/Main.qml:443 src/contents/ui/Maximizer.qml:151
+#: src/contents/ui/Main.qml:461 src/contents/ui/Maximizer.qml:151
 #: src/contents/ui/MultibandCompressor.qml:1014
 #: src/contents/ui/MultibandGate.qml:987 src/contents/ui/Reverb.qml:356
 #: src/contents/ui/RNNoise.qml:345 src/contents/ui/Speex.qml:192
@@ -320,7 +320,7 @@ msgstr "Сброс"
 
 #: src/contents/ui/BassLoudness.qml:82 src/contents/ui/Compressor.qml:479
 #: src/contents/ui/EeInputOutputGain.qml:145 src/contents/ui/Expander.qml:439
-#: src/contents/ui/Gate.qml:454 src/contents/ui/Main.qml:371
+#: src/contents/ui/Gate.qml:454 src/contents/ui/Main.qml:386
 #: src/contents/ui/StereoTools.qml:267
 msgid "Output"
 msgstr "Выход"
@@ -347,7 +347,7 @@ msgstr "Добавить в исключённые приложения"
 #: src/contents/ui/BlocklistDialog.qml:115
 #: src/contents/ui/ConvolverImpulseDialog.qml:90
 #: src/contents/ui/MenuAddPlugins.qml:55
-#: src/contents/ui/PageStreamsEffects.qml:99
+#: src/contents/ui/PageStreamsEffects.qml:109
 #: src/contents/ui/PresetsAutoloadPage.qml:176
 #: src/contents/ui/PresetsCommunityPage.qml:105
 #: src/contents/ui/PresetsLocalPage.qml:194 src/contents/ui/RNNoise.qml:230
@@ -497,7 +497,7 @@ msgstr "Внешний"
 # #, fuzzy
 #: src/contents/ui/Compressor.qml:278 src/contents/ui/Expander.qml:238
 #: src/contents/ui/Gate.qml:256 src/contents/ui/Limiter.qml:228
-#: src/contents/ui/PageStreamsEffects.qml:443
+#: src/contents/ui/PageStreamsEffects.qml:458
 msgid "Input device"
 msgstr "Устройство ввода"
 
@@ -948,14 +948,14 @@ msgstr "Перекрёстные предустановки"
 msgid "Default"
 msgstr "По умолчанию"
 
-#: src/contents/ui/Crossfeed.qml:164 src/contents/ui/Main.qml:345
+#: src/contents/ui/Crossfeed.qml:164 src/contents/ui/Main.qml:356
 #: src/contents/ui/PreferencesSheet.qml:59 src/contents/ui/Reverb.qml:333
 msgid "Presets"
 msgstr "Предустановки"
 
 #: src/contents/ui/CrosstalkCanceller.qml:64
 msgid "Process only phantom center"
-msgstr ""
+msgstr "Обрабатывать только фантомный центр"
 
 #: src/contents/ui/CrosstalkCanceller.qml:75
 #: src/contents/ui/StereoTools.qml:293 src/tags_plugin_name.cpp:57
@@ -963,9 +963,8 @@ msgid "Delay"
 msgstr "Задержка"
 
 #: src/contents/ui/CrosstalkCanceller.qml:91
-#, fuzzy
 msgid "Decay"
-msgstr "Время распада"
+msgstr "Распад"
 
 #: src/contents/ui/Crusher.qml:55
 msgid "Bit reduction"
@@ -1288,7 +1287,7 @@ msgstr "Регуляторы входного и выходного усилен
 # msgid "Influence of integrated measurements"
 # msgstr "Влияние комплексных измерений"
 # ###############################################
-#: src/contents/ui/EeInputOutputGain.qml:132 src/contents/ui/Main.qml:384
+#: src/contents/ui/EeInputOutputGain.qml:132 src/contents/ui/Main.qml:399
 #: src/contents/ui/StereoTools.qml:58
 msgid "Input"
 msgstr "Вход"
@@ -1803,56 +1802,56 @@ msgstr "Диапазон клиппинга"
 msgid "Clipping"
 msgstr "Клиппинг"
 
-#: src/contents/ui/Main.qml:296
+#: src/contents/ui/Main.qml:307
 msgid "Reset Settings?"
 msgstr "Сбросить настройки?"
 
-#: src/contents/ui/Main.qml:297
+#: src/contents/ui/Main.qml:308
 msgid "Are you sure you want to reset all Easy Effects settings?"
 msgstr "Уверены, что хотите сбросить все настройки Easy Effects?"
 
-#: src/contents/ui/Main.qml:319
+#: src/contents/ui/Main.qml:330
 msgid "Go back"
 msgstr "Назад"
 
-#: src/contents/ui/Main.qml:329 src/contents/ui/PageStreamsEffects.qml:747
+#: src/contents/ui/Main.qml:340 src/contents/ui/PageStreamsEffects.qml:762
 msgid "Effects"
 msgstr "Эффекты"
 
-#: src/contents/ui/Main.qml:330
+#: src/contents/ui/Main.qml:341
 msgid "Turn effects on/off"
 msgstr "Включить/выключить эффекты"
 
-#: src/contents/ui/Main.qml:341
+#: src/contents/ui/Main.qml:352
 msgid "Audio effects are enabled."
 msgstr "Звуковые эффекты включены."
 
-#: src/contents/ui/Main.qml:341
+#: src/contents/ui/Main.qml:352
 msgid "Audio effects are disabled."
 msgstr "Звуковые эффекты отключены."
 
-#: src/contents/ui/Main.qml:397
+#: src/contents/ui/Main.qml:412
 msgid "PipeWire"
 msgstr "PipeWire"
 
-#: src/contents/ui/Main.qml:415
+#: src/contents/ui/Main.qml:430
 msgid "Preferences"
 msgstr "Настройки"
 
-#: src/contents/ui/Main.qml:423 src/contents/ui/ShortcutsSheet.qml:389
+#: src/contents/ui/Main.qml:441 src/contents/ui/ShortcutsSheet.qml:389
 #: src/contents/ui/TrayIcon.qml:190
 msgid "Shortcuts"
 msgstr "Горячие клавиши"
 
-#: src/contents/ui/Main.qml:431 src/contents/ui/TrayIcon.qml:199
+#: src/contents/ui/Main.qml:449 src/contents/ui/TrayIcon.qml:199
 msgid "Manual"
 msgstr "Руководство"
 
-#: src/contents/ui/Main.qml:455
+#: src/contents/ui/Main.qml:473
 msgid "About Easy Effects"
 msgstr "Об Easy Effects"
 
-#: src/contents/ui/Main.qml:463 src/contents/ui/TrayIcon.qml:209
+#: src/contents/ui/Main.qml:481 src/contents/ui/TrayIcon.qml:209
 msgid "Quit"
 msgstr "Выйти"
 
@@ -1939,57 +1938,57 @@ msgstr "Устройство входа боковой цепи"
 msgid "Reaction"
 msgstr "Реакция"
 
-#: src/contents/ui/PageStreamsEffects.qml:100
+#: src/contents/ui/PageStreamsEffects.qml:110
 msgid "No audio application available"
 msgstr "Нет доступных звуковых приложений"
 
-#: src/contents/ui/PageStreamsEffects.qml:115
+#: src/contents/ui/PageStreamsEffects.qml:125
 msgid "No Effects"
 msgstr "Нет эффектов"
 
-#: src/contents/ui/PageStreamsEffects.qml:116
+#: src/contents/ui/PageStreamsEffects.qml:126
 msgid "Audio stream not modified"
 msgstr "Аудиопоток без изменений"
 
-#: src/contents/ui/PageStreamsEffects.qml:378
+#: src/contents/ui/PageStreamsEffects.qml:388
 msgid "Add effect"
 msgstr "Добавить эффект"
 
-#: src/contents/ui/PageStreamsEffects.qml:386
+#: src/contents/ui/PageStreamsEffects.qml:401
 msgid "Close"
 msgstr "Закрыть"
 
-#: src/contents/ui/PageStreamsEffects.qml:390
+#: src/contents/ui/PageStreamsEffects.qml:405
 msgid "Expand the list of effects pipeline"
 msgstr "Развернуть список эффектов канала обработки"
 
-#: src/contents/ui/PageStreamsEffects.qml:390
+#: src/contents/ui/PageStreamsEffects.qml:405
 msgid "Reduce the list of effects pipeline"
 msgstr "Свернуть список эффектов канала обработки"
 
-#: src/contents/ui/PageStreamsEffects.qml:443
-#: src/contents/ui/PageStreamsEffects.qml:734
+#: src/contents/ui/PageStreamsEffects.qml:458
+#: src/contents/ui/PageStreamsEffects.qml:749
 msgid "Players"
 msgstr "Проигрыватели"
 
-#: src/contents/ui/PageStreamsEffects.qml:452
+#: src/contents/ui/PageStreamsEffects.qml:467
 msgid "Output device"
 msgstr "Устройство вывода"
 
-#: src/contents/ui/PageStreamsEffects.qml:452
-#: src/contents/ui/PageStreamsEffects.qml:734
+#: src/contents/ui/PageStreamsEffects.qml:467
+#: src/contents/ui/PageStreamsEffects.qml:749
 msgid "Recorders"
 msgstr "Рекордеры"
 
-#: src/contents/ui/PageStreamsEffects.qml:765
+#: src/contents/ui/PageStreamsEffects.qml:780
 msgid "Excluded apps"
 msgstr "Исключённые приложения"
 
-#: src/contents/ui/PageStreamsEffects.qml:774
+#: src/contents/ui/PageStreamsEffects.qml:792
 msgid "Input monitoring"
 msgstr "Мониторинг входа"
 
-#: src/contents/ui/PageStreamsEffects.qml:787
+#: src/contents/ui/PageStreamsEffects.qml:805
 msgid "Send audio to the virtual source"
 msgstr "Отправить аудио на виртуальный источник"
 
@@ -3183,9 +3182,8 @@ msgid "Crossfeed"
 msgstr "Перекрёстная подача"
 
 #: src/tags_plugin_name.cpp:52
-#, fuzzy
 msgid "Crosstalk Canceller"
-msgstr "Эхоподавитель"
+msgstr "Подавитель перекрёстных помех"
 
 #: src/tags_plugin_name.cpp:53
 msgid "Crusher"
@@ -3289,10 +3287,9 @@ msgid "ms"
 msgstr "мс"
 
 #: src/units.hpp:73
-#, fuzzy
-msgctxt "milliseconds unit abbreviation"
-msgid "us"
-msgstr "с"
+msgctxt "microseconds unit abbreviation"
+msgid "μs"
+msgstr ""
 
 #: src/units.hpp:74
 msgctxt "Hertz unit abbreviation"
@@ -3371,6 +3368,10 @@ msgstr "Эквалайзер, компрессор и прочие звуков�
 #: com.github.wwmm.easyeffects.desktop.in.template.h:2
 msgid "Simple audio effects"
 msgstr "Простые звуковые эффекты"
+
+#~ msgctxt "milliseconds unit abbreviation"
+#~ msgid "us"
+#~ msgstr "мкс"
 
 #~ msgid "Attack time"
 #~ msgstr "Время атаки"
