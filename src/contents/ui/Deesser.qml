@@ -17,10 +17,10 @@
  * along with Easy Effects. If not, see <https://www.gnu.org/licenses/>.
  */
 
+pragma ComponentBehavior: Bound
 import QtQuick
 import QtQuick.Controls as Controls
 import QtQuick.Layouts
-import "Common.js" as Common
 import ee.ui
 import org.kde.kirigami as Kirigami
 import org.kde.kirigamiaddons.formcard as FormCard
@@ -30,19 +30,19 @@ Kirigami.ScrollablePage {
 
     required property string name
     required property DbDeesser pluginDB
-    required property var pipelineInstance
+    required property EffectsBase pipelineInstance
     property BackendDeesser pluginBackend
 
     function updateMeters() {
-        if (!deesserPage.pluginBackend)
+        if (!pluginBackend)
             return;
 
-        inputOutputLevels.setInputLevelLeft(deesserPage.pluginBackend.getInputLevelLeft());
-        inputOutputLevels.setInputLevelRight(deesserPage.pluginBackend.getInputLevelRight());
-        inputOutputLevels.setOutputLevelLeft(deesserPage.pluginBackend.getOutputLevelLeft());
-        inputOutputLevels.setOutputLevelRight(deesserPage.pluginBackend.getOutputLevelRight());
-        detectionLevel.setValue(deesserPage.pluginBackend.getDetectedLevel());
-        gainReduction.setValue(deesserPage.pluginBackend.getCompressionLevel());
+        inputOutputLevels.setInputLevelLeft(pluginBackend.getInputLevelLeft());
+        inputOutputLevels.setInputLevelRight(pluginBackend.getInputLevelRight());
+        inputOutputLevels.setOutputLevelLeft(pluginBackend.getOutputLevelLeft());
+        inputOutputLevels.setOutputLevelRight(pluginBackend.getOutputLevelRight());
+        detectionLevel.setValue(pluginBackend.getDetectedLevel());
+        gainReduction.setValue(pluginBackend.getCompressionLevel());
     }
 
     Component.onCompleted: {
@@ -306,11 +306,13 @@ Kirigami.ScrollablePage {
         }
     }
 
-    header: EeInputOutputGain {
+    EeInputOutputGain {
         id: inputOutputLevels
 
         pluginDB: deesserPage.pluginDB
     }
+
+    header: inputOutputLevels
 
     footer: RowLayout {
         Controls.Label {

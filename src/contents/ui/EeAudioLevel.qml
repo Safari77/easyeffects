@@ -17,8 +17,8 @@
  * along with Easy Effects. If not, see <https://www.gnu.org/licenses/>.
  */
 
+pragma ComponentBehavior: Bound
 import QtQuick
-import "Common.js" as Common
 import org.kde.kirigami as Kirigami
 
 Rectangle {

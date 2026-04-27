@@ -35,7 +35,7 @@ Kirigami.ScrollablePage {
     required property DbEqualizer pluginDB
     required property DbEqualizerChannel leftDB
     required property DbEqualizerChannel rightDB
-    required property var pipelineInstance
+    required property EffectsBase pipelineInstance
     property BackendEqualizer pluginBackend
 
     function updateMeters() {
@@ -287,11 +287,13 @@ Kirigami.ScrollablePage {
         }
     }
 
-    header: EeInputOutputGain {
+    EeInputOutputGain {
         id: inputOutputLevels
 
         pluginDB: equalizerPage.pluginDB
     }
+
+    header: inputOutputLevels
 
     footer: ColumnLayout {
         RowLayout {

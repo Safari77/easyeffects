@@ -48,8 +48,7 @@
 #include "util.hpp"
 
 StreamOutputEffects::StreamOutputEffects(pw::Manager* pipe_manager) : EffectsBase(pipe_manager, PipelineType::output) {
-  // NOLINTNEXTLINE(clang-analyzer-cplusplus.NewDelete)
-  qmlRegisterSingletonInstance<StreamOutputEffects>("ee.pipeline", VERSION_MAJOR, VERSION_MINOR, "Output", this);
+  singletonInstance = this;
 
   connect(
       pm, &pw::Manager::sinkAdded, this,
@@ -204,7 +203,7 @@ void StreamOutputEffects::on_link_changed(const pw::LinkInfo link_info) {
 
 void StreamOutputEffects::on_link_removed() {
   QTimer::singleShot(DbMain::inactivityTimeout() * 1000, this, [&]() {
-    if (!apps_want_to_play() && !list_proxies.empty()) {
+    if (DbMain::inactivityTimerEnable() && !apps_want_to_play() && !list_proxies.empty()) {
       util::debug("No app linked to our device wants to play. Unlinking our filters.");
 
       disconnect_filters();

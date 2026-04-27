@@ -17,6 +17,7 @@
  * along with Easy Effects. If not, see <https://www.gnu.org/licenses/>.
  */
 
+pragma ComponentBehavior: Bound
 import QtQuick
 import QtQuick.Controls as Controls
 import QtQuick.Layouts
@@ -29,21 +30,21 @@ Kirigami.ScrollablePage {
 
     required property string name
     required property DbStereoTools pluginDB
-    required property var pipelineInstance
+    required property EffectsBase pipelineInstance
     property BackendStereoTools pluginBackend
 
     function updateMeters() {
-        if (!stereoToolsPage.pluginBackend)
+        if (!pluginBackend)
             return;
 
-        inputOutputLevels.setInputLevelLeft(stereoToolsPage.pluginBackend.getInputLevelLeft());
-        inputOutputLevels.setInputLevelRight(stereoToolsPage.pluginBackend.getInputLevelRight());
-        inputOutputLevels.setOutputLevelLeft(stereoToolsPage.pluginBackend.getOutputLevelLeft());
-        inputOutputLevels.setOutputLevelRight(stereoToolsPage.pluginBackend.getOutputLevelRight());
+        inputOutputLevels.setInputLevelLeft(pluginBackend.getInputLevelLeft());
+        inputOutputLevels.setInputLevelRight(pluginBackend.getInputLevelRight());
+        inputOutputLevels.setOutputLevelLeft(pluginBackend.getOutputLevelLeft());
+        inputOutputLevels.setOutputLevelRight(pluginBackend.getOutputLevelRight());
     }
 
     Component.onCompleted: {
-        stereoToolsPage.pluginBackend = stereoToolsPage.pipelineInstance.getPluginInstance(name);
+        pluginBackend = pipelineInstance.getPluginInstance(name);
     }
 
     ColumnLayout {
@@ -378,11 +379,13 @@ Kirigami.ScrollablePage {
         }
     }
 
-    header: EeInputOutputGain {
+    EeInputOutputGain {
         id: inputOutputLevels
 
         pluginDB: stereoToolsPage.pluginDB
     }
+
+    header: inputOutputLevels
 
     footer: RowLayout {
         Controls.Label {

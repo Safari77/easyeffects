@@ -17,10 +17,10 @@
  * along with Easy Effects. If not, see <https://www.gnu.org/licenses/>.
  */
 
+pragma ComponentBehavior: Bound
 import QtQuick
 import QtQuick.Controls
 import QtQuick.Layouts
-import "Common.js" as Common
 import org.kde.kirigami as Kirigami
 import org.kde.kirigamiaddons.formcard as FormCard
 
@@ -77,7 +77,7 @@ FormCard.AbstractFormDelegate {
     focusPolicy: Kirigami.Settings.isMobile ? Qt.StrongFocus : Qt.NoFocus
     onClicked: spinbox.forceActiveFocus()
 
-    Keys.onPressed: event => {
+    Keys.onPressed: function (event: KeyEvent) {
         if (event.key === Qt.Key_PageUp) {
             const v = control.value + pageSteps * stepSize;
             control.valueModified(Common.clamp(v, control.from, control.to));
@@ -127,7 +127,7 @@ FormCard.AbstractFormDelegate {
 
             readonly property real decimalFactor: Math.pow(10, control.decimals)
 
-            function decimalToInt(decimal) {
+            function decimalToInt(decimal: real): int {
                 return Math.round(decimal * decimalFactor);
             }
 
@@ -224,7 +224,6 @@ FormCard.AbstractFormDelegate {
             contentItem: TextInput {
                 id: textInputSpinBox
 
-                z: 2
                 verticalAlignment: TextInput.AlignVCenter
                 font: spinbox.font
                 color: control.enabled ? Kirigami.Theme.textColor : Kirigami.Theme.disabledTextColor

@@ -17,6 +17,7 @@
  * along with Easy Effects. If not, see <https://www.gnu.org/licenses/>.
  */
 
+pragma ComponentBehavior: Bound
 import QtGraphs
 import QtQml // Despite of what Qt extension says this import is needed. We crash without it
 import QtQuick
@@ -27,6 +28,8 @@ import org.kde.kirigamiaddons.settings as KirigamiSettings
 
 KirigamiSettings.ConfigurationView {
     id: preferencesSheet
+
+    required property bool canUseSysTray
 
     modules: [
         KirigamiSettings.ConfigurationModule {

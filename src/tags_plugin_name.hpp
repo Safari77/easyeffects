@@ -27,6 +27,7 @@
 #include <qobject.h>
 #include <qqmlengine.h>
 #include <qqmlintegration.h>
+#include <qsortfilterproxymodel.h>
 #include <qstringliteral.h>
 #include <qstringview.h>
 #include <qtmetamacros.h>
@@ -151,9 +152,21 @@ class BaseName : public QObject {
 
 class Model : public QAbstractListModel {
   Q_OBJECT
+  QML_NAMED_ELEMENT(PluginsNameModel)
+  QML_SINGLETON
+  QML_UNCREATABLE("Use the c++ instance")
+
+  Q_PROPERTY(QSortFilterProxyModel* sortedNameModel MEMBER proxyModel CONSTANT)
 
  public:
   explicit Model(QObject* parent = nullptr);
+
+  /**
+   * Deleting the default constructor because we nwant Qt to call our custom create method.
+   * If this is not done qml will create its own class instance. For this class it is not a big deal. But it is for
+   * others.
+   */
+  Model() = delete;
 
   Model(const Model&) = delete;
   Model(Model&&) = delete;
@@ -161,8 +174,23 @@ class Model : public QAbstractListModel {
   Model& operator=(Model&&) = delete;
 
   static Model& self() {
-    static Model m;
+    static Model m(nullptr);
     return m;
+  }
+
+  // Singleton provider for QML
+  static Model* create(QQmlEngine* qmlEngine, QJSEngine* jsEngine) {
+    Q_UNUSED(jsEngine)
+
+    // The engine has to have the same thread affinity as the singleton.
+
+    Q_ASSERT(qmlEngine->thread() == self().thread());
+
+    // Explicitly specify C++ ownership so that the engine doesn't delete the instance.
+
+    QJSEngine::setObjectOwnership(&self(), QJSEngine::CppOwnership);
+
+    return &self();
   }
 
   enum class Roles { Name = Qt::UserRole, TranslatedName };
@@ -182,6 +210,8 @@ class Model : public QAbstractListModel {
 
  private:
   const QMap<QString, QString> modelMap;
+
+  QSortFilterProxyModel* proxyModel = nullptr;
 };
 
 auto get_id(const QString& name) -> QString;

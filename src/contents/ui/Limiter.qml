@@ -17,11 +17,10 @@
  * along with Easy Effects. If not, see <https://www.gnu.org/licenses/>.
  */
 
+pragma ComponentBehavior: Bound
 import QtQuick
 import QtQuick.Controls as Controls
 import QtQuick.Layouts
-import "Common.js" as Common
-import ee.pipewire as PW
 import ee.ui
 import org.kde.kirigami as Kirigami
 import org.kde.kirigamiaddons.formcard as FormCard
@@ -31,25 +30,25 @@ Kirigami.ScrollablePage {
 
     required property string name
     required property DbLimiter pluginDB
-    required property var pipelineInstance
+    required property EffectsBase pipelineInstance
     property BackendLimiter pluginBackend
 
     function updateMeters() {
-        if (!limiterPage.pluginBackend)
+        if (!pluginBackend)
             return;
 
-        inputOutputLevels.setInputLevelLeft(limiterPage.pluginBackend.getInputLevelLeft());
-        inputOutputLevels.setInputLevelRight(limiterPage.pluginBackend.getInputLevelRight());
-        inputOutputLevels.setOutputLevelLeft(limiterPage.pluginBackend.getOutputLevelLeft());
-        inputOutputLevels.setOutputLevelRight(limiterPage.pluginBackend.getOutputLevelRight());
-        gainLevelLeft.setValue(limiterPage.pluginBackend.getGainLevelLeft());
-        gainLevelRight.setValue(limiterPage.pluginBackend.getGainLevelRight());
-        sideChainLevelLeft.setValue(limiterPage.pluginBackend.getSideChainLevelLeft());
-        sideChainLevelRight.setValue(limiterPage.pluginBackend.getSideChainLevelRight());
+        inputOutputLevels.setInputLevelLeft(pluginBackend.getInputLevelLeft());
+        inputOutputLevels.setInputLevelRight(pluginBackend.getInputLevelRight());
+        inputOutputLevels.setOutputLevelLeft(pluginBackend.getOutputLevelLeft());
+        inputOutputLevels.setOutputLevelRight(pluginBackend.getOutputLevelRight());
+        gainLevelLeft.setValue(pluginBackend.getGainLevelLeft());
+        gainLevelRight.setValue(pluginBackend.getGainLevelRight());
+        sideChainLevelLeft.setValue(pluginBackend.getSideChainLevelLeft());
+        sideChainLevelRight.setValue(pluginBackend.getSideChainLevelRight());
     }
 
     Component.onCompleted: {
-        limiterPage.pluginBackend = pipelineInstance.getPluginInstance(name);
+        pluginBackend = pipelineInstance.getPluginInstance(name);
     }
 
     ColumnLayout {
@@ -228,18 +227,18 @@ Kirigami.ScrollablePage {
                             text: i18n("Input device") // qmllint disable
                             displayMode: FormCard.FormComboBoxDelegate.ComboBox
                             editable: false
-                            model: PW.ModelNodes
+                            model: ModelNodes
                             textRole: "description"
                             enabled: sidechainType.currentIndex === 1
                             currentIndex: {
-                                for (let n = 0; n < PW.ModelNodes.rowCount(); n++) {
-                                    if (PW.ModelNodes.getNodeName(n) === limiterPage.pluginDB.sidechainInputDevice)
+                                for (let n = 0; n < ModelNodes.rowCount(); n++) {
+                                    if (ModelNodes.getNodeName(n) === limiterPage.pluginDB.sidechainInputDevice)
                                         return n;
                                 }
                                 return 0;
                             }
                             onActivated: idx => {
-                                let selectedName = PW.ModelNodes.getNodeName(idx);
+                                let selectedName = ModelNodes.getNodeName(idx);
                                 if (selectedName !== limiterPage.pluginDB.sidechainInputDevice)
                                     limiterPage.pluginDB.sidechainInputDevice = selectedName;
                             }
@@ -595,11 +594,13 @@ Kirigami.ScrollablePage {
         }
     }
 
-    header: EeInputOutputGain {
+    EeInputOutputGain {
         id: inputOutputLevels
 
         pluginDB: limiterPage.pluginDB
     }
+
+    header: inputOutputLevels
 
     footer: RowLayout {
         Controls.Label {

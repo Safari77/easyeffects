@@ -23,7 +23,6 @@ import QtQuick
 import QtQuick.Controls as Controls
 import QtQuick.Dialogs
 import QtQuick.Layouts
-import "Common.js" as Common
 import ee.presets as Presets
 import ee.ui
 import org.kde.kirigami as Kirigami
@@ -34,21 +33,21 @@ Kirigami.ScrollablePage {
 
     required property string name
     required property DbRNNoise pluginDB
-    required property var pipelineInstance
+    required property EffectsBase pipelineInstance
     property BackendRNNoise pluginBackend
 
     function updateMeters() {
-        if (!rnnoisePage.pluginBackend)
+        if (!pluginBackend)
             return;
 
-        inputOutputLevels.setInputLevelLeft(rnnoisePage.pluginBackend.getInputLevelLeft());
-        inputOutputLevels.setInputLevelRight(rnnoisePage.pluginBackend.getInputLevelRight());
-        inputOutputLevels.setOutputLevelLeft(rnnoisePage.pluginBackend.getOutputLevelLeft());
-        inputOutputLevels.setOutputLevelRight(rnnoisePage.pluginBackend.getOutputLevelRight());
+        inputOutputLevels.setInputLevelLeft(pluginBackend.getInputLevelLeft());
+        inputOutputLevels.setInputLevelRight(pluginBackend.getInputLevelRight());
+        inputOutputLevels.setOutputLevelLeft(pluginBackend.getOutputLevelLeft());
+        inputOutputLevels.setOutputLevelRight(pluginBackend.getOutputLevelRight());
     }
 
     Component.onCompleted: {
-        rnnoisePage.pluginBackend = rnnoisePage.pipelineInstance.getPluginInstance(name);
+        pluginBackend = pipelineInstance.getPluginInstance(name);
     }
 
     FileDialog {
@@ -308,11 +307,13 @@ Kirigami.ScrollablePage {
         }
     }
 
-    header: EeInputOutputGain {
+    EeInputOutputGain {
         id: inputOutputLevels
 
         pluginDB: rnnoisePage.pluginDB
     }
+
+    header: inputOutputLevels
 
     footer: ColumnLayout {
         RowLayout {

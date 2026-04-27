@@ -17,11 +17,10 @@
  * along with Easy Effects. If not, see <https://www.gnu.org/licenses/>.
  */
 
+pragma ComponentBehavior: Bound
 import QtQuick
 import QtQuick.Controls as Controls
 import QtQuick.Layouts
-import "Common.js" as Common
-import ee.pipewire as PW
 import ee.ui
 import org.kde.kirigami as Kirigami
 import org.kde.kirigamiaddons.formcard as FormCard
@@ -31,25 +30,25 @@ Kirigami.ScrollablePage {
 
     required property string name
     required property DbCompressor pluginDB
-    required property var pipelineInstance
+    required property EffectsBase pipelineInstance
     property BackendCompressor pluginBackend
 
     function updateMeters() {
-        if (!compressorPage.pluginBackend)
+        if (!pluginBackend)
             return;
 
-        inputOutputLevels.setInputLevelLeft(compressorPage.pluginBackend.getInputLevelLeft());
-        inputOutputLevels.setInputLevelRight(compressorPage.pluginBackend.getInputLevelRight());
-        inputOutputLevels.setOutputLevelLeft(compressorPage.pluginBackend.getOutputLevelLeft());
-        inputOutputLevels.setOutputLevelRight(compressorPage.pluginBackend.getOutputLevelRight());
-        reductionLevelLeft.setValue(compressorPage.pluginBackend.getReductionLevelLeft());
-        reductionLevelRight.setValue(compressorPage.pluginBackend.getReductionLevelRight());
-        sideChainLevelLeft.setValue(compressorPage.pluginBackend.getSideChainLevelLeft());
-        sideChainLevelRight.setValue(compressorPage.pluginBackend.getSideChainLevelRight());
-        curveLevelLeft.setValue(compressorPage.pluginBackend.getCurveLevelLeft());
-        curveLevelRight.setValue(compressorPage.pluginBackend.getCurveLevelRight());
-        envelopeLevelLeft.setValue(compressorPage.pluginBackend.getEnvelopeLevelLeft());
-        envelopeLevelRight.setValue(compressorPage.pluginBackend.getEnvelopeLevelRight());
+        inputOutputLevels.setInputLevelLeft(pluginBackend.getInputLevelLeft());
+        inputOutputLevels.setInputLevelRight(pluginBackend.getInputLevelRight());
+        inputOutputLevels.setOutputLevelLeft(pluginBackend.getOutputLevelLeft());
+        inputOutputLevels.setOutputLevelRight(pluginBackend.getOutputLevelRight());
+        reductionLevelLeft.setValue(pluginBackend.getReductionLevelLeft());
+        reductionLevelRight.setValue(pluginBackend.getReductionLevelRight());
+        sideChainLevelLeft.setValue(pluginBackend.getSideChainLevelLeft());
+        sideChainLevelRight.setValue(pluginBackend.getSideChainLevelRight());
+        curveLevelLeft.setValue(pluginBackend.getCurveLevelLeft());
+        curveLevelRight.setValue(pluginBackend.getCurveLevelRight());
+        envelopeLevelLeft.setValue(pluginBackend.getEnvelopeLevelLeft());
+        envelopeLevelRight.setValue(pluginBackend.getEnvelopeLevelRight());
     }
 
     Component.onCompleted: {
@@ -278,18 +277,18 @@ Kirigami.ScrollablePage {
                         text: i18n("Input device") // qmllint disable
                         displayMode: FormCard.FormComboBoxDelegate.ComboBox
                         editable: false
-                        model: PW.ModelNodes
+                        model: ModelNodes
                         textRole: "description"
                         enabled: sidechainType.currentIndex === 2
                         currentIndex: {
-                            for (let n = 0; n < PW.ModelNodes.rowCount(); n++) {
-                                if (PW.ModelNodes.getNodeName(n) === compressorPage.pluginDB.sidechainInputDevice)
+                            for (let n = 0; n < ModelNodes.rowCount(); n++) {
+                                if (ModelNodes.getNodeName(n) === compressorPage.pluginDB.sidechainInputDevice)
                                     return n;
                             }
                             return 0;
                         }
                         onActivated: idx => {
-                            let selectedName = PW.ModelNodes.getNodeName(idx);
+                            let selectedName = ModelNodes.getNodeName(idx);
                             if (selectedName !== compressorPage.pluginDB.sidechainInputDevice)
                                 compressorPage.pluginDB.sidechainInputDevice = selectedName;
                         }
@@ -861,11 +860,13 @@ Kirigami.ScrollablePage {
         }
     }
 
-    header: EeInputOutputGain {
+    EeInputOutputGain {
         id: inputOutputLevels
 
         pluginDB: compressorPage.pluginDB
     }
+
+    header: inputOutputLevels
 
     footer: RowLayout {
         Controls.Label {

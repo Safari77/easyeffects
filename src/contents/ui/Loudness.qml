@@ -17,6 +17,7 @@
  * along with Easy Effects. If not, see <https://www.gnu.org/licenses/>.
  */
 
+pragma ComponentBehavior: Bound
 import QtQuick
 import QtQuick.Controls as Controls
 import QtQuick.Layouts
@@ -29,21 +30,21 @@ Kirigami.ScrollablePage {
 
     required property string name
     required property DbLoudness pluginDB
-    required property var pipelineInstance
+    required property EffectsBase pipelineInstance
     property BackendLoudness pluginBackend
 
     function updateMeters() {
-        if (!loudnessPage.pluginBackend)
+        if (!pluginBackend)
             return;
 
-        inputOutputLevels.setInputLevelLeft(loudnessPage.pluginBackend.getInputLevelLeft());
-        inputOutputLevels.setInputLevelRight(loudnessPage.pluginBackend.getInputLevelRight());
-        inputOutputLevels.setOutputLevelLeft(loudnessPage.pluginBackend.getOutputLevelLeft());
-        inputOutputLevels.setOutputLevelRight(loudnessPage.pluginBackend.getOutputLevelRight());
+        inputOutputLevels.setInputLevelLeft(pluginBackend.getInputLevelLeft());
+        inputOutputLevels.setInputLevelRight(pluginBackend.getInputLevelRight());
+        inputOutputLevels.setOutputLevelLeft(pluginBackend.getOutputLevelLeft());
+        inputOutputLevels.setOutputLevelRight(pluginBackend.getOutputLevelRight());
     }
 
     Component.onCompleted: {
-        loudnessPage.pluginBackend = loudnessPage.pipelineInstance.getPluginInstance(name);
+        pluginBackend = pipelineInstance.getPluginInstance(name);
     }
 
     ColumnLayout {
@@ -161,11 +162,13 @@ Kirigami.ScrollablePage {
         }
     }
 
-    header: EeInputOutputGain {
+    EeInputOutputGain {
         id: inputOutputLevels
 
         pluginDB: loudnessPage.pluginDB
     }
+
+    header: inputOutputLevels
 
     footer: RowLayout {
         Controls.Label {

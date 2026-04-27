@@ -17,11 +17,10 @@
  * along with Easy Effects. If not, see <https://www.gnu.org/licenses/>.
  */
 
+pragma ComponentBehavior: Bound
 import QtQuick
 import QtQuick.Controls as Controls
 import QtQuick.Layouts
-import "Common.js" as Common
-import ee.pipewire as PW
 import ee.ui
 import org.kde.kirigami as Kirigami
 import org.kde.kirigamiaddons.formcard as FormCard
@@ -31,25 +30,25 @@ Kirigami.ScrollablePage {
 
     required property string name
     required property DbExpander pluginDB
-    required property var pipelineInstance
+    required property EffectsBase pipelineInstance
     property BackendExpander pluginBackend
 
     function updateMeters() {
-        if (!expanderPage.pluginBackend)
+        if (!pluginBackend)
             return;
 
-        inputOutputLevels.setInputLevelLeft(expanderPage.pluginBackend.getInputLevelLeft());
-        inputOutputLevels.setInputLevelRight(expanderPage.pluginBackend.getInputLevelRight());
-        inputOutputLevels.setOutputLevelLeft(expanderPage.pluginBackend.getOutputLevelLeft());
-        inputOutputLevels.setOutputLevelRight(expanderPage.pluginBackend.getOutputLevelRight());
-        reductionLevelLeft.setValue(expanderPage.pluginBackend.getReductionLevelLeft());
-        reductionLevelRight.setValue(expanderPage.pluginBackend.getReductionLevelRight());
-        sideChainLevelLeft.setValue(expanderPage.pluginBackend.getSideChainLevelLeft());
-        sideChainLevelRight.setValue(expanderPage.pluginBackend.getSideChainLevelRight());
-        curveLevelLeft.setValue(expanderPage.pluginBackend.getCurveLevelLeft());
-        curveLevelRight.setValue(expanderPage.pluginBackend.getCurveLevelRight());
-        envelopeLevelLeft.setValue(expanderPage.pluginBackend.getEnvelopeLevelLeft());
-        envelopeLevelRight.setValue(expanderPage.pluginBackend.getEnvelopeLevelRight());
+        inputOutputLevels.setInputLevelLeft(pluginBackend.getInputLevelLeft());
+        inputOutputLevels.setInputLevelRight(pluginBackend.getInputLevelRight());
+        inputOutputLevels.setOutputLevelLeft(pluginBackend.getOutputLevelLeft());
+        inputOutputLevels.setOutputLevelRight(pluginBackend.getOutputLevelRight());
+        reductionLevelLeft.setValue(pluginBackend.getReductionLevelLeft());
+        reductionLevelRight.setValue(pluginBackend.getReductionLevelRight());
+        sideChainLevelLeft.setValue(pluginBackend.getSideChainLevelLeft());
+        sideChainLevelRight.setValue(pluginBackend.getSideChainLevelRight());
+        curveLevelLeft.setValue(pluginBackend.getCurveLevelLeft());
+        curveLevelRight.setValue(pluginBackend.getCurveLevelRight());
+        envelopeLevelLeft.setValue(pluginBackend.getEnvelopeLevelLeft());
+        envelopeLevelRight.setValue(pluginBackend.getEnvelopeLevelRight());
     }
 
     Component.onCompleted: {
@@ -238,18 +237,18 @@ Kirigami.ScrollablePage {
                         text: i18n("Input device") // qmllint disable
                         displayMode: FormCard.FormComboBoxDelegate.ComboBox
                         editable: false
-                        model: PW.ModelNodes
+                        model: ModelNodes
                         textRole: "description"
                         enabled: sidechainType.currentIndex === 1
                         currentIndex: {
-                            for (let n = 0; n < PW.ModelNodes.rowCount(); n++) {
-                                if (PW.ModelNodes.getNodeName(n) === expanderPage.pluginDB.sidechainInputDevice)
+                            for (let n = 0; n < ModelNodes.rowCount(); n++) {
+                                if (ModelNodes.getNodeName(n) === expanderPage.pluginDB.sidechainInputDevice)
                                     return n;
                             }
                             return 0;
                         }
                         onActivated: idx => {
-                            let selectedName = PW.ModelNodes.getNodeName(idx);
+                            let selectedName = ModelNodes.getNodeName(idx);
                             if (selectedName !== expanderPage.pluginDB.sidechainInputDevice)
                                 expanderPage.pluginDB.sidechainInputDevice = selectedName;
                         }
@@ -811,11 +810,13 @@ Kirigami.ScrollablePage {
         }
     }
 
-    header: EeInputOutputGain {
+    EeInputOutputGain {
         id: inputOutputLevels
 
         pluginDB: expanderPage.pluginDB
     }
+
+    header: inputOutputLevels
 
     footer: RowLayout {
         Controls.Label {

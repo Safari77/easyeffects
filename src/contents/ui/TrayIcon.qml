@@ -17,21 +17,25 @@
  * along with Easy Effects. If not, see <https://www.gnu.org/licenses/>.
  */
 
+pragma ComponentBehavior: Bound
 import Qt.labs.platform
 import QtQuick
-import ee.pipewire as PW
 import ee.presets as Presets
+import ee.ui
 import org.kde.kirigami as Kirigami
 
 SystemTrayIcon {
     id: tray
 
+    required property string applicationName
+    required property string applicationId
+    required property bool canUseSysTray
+    required property ShortcutsSheet shortcuts
+    property Main mainWindow: null
+
     visible: DbMain.showTrayIcon && canUseSysTray
     icon.name: applicationId + "-symbolic"
     tooltip: applicationName
-
-    required property ShortcutsSheet shortcuts
-    property Main mainWindow: null
 
     onActivated: {
         if (mainWindow && !mainWindow.visible) {
@@ -58,28 +62,30 @@ SystemTrayIcon {
             instantiatorOutputPresets.model = DbStreamOutputs.mostUsedPresets;
 
             /**
-                 * Although it is possible to make a binding to the text property so it is automatically updated,
-                 * it is possible that the menu is constructed before the description is available for the node name. In
-                 * this situation we can have an empty string coming from getNodeDescription, and it will stay empty
-                 * until something forces the database device name property to be changed. It is more reliable
-                 * to read the description when the user opens the tray icon menu.
-                 */
+             * Although it is possible to make a binding to the text property so it is automatically updated,
+             * it is possible that the menu is constructed before the description is available for the node name. In
+             * this situation we can have an empty string coming from getNodeDescription, and it will stay empty
+             * until something forces the database device name property to be changed. It is more reliable
+             * to read the description when the user opens the tray icon menu.
+             */
 
-            inputDeviceMenuItem.text = PW.ModelNodes.getNodeDescription(DbStreamInputs.inputDevice);
-            outputDeviceMenuItem.text = PW.ModelNodes.getNodeDescription(DbStreamOutputs.outputDevice);
+            inputDeviceMenuItem.text = ModelNodes.getNodeDescription(DbStreamInputs.inputDevice);
+            outputDeviceMenuItem.text = ModelNodes.getNodeDescription(DbStreamOutputs.outputDevice);
         }
 
         Instantiator {
             id: instantiatorInputPresets
 
             delegate: MenuItem {
-                text: modelData // qmllint disable
+                required property string modelData
+
+                text: modelData
                 checkable: true
                 checked: DbMain.lastLoadedInputPreset === modelData
                 onTriggered: {
-                    Presets.Manager.loadLocalPresetFile(0, modelData); // qmllint disable
+                    Presets.Manager.loadLocalPresetFile(0, modelData);
 
-                    tray.showMessage(i18n("Preset Loaded"), modelData, SystemTrayIcon.Information, 3000); // qmllint disable
+                    tray.showMessage(i18n("Preset Loaded"), modelData, SystemTrayIcon.Information, 3000);
                 }
             }
 
@@ -91,13 +97,15 @@ SystemTrayIcon {
             id: instantiatorOutputPresets
 
             delegate: MenuItem {
-                text: modelData // qmllint disable
+                required property string modelData
+
+                text: modelData
                 checkable: true
                 checked: DbMain.lastLoadedOutputPreset === modelData
                 onTriggered: {
-                    Presets.Manager.loadLocalPresetFile(1, modelData); // qmllint disable
+                    Presets.Manager.loadLocalPresetFile(1, modelData);
 
-                    tray.showMessage(i18n("Preset Loaded"), modelData, SystemTrayIcon.Information, 3000); // qmllint disable
+                    tray.showMessage(i18n("Preset Loaded"), modelData, SystemTrayIcon.Information, 3000);
                 }
             }
 

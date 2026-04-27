@@ -21,8 +21,6 @@ pragma ComponentBehavior: Bound
 import QtQuick
 import QtQuick.Controls as Controls
 import QtQuick.Layouts
-import "Common.js" as Common
-import ee.pipewire as PW
 import ee.ui
 import org.kde.kirigami as Kirigami
 import org.kde.kirigamiaddons.delegates as Delegates
@@ -33,7 +31,7 @@ Kirigami.ScrollablePage {
 
     required property string name
     required property DbMultibandCompressor pluginDB
-    required property var pipelineInstance
+    required property EffectsBase pipelineInstance
     property BackendMultibandCompressor pluginBackend
     readonly property string bandId: "band" + bandsListview.currentIndex
     property list<real> bandFrequencyEnd: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
@@ -46,33 +44,33 @@ Kirigami.ScrollablePage {
     readonly property real radius: 2.5 * Kirigami.Units.gridUnit
 
     function updateMeters() {
-        if (!multibandCompressorPage.pluginBackend)
+        if (!pluginBackend)
             return;
 
-        inputOutputLevels.setInputLevelLeft(multibandCompressorPage.pluginBackend.getInputLevelLeft());
-        inputOutputLevels.setInputLevelRight(multibandCompressorPage.pluginBackend.getInputLevelRight());
-        inputOutputLevels.setOutputLevelLeft(multibandCompressorPage.pluginBackend.getOutputLevelLeft());
-        inputOutputLevels.setOutputLevelRight(multibandCompressorPage.pluginBackend.getOutputLevelRight());
-        bandFrequencyEnd = multibandCompressorPage.pluginBackend.getFrequencyRangeEnd();
-        bandReductionLevelLeft = multibandCompressorPage.pluginBackend.getReductionLevelLeft();
-        bandReductionLevelRight = multibandCompressorPage.pluginBackend.getReductionLevelRight();
-        bandEnvelopeLevelLeft = multibandCompressorPage.pluginBackend.getEnvelopeLevelLeft();
-        bandEnvelopeLevelRight = multibandCompressorPage.pluginBackend.getEnvelopeLevelRight();
-        bandCurveLevelLeft = multibandCompressorPage.pluginBackend.getCurveLevelLeft();
-        bandCurveLevelRight = multibandCompressorPage.pluginBackend.getCurveLevelRight();
+        inputOutputLevels.setInputLevelLeft(pluginBackend.getInputLevelLeft());
+        inputOutputLevels.setInputLevelRight(pluginBackend.getInputLevelRight());
+        inputOutputLevels.setOutputLevelLeft(pluginBackend.getOutputLevelLeft());
+        inputOutputLevels.setOutputLevelRight(pluginBackend.getOutputLevelRight());
+        bandFrequencyEnd = pluginBackend.getFrequencyRangeEnd();
+        bandReductionLevelLeft = pluginBackend.getReductionLevelLeft();
+        bandReductionLevelRight = pluginBackend.getReductionLevelRight();
+        bandEnvelopeLevelLeft = pluginBackend.getEnvelopeLevelLeft();
+        bandEnvelopeLevelRight = pluginBackend.getEnvelopeLevelRight();
+        bandCurveLevelLeft = pluginBackend.getCurveLevelLeft();
+        bandCurveLevelRight = pluginBackend.getCurveLevelRight();
 
-        reductionLevelLeft.setValue(Common.toLocaleLabel(multibandCompressorPage.bandReductionLevelLeft[bandsListview.currentIndex] ?? 0, 0, ""));
-        reductionLevelRight.setValue(Common.toLocaleLabel(multibandCompressorPage.bandReductionLevelRight[bandsListview.currentIndex] ?? 0, 0, ""));
+        reductionLevelLeft.setValue(Common.toLocaleLabel(bandReductionLevelLeft[bandsListview.currentIndex] ?? 0, 0, ""));
+        reductionLevelRight.setValue(Common.toLocaleLabel(bandReductionLevelRight[bandsListview.currentIndex] ?? 0, 0, ""));
 
-        envelopeLevelLeft.setValue(Common.toLocaleLabel(multibandCompressorPage.bandEnvelopeLevelLeft[bandsListview.currentIndex] ?? 0, 0, ""));
-        envelopeLevelRight.setValue(Common.toLocaleLabel(multibandCompressorPage.bandEnvelopeLevelRight[bandsListview.currentIndex] ?? 0, 0, ""));
+        envelopeLevelLeft.setValue(Common.toLocaleLabel(bandEnvelopeLevelLeft[bandsListview.currentIndex] ?? 0, 0, ""));
+        envelopeLevelRight.setValue(Common.toLocaleLabel(bandEnvelopeLevelRight[bandsListview.currentIndex] ?? 0, 0, ""));
 
-        curveLevelLeft.setValue(Common.toLocaleLabel(multibandCompressorPage.bandCurveLevelLeft[bandsListview.currentIndex] ?? 0, 0, ""));
-        curveLevelRight.setValue(Common.toLocaleLabel(multibandCompressorPage.bandCurveLevelRight[bandsListview.currentIndex] ?? 0, 0, ""));
+        curveLevelLeft.setValue(Common.toLocaleLabel(bandCurveLevelLeft[bandsListview.currentIndex] ?? 0, 0, ""));
+        curveLevelRight.setValue(Common.toLocaleLabel(bandCurveLevelRight[bandsListview.currentIndex] ?? 0, 0, ""));
     }
 
     Component.onCompleted: {
-        multibandCompressorPage.pluginBackend = multibandCompressorPage.pipelineInstance.getPluginInstance(name);
+        pluginBackend = pipelineInstance.getPluginInstance(name);
     }
 
     Component {
@@ -603,18 +601,18 @@ Kirigami.ScrollablePage {
                 text: i18n("Sidechain input device") // qmllint disable
                 displayMode: FormCard.FormComboBoxDelegate.ComboBox
                 editable: false
-                model: PW.ModelNodes
+                model: ModelNodes
                 textRole: "description"
                 enabled: multibandCompressorPage.pluginDB.externalSidechainEnabled
                 currentIndex: {
-                    for (let n = 0; n < PW.ModelNodes.rowCount(); n++) {
-                        if (PW.ModelNodes.getNodeName(n) === multibandCompressorPage.pluginDB.sidechainInputDevice)
+                    for (let n = 0; n < ModelNodes.rowCount(); n++) {
+                        if (ModelNodes.getNodeName(n) === multibandCompressorPage.pluginDB.sidechainInputDevice)
                             return n;
                     }
                     return 0;
                 }
                 onActivated: idx => {
-                    let selectedName = PW.ModelNodes.getNodeName(idx);
+                    let selectedName = ModelNodes.getNodeName(idx);
                     if (selectedName !== multibandCompressorPage.pluginDB.sidechainInputDevice)
                         multibandCompressorPage.pluginDB.sidechainInputDevice = selectedName;
                 }
@@ -954,11 +952,13 @@ Kirigami.ScrollablePage {
         pluginDB: multibandCompressorPage.pluginDB
     }
 
-    header: EeInputOutputGain {
+    EeInputOutputGain {
         id: inputOutputLevels
 
         pluginDB: multibandCompressorPage.pluginDB
     }
+
+    header: inputOutputLevels
 
     footer: RowLayout {
         Controls.Label {

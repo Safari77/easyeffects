@@ -17,6 +17,7 @@
  * along with Easy Effects. If not, see <https://www.gnu.org/licenses/>.
  */
 
+pragma ComponentBehavior: Bound
 import QtQuick
 import QtQuick.Controls as Controls
 import QtQuick.Layouts
@@ -29,17 +30,17 @@ Kirigami.ScrollablePage {
 
     required property string name
     required property DbCrusher pluginDB
-    required property var pipelineInstance
+    required property EffectsBase pipelineInstance
     property BackendCrusher pluginBackend
 
     function updateMeters() {
-        if (!crusherPage.pluginBackend)
+        if (!pluginBackend)
             return;
 
-        inputOutputLevels.setInputLevelLeft(crusherPage.pluginBackend.getInputLevelLeft());
-        inputOutputLevels.setInputLevelRight(crusherPage.pluginBackend.getInputLevelRight());
-        inputOutputLevels.setOutputLevelLeft(crusherPage.pluginBackend.getOutputLevelLeft());
-        inputOutputLevels.setOutputLevelRight(crusherPage.pluginBackend.getOutputLevelRight());
+        inputOutputLevels.setInputLevelLeft(pluginBackend.getInputLevelLeft());
+        inputOutputLevels.setInputLevelRight(pluginBackend.getInputLevelRight());
+        inputOutputLevels.setOutputLevelLeft(pluginBackend.getOutputLevelLeft());
+        inputOutputLevels.setOutputLevelRight(pluginBackend.getOutputLevelRight());
     }
 
     Component.onCompleted: {
@@ -222,11 +223,13 @@ Kirigami.ScrollablePage {
         }
     }
 
-    header: EeInputOutputGain {
+    EeInputOutputGain {
         id: inputOutputLevels
 
         pluginDB: crusherPage.pluginDB
     }
+
+    header: inputOutputLevels
 
     footer: RowLayout {
         Controls.Label {

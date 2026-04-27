@@ -21,9 +21,6 @@ pragma ComponentBehavior: Bound
 import QtQuick
 import QtQuick.Controls as Controls
 import QtQuick.Layouts
-import "Common.js" as Common
-import ee.pipewire as PW
-import ee.tags.plugin.name as TagsPluginName
 import ee.ui
 import org.kde.kirigami as Kirigami
 
@@ -33,7 +30,7 @@ Kirigami.Page {
     required property int pageType // 0 for output and 1 for input
     required property var streamDB
     required property var pluginsDB
-    required property var pipelineInstance
+    required property EffectsBase pipelineInstance
     property string logTag: "PageStreamsEffects"
     property int minLeftLevel: -99
     property int minRightLevel: -99
@@ -100,7 +97,7 @@ Kirigami.Page {
 
                 clip: true
                 reuseItems: true
-                model: pageStreamsEffects.pageType === 0 ? PW.ModelOutputStreams : PW.ModelInputStreams
+                model: pageStreamsEffects.pageType === 0 ? ModelNodes.outputStreams : ModelNodes.inputStreams
 
                 Kirigami.PlaceholderMessage {
                     anchors.centerIn: parent
@@ -136,7 +133,7 @@ Kirigami.Page {
             id: pagePluginsGrid
 
             function populatePluginsListModel(plugins: list<string>) {
-                let baseNames = TagsPluginName.PluginsNameModel.getBaseNames();
+                let baseNames = PluginsNameModel.getBaseNames();
                 pluginsListModel.clear();
 
                 for (let n = 0; n < plugins.length; n++) {
@@ -145,7 +142,7 @@ Kirigami.Page {
                             pluginsListModel.append({
                                 "name": plugins[n],
                                 "baseName": baseNames[k],
-                                "translatedName": TagsPluginName.PluginsNameModel.translate(baseNames[k]),
+                                "translatedName": PluginsNameModel.translate(baseNames[k]),
                                 "pluginDB": pageStreamsEffects.pluginsDB[plugins[n]]
                             });
                             break;
@@ -233,7 +230,7 @@ Kirigami.Page {
                 if (pluginBackend.packageInstalled === false) {
                     pluginsStack.push(Qt.resolvedUrl("PluginNotAvailable.qml"), {
                         packageName: packageMap[baseName],
-                        translatedName: TagsPluginName.PluginsNameModel.translate(baseName)
+                        translatedName: PluginsNameModel.translate(baseName)
                     });
 
                     return;
@@ -268,7 +265,7 @@ Kirigami.Page {
                     return v === pageStreamsEffects.streamDB.visiblePlugin;
                 });
 
-                const baseNames = TagsPluginName.PluginsNameModel.getBaseNames();
+                const baseNames = PluginsNameModel.getBaseNames();
 
                 for (let k = 0; k < baseNames.length; k++) {
                     if (pageStreamsEffects.streamDB.visiblePlugin.startsWith(baseNames[k])) {
@@ -353,7 +350,7 @@ Kirigami.Page {
                         newList.push(pluginsListModel.get(n).name);
                     }
 
-                    if (!Common.equalArrays(pageStreamsEffects.streamDB.plugins, newList))
+                    if (!Common.equalStringArrays(pageStreamsEffects.streamDB.plugins, newList))
                         pageStreamsEffects.streamDB.plugins = newList;
 
                     if (newList.length === 0) {

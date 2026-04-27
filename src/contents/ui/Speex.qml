@@ -17,6 +17,7 @@
  * along with Easy Effects. If not, see <https://www.gnu.org/licenses/>.
  */
 
+pragma ComponentBehavior: Bound
 import QtQuick
 import QtQuick.Controls as Controls
 import QtQuick.Layouts
@@ -28,21 +29,21 @@ Kirigami.ScrollablePage {
 
     required property string name
     required property DbSpeex pluginDB
-    required property var pipelineInstance
+    required property EffectsBase pipelineInstance
     property BackendSpeex pluginBackend
 
     function updateMeters() {
-        if (!speexPage.pluginBackend)
+        if (!pluginBackend)
             return;
 
-        inputOutputLevels.setInputLevelLeft(speexPage.pluginBackend.getInputLevelLeft());
-        inputOutputLevels.setInputLevelRight(speexPage.pluginBackend.getInputLevelRight());
-        inputOutputLevels.setOutputLevelLeft(speexPage.pluginBackend.getOutputLevelLeft());
-        inputOutputLevels.setOutputLevelRight(speexPage.pluginBackend.getOutputLevelRight());
+        inputOutputLevels.setInputLevelLeft(pluginBackend.getInputLevelLeft());
+        inputOutputLevels.setInputLevelRight(pluginBackend.getInputLevelRight());
+        inputOutputLevels.setOutputLevelLeft(pluginBackend.getOutputLevelLeft());
+        inputOutputLevels.setOutputLevelRight(pluginBackend.getOutputLevelRight());
     }
 
     Component.onCompleted: {
-        speexPage.pluginBackend = speexPage.pipelineInstance.getPluginInstance(name);
+        pluginBackend = pipelineInstance.getPluginInstance(name);
     }
 
     ColumnLayout {
@@ -163,11 +164,13 @@ Kirigami.ScrollablePage {
         }
     }
 
-    header: EeInputOutputGain {
+    EeInputOutputGain {
         id: inputOutputLevels
 
         pluginDB: speexPage.pluginDB
     }
+
+    header: inputOutputLevels
 
     footer: RowLayout {
         Controls.Label {

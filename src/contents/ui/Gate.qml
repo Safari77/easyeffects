@@ -17,11 +17,10 @@
  * along with Easy Effects. If not, see <https://www.gnu.org/licenses/>.
  */
 
+pragma ComponentBehavior: Bound
 import QtQuick
 import QtQuick.Controls as Controls
 import QtQuick.Layouts
-import "Common.js" as Common
-import ee.pipewire as PW
 import ee.ui
 import org.kde.kirigami as Kirigami
 import org.kde.kirigamiaddons.formcard as FormCard
@@ -31,29 +30,29 @@ Kirigami.ScrollablePage {
 
     required property string name
     required property DbGate pluginDB
-    required property var pipelineInstance
+    required property EffectsBase pipelineInstance
     property BackendGate pluginBackend
 
     function updateMeters() {
-        if (!gatePage.pluginBackend)
+        if (!pluginBackend)
             return;
 
-        inputOutputLevels.setInputLevelLeft(gatePage.pluginBackend.getInputLevelLeft());
-        inputOutputLevels.setInputLevelRight(gatePage.pluginBackend.getInputLevelRight());
-        inputOutputLevels.setOutputLevelLeft(gatePage.pluginBackend.getOutputLevelLeft());
-        inputOutputLevels.setOutputLevelRight(gatePage.pluginBackend.getOutputLevelRight());
-        reductionLevelLeft.setValue(gatePage.pluginBackend.getReductionLevelLeft());
-        reductionLevelRight.setValue(gatePage.pluginBackend.getReductionLevelRight());
-        sideChainLevelLeft.setValue(gatePage.pluginBackend.getSideChainLevelLeft());
-        sideChainLevelRight.setValue(gatePage.pluginBackend.getSideChainLevelRight());
-        curveLevelLeft.setValue(gatePage.pluginBackend.getCurveLevelLeft());
-        curveLevelRight.setValue(gatePage.pluginBackend.getCurveLevelRight());
-        envelopeLevelLeft.setValue(gatePage.pluginBackend.getEnvelopeLevelLeft());
-        envelopeLevelRight.setValue(gatePage.pluginBackend.getEnvelopeLevelRight());
-        attackZoneStart.setValue(gatePage.pluginBackend.getAttackZoneStart());
-        attackThreshold.setValue(gatePage.pluginBackend.getAttackThreshold());
-        releaseZoneStart.setValue(gatePage.pluginBackend.getReleaseZoneStart());
-        releaseThreshold.setValue(gatePage.pluginBackend.getReleaseThreshold());
+        inputOutputLevels.setInputLevelLeft(pluginBackend.getInputLevelLeft());
+        inputOutputLevels.setInputLevelRight(pluginBackend.getInputLevelRight());
+        inputOutputLevels.setOutputLevelLeft(pluginBackend.getOutputLevelLeft());
+        inputOutputLevels.setOutputLevelRight(pluginBackend.getOutputLevelRight());
+        reductionLevelLeft.setValue(pluginBackend.getReductionLevelLeft());
+        reductionLevelRight.setValue(pluginBackend.getReductionLevelRight());
+        sideChainLevelLeft.setValue(pluginBackend.getSideChainLevelLeft());
+        sideChainLevelRight.setValue(pluginBackend.getSideChainLevelRight());
+        curveLevelLeft.setValue(pluginBackend.getCurveLevelLeft());
+        curveLevelRight.setValue(pluginBackend.getCurveLevelRight());
+        envelopeLevelLeft.setValue(pluginBackend.getEnvelopeLevelLeft());
+        envelopeLevelRight.setValue(pluginBackend.getEnvelopeLevelRight());
+        attackZoneStart.setValue(pluginBackend.getAttackZoneStart());
+        attackThreshold.setValue(pluginBackend.getAttackThreshold());
+        releaseZoneStart.setValue(pluginBackend.getReleaseZoneStart());
+        releaseThreshold.setValue(pluginBackend.getReleaseThreshold());
     }
 
     Component.onCompleted: {
@@ -256,18 +255,18 @@ Kirigami.ScrollablePage {
                         text: i18n("Input device") // qmllint disable
                         displayMode: FormCard.FormComboBoxDelegate.ComboBox
                         editable: false
-                        model: PW.ModelNodes
+                        model: ModelNodes
                         textRole: "description"
                         enabled: sidechainType.currentIndex === 1
                         currentIndex: {
-                            for (let n = 0; n < PW.ModelNodes.rowCount(); n++) {
-                                if (PW.ModelNodes.getNodeName(n) === gatePage.pluginDB.sidechainInputDevice)
+                            for (let n = 0; n < ModelNodes.rowCount(); n++) {
+                                if (ModelNodes.getNodeName(n) === gatePage.pluginDB.sidechainInputDevice)
                                     return n;
                             }
                             return 0;
                         }
                         onActivated: idx => {
-                            let selectedName = PW.ModelNodes.getNodeName(idx);
+                            let selectedName = ModelNodes.getNodeName(idx);
                             if (selectedName !== gatePage.pluginDB.sidechainInputDevice)
                                 gatePage.pluginDB.sidechainInputDevice = selectedName;
                         }
@@ -940,11 +939,13 @@ Kirigami.ScrollablePage {
         }
     }
 
-    header: EeInputOutputGain {
+    EeInputOutputGain {
         id: inputOutputLevels
 
         pluginDB: gatePage.pluginDB
     }
+
+    header: inputOutputLevels
 
     footer: RowLayout {
         Controls.Label {

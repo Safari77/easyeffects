@@ -17,10 +17,10 @@
  * along with Easy Effects. If not, see <https://www.gnu.org/licenses/>.
  */
 
+pragma ComponentBehavior: Bound
 import QtQuick
 import QtQuick.Controls as Controls
 import QtQuick.Layouts
-import "Common.js" as Common
 import ee.ui
 import org.kde.kirigami as Kirigami
 import org.kde.kirigamiaddons.formcard as FormCard
@@ -30,21 +30,21 @@ Kirigami.ScrollablePage {
 
     required property string name
     required property DbReverb pluginDB
-    required property var pipelineInstance
+    required property EffectsBase pipelineInstance
     property BackendReverb pluginBackend
 
     function updateMeters() {
-        if (!reverbPage.pluginBackend)
+        if (!pluginBackend)
             return;
 
-        inputOutputLevels.setInputLevelLeft(reverbPage.pluginBackend.getInputLevelLeft());
-        inputOutputLevels.setInputLevelRight(reverbPage.pluginBackend.getInputLevelRight());
-        inputOutputLevels.setOutputLevelLeft(reverbPage.pluginBackend.getOutputLevelLeft());
-        inputOutputLevels.setOutputLevelRight(reverbPage.pluginBackend.getOutputLevelRight());
+        inputOutputLevels.setInputLevelLeft(pluginBackend.getInputLevelLeft());
+        inputOutputLevels.setInputLevelRight(pluginBackend.getInputLevelRight());
+        inputOutputLevels.setOutputLevelLeft(pluginBackend.getOutputLevelLeft());
+        inputOutputLevels.setOutputLevelRight(pluginBackend.getOutputLevelRight());
     }
 
     Component.onCompleted: {
-        reverbPage.pluginBackend = reverbPage.pipelineInstance.getPluginInstance(name);
+        pluginBackend = pipelineInstance.getPluginInstance(name);
     }
 
     ColumnLayout {
@@ -305,11 +305,13 @@ Kirigami.ScrollablePage {
         ]
     }
 
-    header: EeInputOutputGain {
+    EeInputOutputGain {
         id: inputOutputLevels
 
         pluginDB: reverbPage.pluginDB
     }
+
+    header: inputOutputLevels
 
     footer: RowLayout {
         Controls.Label {

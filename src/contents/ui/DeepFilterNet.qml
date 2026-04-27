@@ -17,6 +17,7 @@
  * along with Easy Effects. If not, see <https://www.gnu.org/licenses/>.
  */
 
+pragma ComponentBehavior: Bound
 import QtQuick
 import QtQuick.Controls as Controls
 import QtQuick.Layouts
@@ -28,17 +29,17 @@ Kirigami.ScrollablePage {
 
     required property string name
     required property DbDeepFilterNet pluginDB
-    required property var pipelineInstance
+    required property EffectsBase pipelineInstance
     property BackendDeepFilterNet pluginBackend
 
     function updateMeters() {
-        if (!deepfilternetPage.pluginBackend)
+        if (!pluginBackend)
             return;
 
-        inputOutputLevels.setInputLevelLeft(deepfilternetPage.pluginBackend.getInputLevelLeft());
-        inputOutputLevels.setInputLevelRight(deepfilternetPage.pluginBackend.getInputLevelRight());
-        inputOutputLevels.setOutputLevelLeft(deepfilternetPage.pluginBackend.getOutputLevelLeft());
-        inputOutputLevels.setOutputLevelRight(deepfilternetPage.pluginBackend.getOutputLevelRight());
+        inputOutputLevels.setInputLevelLeft(pluginBackend.getInputLevelLeft());
+        inputOutputLevels.setInputLevelRight(pluginBackend.getInputLevelRight());
+        inputOutputLevels.setOutputLevelLeft(pluginBackend.getOutputLevelLeft());
+        inputOutputLevels.setOutputLevelRight(pluginBackend.getOutputLevelRight());
     }
 
     Component.onCompleted: {
@@ -183,11 +184,13 @@ Kirigami.ScrollablePage {
         }
     }
 
-    header: EeInputOutputGain {
+    EeInputOutputGain {
         id: inputOutputLevels
 
         pluginDB: deepfilternetPage.pluginDB
     }
+
+    header: inputOutputLevels
 
     footer: RowLayout {
         Controls.Label {

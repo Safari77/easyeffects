@@ -17,6 +17,7 @@
  * along with Easy Effects. If not, see <https://www.gnu.org/licenses/>.
  */
 
+pragma ComponentBehavior: Bound
 import QtQuick
 import QtQuick.Controls as Controls
 import QtQuick.Layouts
@@ -28,21 +29,21 @@ Kirigami.ScrollablePage {
 
     required property string name
     required property DbPitch pluginDB
-    required property var pipelineInstance
+    required property EffectsBase pipelineInstance
     property BackendPitch pluginBackend
 
     function updateMeters() {
-        if (!pitchPage.pluginBackend)
+        if (!pluginBackend)
             return;
 
-        inputOutputLevels.setInputLevelLeft(pitchPage.pluginBackend.getInputLevelLeft());
-        inputOutputLevels.setInputLevelRight(pitchPage.pluginBackend.getInputLevelRight());
-        inputOutputLevels.setOutputLevelLeft(pitchPage.pluginBackend.getOutputLevelLeft());
-        inputOutputLevels.setOutputLevelRight(pitchPage.pluginBackend.getOutputLevelRight());
+        inputOutputLevels.setInputLevelLeft(pluginBackend.getInputLevelLeft());
+        inputOutputLevels.setInputLevelRight(pluginBackend.getInputLevelRight());
+        inputOutputLevels.setOutputLevelLeft(pluginBackend.getOutputLevelLeft());
+        inputOutputLevels.setOutputLevelRight(pluginBackend.getOutputLevelRight());
     }
 
     Component.onCompleted: {
-        pitchPage.pluginBackend = pitchPage.pipelineInstance.getPluginInstance(name);
+        pluginBackend = pipelineInstance.getPluginInstance(name);
     }
 
     ColumnLayout {
@@ -254,11 +255,13 @@ Kirigami.ScrollablePage {
         }
     }
 
-    header: EeInputOutputGain {
+    EeInputOutputGain {
         id: inputOutputLevels
 
         pluginDB: pitchPage.pluginDB
     }
+
+    header: inputOutputLevels
 
     footer: RowLayout {
         Controls.Label {

@@ -31,22 +31,22 @@ Kirigami.ScrollablePage {
 
     required property string name
     required property DbConvolver pluginDB
-    required property var pipelineInstance
+    required property EffectsBase pipelineInstance
     property BackendConvolver pluginBackend
 
     function updateMeters() {
-        if (!convolverPage.pluginBackend)
+        if (!pluginBackend)
             return;
 
-        inputOutputLevels.setInputLevelLeft(convolverPage.pluginBackend.getInputLevelLeft());
-        inputOutputLevels.setInputLevelRight(convolverPage.pluginBackend.getInputLevelRight());
-        inputOutputLevels.setOutputLevelLeft(convolverPage.pluginBackend.getOutputLevelLeft());
-        inputOutputLevels.setOutputLevelRight(convolverPage.pluginBackend.getOutputLevelRight());
+        inputOutputLevels.setInputLevelLeft(pluginBackend.getInputLevelLeft());
+        inputOutputLevels.setInputLevelRight(pluginBackend.getInputLevelRight());
+        inputOutputLevels.setOutputLevelLeft(pluginBackend.getOutputLevelLeft());
+        inputOutputLevels.setOutputLevelRight(pluginBackend.getOutputLevelRight());
     }
 
-    function validChartMag(chartMag) {
-        // Determine if chartMag is a non-empty QList.
-        return chartMag?.length > 0;
+    function validChartMag(chartMag: var): bool {
+        const A = Array.from(chartMag);
+        return A.length > 0;
     }
 
     Component.onCompleted: {
@@ -60,7 +60,7 @@ Kirigami.ScrollablePage {
     }
 
     Connections {
-        function onNewKernelLoaded(name, success) {
+        function onNewKernelLoaded(name: string, success: bool) {
             if (success) {
                 convolverChartContainer.banner.title = name;
 
@@ -508,11 +508,13 @@ Kirigami.ScrollablePage {
         }
     }
 
-    header: EeInputOutputGain {
+    EeInputOutputGain {
         id: inputOutputLevels
 
         pluginDB: convolverPage.pluginDB
     }
+
+    header: inputOutputLevels
 
     footer: RowLayout {
         Controls.Label {

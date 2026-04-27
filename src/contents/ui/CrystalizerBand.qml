@@ -17,10 +17,10 @@
  * along with Easy Effects. If not, see <https://www.gnu.org/licenses/>.
  */
 
+pragma ComponentBehavior: Bound
 import QtQuick
 import QtQuick.Controls as Controls
 import QtQuick.Layouts
-import "Common.js" as Common
 import org.kde.kirigami as Kirigami
 
 Controls.ItemDelegate {
@@ -84,6 +84,7 @@ Controls.ItemDelegate {
             id: menuButton
 
             Layout.alignment: Qt.AlignCenter
+            Layout.topMargin: Kirigami.Units.largeSpacing * 2
             icon.name: "emblem-system-symbolic"
             checkable: true
             checked: false

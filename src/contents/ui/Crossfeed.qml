@@ -17,6 +17,7 @@
  * along with Easy Effects. If not, see <https://www.gnu.org/licenses/>.
  */
 
+pragma ComponentBehavior: Bound
 import QtQuick
 import QtQuick.Controls as Controls
 import QtQuick.Layouts
@@ -28,17 +29,17 @@ Kirigami.ScrollablePage {
 
     required property string name
     required property DbCrossfeed pluginDB
-    required property var pipelineInstance
+    required property EffectsBase pipelineInstance
     property BackendCrossfeed pluginBackend
 
     function updateMeters() {
-        if (!crossfeedPage.pluginBackend)
+        if (!pluginBackend)
             return;
 
-        inputOutputLevels.setInputLevelLeft(crossfeedPage.pluginBackend.getInputLevelLeft());
-        inputOutputLevels.setInputLevelRight(crossfeedPage.pluginBackend.getInputLevelRight());
-        inputOutputLevels.setOutputLevelLeft(crossfeedPage.pluginBackend.getOutputLevelLeft());
-        inputOutputLevels.setOutputLevelRight(crossfeedPage.pluginBackend.getOutputLevelRight());
+        inputOutputLevels.setInputLevelLeft(pluginBackend.getInputLevelLeft());
+        inputOutputLevels.setInputLevelRight(pluginBackend.getInputLevelRight());
+        inputOutputLevels.setOutputLevelLeft(pluginBackend.getOutputLevelLeft());
+        inputOutputLevels.setOutputLevelRight(pluginBackend.getOutputLevelRight());
     }
 
     function applyPreset(name) {
@@ -136,11 +137,13 @@ Kirigami.ScrollablePage {
         ]
     }
 
-    header: EeInputOutputGain {
+    EeInputOutputGain {
         id: inputOutputLevels
 
         pluginDB: crossfeedPage.pluginDB
     }
+
+    header: inputOutputLevels
 
     footer: RowLayout {
         Controls.Label {

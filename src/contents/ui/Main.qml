@@ -17,18 +17,24 @@
  * along with Easy Effects. If not, see <https://www.gnu.org/licenses/>.
  */
 
+pragma ComponentBehavior: Bound
 import QtQuick
 import QtQuick.Controls as Controls
 import QtQuick.Layouts
 import ee.autostart //qmllint disable
 import ee.database as DB
-import ee.pipeline as Pipeline
 import ee.presets as Presets
 import ee.ui
 import org.kde.kirigami as Kirigami
 
 Kirigami.ApplicationWindow {
     id: appWindow
+
+    required property string applicationName
+    required property string applicationId
+    required property bool canUseSysTray
+
+    readonly property real maxOverlayHeight: height - header.height - footer.height
 
     // We need to set visible to false in order to fix an issue related to
     // --hide-window option. See #4491.
@@ -38,20 +44,18 @@ Kirigami.ApplicationWindow {
     title: applicationName
     pageStack.globalToolBar.style: Kirigami.ApplicationHeaderStyle.None
 
-    readonly property real maxOverlayHeight: height - header.height - footer.height
-
     property var pagesMap: {
         0: {
             page: Qt.resolvedUrl("./PageStreamsEffects.qml"),
             pageType: 0,
             streamDB: DbStreamOutputs,
-            pipelineInstance: Pipeline.Output
+            pipelineInstance: StreamOutputEffects
         },
         1: {
             page: Qt.resolvedUrl("./PageStreamsEffects.qml"),
             pageType: 1,
             streamDB: DbStreamInputs,
-            pipelineInstance: Pipeline.Input
+            pipelineInstance: StreamInputEffects
         },
         2: {
             page: Qt.resolvedUrl("./PipeWirePage.qml"),
@@ -104,7 +108,10 @@ Kirigami.ApplicationWindow {
     Component.onCompleted: {
         if (canUseSysTray) {
             trayIcon = Qt.createComponent("TrayIcon.qml").createObject(appWindow, {
-                shortcuts: shortcutsSheet
+                shortcuts: shortcutsSheet,
+                applicationName: appWindow.applicationName,
+                applicationId: appWindow.applicationId,
+                canUseSysTray: appWindow.canUseSysTray
             });
 
             if (trayIcon) {
@@ -284,6 +291,7 @@ Kirigami.ApplicationWindow {
         sourceComponent: Component {
             PreferencesSheet {
                 window: appWindow
+                canUseSysTray: appWindow.canUseSysTray
             }
         }
     }

@@ -305,13 +305,14 @@ void MultibandCompressor::process(std::span<float>& left_in,
 }
 
 void MultibandCompressor::update_sidechain_links() {
+  using namespace tags::multiband_compressor;
+
   auto external_sidechain_enabled = false;
 
   for (uint n = 0U; !external_sidechain_enabled && n < n_bands; n++) {
-    const auto band_name = "sidechainType" + util::to_string(n);
-
     external_sidechain_enabled =
-        settings->defaultSidechainTypeLabelsValue()[settings->property(band_name.c_str()).value<int>()] == "External";
+        settings->defaultSidechainTypeLabelsValue()[settings->property(band_sidechain_type[n].data()).value<int>()] ==
+        "External";
   }
 
   settings->setExternalSidechainEnabled(external_sidechain_enabled);
@@ -347,30 +348,30 @@ auto MultibandCompressor::get_latency_seconds() -> float {
   return this->latency_value;
 }
 
-QList<float> MultibandCompressor::getFrequencyRangeEnd() const {
+QList<double> MultibandCompressor::getFrequencyRangeEnd() const {
   return frequency_range_end;
 }
 
-QList<float> MultibandCompressor::getEnvelopeLevelLeft() const {
+QList<double> MultibandCompressor::getEnvelopeLevelLeft() const {
   return envelope_left;
 }
 
-QList<float> MultibandCompressor::getEnvelopeLevelRight() const {
+QList<double> MultibandCompressor::getEnvelopeLevelRight() const {
   return envelope_right;
 }
 
-QList<float> MultibandCompressor::getCurveLevelLeft() const {
+QList<double> MultibandCompressor::getCurveLevelLeft() const {
   return curve_left;
 }
 
-QList<float> MultibandCompressor::getCurveLevelRight() const {
+QList<double> MultibandCompressor::getCurveLevelRight() const {
   return curve_right;
 }
 
-QList<float> MultibandCompressor::getReductionLevelLeft() const {
+QList<double> MultibandCompressor::getReductionLevelLeft() const {
   return reduction_left;
 }
 
-QList<float> MultibandCompressor::getReductionLevelRight() const {
+QList<double> MultibandCompressor::getReductionLevelRight() const {
   return reduction_right;
 }

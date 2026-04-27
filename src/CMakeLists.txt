@@ -11,6 +11,7 @@ kconfig_add_kcfg_files(easyeffects GENERATE_MOC ${KCFGC_FILES})
 # install(FILES ${KCFG_FILES} DESTINATION ${KDE_INSTALL_KCFGDIR})
 
 set_source_files_properties(
+    contents/ui/Common.qml
     contents/ui/EeMetersReset.qml
     contents/ui/Validators.qml
     PROPERTIES QT_QML_SINGLETON_TYPE TRUE)
@@ -40,6 +41,7 @@ qt_add_qml_module(easyeffects
         deepfilternet.hpp
         deesser.hpp
         delay.hpp
+        effects_base.hpp
         equalizer.hpp
         exciter.hpp
         expander.hpp
@@ -52,10 +54,13 @@ qt_add_qml_module(easyeffects
         multiband_compressor.hpp
         multiband_gate.hpp
         pitch.hpp
+        pw_model_nodes.hpp
         reverb.hpp
         rnnoise.hpp
         speex.hpp
         stereo_tools.hpp
+        stream_input_effects.hpp
+        stream_output_effects.hpp
         tags_plugin_name.hpp
         voice_suppressor.hpp
     QML_FILES
@@ -64,6 +69,7 @@ qt_add_qml_module(easyeffects
         contents/ui/BassEnhancer.qml
         contents/ui/BassLoudness.qml
         contents/ui/BlocklistDialog.qml
+        contents/ui/Common.qml
         contents/ui/Compressor.qml
         contents/ui/Convolver.qml
         contents/ui/ConvolverImpulseDialog.qml
@@ -123,15 +129,9 @@ qt_add_qml_module(easyeffects
         contents/ui/TrayIcon.qml
         contents/ui/Validators.qml
         contents/ui/VoiceSuppressor.qml
-        contents/ui/Common.js
 )
 
 # The module definitions below are to help the qml linter
-
-qt_add_qml_module(ee_tags_plugin_name
-    URI ee.tags.plugin.name
-    VERSION ${PROJECT_VERSION_MAJOR}.${PROJECT_VERSION_MINOR}
-)
 
 qt_add_qml_module(ee_pipewire
     URI ee.pipewire
@@ -145,11 +145,6 @@ qt_add_qml_module(ee_database
 
 qt_add_qml_module(ee_presets
     URI ee.presets
-    VERSION ${PROJECT_VERSION_MAJOR}.${PROJECT_VERSION_MINOR}
-)
-
-qt_add_qml_module(ee_pipeline
-    URI ee.pipeline
     VERSION ${PROJECT_VERSION_MAJOR}.${PROJECT_VERSION_MINOR}
 )
 
