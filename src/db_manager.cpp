@@ -30,6 +30,7 @@
 #include "config.h"
 #include "easyeffects_db.h"
 #include "easyeffects_db_autogain.h"
+#include "easyeffects_db_autotune.h"
 #include "easyeffects_db_bass_enhancer.h"
 #include "easyeffects_db_bass_loudness.h"
 #include "easyeffects_db_compressor.h"
@@ -68,22 +69,22 @@
 
 namespace db {
 
-Manager::Manager()
-    : graph(DbGraph::self()),
+Manager::Manager(QObject* parent)
+    : QObject(parent),
+      graph(DbGraph::self()),
       main(DbMain::self()),
       spectrum(DbSpectrum::self()),
       streamInputs(DbStreamInputs::self()),
       streamOutputs(DbStreamOutputs::self()),
       testSignals(DbTestSignals::self()),
       timer(new QTimer(this)) {
+  singletonInstance = this;
+
   // creating our database directory if it does not exist
 
   auto db_dir_path = QStandardPaths::writableLocation(QStandardPaths::ConfigLocation).append("/easyeffects/db");
 
   util::create_user_directory(db_dir_path.toStdString());
-
-  // NOLINTNEXTLINE(clang-analyzer-cplusplus.NewDelete)
-  qmlRegisterSingletonInstance<db::Manager>("ee.database", VERSION_MAJOR, VERSION_MINOR, "Manager", this);
 
   QApplication::setQuitOnLastWindowClosed(!DbMain::enableServiceMode());
 
@@ -181,6 +182,9 @@ void Manager::create_plugin_db(const QString& parentGroup,
 
     if (name.startsWith(tags::plugin_name::BaseName::autogain)) {
       ensureExists(makeKey(tags::plugin_name::BaseName::autogain, id), [&] { return new DbAutogain(parentGroup, id); });
+
+    } else if (name.startsWith(tags::plugin_name::BaseName::autotune)) {
+      ensureExists(makeKey(tags::plugin_name::BaseName::autotune, id), [&] { return new DbAutotune(parentGroup, id); });
 
     } else if (name.startsWith(tags::plugin_name::BaseName::bassEnhancer)) {
       ensureExists(makeKey(tags::plugin_name::BaseName::bassEnhancer, id),

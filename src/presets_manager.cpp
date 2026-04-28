@@ -45,6 +45,7 @@
 #include <string>
 #include <vector>
 #include "autogain_preset.hpp"
+#include "autotune_preset.hpp"
 #include "bass_enhancer_preset.hpp"
 #include "bass_loudness_preset.hpp"
 #include "compressor_preset.hpp"
@@ -91,7 +92,8 @@
 
 namespace presets {
 
-Manager::Manager() : outputListModel(new ListModel(this)), inputListModel(new ListModel(this)) {
+Manager::Manager(QObject* parent)
+    : QObject(parent), outputListModel(new ListModel(this)), inputListModel(new ListModel(this)) {
   initialize_qml_types();
 
   refresh_list_models();
@@ -106,8 +108,6 @@ Manager::Manager() : outputListModel(new ListModel(this)), inputListModel(new Li
 
 void Manager::initialize_qml_types() {
   // NOLINTBEGIN(clang-analyzer-cplusplus.NewDelete)
-  qmlRegisterSingletonInstance<presets::Manager>("ee.presets", VERSION_MAJOR, VERSION_MINOR, "Manager", this);
-
   qmlRegisterSingletonInstance<QSortFilterProxyModel>("ee.presets", VERSION_MAJOR, VERSION_MINOR,
                                                       "SortedInputListModel", inputListModel->getProxy());
 
@@ -877,6 +877,9 @@ auto Manager::create_wrapper(const PipelineType& pipeline_type, const QString& f
     -> std::optional<std::unique_ptr<PluginPresetBase>> {
   if (filter_name.startsWith(tags::plugin_name::BaseName::autogain)) {
     return std::make_unique<AutoGainPreset>(pipeline_type, filter_name.toStdString());
+
+  } else if (filter_name.startsWith(tags::plugin_name::BaseName::autotune)) {
+    return std::make_unique<AutotunePreset>(pipeline_type, filter_name.toStdString());
 
   } else if (filter_name.startsWith(tags::plugin_name::BaseName::bassEnhancer)) {
     return std::make_unique<BassEnhancerPreset>(pipeline_type, filter_name.toStdString());

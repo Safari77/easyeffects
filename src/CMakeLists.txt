@@ -30,6 +30,7 @@ qt_add_qml_module(easyeffects
         presets_list_model.hpp
         units.hpp
         autogain.hpp
+        autotune.hpp
         bass_enhancer.hpp
         bass_loudness.hpp
         compressor.hpp
@@ -38,6 +39,7 @@ qt_add_qml_module(easyeffects
         crosstalk_canceller.hpp
         crusher.hpp
         crystalizer.hpp
+        db_manager.hpp
         deepfilternet.hpp
         deesser.hpp
         delay.hpp
@@ -54,6 +56,8 @@ qt_add_qml_module(easyeffects
         multiband_compressor.hpp
         multiband_gate.hpp
         pitch.hpp
+        presets_manager.hpp
+        pw_manager.hpp
         pw_model_nodes.hpp
         reverb.hpp
         rnnoise.hpp
@@ -66,6 +70,7 @@ qt_add_qml_module(easyeffects
     QML_FILES
         contents/ui/AboutPage.qml
         contents/ui/Autogain.qml
+        contents/ui/Autotune.qml
         contents/ui/BassEnhancer.qml
         contents/ui/BassLoudness.qml
         contents/ui/BlocklistDialog.qml
@@ -133,16 +138,6 @@ qt_add_qml_module(easyeffects
 
 # The module definitions below are to help the qml linter
 
-qt_add_qml_module(ee_pipewire
-    URI ee.pipewire
-    VERSION ${PROJECT_VERSION_MAJOR}.${PROJECT_VERSION_MINOR}
-)
-
-qt_add_qml_module(ee_database
-    URI ee.database
-    VERSION ${PROJECT_VERSION_MAJOR}.${PROJECT_VERSION_MINOR}
-)
-
 qt_add_qml_module(ee_presets
     URI ee.presets
     VERSION ${PROJECT_VERSION_MAJOR}.${PROJECT_VERSION_MINOR}
@@ -157,6 +152,8 @@ target_sources(easyeffects PRIVATE
     autogain.cpp
     autogain_preset.cpp
     autostart.cpp
+    autotune.cpp
+    autotune_preset.cpp
     bass_enhancer.cpp
     bass_enhancer_preset.cpp
     bass_loudness.cpp
