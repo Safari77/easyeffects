@@ -21,7 +21,6 @@ pragma ComponentBehavior: Bound
 import QtQuick
 import QtQuick.Controls as Controls
 import QtQuick.Layouts
-import ee.presets as Presets
 import ee.ui
 import org.kde.kirigami as Kirigami
 import org.kde.kirigamiaddons.formcard as FormCard
@@ -95,22 +94,22 @@ Kirigami.ScrollablePage {
         }
 
         function onChartMagLfftLinearChanged() {
-            if (convolverPage.validChartMag(convolverPage.pluginBackend.chartMagLfftLinear) && chartChannel.left && spectrumAction.checked && !convolverChart.logarithimicHorizontalAxis)
+            if (convolverPage.validChartMag(convolverPage.pluginBackend.chartMagLfftLinear) && chartChannel.left && spectrumAction.checked && !convolverChart.logarithmicHorizontalAxis)
                 convolverChart.updateData(convolverPage.pluginBackend.chartMagLfftLinear);
         }
 
         function onChartMagRfftLinearChanged() {
-            if (convolverPage.validChartMag(convolverPage.pluginBackend.chartMagRfftLinear) && chartChannel.right && spectrumAction.checked && !convolverChart.logarithimicHorizontalAxis)
+            if (convolverPage.validChartMag(convolverPage.pluginBackend.chartMagRfftLinear) && chartChannel.right && spectrumAction.checked && !convolverChart.logarithmicHorizontalAxis)
                 convolverChart.updateData(convolverPage.pluginBackend.chartMagRfftLinear);
         }
 
         function onChartMagLfftLogChanged() {
-            if (convolverPage.validChartMag(convolverPage.pluginBackend.chartMagLfftLog) && chartChannel.left && spectrumAction.checked && convolverChart.logarithimicHorizontalAxis)
+            if (convolverPage.validChartMag(convolverPage.pluginBackend.chartMagLfftLog) && chartChannel.left && spectrumAction.checked && convolverChart.logarithmicHorizontalAxis)
                 convolverChart.updateData(convolverPage.pluginBackend.chartMagLfftLog);
         }
 
         function onChartMagRfftLogChanged() {
-            if (convolverPage.validChartMag(convolverPage.pluginBackend.chartMagRfftLog) && chartChannel.right && spectrumAction.checked && convolverChart.logarithimicHorizontalAxis)
+            if (convolverPage.validChartMag(convolverPage.pluginBackend.chartMagRfftLog) && chartChannel.right && spectrumAction.checked && convolverChart.logarithmicHorizontalAxis)
                 convolverChart.updateData(convolverPage.pluginBackend.chartMagRfftLog);
         }
 
@@ -154,7 +153,7 @@ Kirigami.ScrollablePage {
                 currentIndex: 0
                 editable: false
                 textRole: "name"
-                model: Presets.SortedImpulseListModel
+                model: PresetsManager.sortedImpulseListModel
             }
 
             FormCard.FormComboBoxDelegate {
@@ -167,7 +166,7 @@ Kirigami.ScrollablePage {
                 currentIndex: 0
                 editable: false
                 textRole: "name"
-                model: Presets.SortedImpulseListModel
+                model: PresetsManager.sortedImpulseListModel
             }
 
             FormCard.FormTextFieldDelegate {
@@ -244,7 +243,7 @@ Kirigami.ScrollablePage {
                     onTriggered: {
                         if (checked) {
                             convolverChart.xUnit = Units.hz;
-                            if (!convolverChart.logarithimicHorizontalAxis) {
+                            if (!convolverChart.logarithmicHorizontalAxis) {
                                 const chart = chartChannel.left ? convolverPage.pluginBackend.chartMagLfftLinear : convolverPage.pluginBackend.chartMagRfftLinear;
 
                                 if (convolverPage.validChartMag(chart))
@@ -263,7 +262,7 @@ Kirigami.ScrollablePage {
                                 convolverChart.updateData(chart);
 
                             spectrumLogScale.checked = false;
-                            convolverChart.logarithimicHorizontalAxis = checked;
+                            convolverChart.logarithmicHorizontalAxis = checked;
                         }
                     }
                 },
@@ -275,7 +274,7 @@ Kirigami.ScrollablePage {
                     checkable: true
                     icon.name: "transform-scale-symbolic"
                     onTriggered: {
-                        convolverChart.logarithimicHorizontalAxis = checked;
+                        convolverChart.logarithmicHorizontalAxis = checked;
                         if (checked) {
                             const chart = chartChannel.left ? convolverPage.pluginBackend.chartMagLfftLog : convolverPage.pluginBackend.chartMagRfftLog;
 
@@ -308,7 +307,7 @@ Kirigami.ScrollablePage {
                                         if (convolverPage.validChartMag(convolverPage.pluginBackend.chartMagL))
                                             convolverChart.updateData(convolverPage.pluginBackend.chartMagL);
                                     } else {
-                                        const chart = !convolverChart.logarithimicHorizontalAxis ? convolverPage.pluginBackend.chartMagLfftLinear : convolverPage.pluginBackend.chartMagLfftLog;
+                                        const chart = !convolverChart.logarithmicHorizontalAxis ? convolverPage.pluginBackend.chartMagLfftLinear : convolverPage.pluginBackend.chartMagLfftLog;
                                         if (convolverPage.validChartMag(chart))
                                             convolverChart.updateData(chart);
                                     }
@@ -326,7 +325,7 @@ Kirigami.ScrollablePage {
                                         if (convolverPage.validChartMag(convolverPage.pluginBackend.chartMagR))
                                             convolverChart.updateData(convolverPage.pluginBackend.chartMagR);
                                     } else {
-                                        const chart = !convolverChart.logarithimicHorizontalAxis ? convolverPage.pluginBackend.chartMagRfftLinear : convolverPage.pluginBackend.chartMagRfftLog;
+                                        const chart = !convolverChart.logarithmicHorizontalAxis ? convolverPage.pluginBackend.chartMagRfftLinear : convolverPage.pluginBackend.chartMagRfftLog;
                                         if (convolverPage.validChartMag(chart))
                                             convolverChart.updateData(chart);
                                     }
@@ -359,7 +358,7 @@ Kirigami.ScrollablePage {
                     xUnit: Units.s
                     xAxisDecimals: 2
                     yAxisDecimals: 3
-                    logarithimicHorizontalAxis: false
+                    logarithmicHorizontalAxis: false
                     onWidthChanged: {
                         if (convolverPage.pluginBackend)
                             convolverPage.pluginBackend.interpPoints = convolverChart.width;
