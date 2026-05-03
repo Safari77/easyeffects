@@ -221,6 +221,25 @@ FormCard.AbstractFormDelegate {
                 }
             }
 
+            WheelHandler {
+                acceptedDevices: PointerDevice.Mouse | PointerDevice.TouchPad
+                acceptedModifiers: Qt.ShiftModifier
+
+                onWheel: function (event: WheelEvent) {
+                    const delta = event.angleDelta.y !== 0 ? event.angleDelta.y : event.angleDelta.x;
+
+                    if (delta === 0) {
+                        return;
+                    }
+
+                    const pageDelta = pageSteps * stepSize;
+                    const newValue = control.value + (delta > 0 ? pageDelta : -pageDelta);
+
+                    control.valueModified(Common.clamp(newValue, control.from, control.to));
+                    event.accepted = true;
+                }
+            }
+
             contentItem: TextInput {
                 id: textInputSpinBox
 
