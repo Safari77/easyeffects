@@ -323,7 +323,7 @@ Kirigami.OverlaySheet {
                     Layout.alignment: Qt.AlignRight
 
                     Kirigami.Chip {
-                        text: "Ctrl"
+                        text: "Meta"
                         closable: false
                         checkable: false
                         down: false
@@ -335,7 +335,7 @@ Kirigami.OverlaySheet {
                     }
 
                     Kirigami.Chip {
-                        text: "Alt"
+                        text: "Ctrl"
                         closable: false
                         checkable: false
                         down: false
@@ -363,7 +363,7 @@ Kirigami.OverlaySheet {
                     Layout.alignment: Qt.AlignRight
 
                     Kirigami.Chip {
-                        text: "Ctrl"
+                        text: "Meta"
                         closable: false
                         checkable: false
                         down: false
@@ -375,7 +375,7 @@ Kirigami.OverlaySheet {
                     }
 
                     Kirigami.Chip {
-                        text: "Alt"
+                        text: "Ctrl"
                         closable: false
                         checkable: false
                         down: false
