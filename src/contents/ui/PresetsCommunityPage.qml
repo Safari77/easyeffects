@@ -114,6 +114,7 @@ ColumnLayout {
                 hoverEnabled: true
                 highlighted: false
                 width: listView.width
+                checked: columnLayout.pipeline === 1 ? DbMain.lastLoadedOutputPreset === name : DbMain.lastLoadedInputPreset === name
                 onClicked: PresetsManager.loadCommunityPresetFile(columnLayout.pipeline, path, presetPackage)
 
                 contentItem: RowLayout {
@@ -129,6 +130,14 @@ ColumnLayout {
                     Kirigami.ActionToolBar {
                         alignment: Qt.AlignRight
                         actions: [
+                            Kirigami.Action {
+                                text: i18n("Load this preset") // qmllint disable
+                                icon.name: "document-open-symbolic"
+                                displayHint: Kirigami.DisplayHint.AlwaysHide
+                                onTriggered: {
+                                    PresetsManager.loadCommunityPresetFile(columnLayout.pipeline, path, presetPackage);
+                                }
+                            },
                             Kirigami.Action {
                                 text: listItemDelegate.presetPackage
                                 displayHint: Kirigami.DisplayHint.KeepVisible

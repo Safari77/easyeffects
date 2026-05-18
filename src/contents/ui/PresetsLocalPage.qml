@@ -201,6 +201,7 @@ ColumnLayout {
                 hoverEnabled: true
                 highlighted: false
                 width: listView.width
+                checked: columnLayout.pipeline === 1 ? DbMain.lastLoadedOutputPreset === name : DbMain.lastLoadedInputPreset === name
                 onClicked: {
                     PresetsManager.loadLocalPresetFile(columnLayout.pipeline, name);
                 }
@@ -301,6 +302,14 @@ ColumnLayout {
                     Kirigami.ActionToolBar {
                         alignment: Qt.AlignRight
                         actions: [
+                            Kirigami.Action {
+                                text: i18n("Load this preset") // qmllint disable
+                                icon.name: "document-open-symbolic"
+                                displayHint: Kirigami.DisplayHint.AlwaysHide
+                                onTriggered: {
+                                    PresetsManager.loadLocalPresetFile(columnLayout.pipeline, name);
+                                }
+                            },
                             Kirigami.Action {
                                 text: i18n("Save settings to this preset") // qmllint disable
                                 icon.name: "document-save-symbolic"
