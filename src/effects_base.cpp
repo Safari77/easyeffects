@@ -492,10 +492,10 @@ void EffectsBase::requestSpectrumData() {
 
         const auto min_available_freq = static_cast<float>(cached_spectrum_frequencies.front());
         const auto max_available_freq = static_cast<float>(cached_spectrum_frequencies.back());
-        const auto min_freq = std::clamp(static_cast<float>(DbSpectrum::minimumFrequency()), min_available_freq,
-                                         max_available_freq);
-        const auto max_freq = std::clamp(static_cast<float>(DbSpectrum::maximumFrequency()), min_available_freq,
-                                         max_available_freq);
+        const auto min_freq =
+            std::clamp(static_cast<float>(DbSpectrum::minimumFrequency()), min_available_freq, max_available_freq);
+        const auto max_freq =
+            std::clamp(static_cast<float>(DbSpectrum::maximumFrequency()), min_available_freq, max_available_freq);
 
         if (min_freq > (max_freq - 100.0F)) {
           return;
