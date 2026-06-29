@@ -366,6 +366,8 @@ int main(int argc, char* argv[]) {
   // does not try to re-register a different/late app ID on the same bus.
   QGuiApplication::setDesktopFileName(QStringLiteral(APPLICATION_ID));
 
+  QGuiApplication::setWindowIcon(QIcon::fromTheme(QStringLiteral(APPLICATION_ID)));
+
   QApplication app(argc, argv);
 
   SignalHandler signalHandler;
@@ -383,15 +385,14 @@ int main(int argc, char* argv[]) {
   about.addAuthor(i18n("Wellington Wallace"), i18nc("@info:credit", "Developer"),
                   QStringLiteral("wellingtonwallace@gmail.com"));
 
-  about.setOrganizationDomain(ORGANIZATION_DOMAIN);
   about.setTranslator(i18nc("NAME OF TRANSLATORS", "Your names"), i18nc("EMAIL OF TRANSLATORS", "Your emails"));
   about.setBugAddress("https://github.com/wwmm/easyeffects/issues");
   about.setHomepage("https://github.com/wwmm/easyeffects");
   about.setProgramLogo(APPLICATION_ID);
+  about.setDesktopFileName(APPLICATION_ID);
+  about.setOrganizationDomain(ORGANIZATION_DOMAIN);
 
   KAboutData::setApplicationData(about);
-
-  QGuiApplication::setWindowIcon(QIcon::fromTheme(QStringLiteral(APPLICATION_ID)));
 
   KColorSchemeManager::instance();
 
