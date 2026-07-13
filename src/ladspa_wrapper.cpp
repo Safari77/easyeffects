@@ -253,7 +253,7 @@ static inline void get_port_bounds(const LADSPA_Descriptor* descriptor,
     max = hint->UpperBound;
 
     if (LADSPA_IS_HINT_SAMPLE_RATE(hint->HintDescriptor)) {
-      min *= rate;
+      max *= rate;
     }
   }
 
