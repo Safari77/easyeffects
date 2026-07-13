@@ -132,21 +132,53 @@ void DeepFilterNet::setup() {
   resample = rate != 48000;
   resampler_ready = !resample;
 
+  const int generation = ++setup_generation;
+
   // NOLINTBEGIN(clang-analyzer-cplusplus.NewDeleteLeaks)
 
   QMetaObject::invokeMethod(
       baseWorker,
-      [this] {
-        ladspa_wrapper->n_samples = n_samples;
-        ladspa_wrapper->create_instance(48000);
+      [this, generation] {
+        uint local_rate = 0U;
+        uint local_n_samples = 0U;
+        bool local_resample = false;
+        bool local_resampler_ready = false;
 
-        if (resample && !resampler_ready) {
-          resampler_inL = std::make_unique<Resampler>(rate, 48000);
-          resampler_inR = std::make_unique<Resampler>(rate, 48000);
-          resampler_outL = std::make_unique<Resampler>(48000, rate);
-          resampler_outR = std::make_unique<Resampler>(48000, rate);
+        {
+          std::scoped_lock<std::mutex> lock(data_mutex);
 
-          std::vector<float> dummy(n_samples);
+          if (generation != setup_generation) {
+            // A newer setup() superseded this job. Its own job will do the work.
+            return;
+          }
+
+          local_rate = rate;
+          local_n_samples = n_samples;
+          local_resample = resample;
+          local_resampler_ready = resampler_ready;
+        }
+
+        util::debug(std::format("{}creating deep_filter_stereo instance (rate = {}, n_samples = {})", log_tag,
+                                local_rate, local_n_samples));
+
+        ladspa_wrapper->n_samples = local_n_samples;
+
+        if (!ladspa_wrapper->create_instance(48000)) {
+          // Without this check a failed instantiate() used to be silently ignored and
+          // ready was set anyway, later crashing in run(). Now the plugin just stays
+          // in passthrough and the failure is visible in the log.
+          util::warning(std::format("{}failed to create the deep_filter_stereo LADSPA instance", log_tag));
+
+          return;
+        }
+
+        if (local_resample && !local_resampler_ready) {
+          resampler_inL = std::make_unique<Resampler>(local_rate, 48000);
+          resampler_inR = std::make_unique<Resampler>(local_rate, 48000);
+          resampler_outL = std::make_unique<Resampler>(48000, local_rate);
+          resampler_outR = std::make_unique<Resampler>(48000, local_rate);
+
+          std::vector<float> dummy(local_n_samples);
 
           const auto resampled_inL = resampler_inL->process(dummy);
           const auto resampled_inR = resampler_inR->process(dummy);
@@ -163,13 +195,20 @@ void DeepFilterNet::setup() {
           carryover_r.reserve(4);  // guaranteed to be random.
           carryover_l.push_back(0.0F);
           carryover_r.push_back(0.0F);
-
-          resampler_ready = true;
         }
 
         std::scoped_lock<std::mutex> lock(data_mutex);
 
+        if (generation != setup_generation) {
+          // Configuration changed while we were instantiating. Do not publish
+          // ready for a stale configuration; the newer job will.
+          return;
+        }
+
+        resampler_ready = true;
         ready = true;
+
+        util::debug(std::format("{}deep_filter_stereo instance is ready", log_tag));
       },
       Qt::QueuedConnection);
 
@@ -275,6 +314,8 @@ void DeepFilterNet::resetHistory() {
 
     if (ready && ladspa_wrapper->has_instance()) {
       ready = false;
+
+      util::debug(std::format("{}destroying deep_filter_stereo instance for history reset", log_tag));
 
       ladspa_wrapper->destroy_instance();
     }

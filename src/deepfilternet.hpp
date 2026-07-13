@@ -77,6 +77,11 @@ class DeepFilterNet : public PluginBase {
   bool resample = false;
   bool resampler_ready = true;
 
+  // Incremented (under data_mutex) on every setup(). The queued worker job
+  // captures the value and bails out if a newer setup() superseded it, so a
+  // stale job can never publish ready = true for an outdated configuration.
+  int setup_generation = 0;
+
   std::unique_ptr<Resampler> resampler_inL, resampler_outL;
   std::unique_ptr<Resampler> resampler_inR, resampler_outR;
 
