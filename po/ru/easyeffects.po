@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://github.com/wwmm/easyeffects/issues\n"
-"POT-Creation-Date: 2026-07-14 20:32-0300\n"
-"PO-Revision-Date: 2026-07-15 22:01+0000\n"
+"POT-Creation-Date: 2026-07-19 11:33-0300\n"
+"PO-Revision-Date: 2026-07-20 04:01+0000\n"
 "Last-Translator: Andrei Stepanov <adem4ik@gmail.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/easyeffects/main/"
 "ru/>\n"
@@ -2314,11 +2314,11 @@ msgstr "Активировать громкости мониторинга ка�
 
 #: src/contents/ui/PreferencesSheet.qml:198
 msgid ""
-"Activate if controlling Easy effects virtual devices volume and mute state "
-"is required."
+"Activate if controlling Easy Effects virtual devices volume and mute state "
+"by third party applications is required."
 msgstr ""
-"Активируйте, если требуется управлять громкостью на виртуальных устройствах "
-"Easy effects и отключать звук."
+"Включите, чтобы разрешить сторонним приложениям управлять громкостью и "
+"отключением звука виртуальных устройств Easy Effects."
 
 #: src/contents/ui/PreferencesSheet.qml:210
 msgid "Ignore system notifications"
