@@ -53,13 +53,13 @@ StreamInputEffects::StreamInputEffects(pw::Manager* pipe_manager) : EffectsBase(
       pm, &pw::Manager::sourceAdded, this,
       [&](pw::NodeInfo node) {
         if (node.name == DbStreamInputs::inputDevice()) {
-          if (DbMain::bypass()) {
+          if (DbMain::bypass() && DbMain::resetBypassOnDeviceChange()) {
             DbMain::setBypass(false);
 
             return;  // filter connected through update_bypass_state
           }
 
-          set_bypass(false);
+          set_bypass(DbMain::bypass());
 
           presets::Manager::self().autoload(PipelineType::input, node.name, node.device_route_description);
         }
@@ -76,13 +76,13 @@ StreamInputEffects::StreamInputEffects(pw::Manager* pipe_manager) : EffectsBase(
         }
 
         if (auto node = pm->model_nodes.get_node_by_name(name); node.serial != SPA_ID_INVALID) {
-          if (DbMain::bypass()) {
+          if (DbMain::bypass() && DbMain::resetBypassOnDeviceChange()) {
             DbMain::setBypass(false);
 
             return;  // filter connected through update_bypass_state
           }
 
-          set_bypass(false);
+          set_bypass(DbMain::bypass());
 
           presets::Manager::self().autoload(PipelineType::input, node.name, node.device_route_description);
         }
@@ -127,13 +127,13 @@ StreamInputEffects::StreamInputEffects(pw::Manager* pipe_manager) : EffectsBase(
   connect(
       DbStreamOutputs::self(), &DbStreamOutputs::outputDeviceChanged, this,
       [&]() {
-        if (DbMain::bypass()) {
+        if (DbMain::bypass() && DbMain::resetBypassOnDeviceChange()) {
           DbMain::setBypass(false);
 
           return;  // filter connected through update_bypass_state
         }
 
-        set_bypass(false);
+        set_bypass(DbMain::bypass());
       },
       Qt::QueuedConnection);
 
