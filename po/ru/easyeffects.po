@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://github.com/wwmm/easyeffects/issues\n"
-"POT-Creation-Date: 2026-08-21 20:14-0300\n"
-"PO-Revision-Date: 2026-09-05 17:51+0000\n"
+"POT-Creation-Date: 2026-09-19 15:26+0000\n"
+"PO-Revision-Date: 2026-09-19 14:52+0000\n"
 "Last-Translator: Andrei Stepanov <adem4ik@gmail.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/easyeffects/main/"
 "ru/>\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Weblate 2026.9.1.dev0\n"
+"X-Generator: Weblate 2026.10.dev0\n"
 
 #: src/autostart.cpp:92
 msgid ""
@@ -58,68 +58,102 @@ msgid "Toggle the state of the global bypass."
 msgstr "Переключить состояние глобального обхода."
 
 #: src/command_line_parser.cpp:51
+msgid ""
+"Audio sharing. 1 to enable, 2 to disable and 3 to get the current state."
+msgstr ""
+"Передача звука. 1 — включить, 2 — отключить, 3 — получить текущее состояние."
+
+#: src/command_line_parser.cpp:52 src/command_line_parser.cpp:55
+msgid "state"
+msgstr "состояние"
+
+#: src/command_line_parser.cpp:53
+msgid "Toggle the state of audio sharing."
+msgstr "Переключить состояние передачи звука."
+
+#: src/command_line_parser.cpp:55
+msgid ""
+"Microphone monitoring. 1 to enable, 2 to disable and 3 to get the current "
+"state."
+msgstr ""
+"Мониторинг микрофона. 1 — включить, 2 — отключить, 3 — получить текущее "
+"состояние."
+
+#: src/command_line_parser.cpp:56
+msgid "Toggle the state of microphone monitoring."
+msgstr "Переключить состояние мониторинга микрофона."
+
+#: src/command_line_parser.cpp:57
 msgid "Load a preset. Example: easyeffects -l music"
 msgstr "Загрузить предустановку. Пример: easyeffects -l music"
 
-#: src/command_line_parser.cpp:51
+#: src/command_line_parser.cpp:57
 msgid "preset-name"
 msgstr "имя-предустановки"
 
-#: src/command_line_parser.cpp:52
+#: src/command_line_parser.cpp:58
 msgid "Show available presets."
 msgstr "Показать доступные предустановки."
 
-#: src/command_line_parser.cpp:53
+#: src/command_line_parser.cpp:59
 msgid "Get the last loaded input/output preset."
 msgstr "Получить последнюю загруженную предустановку входа/выхода."
 
-#: src/command_line_parser.cpp:53
+#: src/command_line_parser.cpp:59
 msgid "preset-type"
 msgstr "тип-предустановки"
 
-#: src/command_line_parser.cpp:54
+#: src/command_line_parser.cpp:60
 msgid "Get the last loaded input and output presets."
 msgstr "Получить последние загруженные предустановки входа и выхода."
 
-#: src/command_line_parser.cpp:55
+#: src/command_line_parser.cpp:61
 msgid "Deprecated. Use --service-mode instead."
 msgstr "Устарело. Используйте вместо этого --service-mode."
 
-#: src/command_line_parser.cpp:56
+#: src/command_line_parser.cpp:62
 msgid "Start the application with service mode turned on."
 msgstr "Запустить приложение с включённым режимом службы."
 
-#: src/command_line_parser.cpp:57
+#: src/command_line_parser.cpp:63
 msgid "Enable debug messages."
 msgstr "Включить отладочные сообщения."
 
-#: src/command_line_parser.cpp:127
+#: src/command_line_parser.cpp:135
 msgid "Must specify preset type: input/output."
 msgstr "Необходимо указать тип предустановки: вход/выход."
 
-#: src/command_line_parser.cpp:162 src/command_line_parser.cpp:161
+#: src/command_line_parser.cpp:169
 msgid "Output presets"
 msgstr "Предустановки выхода"
 
-#: src/command_line_parser.cpp:164 src/command_line_parser.cpp:163
+#: src/command_line_parser.cpp:171
 msgid "No output presets."
 msgstr "Нет предустановок выхода."
 
-#: src/command_line_parser.cpp:175 src/command_line_parser.cpp:174
+#: src/command_line_parser.cpp:182
 msgid "Input presets"
 msgstr "Предустановки входа"
 
-#: src/command_line_parser.cpp:177 src/command_line_parser.cpp:176
+#: src/command_line_parser.cpp:184
 msgid "No input presets."
 msgstr "Нет предустановок входа."
 
-#: src/command_line_parser.cpp:207 src/command_line_parser.cpp:206
+#: src/command_line_parser.cpp:214
 msgid "Specified preset does not exist."
 msgstr "Указанная предустановка не существует."
 
-#: src/command_line_parser.cpp:227 src/command_line_parser.cpp:226
+#: src/command_line_parser.cpp:234
 msgid "Provided an invalid bypass state."
 msgstr "Указано недопустимое состояние обхода."
+
+#: src/command_line_parser.cpp:274
+msgid "Provided an invalid microphone monitoring state."
+msgstr "Указано недопустимое состояние мониторинга микрофона."
+
+#: src/command_line_parser.cpp:304
+msgid "Provided an invalid audio sharing state."
+msgstr "Указано недопустимое состояние передачи звука."
 
 #: src/contents/ui/AboutPage.qml:24
 msgctxt "@action:button"
@@ -223,9 +257,9 @@ msgstr "Усиление выхода"
 #: src/contents/ui/MidSideEqualizer.qml:315
 #: src/contents/ui/MultibandCompressor.qml:965
 #: src/contents/ui/MultibandGate.qml:938 src/contents/ui/Pitch.qml:268
-#: src/contents/ui/Reverb.qml:318 src/contents/ui/RNNoise.qml:73
-#: src/contents/ui/RNNoise.qml:84 src/contents/ui/RNNoise.qml:298
-#: src/contents/ui/RNNoise.qml:300 src/contents/ui/RNNoise.qml:320
+#: src/contents/ui/RNNoise.qml:73 src/contents/ui/RNNoise.qml:84
+#: src/contents/ui/RNNoise.qml:298 src/contents/ui/RNNoise.qml:300
+#: src/contents/ui/RNNoise.qml:320 src/contents/ui/Reverb.qml:318
 #: src/contents/ui/Speex.qml:177 src/contents/ui/StereoTools.qml:392
 msgid "Using %1"
 msgstr "Используется %1"
@@ -258,8 +292,8 @@ msgstr "Настройка"
 #: src/contents/ui/Autotune.qml:107 src/contents/ui/Compressor.qml:79
 #: src/contents/ui/Compressor.qml:301 src/contents/ui/Crusher.qml:97
 #: src/contents/ui/Deesser.qml:89 src/contents/ui/Delay.qml:71
-#: src/contents/ui/Delay.qml:224 src/contents/ui/EqualizerBandMenu.qml:61
-#: src/contents/ui/Equalizer.qml:138 src/contents/ui/Expander.qml:79
+#: src/contents/ui/Delay.qml:224 src/contents/ui/Equalizer.qml:138
+#: src/contents/ui/EqualizerBandMenu.qml:61 src/contents/ui/Expander.qml:79
 #: src/contents/ui/Expander.qml:261 src/contents/ui/Gate.qml:279
 #: src/contents/ui/Limiter.qml:72 src/contents/ui/Loudness.qml:71
 #: src/contents/ui/MidSideEqualizer.qml:138
@@ -392,8 +426,8 @@ msgstr "Прослушать"
 #: src/contents/ui/Main.qml:477 src/contents/ui/Maximizer.qml:154
 #: src/contents/ui/MidSideEqualizer.qml:399
 #: src/contents/ui/MultibandCompressor.qml:1014
-#: src/contents/ui/MultibandGate.qml:987 src/contents/ui/Reverb.qml:357
-#: src/contents/ui/RNNoise.qml:345 src/contents/ui/Speex.qml:195
+#: src/contents/ui/MultibandGate.qml:987 src/contents/ui/RNNoise.qml:345
+#: src/contents/ui/Reverb.qml:357 src/contents/ui/Speex.qml:195
 #: src/contents/ui/StereoTools.qml:424 src/contents/ui/VoiceSuppressor.qml:185
 msgid "Reset"
 msgstr "Сброс"
@@ -714,7 +748,7 @@ msgid "High-pass"
 msgstr "Фильтр ВЧ"
 
 #: src/contents/ui/Compressor.qml:416 src/contents/ui/Compressor.qml:430
-#: src/contents/ui/EqualizerBandMenu.qml:51 src/contents/ui/Equalizer.qml:156
+#: src/contents/ui/Equalizer.qml:156 src/contents/ui/EqualizerBandMenu.qml:51
 #: src/contents/ui/Expander.qml:372 src/contents/ui/Expander.qml:386
 #: src/contents/ui/Filter.qml:111 src/contents/ui/Gate.qml:391
 #: src/contents/ui/Gate.qml:405 src/contents/ui/MidSideEqualizer.qml:156
@@ -821,77 +855,6 @@ msgstr "Огибающая"
 msgid "Stereo split"
 msgstr "Разделение стерео"
 
-#: src/contents/ui/ConvolverImpulseDialog.qml:49
-msgid "Imported a new Convolver impulse file."
-msgstr "Импортирован новый файл импульса конвольвера."
-
-#: src/contents/ui/ConvolverImpulseDialog.qml:51
-msgid "Failed to import the Convolver impulse file."
-msgstr "Не удалось импортировать файл импульса конвольвера."
-
-#: src/contents/ui/ConvolverImpulseDialog.qml:65
-#: src/contents/ui/MenuAddPlugins.qml:186
-#: src/contents/ui/PresetsCommunityPage.qml:64
-#: src/contents/ui/PresetsLocalPage.qml:164
-msgid "Search"
-msgstr "Поиск"
-
-#: src/contents/ui/ConvolverImpulseDialog.qml:108
-msgid "Remove Impulse Response"
-msgstr "Убрать реакцию импульса"
-
-#: src/contents/ui/ConvolverImpulseDialog.qml:109
-msgid "Are you sure you want to remove this impulse response from the list?"
-msgstr "Уверены, что хотите убрать эту реакцию импульса из списка?"
-
-#: src/contents/ui/ConvolverImpulseDialog.qml:113
-msgid "Removed the %1 Convolver impulse."
-msgstr "Удалён импульс конвольвера %1."
-
-#: src/contents/ui/ConvolverImpulseDialog.qml:115
-msgid "Failed to remove the %1 Convolver impulse."
-msgstr "Не удалось удалить импульс конвольвера %1."
-
-#: src/contents/ui/ConvolverImpulseDialog.qml:123
-msgid "Rename Impulse"
-msgstr "Переименовать импульс"
-
-#: src/contents/ui/ConvolverImpulseDialog.qml:128
-#: src/contents/ui/PresetsLocalPage.qml:247
-msgid "Rename"
-msgstr "Переименовать"
-
-#: src/contents/ui/ConvolverImpulseDialog.qml:136
-msgid "Renamed the %1 impulse to %2"
-msgstr "Переименован импульс %1 в %2"
-
-#: src/contents/ui/ConvolverImpulseDialog.qml:139
-msgid "Failed to rename the %1 impulse to %2"
-msgstr "Не удалось переименовать импульс %1 в %2"
-
-#: src/contents/ui/ConvolverImpulseDialog.qml:147
-#: src/contents/ui/PresetsLocalPage.qml:267
-msgid "Cancel"
-msgstr "Отмена"
-
-#: src/contents/ui/ConvolverImpulseDialog.qml:186
-msgid "Rename this impulse"
-msgstr "Переименовать этот импульс"
-
-#: src/contents/ui/ConvolverImpulseDialog.qml:194
-msgid "Delete this impulse"
-msgstr "Удалить этот импульс"
-
-#: src/contents/ui/ConvolverImpulseDialog.qml:233
-msgid "Import impulse"
-msgstr "Импортировать импульс"
-
-#: src/contents/ui/ConvolverImpulseDialog.qml:243
-#: src/contents/ui/MenuAddPlugins.qml:202 src/contents/ui/PresetsDialog.qml:126
-msgctxt "@action:button"
-msgid "Close"
-msgstr "Закрыть"
-
 #: src/contents/ui/Convolver.qml:66
 msgid "Loaded the %1 Convolver impulse."
 msgstr "Загружен импульс конвольвера %1."
@@ -963,6 +926,77 @@ msgstr "Ширина стерео"
 msgid "Autogain"
 msgstr "Автоусиление"
 
+#: src/contents/ui/ConvolverImpulseDialog.qml:49
+msgid "Imported a new Convolver impulse file."
+msgstr "Импортирован новый файл импульса конвольвера."
+
+#: src/contents/ui/ConvolverImpulseDialog.qml:51
+msgid "Failed to import the Convolver impulse file."
+msgstr "Не удалось импортировать файл импульса конвольвера."
+
+#: src/contents/ui/ConvolverImpulseDialog.qml:65
+#: src/contents/ui/MenuAddPlugins.qml:186
+#: src/contents/ui/PresetsCommunityPage.qml:64
+#: src/contents/ui/PresetsLocalPage.qml:164
+msgid "Search"
+msgstr "Поиск"
+
+#: src/contents/ui/ConvolverImpulseDialog.qml:108
+msgid "Remove Impulse Response"
+msgstr "Убрать реакцию импульса"
+
+#: src/contents/ui/ConvolverImpulseDialog.qml:109
+msgid "Are you sure you want to remove this impulse response from the list?"
+msgstr "Уверены, что хотите убрать эту реакцию импульса из списка?"
+
+#: src/contents/ui/ConvolverImpulseDialog.qml:113
+msgid "Removed the %1 Convolver impulse."
+msgstr "Удалён импульс конвольвера %1."
+
+#: src/contents/ui/ConvolverImpulseDialog.qml:115
+msgid "Failed to remove the %1 Convolver impulse."
+msgstr "Не удалось удалить импульс конвольвера %1."
+
+#: src/contents/ui/ConvolverImpulseDialog.qml:123
+msgid "Rename Impulse"
+msgstr "Переименовать импульс"
+
+#: src/contents/ui/ConvolverImpulseDialog.qml:128
+#: src/contents/ui/PresetsLocalPage.qml:247
+msgid "Rename"
+msgstr "Переименовать"
+
+#: src/contents/ui/ConvolverImpulseDialog.qml:136
+msgid "Renamed the %1 impulse to %2"
+msgstr "Переименован импульс %1 в %2"
+
+#: src/contents/ui/ConvolverImpulseDialog.qml:139
+msgid "Failed to rename the %1 impulse to %2"
+msgstr "Не удалось переименовать импульс %1 в %2"
+
+#: src/contents/ui/ConvolverImpulseDialog.qml:147
+#: src/contents/ui/PresetsLocalPage.qml:267
+msgid "Cancel"
+msgstr "Отмена"
+
+#: src/contents/ui/ConvolverImpulseDialog.qml:186
+msgid "Rename this impulse"
+msgstr "Переименовать этот импульс"
+
+#: src/contents/ui/ConvolverImpulseDialog.qml:194
+msgid "Delete this impulse"
+msgstr "Удалить этот импульс"
+
+#: src/contents/ui/ConvolverImpulseDialog.qml:233
+msgid "Import impulse"
+msgstr "Импортировать импульс"
+
+#: src/contents/ui/ConvolverImpulseDialog.qml:243
+#: src/contents/ui/MenuAddPlugins.qml:202 src/contents/ui/PresetsDialog.qml:126
+msgctxt "@action:button"
+msgid "Close"
+msgstr "Закрыть"
+
 #: src/contents/ui/ConvolverSofaDialog.qml:32
 msgid "Target Orientation"
 msgstr "Целевая ориентация"
@@ -987,7 +1021,7 @@ msgid "Status"
 msgstr "Состояние"
 
 #: src/contents/ui/ConvolverSofaDialog.qml:106
-#: src/contents/ui/PreferencesSheet.qml:68
+#: src/contents/ui/PreferencesSheet.qml:71
 msgid "Database"
 msgstr "База данных"
 
@@ -1020,7 +1054,7 @@ msgid "Default"
 msgstr "По умолчанию"
 
 #: src/contents/ui/Crossfeed.qml:167 src/contents/ui/PageStreamsEffects.qml:660
-#: src/contents/ui/PreferencesSheet.qml:62 src/contents/ui/Reverb.qml:335
+#: src/contents/ui/PreferencesSheet.qml:65 src/contents/ui/Reverb.qml:335
 msgid "Presets"
 msgstr "Предустановки"
 
@@ -1041,7 +1075,7 @@ msgstr "Распад"
 msgid "Bit reduction"
 msgstr "Понижение разрядности"
 
-#: src/contents/ui/Crusher.qml:91 src/contents/ui/PreferencesSheet.qml:433
+#: src/contents/ui/Crusher.qml:91 src/contents/ui/PreferencesSheet.qml:524
 msgid "Shape"
 msgstr "Форма"
 
@@ -1061,7 +1095,7 @@ msgstr "Смещение нулевого уровня"
 msgid "Anti-aliasing"
 msgstr "Сглаживание"
 
-#: src/contents/ui/Crusher.qml:142 src/contents/ui/PreferencesSheet.qml:684
+#: src/contents/ui/Crusher.qml:142 src/contents/ui/PreferencesSheet.qml:775
 msgid "Mix"
 msgstr "Микс"
 
@@ -1078,20 +1112,6 @@ msgstr "Ослабление"
 #: src/contents/ui/Crusher.qml:181
 msgid "Low frequency oscillator"
 msgstr "Низкочастотный генератор"
-
-#: src/contents/ui/CrystalizerBand.qml:58
-#: src/contents/ui/EqualizerBandMenu.qml:187
-#: src/contents/ui/MultibandCompressor.qml:90
-#: src/contents/ui/MultibandGate.qml:90 src/contents/ui/StereoTools.qml:210
-#: src/contents/ui/StereoTools.qml:242
-msgid "Mute"
-msgstr "Приглушить"
-
-#: src/contents/ui/CrystalizerBand.qml:69
-#: src/contents/ui/MultibandCompressor.qml:108
-#: src/contents/ui/MultibandGate.qml:108
-msgid "Bypass"
-msgstr "Обход"
 
 #: src/contents/ui/Crystalizer.qml:110
 msgid "Oversampling quality"
@@ -1113,6 +1133,20 @@ msgstr "Адаптивная интенсивность"
 #: src/contents/ui/Crystalizer.qml:192
 msgid "Fixed quantum"
 msgstr "Фиксированное квантование"
+
+#: src/contents/ui/CrystalizerBand.qml:58
+#: src/contents/ui/EqualizerBandMenu.qml:187
+#: src/contents/ui/MultibandCompressor.qml:90
+#: src/contents/ui/MultibandGate.qml:90 src/contents/ui/StereoTools.qml:210
+#: src/contents/ui/StereoTools.qml:242
+msgid "Mute"
+msgstr "Приглушить"
+
+#: src/contents/ui/CrystalizerBand.qml:69
+#: src/contents/ui/MultibandCompressor.qml:108
+#: src/contents/ui/MultibandGate.qml:108
+msgid "Bypass"
+msgstr "Обход"
 
 #: src/contents/ui/DeepFilterNet.qml:52
 msgid "Attenuation limit"
@@ -1354,105 +1388,6 @@ msgstr "Регуляторы входного и выходного усилен
 msgid "Input"
 msgstr "Вход"
 
-#: src/contents/ui/EqualizerBandMenu.qml:34
-#: src/contents/ui/MultibandCompressor.qml:669
-#: src/contents/ui/MultibandCompressor.qml:928
-#: src/contents/ui/MultibandGate.qml:642 src/contents/ui/MultibandGate.qml:901
-msgid "Band"
-msgstr "Полоса"
-
-#: src/contents/ui/EqualizerBandMenu.qml:51 src/contents/ui/Filter.qml:69
-msgid "Bell"
-msgstr "Колокол"
-
-#: src/contents/ui/EqualizerBandMenu.qml:51 src/contents/ui/Filter.qml:69
-msgid "High-shelf"
-msgstr "Полочный ФВЧ"
-
-#: src/contents/ui/EqualizerBandMenu.qml:51 src/contents/ui/Filter.qml:69
-msgid "Low-shelf"
-msgstr "Полочный ФНЧ"
-
-#: src/contents/ui/EqualizerBandMenu.qml:51 src/contents/ui/Filter.qml:69
-msgid "Notch"
-msgstr "Вырез"
-
-#: src/contents/ui/EqualizerBandMenu.qml:51 src/contents/ui/Filter.qml:69
-msgid "Resonance"
-msgstr "Резонансы"
-
-#: src/contents/ui/EqualizerBandMenu.qml:51 src/contents/ui/Filter.qml:69
-msgid "Allpass"
-msgstr "Всепропускающий фильтр"
-
-#: src/contents/ui/EqualizerBandMenu.qml:51 src/contents/ui/Filter.qml:69
-msgid "Bandpass"
-msgstr "Полосовой фильтр"
-
-#: src/contents/ui/EqualizerBandMenu.qml:51 src/contents/ui/Filter.qml:69
-msgid "Ladder-pass"
-msgstr "Лестничный фильтр"
-
-#: src/contents/ui/EqualizerBandMenu.qml:51 src/contents/ui/Filter.qml:69
-msgid "Ladder-rejection"
-msgstr "Лестнично-заграждающий фильтр"
-
-#: src/contents/ui/EqualizerBandMenu.qml:65 src/contents/ui/Filter.qml:83
-msgid "RLC (BT)"
-msgstr "RLC (БП)"
-
-#: src/contents/ui/EqualizerBandMenu.qml:65 src/contents/ui/Filter.qml:83
-msgid "RLC (MT)"
-msgstr "RLC (СП)"
-
-#: src/contents/ui/EqualizerBandMenu.qml:65 src/contents/ui/Filter.qml:83
-msgid "BWC (BT)"
-msgstr "BWC (БП)"
-
-#: src/contents/ui/EqualizerBandMenu.qml:65 src/contents/ui/Filter.qml:83
-msgid "BWC (MT)"
-msgstr "BWC (СП)"
-
-#: src/contents/ui/EqualizerBandMenu.qml:65 src/contents/ui/Filter.qml:83
-msgid "LRX (BT)"
-msgstr "LRX (БП)"
-
-#: src/contents/ui/EqualizerBandMenu.qml:65 src/contents/ui/Filter.qml:83
-msgid "LRX (MT)"
-msgstr "LRX (СП)"
-
-#: src/contents/ui/EqualizerBandMenu.qml:65 src/contents/ui/Filter.qml:83
-msgid "APO (DR)"
-msgstr "APO (DR)"
-
-#: src/contents/ui/EqualizerBandMenu.qml:75 src/contents/ui/Filter.qml:121
-msgid "Slope"
-msgstr "Наклон"
-
-#: src/contents/ui/EqualizerBandMenu.qml:96 src/contents/ui/Filter.qml:142
-#: src/contents/ui/MultibandCompressor.qml:199
-#: src/contents/ui/MultibandGate.qml:136 src/contents/ui/PipeWirePage.qml:431
-msgid "Frequency"
-msgstr "Частота"
-
-#: src/contents/ui/EqualizerBandMenu.qml:142 src/contents/ui/Filter.qml:189
-msgid "Quality"
-msgstr "Качество"
-
-#: src/contents/ui/EqualizerBandMenu.qml:165 src/contents/ui/Filter.qml:158
-msgid "Width"
-msgstr "Ширина"
-
-#: src/contents/ui/EqualizerBandMenu.qml:171
-msgid "oct"
-msgstr "окт"
-
-#: src/contents/ui/EqualizerBandMenu.qml:199
-#: src/contents/ui/MultibandCompressor.qml:99
-#: src/contents/ui/MultibandGate.qml:99
-msgid "Solo"
-msgstr "Соло"
-
 #: src/contents/ui/Equalizer.qml:66 src/contents/ui/Equalizer.qml:106
 #: src/contents/ui/MidSideEqualizer.qml:66
 #: src/contents/ui/MidSideEqualizer.qml:106
@@ -1620,6 +1555,105 @@ msgstr "Импорт APO (GraphicEQ)"
 #: src/contents/ui/Equalizer.qml:391 src/contents/ui/MidSideEqualizer.qml:391
 msgid "Export APO"
 msgstr "Экспорт APO"
+
+#: src/contents/ui/EqualizerBandMenu.qml:34
+#: src/contents/ui/MultibandCompressor.qml:669
+#: src/contents/ui/MultibandCompressor.qml:928
+#: src/contents/ui/MultibandGate.qml:642 src/contents/ui/MultibandGate.qml:901
+msgid "Band"
+msgstr "Полоса"
+
+#: src/contents/ui/EqualizerBandMenu.qml:51 src/contents/ui/Filter.qml:69
+msgid "Bell"
+msgstr "Колокол"
+
+#: src/contents/ui/EqualizerBandMenu.qml:51 src/contents/ui/Filter.qml:69
+msgid "High-shelf"
+msgstr "Полочный ФВЧ"
+
+#: src/contents/ui/EqualizerBandMenu.qml:51 src/contents/ui/Filter.qml:69
+msgid "Low-shelf"
+msgstr "Полочный ФНЧ"
+
+#: src/contents/ui/EqualizerBandMenu.qml:51 src/contents/ui/Filter.qml:69
+msgid "Notch"
+msgstr "Вырез"
+
+#: src/contents/ui/EqualizerBandMenu.qml:51 src/contents/ui/Filter.qml:69
+msgid "Resonance"
+msgstr "Резонансы"
+
+#: src/contents/ui/EqualizerBandMenu.qml:51 src/contents/ui/Filter.qml:69
+msgid "Allpass"
+msgstr "Всепропускающий фильтр"
+
+#: src/contents/ui/EqualizerBandMenu.qml:51 src/contents/ui/Filter.qml:69
+msgid "Bandpass"
+msgstr "Полосовой фильтр"
+
+#: src/contents/ui/EqualizerBandMenu.qml:51 src/contents/ui/Filter.qml:69
+msgid "Ladder-pass"
+msgstr "Лестничный фильтр"
+
+#: src/contents/ui/EqualizerBandMenu.qml:51 src/contents/ui/Filter.qml:69
+msgid "Ladder-rejection"
+msgstr "Лестнично-заграждающий фильтр"
+
+#: src/contents/ui/EqualizerBandMenu.qml:65 src/contents/ui/Filter.qml:83
+msgid "RLC (BT)"
+msgstr "RLC (БП)"
+
+#: src/contents/ui/EqualizerBandMenu.qml:65 src/contents/ui/Filter.qml:83
+msgid "RLC (MT)"
+msgstr "RLC (СП)"
+
+#: src/contents/ui/EqualizerBandMenu.qml:65 src/contents/ui/Filter.qml:83
+msgid "BWC (BT)"
+msgstr "BWC (БП)"
+
+#: src/contents/ui/EqualizerBandMenu.qml:65 src/contents/ui/Filter.qml:83
+msgid "BWC (MT)"
+msgstr "BWC (СП)"
+
+#: src/contents/ui/EqualizerBandMenu.qml:65 src/contents/ui/Filter.qml:83
+msgid "LRX (BT)"
+msgstr "LRX (БП)"
+
+#: src/contents/ui/EqualizerBandMenu.qml:65 src/contents/ui/Filter.qml:83
+msgid "LRX (MT)"
+msgstr "LRX (СП)"
+
+#: src/contents/ui/EqualizerBandMenu.qml:65 src/contents/ui/Filter.qml:83
+msgid "APO (DR)"
+msgstr "APO (DR)"
+
+#: src/contents/ui/EqualizerBandMenu.qml:75 src/contents/ui/Filter.qml:121
+msgid "Slope"
+msgstr "Наклон"
+
+#: src/contents/ui/EqualizerBandMenu.qml:96 src/contents/ui/Filter.qml:142
+#: src/contents/ui/MultibandCompressor.qml:199
+#: src/contents/ui/MultibandGate.qml:136 src/contents/ui/PipeWirePage.qml:431
+msgid "Frequency"
+msgstr "Частота"
+
+#: src/contents/ui/EqualizerBandMenu.qml:142 src/contents/ui/Filter.qml:189
+msgid "Quality"
+msgstr "Качество"
+
+#: src/contents/ui/EqualizerBandMenu.qml:165 src/contents/ui/Filter.qml:158
+msgid "Width"
+msgstr "Ширина"
+
+#: src/contents/ui/EqualizerBandMenu.qml:171
+msgid "oct"
+msgstr "окт"
+
+#: src/contents/ui/EqualizerBandMenu.qml:199
+#: src/contents/ui/MultibandCompressor.qml:99
+#: src/contents/ui/MultibandGate.qml:99
+msgid "Solo"
+msgstr "Соло"
 
 #: src/contents/ui/Exciter.qml:161
 msgid "Ceil active"
@@ -2146,12 +2180,22 @@ msgstr "Исключённые приложения"
 msgid "Input monitoring"
 msgstr "Мониторинг входа"
 
-#: src/contents/ui/PageStreamsEffects.qml:699
+#: src/contents/ui/PageStreamsEffects.qml:713
+msgid "Toggle input monitoring"
+msgstr "Включить/отключить мониторинг входа"
+
+#: src/contents/ui/PageStreamsEffects.qml:733
+msgid "Set input monitoring volume"
+msgstr "Задать громкость мониторинга входа"
+
+#: src/contents/ui/PageStreamsEffects.qml:752
+msgid "Monitoring volume"
+msgstr "Громкость мониторинга"
+
 #: src/contents/ui/PageStreamsEffects.qml:785
 msgid "Share audio"
 msgstr "Передать звук"
 
-#: src/contents/ui/PageStreamsEffects.qml:700
 #: src/contents/ui/PageStreamsEffects.qml:786
 msgid "Send the processed desktop audio to the virtual source"
 msgstr "Передать обработанный звук с рабочего стола на виртуальный источник"
@@ -2238,12 +2282,12 @@ msgid "No Clients"
 msgstr "Нет клиентов"
 
 #: src/contents/ui/PipeWirePage.qml:320
-#: src/contents/ui/PreferencesSheet.qml:392
+#: src/contents/ui/PreferencesSheet.qml:483
 msgid "State"
 msgstr "Состояние"
 
 #: src/contents/ui/PipeWirePage.qml:327
-#: src/contents/ui/PreferencesSheet.qml:399
+#: src/contents/ui/PreferencesSheet.qml:490
 msgid "Enabled"
 msgstr "Включено"
 
@@ -2315,51 +2359,51 @@ msgstr "Эффект недоступен"
 msgid "%1 cannot be used because %2 is not installed on the system."
 msgstr "«%1» нельзя использовать, поскольку %2 не установлен в системе."
 
-#: src/contents/ui/PreferencesSheet.qml:38
+#: src/contents/ui/PreferencesSheet.qml:41
 msgid "Background Service"
 msgstr "Фоновая служба"
 
-#: src/contents/ui/PreferencesSheet.qml:44
+#: src/contents/ui/PreferencesSheet.qml:47
 msgid "Audio"
 msgstr "Звук"
 
-#: src/contents/ui/PreferencesSheet.qml:50
+#: src/contents/ui/PreferencesSheet.qml:53
 msgid "Spectrum Analyzer"
 msgstr "Анализатор спектра"
 
-#: src/contents/ui/PreferencesSheet.qml:56
+#: src/contents/ui/PreferencesSheet.qml:59
 msgid "Style"
 msgstr "Стиль"
 
-#: src/contents/ui/PreferencesSheet.qml:74
+#: src/contents/ui/PreferencesSheet.qml:77
 msgid "Experimental Features"
 msgstr "Экспериментально"
 
-#: src/contents/ui/PreferencesSheet.qml:87
+#: src/contents/ui/PreferencesSheet.qml:90
 msgid "Enable service mode"
 msgstr "Включить режим службы"
 
-#: src/contents/ui/PreferencesSheet.qml:88
+#: src/contents/ui/PreferencesSheet.qml:91
 msgid "Easy Effects is active in background when the window is closed."
 msgstr "Easy Effects будет активен в фоновом режиме, если окно закрыто."
 
-#: src/contents/ui/PreferencesSheet.qml:100
+#: src/contents/ui/PreferencesSheet.qml:103
 msgid "Autostart on login"
 msgstr "Автозапуск при входе в систему"
 
-#: src/contents/ui/PreferencesSheet.qml:101
+#: src/contents/ui/PreferencesSheet.qml:104
 msgid "Easy Effects is launched at user session startup."
 msgstr "Easy Effects будет запускаться с началом сеанса пользователя."
 
-#: src/contents/ui/PreferencesSheet.qml:114
+#: src/contents/ui/PreferencesSheet.qml:117
 msgid "Show the tray icon"
 msgstr "Показывать значок в трее"
 
-#: src/contents/ui/PreferencesSheet.qml:127
+#: src/contents/ui/PreferencesSheet.qml:130
 msgid "Do not show the application window"
 msgstr "Не показывать окно приложения"
 
-#: src/contents/ui/PreferencesSheet.qml:128
+#: src/contents/ui/PreferencesSheet.qml:131
 msgid ""
 "Do not show the window when the application starts. In general this option "
 "should not be enabled. It is intended only as a workaround for systems that "
@@ -2369,23 +2413,45 @@ msgstr ""
 "следует. Это обходное решение для тех систем, которые плохо работают с "
 "автозапуском Easy Effects."
 
-#: src/contents/ui/PreferencesSheet.qml:148
+#: src/contents/ui/PreferencesSheet.qml:151
 msgid "Process all output streams"
 msgstr "Обрабатывать все выходные потоки"
 
-#: src/contents/ui/PreferencesSheet.qml:160
+#: src/contents/ui/PreferencesSheet.qml:161
+#, fuzzy
+msgid "Excluded output sinks"
+msgstr "Исключённые приложения"
+
+#: src/contents/ui/PreferencesSheet.qml:162
+msgid ""
+"Do not automatically process streams when one of these sinks is selected as "
+"the output device."
+msgstr ""
+
+#: src/contents/ui/PreferencesSheet.qml:207
 msgid "Process all input streams"
 msgstr "Обрабатывать все входные потоки"
 
-#: src/contents/ui/PreferencesSheet.qml:172
+#: src/contents/ui/PreferencesSheet.qml:217
+#, fuzzy
+msgid "Excluded input sources"
+msgstr "Исключённые приложения"
+
+#: src/contents/ui/PreferencesSheet.qml:218
+msgid ""
+"Do not automatically process streams when one of these sources is selected "
+"as the input device."
+msgstr ""
+
+#: src/contents/ui/PreferencesSheet.qml:263
 msgid "Ignore streams from monitor of devices"
 msgstr "Игнорировать потоки с монитора устройств"
 
-#: src/contents/ui/PreferencesSheet.qml:184
+#: src/contents/ui/PreferencesSheet.qml:275
 msgid "Use cubic volume"
 msgstr "Использовать кубическую громкость"
 
-#: src/contents/ui/PreferencesSheet.qml:185
+#: src/contents/ui/PreferencesSheet.qml:276
 msgid ""
 "Use cubic scale for stream volume rather than the linear one. Low "
 "percentages results in a lower perceived volume while the loudness appears "
@@ -2395,11 +2461,11 @@ msgstr ""
 "процентах громкость будет ощущаться тише, а ползунок громкости станет "
 "работать плавнее."
 
-#: src/contents/ui/PreferencesSheet.qml:197
+#: src/contents/ui/PreferencesSheet.qml:288
 msgid "Activate monitor channel volumes"
 msgstr "Активировать громкости мониторинга каналов"
 
-#: src/contents/ui/PreferencesSheet.qml:198
+#: src/contents/ui/PreferencesSheet.qml:289
 msgid ""
 "Activate if controlling Easy Effects virtual devices volume and mute state "
 "by third party applications is required."
@@ -2407,11 +2473,11 @@ msgstr ""
 "Включите, чтобы разрешить сторонним приложениям управлять громкостью и "
 "отключением звука виртуальных устройств Easy Effects."
 
-#: src/contents/ui/PreferencesSheet.qml:210
+#: src/contents/ui/PreferencesSheet.qml:301
 msgid "Ignore system notifications"
 msgstr "Игнорировать системные уведомления"
 
-#: src/contents/ui/PreferencesSheet.qml:211
+#: src/contents/ui/PreferencesSheet.qml:302
 msgid ""
 "Processing system notifications may cause crackling sound, so it would be "
 "better to ignore them, but for some presets it may be recommended since they "
@@ -2421,19 +2487,19 @@ msgstr ""
 "лучше игнорировать их, но для некоторых предустановок это может быть "
 "полезно, если они звучат громко."
 
-#: src/contents/ui/PreferencesSheet.qml:223
+#: src/contents/ui/PreferencesSheet.qml:314
 msgid "Enable/disable input monitoring"
 msgstr "Включить/отключить монитор входа"
 
-#: src/contents/ui/PreferencesSheet.qml:235
+#: src/contents/ui/PreferencesSheet.qml:326
 msgid "Mic monitor plays to output effects pipeline"
 msgstr "Проигрывать монитор микрофона через выходной канал обработки эффектов"
 
-#: src/contents/ui/PreferencesSheet.qml:247
+#: src/contents/ui/PreferencesSheet.qml:338
 msgid "Copy the input audio buffer"
 msgstr "Копировать буфер входного аудио"
 
-#: src/contents/ui/PreferencesSheet.qml:248
+#: src/contents/ui/PreferencesSheet.qml:339
 msgid ""
 "Use a copy of the input audio buffer given by the sound server when "
 "processing audio inside Easy Effects plugins. This fixes audio glitches that "
@@ -2444,31 +2510,31 @@ msgstr ""
 "в плагинах Easy Effects. Устраняет сбои звука при записи внешними "
 "приложениями с мониторов виртуальных устройств Easy Effects."
 
-#: src/contents/ui/PreferencesSheet.qml:260
+#: src/contents/ui/PreferencesSheet.qml:351
 msgid "Reset Global Bypass on device change"
 msgstr "Сбрасывать общий обход при смене устройства"
 
-#: src/contents/ui/PreferencesSheet.qml:261
+#: src/contents/ui/PreferencesSheet.qml:352
 msgid "Automatically enable effects when the audio device changes."
 msgstr "Автоматическое включение эффектов при смене аудиоустройства."
 
-#: src/contents/ui/PreferencesSheet.qml:273
+#: src/contents/ui/PreferencesSheet.qml:364
 msgid "Enable the link delay"
 msgstr "Включить задержку связи"
 
-#: src/contents/ui/PreferencesSheet.qml:274
+#: src/contents/ui/PreferencesSheet.qml:365
 msgid "When enabled, a delay is applied before linking the audio filters."
 msgstr "Если включено, перед привязкой аудиофильтров применяется задержка."
 
-#: src/contents/ui/PreferencesSheet.qml:286
+#: src/contents/ui/PreferencesSheet.qml:377
 msgid "Link delay"
 msgstr "Задержка связи"
 
-#: src/contents/ui/PreferencesSheet.qml:303
+#: src/contents/ui/PreferencesSheet.qml:394
 msgid "Enable the inactivity timeout"
 msgstr "Включить тайм-аут бездействия"
 
-#: src/contents/ui/PreferencesSheet.qml:304
+#: src/contents/ui/PreferencesSheet.qml:395
 msgid ""
 "When all streams are inactive, Easy Effects pipeline remains loaded for an "
 "extra amount of time."
@@ -2476,23 +2542,23 @@ msgstr ""
 "Если все потоки бездействуют, канал обработки Easy Effects будет активен ещё "
 "какое-то время."
 
-#: src/contents/ui/PreferencesSheet.qml:316
+#: src/contents/ui/PreferencesSheet.qml:407
 msgid "Inactivity timeout"
 msgstr "Тайм-аут бездействия"
 
-#: src/contents/ui/PreferencesSheet.qml:331
+#: src/contents/ui/PreferencesSheet.qml:422
 msgid "Level meters frame rate cap"
 msgstr "Предел частоты кадров уровнемеров"
 
-#: src/contents/ui/PreferencesSheet.qml:332
+#: src/contents/ui/PreferencesSheet.qml:423
 msgid "Maximum level meter update rate."
 msgstr "Максимальная частота обновления уровнемеров."
 
-#: src/contents/ui/PreferencesSheet.qml:346
+#: src/contents/ui/PreferencesSheet.qml:437
 msgid "Level meters label"
 msgstr "Метки уровнемеров"
 
-#: src/contents/ui/PreferencesSheet.qml:347
+#: src/contents/ui/PreferencesSheet.qml:438
 msgid ""
 "The time it takes for the level meter labels to be updated when the current "
 "level is below the last highest one."
@@ -2500,106 +2566,106 @@ msgstr ""
 "Задержка обновления меток уровнемеров при снижении уровня ниже последнего "
 "пикового значения."
 
-#: src/contents/ui/PreferencesSheet.qml:364
+#: src/contents/ui/PreferencesSheet.qml:455
 msgid "Enable level meters animation"
 msgstr "Включить анимацию уровнемеров"
 
-#: src/contents/ui/PreferencesSheet.qml:373
+#: src/contents/ui/PreferencesSheet.qml:464
 msgid "Level meters animation duration"
 msgstr "Длительность анимации уровнемеров"
 
-#: src/contents/ui/PreferencesSheet.qml:411
+#: src/contents/ui/PreferencesSheet.qml:502
 msgid "Audio delay compensation"
 msgstr "Компенсация задержки звука"
 
-#: src/contents/ui/PreferencesSheet.qml:426
+#: src/contents/ui/PreferencesSheet.qml:517
 msgid "Graph"
 msgstr "График"
 
-#: src/contents/ui/PreferencesSheet.qml:437
+#: src/contents/ui/PreferencesSheet.qml:528
 msgid "Bars"
 msgstr "Полосы"
 
-#: src/contents/ui/PreferencesSheet.qml:437
+#: src/contents/ui/PreferencesSheet.qml:528
 msgid "Lines"
 msgstr "Линии"
 
-#: src/contents/ui/PreferencesSheet.qml:437
+#: src/contents/ui/PreferencesSheet.qml:528
 msgid "Dots"
 msgstr "Точки"
 
-#: src/contents/ui/PreferencesSheet.qml:437
+#: src/contents/ui/PreferencesSheet.qml:528
 msgid "Area"
 msgstr "Область"
 
-#: src/contents/ui/PreferencesSheet.qml:447
+#: src/contents/ui/PreferencesSheet.qml:538
 msgid "Dynamic scale"
 msgstr "Динамический масштаб"
 
-#: src/contents/ui/PreferencesSheet.qml:459
+#: src/contents/ui/PreferencesSheet.qml:550
 msgid "Logarithmic frequency axis"
 msgstr "Логарифмическая ось частоты"
 
-#: src/contents/ui/PreferencesSheet.qml:471
+#: src/contents/ui/PreferencesSheet.qml:562
 msgid "Points"
 msgstr "Пункты"
 
-#: src/contents/ui/PreferencesSheet.qml:486
+#: src/contents/ui/PreferencesSheet.qml:577
 msgid "Height"
 msgstr "Высота"
 
-#: src/contents/ui/PreferencesSheet.qml:493
+#: src/contents/ui/PreferencesSheet.qml:584
 msgid "px"
 msgstr "пкс"
 
-#: src/contents/ui/PreferencesSheet.qml:500
+#: src/contents/ui/PreferencesSheet.qml:591
 msgid "Spectrum frame rate cap"
 msgstr "Предел частоты кадров спектра"
 
-#: src/contents/ui/PreferencesSheet.qml:501
+#: src/contents/ui/PreferencesSheet.qml:592
 msgid "Maximum spectrum update rate."
 msgstr "Максимальная частота обновления спектра."
 
-#: src/contents/ui/PreferencesSheet.qml:516
+#: src/contents/ui/PreferencesSheet.qml:607
 msgid "Frequency Range"
 msgstr "Диапазон частот"
 
-#: src/contents/ui/PreferencesSheet.qml:523
+#: src/contents/ui/PreferencesSheet.qml:614
 msgid "Minimum"
 msgstr "Минимум"
 
-#: src/contents/ui/PreferencesSheet.qml:539
+#: src/contents/ui/PreferencesSheet.qml:630
 msgid "Maximum"
 msgstr "Максимум"
 
-#: src/contents/ui/PreferencesSheet.qml:561
+#: src/contents/ui/PreferencesSheet.qml:652
 msgid "Database autosave interval"
 msgstr "Период автосохранения базы данных"
 
-#: src/contents/ui/PreferencesSheet.qml:575
+#: src/contents/ui/PreferencesSheet.qml:666
 msgid "Most used presets"
 msgstr "Часто используемые предустановки"
 
-#: src/contents/ui/PreferencesSheet.qml:593
+#: src/contents/ui/PreferencesSheet.qml:684
 msgid "Window"
 msgstr "Окно"
 
-#: src/contents/ui/PreferencesSheet.qml:602
+#: src/contents/ui/PreferencesSheet.qml:693
 msgid "Force KDE's Breeze theme when Easy Effects starts"
 msgstr "Принудительно включать тему KDE Breeze при запуске Easy Effects"
 
-#: src/contents/ui/PreferencesSheet.qml:603
+#: src/contents/ui/PreferencesSheet.qml:694
 msgid ""
 "It is necessary to restart the service for changes in this setting to take "
 "effect."
 msgstr ""
 "Необходимо перезапустить службу для применения изменений этой настройки."
 
-#: src/contents/ui/PreferencesSheet.qml:616
+#: src/contents/ui/PreferencesSheet.qml:707
 msgid "Reduce effects list controls"
 msgstr "Свернуть элементы управления списка эффектов"
 
-#: src/contents/ui/PreferencesSheet.qml:617
+#: src/contents/ui/PreferencesSheet.qml:708
 msgid ""
 "Action buttons in the effects list are moved inside a context menu for a "
 "more compact view."
@@ -2607,16 +2673,16 @@ msgstr ""
 "Кнопки действий в списке эффектов будут перемещены в контекстное меню для "
 "более компактного вида."
 
-#: src/contents/ui/PreferencesSheet.qml:628
-#: src/contents/ui/PreferencesSheet.qml:665
+#: src/contents/ui/PreferencesSheet.qml:719
+#: src/contents/ui/PreferencesSheet.qml:756
 msgid "Color scheme"
 msgstr "Цветовая схема"
 
-#: src/contents/ui/PreferencesSheet.qml:642
+#: src/contents/ui/PreferencesSheet.qml:733
 msgid "Force English language"
 msgstr "Принудительно применить английский язык"
 
-#: src/contents/ui/PreferencesSheet.qml:643
+#: src/contents/ui/PreferencesSheet.qml:734
 msgid ""
 "Do not translate the user interface and show text in English language. "
 "Useful if the translation in the local language is incomplete or "
@@ -2626,113 +2692,113 @@ msgstr ""
 "если перевод на местный язык неполный или непонятный. Для применения этой "
 "настройки требуется перезапуск службы."
 
-#: src/contents/ui/PreferencesSheet.qml:654
+#: src/contents/ui/PreferencesSheet.qml:745
 msgid "Graphs"
 msgstr "Графики"
 
-#: src/contents/ui/PreferencesSheet.qml:669
+#: src/contents/ui/PreferencesSheet.qml:760
 msgid "Automatic"
 msgstr "Автоматически"
 
-#: src/contents/ui/PreferencesSheet.qml:669
+#: src/contents/ui/PreferencesSheet.qml:760
 msgid "Light"
 msgstr "Светлая"
 
-#: src/contents/ui/PreferencesSheet.qml:669
+#: src/contents/ui/PreferencesSheet.qml:760
 msgid "Dark"
 msgstr "Тёмная"
 
-#: src/contents/ui/PreferencesSheet.qml:680
+#: src/contents/ui/PreferencesSheet.qml:771
 msgid "Color theme"
 msgstr "Цветовая тема"
 
-#: src/contents/ui/PreferencesSheet.qml:684
+#: src/contents/ui/PreferencesSheet.qml:775
 msgid "Green"
 msgstr "Зелёная"
 
-#: src/contents/ui/PreferencesSheet.qml:684
+#: src/contents/ui/PreferencesSheet.qml:775
 msgid "Green neon"
 msgstr "Зелёный неон"
 
 # ??? Не уверен в переводе
-#: src/contents/ui/PreferencesSheet.qml:684
+#: src/contents/ui/PreferencesSheet.qml:775
 msgid "Orange"
 msgstr "Оранжевая"
 
-#: src/contents/ui/PreferencesSheet.qml:684
+#: src/contents/ui/PreferencesSheet.qml:775
 msgid "Yellow"
 msgstr "Жёлтая"
 
-#: src/contents/ui/PreferencesSheet.qml:684
+#: src/contents/ui/PreferencesSheet.qml:775
 msgid "Blue"
 msgstr "Синяя"
 
-#: src/contents/ui/PreferencesSheet.qml:684
+#: src/contents/ui/PreferencesSheet.qml:775
 msgid "Purple"
 msgstr "Фиолетовая"
 
-#: src/contents/ui/PreferencesSheet.qml:684
+#: src/contents/ui/PreferencesSheet.qml:775
 msgid "Grey"
 msgstr "Серая"
 
-#: src/contents/ui/PreferencesSheet.qml:684
+#: src/contents/ui/PreferencesSheet.qml:775
 msgid "User"
 msgstr "Пользовательская"
 
-#: src/contents/ui/PreferencesSheet.qml:692
+#: src/contents/ui/PreferencesSheet.qml:783
 msgctxt "@label"
 msgid "Background"
 msgstr "Фон"
 
-#: src/contents/ui/PreferencesSheet.qml:701
+#: src/contents/ui/PreferencesSheet.qml:792
 msgctxt "@label"
 msgid "Plot area background"
 msgstr "Фон площади участка"
 
-#: src/contents/ui/PreferencesSheet.qml:710
+#: src/contents/ui/PreferencesSheet.qml:801
 msgctxt "@label"
 msgid "Series colors"
 msgstr "Цвета серий"
 
-#: src/contents/ui/PreferencesSheet.qml:719
+#: src/contents/ui/PreferencesSheet.qml:810
 msgctxt "@label"
 msgid "Axis labels text color"
 msgstr "Цвет текста меток осей"
 
-#: src/contents/ui/PreferencesSheet.qml:728
+#: src/contents/ui/PreferencesSheet.qml:819
 msgctxt "@label"
 msgid "Axis labels background color"
 msgstr "Цвет фона меток осей"
 
-#: src/contents/ui/PreferencesSheet.qml:737
+#: src/contents/ui/PreferencesSheet.qml:828
 msgctxt "@label"
 msgid "Border color"
 msgstr "Цвет обводки"
 
-#: src/contents/ui/PreferencesSheet.qml:746
+#: src/contents/ui/PreferencesSheet.qml:837
 msgid "Line width"
 msgstr "Ширина линии"
 
-#: src/contents/ui/PreferencesSheet.qml:760
+#: src/contents/ui/PreferencesSheet.qml:851
 msgid "Show grid lines"
 msgstr "Показывать линии сетки"
 
-#: src/contents/ui/PreferencesSheet.qml:778
+#: src/contents/ui/PreferencesSheet.qml:869
 msgid "Autoload delay"
 msgstr "Задержка автозагрузки"
 
-#: src/contents/ui/PreferencesSheet.qml:779
+#: src/contents/ui/PreferencesSheet.qml:870
 msgid ""
 "Delay between receiving a new device route and the call to autoload a preset."
 msgstr ""
 "Задержка между приёмом маршрута нового устройства и вызовом автозагрузки "
 "предустановки."
 
-#: src/contents/ui/PreferencesSheet.qml:795
+#: src/contents/ui/PreferencesSheet.qml:886
 msgid "Ignore the blocklist from presets"
 msgstr "Игнорировать список исключений из предустановок"
 
-#: src/contents/ui/PreferencesSheet.qml:796
+#: src/contents/ui/PreferencesSheet.qml:887
 msgid ""
 "If enabled, the list of excluded apps set in the loaded preset is ignored "
 "and does not replace the one set by the user."
@@ -2740,28 +2806,28 @@ msgstr ""
 "Если включено, список исключённых приложений, установленный в загруженной "
 "предустановке, игнорируется и не заменяет список, заданный пользователем."
 
-#: src/contents/ui/PreferencesSheet.qml:817
+#: src/contents/ui/PreferencesSheet.qml:908
 msgid "Global shortcuts"
 msgstr "Глобальные горячие клавиши"
 
-#: src/contents/ui/PreferencesSheet.qml:818
+#: src/contents/ui/PreferencesSheet.qml:909
 msgid "Enables support for XDG global shortcuts."
 msgstr "Включает поддержку глобальных горячих клавиш XDG."
 
-#: src/contents/ui/PreferencesSheet.qml:830
+#: src/contents/ui/PreferencesSheet.qml:921
 msgid "Native window of effects"
 msgstr "Встроенное окно эффектов"
 
-#: src/contents/ui/PreferencesSheet.qml:831
+#: src/contents/ui/PreferencesSheet.qml:922
 msgid "Allows the native user interface of effects to be shown/hidden."
 msgstr ""
 "Позволяет показывать/скрывать встроенный пользовательский интерфейс плагина."
 
-#: src/contents/ui/PreferencesSheet.qml:843
+#: src/contents/ui/PreferencesSheet.qml:934
 msgid "Update frequency"
 msgstr "Частота обновления"
 
-#: src/contents/ui/PreferencesSheet.qml:844
+#: src/contents/ui/PreferencesSheet.qml:935
 msgid "Related to LV2 plugins."
 msgstr "Относится к плагинам LV2."
 
@@ -2801,22 +2867,22 @@ msgstr "Описание"
 msgid "Refresh"
 msgstr "Обновить"
 
-#: src/contents/ui/PresetsCommunityPage.qml:134
+#: src/contents/ui/PresetsCommunityPage.qml:129
 #: src/contents/ui/PresetsLocalPage.qml:306
 msgid "Load this preset"
 msgstr "Загрузить эту предустановку"
 
-#: src/contents/ui/PresetsCommunityPage.qml:148
+#: src/contents/ui/PresetsCommunityPage.qml:137
 msgid "Copy to local presets"
 msgstr "Копировать в локальные предустановки"
 
-#: src/contents/ui/PresetsCommunityPage.qml:153
+#: src/contents/ui/PresetsCommunityPage.qml:142
 msgid "Imported the %1 community preset to the list of local presets."
 msgstr ""
 "Импортирована предустановка от сообщества %1 в список локальных "
 "предустановок."
 
-#: src/contents/ui/PresetsCommunityPage.qml:155
+#: src/contents/ui/PresetsCommunityPage.qml:144
 msgid "Failed to import the %1 community preset to the list of local presets."
 msgstr ""
 "Не удалось импортировать предустановку от сообщества %1 в список локальных "
@@ -2953,6 +3019,67 @@ msgstr "Переименовать эту предустановку"
 msgid "Delete this preset"
 msgstr "Удалить эту предустановку"
 
+#: src/contents/ui/RNNoise.qml:60
+msgid "Imported a new RNNoise model file."
+msgstr "Импортирован новый файл модели RNNoise."
+
+#: src/contents/ui/RNNoise.qml:62
+msgid "Failed to import the RNNoise model file."
+msgstr "Не удалось импортировать файл модели RNNoise."
+
+#: src/contents/ui/RNNoise.qml:73 src/contents/ui/RNNoise.qml:84
+#: src/contents/ui/RNNoise.qml:298 src/contents/ui/RNNoise.qml:300
+msgid "Standard RNNoise model"
+msgstr "Стандартная модель RNNoise"
+
+#: src/contents/ui/RNNoise.qml:75
+msgid "Standard RNNoise model loaded."
+msgstr "Загружена стандартная модель RNNoise."
+
+#: src/contents/ui/RNNoise.qml:80 src/contents/ui/RNNoise.qml:302
+msgid "Using %1 Model"
+msgstr "Используется модель %1"
+
+#: src/contents/ui/RNNoise.qml:82
+msgid "Loaded the %1 RNNoise model."
+msgstr "Загружена модель RNNoise %1."
+
+#: src/contents/ui/RNNoise.qml:86
+msgid "Failed to load the %1 model. Fallback to Standard RNNoise model."
+msgstr "Не удалось загрузить модель %1. Откат к стандартной модели RNNoise."
+
+#: src/contents/ui/RNNoise.qml:105 src/contents/ui/Speex.qml:118
+msgid "Voice detection"
+msgstr "Распознавание голоса"
+
+#: src/contents/ui/RNNoise.qml:142
+msgid "Wet level"
+msgstr "Ур. обработки"
+
+#: src/contents/ui/RNNoise.qml:182
+msgid "Use the Standard model"
+msgstr "Использовать стандартную модель"
+
+#: src/contents/ui/RNNoise.qml:193
+msgid "User Models"
+msgstr "Пользовательские модели"
+
+#: src/contents/ui/RNNoise.qml:259
+msgid "Delete this model"
+msgstr "Удалить эту модель"
+
+#: src/contents/ui/RNNoise.qml:264
+msgid "Removed the %1 RNNoise model."
+msgstr "Удалена модель RNNoise %1."
+
+#: src/contents/ui/RNNoise.qml:266
+msgid "Failed to remove the %1 RNNoise model."
+msgstr "Не удалось удалить модель RNNoise %1."
+
+#: src/contents/ui/RNNoise.qml:337
+msgid "Import model"
+msgstr "Импортировать модель"
+
 # Taking lingual shortcuts to squeeze it in the text box
 #: src/contents/ui/Reverb.qml:66
 msgid "Room size"
@@ -3034,67 +3161,6 @@ msgstr "Танцзал"
 #: src/contents/ui/Reverb.qml:297
 msgid "Large occupied hall"
 msgstr "Большой занятый зал"
-
-#: src/contents/ui/RNNoise.qml:60
-msgid "Imported a new RNNoise model file."
-msgstr "Импортирован новый файл модели RNNoise."
-
-#: src/contents/ui/RNNoise.qml:62
-msgid "Failed to import the RNNoise model file."
-msgstr "Не удалось импортировать файл модели RNNoise."
-
-#: src/contents/ui/RNNoise.qml:73 src/contents/ui/RNNoise.qml:84
-#: src/contents/ui/RNNoise.qml:298 src/contents/ui/RNNoise.qml:300
-msgid "Standard RNNoise model"
-msgstr "Стандартная модель RNNoise"
-
-#: src/contents/ui/RNNoise.qml:75
-msgid "Standard RNNoise model loaded."
-msgstr "Загружена стандартная модель RNNoise."
-
-#: src/contents/ui/RNNoise.qml:80 src/contents/ui/RNNoise.qml:302
-msgid "Using %1 Model"
-msgstr "Используется модель %1"
-
-#: src/contents/ui/RNNoise.qml:82
-msgid "Loaded the %1 RNNoise model."
-msgstr "Загружена модель RNNoise %1."
-
-#: src/contents/ui/RNNoise.qml:86
-msgid "Failed to load the %1 model. Fallback to Standard RNNoise model."
-msgstr "Не удалось загрузить модель %1. Откат к стандартной модели RNNoise."
-
-#: src/contents/ui/RNNoise.qml:105 src/contents/ui/Speex.qml:118
-msgid "Voice detection"
-msgstr "Распознавание голоса"
-
-#: src/contents/ui/RNNoise.qml:142
-msgid "Wet level"
-msgstr "Ур. обработки"
-
-#: src/contents/ui/RNNoise.qml:182
-msgid "Use the Standard model"
-msgstr "Использовать стандартную модель"
-
-#: src/contents/ui/RNNoise.qml:193
-msgid "User Models"
-msgstr "Пользовательские модели"
-
-#: src/contents/ui/RNNoise.qml:259
-msgid "Delete this model"
-msgstr "Удалить эту модель"
-
-#: src/contents/ui/RNNoise.qml:264
-msgid "Removed the %1 RNNoise model."
-msgstr "Удалена модель RNNoise %1."
-
-#: src/contents/ui/RNNoise.qml:266
-msgid "Failed to remove the %1 RNNoise model."
-msgstr "Не удалось удалить модель RNNoise %1."
-
-#: src/contents/ui/RNNoise.qml:337
-msgid "Import model"
-msgstr "Импортировать модель"
 
 #: src/contents/ui/ShortcutsSheet.qml:67
 msgid "Show help"
@@ -3287,29 +3353,29 @@ msgstr "Максимальная мгновенная частота"
 msgid "Inverted mode"
 msgstr "Инверсный режим"
 
-#: src/main.cpp:382
+#: src/main.cpp:427
 msgid "Global audio effects"
 msgstr "Глобальные эффекты звука"
 
-#: src/main.cpp:383
+#: src/main.cpp:428
 msgid "© 2017-2026 Easy Effects Team"
 msgstr "© 2017-2026 Команда Easy Effects"
 
-#: src/main.cpp:385
+#: src/main.cpp:430
 msgid "Wellington Wallace"
 msgstr "Веллингтон Уоллис"
 
-#: src/main.cpp:385
+#: src/main.cpp:430
 msgctxt "@info:credit"
 msgid "Developer"
 msgstr "Разработчик"
 
-#: src/main.cpp:388
+#: src/main.cpp:433
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
 msgstr "Андрей Степанов"
 
-#: src/main.cpp:388
+#: src/main.cpp:433
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "adem4ik@gmail.com"
@@ -3356,27 +3422,27 @@ msgstr "Один или несколько параметров содержат
 msgid "Generic error while loading the effect"
 msgstr "Общая ошибка при загрузке эффекта"
 
-#: src/pw_model_nodes.cpp:492
+#: src/pw_model_nodes.cpp:508
 msgid "Running"
 msgstr "Работает"
 
-#: src/pw_model_nodes.cpp:494
+#: src/pw_model_nodes.cpp:510
 msgid "Suspended"
 msgstr "Приостановлено"
 
-#: src/pw_model_nodes.cpp:496
+#: src/pw_model_nodes.cpp:512
 msgid "Idle"
 msgstr "Простаивает"
 
-#: src/pw_model_nodes.cpp:498
+#: src/pw_model_nodes.cpp:514
 msgid "Creating"
 msgstr "Создание"
 
-#: src/pw_model_nodes.cpp:500
+#: src/pw_model_nodes.cpp:516
 msgid "Error"
 msgstr "Ошибка"
 
-#: src/pw_model_nodes.cpp:502
+#: src/pw_model_nodes.cpp:518
 msgid "Unknown"
 msgstr "Неизвестно"
 
@@ -3593,18 +3659,6 @@ msgstr "Эквалайзер, компрессор и прочие звуков�
 #: com.github.wwmm.easyeffects.desktop.in.template.h:2
 msgid "Simple audio effects"
 msgstr "Простые звуковые эффекты"
-
-#: src/contents/ui/PageStreamsEffects.qml:713
-msgid "Toggle input monitoring"
-msgstr "Включить/отключить мониторинг входа"
-
-#: src/contents/ui/PageStreamsEffects.qml:733
-msgid "Set input monitoring volume"
-msgstr "Задать громкость мониторинга входа"
-
-#: src/contents/ui/PageStreamsEffects.qml:752
-msgid "Monitoring volume"
-msgstr "Громкость мониторинга"
 
 #~ msgid "Go back"
 #~ msgstr "Назад"
