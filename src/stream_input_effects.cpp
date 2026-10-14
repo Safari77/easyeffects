@@ -162,8 +162,14 @@ StreamInputEffects::StreamInputEffects(pw::Manager* pipe_manager) : EffectsBase(
     DbStreamInputs::setInputDevice(PULSE_SOURCE);
   }
 
-  if (DbStreamInputs::inputDevice().isEmpty()) {
+  const auto has_selected_device = !DbStreamInputs::inputDevice().isEmpty();
+
+  if (!has_selected_device) {
     DbStreamInputs::setInputDevice(pm->defaultInputDeviceName);
+  }
+
+  if (has_selected_device) {
+    autoload_current_device();
   }
 
   connect_filters();
@@ -171,6 +177,18 @@ StreamInputEffects::StreamInputEffects(pw::Manager* pipe_manager) : EffectsBase(
 
 StreamInputEffects::~StreamInputEffects() {
   disconnect_filters();
+}
+
+void StreamInputEffects::autoload_current_device() {
+  const auto name = DbStreamInputs::inputDevice();
+
+  if (name.isEmpty()) {
+    return;
+  }
+
+  if (auto node = pm->model_nodes.get_node_by_name(name); node.serial != SPA_ID_INVALID) {
+    presets::Manager::self().autoload(PipelineType::input, node.name, node.device_route_description);
+  }
 }
 
 auto StreamInputEffects::apps_want_to_play() -> bool {
@@ -387,7 +405,7 @@ void StreamInputEffects::connect_filters(const bool& bypass) {
 void StreamInputEffects::disconnect_filters() {
   std::set<uint> link_id_list;
 
-  const auto selected_plugins_list = (bypass) ? QStringList() : DbStreamInputs::plugins();
+  const auto selected_plugins_list = bypass ? QStringList() : DbStreamInputs::plugins();
 
   for (const auto& plugin : plugins | std::views::values) {
     if (plugin == nullptr) {
