@@ -246,7 +246,7 @@ TestSignals::TestSignals(pw::Manager* pipe_manager) : pm(pipe_manager), random_g
   while (!can_get_node_id) {
     std::this_thread::sleep_for(std::chrono::milliseconds(1));
 
-    if (state == PW_FILTER_STATE_ERROR) {
+    if (pm->connection_lost || state == PW_FILTER_STATE_ERROR) {
       util::warning(std::format("{} is in an error", filter_name));
 
       return;
@@ -267,14 +267,14 @@ TestSignals::TestSignals(pw::Manager* pipe_manager) : pm(pipe_manager), random_g
 
   set_channel(DbTestSignals::channels());
 
-  connect(DbTestSignals::self(), &DbTestSignals::enableChanged, [this]() { set_state(DbTestSignals::enable()); });
+  connect(DbTestSignals::self(), &DbTestSignals::enableChanged, [this] { set_state(DbTestSignals::enable()); });
 
   connect(DbTestSignals::self(), &DbTestSignals::frequencyChanged,
-          [this]() { set_frequency(DbTestSignals::frequency()); });
+          [this] { set_frequency(DbTestSignals::frequency()); });
 
-  connect(DbTestSignals::self(), &DbTestSignals::channelsChanged, [this]() { set_channel(DbTestSignals::channels()); });
+  connect(DbTestSignals::self(), &DbTestSignals::channelsChanged, [this] { set_channel(DbTestSignals::channels()); });
 
-  connect(DbTestSignals::self(), &DbTestSignals::signalTypeChanged, [this]() {
+  connect(DbTestSignals::self(), &DbTestSignals::signalTypeChanged, [this] {
     if (!hearing_test) {
       pm->lock();
       signal_type = static_cast<TestSignalType>(DbTestSignals::signalType());

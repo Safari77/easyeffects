@@ -61,7 +61,7 @@ StreamInputEffects::StreamInputEffects(pw::Manager* pipe_manager) : EffectsBase(
             return;  // filter connected through update_bypass_state
           }
 
-          set_bypass(DbMain::bypass());
+          set_bypass();
 
           presets::Manager::self().autoload(PipelineType::input, node.name, node.device_route_description);
         }
@@ -70,7 +70,7 @@ StreamInputEffects::StreamInputEffects(pw::Manager* pipe_manager) : EffectsBase(
 
   connect(
       DbStreamInputs::self(), &DbStreamInputs::inputDeviceChanged, this,
-      [&]() {
+      [&] {
         const auto name = DbStreamInputs::inputDevice();
 
         if (name.isEmpty()) {
@@ -84,7 +84,7 @@ StreamInputEffects::StreamInputEffects(pw::Manager* pipe_manager) : EffectsBase(
             return;  // filter connected through update_bypass_state
           }
 
-          set_bypass(DbMain::bypass());
+          set_bypass();
 
           presets::Manager::self().autoload(PipelineType::input, node.name, node.device_route_description);
         }
@@ -93,14 +93,14 @@ StreamInputEffects::StreamInputEffects(pw::Manager* pipe_manager) : EffectsBase(
 
   connect(
       DbStreamInputs::self(), &DbStreamInputs::pluginsChanged, this,
-      [&]() {
+      [&] {
         if (DbMain::bypass()) {
           DbMain::setBypass(false);
 
           return;  // filter connected through update_bypass_state
         }
 
-        set_bypass(false);
+        set_bypass();
       },
       Qt::QueuedConnection);
 
@@ -119,9 +119,9 @@ StreamInputEffects::StreamInputEffects(pw::Manager* pipe_manager) : EffectsBase(
 
   connect(
       DbStreamInputs::self(), &DbStreamInputs::listenToMicChanged, this,
-      [&]() {
+      [&] {
         if (DbStreamInputs::listenToMic() && list_proxies.empty()) {
-          connect_filters(bypass);
+          connect_filters();
         } else {
           set_listen_to_mic(DbStreamInputs::listenToMic());
         }
@@ -130,10 +130,10 @@ StreamInputEffects::StreamInputEffects(pw::Manager* pipe_manager) : EffectsBase(
 
   connect(
       DbStreamInputs::self(), &DbStreamInputs::listenToMicIncludesOutputEffectsChanged, this,
-      [&]() { set_listen_to_mic(DbStreamInputs::listenToMic()); }, Qt::QueuedConnection);
+      [&] { set_listen_to_mic(DbStreamInputs::listenToMic()); }, Qt::QueuedConnection);
 
   connect(
-      DbStreamInputs::self(), &DbStreamInputs::listenToMicVolumeChanged, this, [&]() { set_listen_to_mic_volume(); },
+      DbStreamInputs::self(), &DbStreamInputs::listenToMicVolumeChanged, this, [&] { set_listen_to_mic_volume(); },
       Qt::QueuedConnection);
 
   /**
@@ -143,14 +143,14 @@ StreamInputEffects::StreamInputEffects(pw::Manager* pipe_manager) : EffectsBase(
 
   connect(
       DbStreamOutputs::self(), &DbStreamOutputs::outputDeviceChanged, this,
-      [&]() {
+      [&] {
         if (DbMain::bypass() && DbMain::resetBypassOnDeviceChange()) {
           DbMain::setBypass(false);
 
           return;  // filter connected through update_bypass_state
         }
 
-        set_bypass(DbMain::bypass());
+        set_bypass();
       },
       Qt::QueuedConnection);
 
@@ -207,7 +207,7 @@ auto StreamInputEffects::apps_want_to_play() -> bool {
 }
 
 void StreamInputEffects::update_pipeline() {
-  auto rebuild = [this]() {
+  auto rebuild = [this] {
     if (apps_want_to_play()) {
       if (list_proxies.empty()) {
         util::debug("At least one app linked to our device wants to play. Linking our filters.");
@@ -218,7 +218,7 @@ void StreamInputEffects::update_pipeline() {
       if (DbMain::inputInactivityTimerEnable()) {
         // if the timer is enabled, wait for the timeout, then unlink plugin pipeline
 
-        QTimer::singleShot(DbMain::inputInactivityTimeout() * 1000, this, [this]() {
+        QTimer::singleShot(DbMain::inputInactivityTimeout() * 1000, this, [this] {
           if (!apps_want_to_play() && !list_proxies.empty()) {
             util::debug("No app linked to our device wants to play. Unlinking our filters.");
 
@@ -237,7 +237,7 @@ void StreamInputEffects::update_pipeline() {
   };
 
   if (DbMain::linkDelayEnable()) {
-    QTimer::singleShot(DbMain::linkDelay(), this, [rebuild]() { rebuild(); });
+    QTimer::singleShot(DbMain::linkDelay(), this, [rebuild] { rebuild(); });
   } else {
     rebuild();
   }
@@ -255,17 +255,11 @@ void StreamInputEffects::on_link_changed(const pw::LinkInfo link_info) {
     return;
   }
 
-  // If bypass is enabled do not touch the plugin pipeline
-
-  if (bypass) {
-    return;
-  }
-
   update_pipeline();
 }
 
 void StreamInputEffects::on_link_removed() {
-  QTimer::singleShot(DbMain::inputInactivityTimeout() * 1000, this, [&]() {
+  QTimer::singleShot(DbMain::inputInactivityTimeout() * 1000, this, [&] {
     if (DbMain::inputInactivityTimerEnable() && !apps_want_to_play() && !list_proxies.empty()) {
       util::debug("No app linked to our device wants to play. Unlinking our filters.");
 
@@ -274,7 +268,7 @@ void StreamInputEffects::on_link_removed() {
   });
 }
 
-void StreamInputEffects::connect_filters(const bool& bypass) {
+void StreamInputEffects::connect_filters() {
   // checking if the output device exists
 
   if (DbStreamInputs::inputDevice().isEmpty()) {
@@ -292,7 +286,7 @@ void StreamInputEffects::connect_filters(const bool& bypass) {
     return;
   }
 
-  const auto list = bypass ? QStringList() : DbStreamInputs::plugins();
+  const auto list = DbMain::bypass() ? QStringList() : DbStreamInputs::plugins();
 
   auto mic_linked = false;
 
@@ -303,6 +297,10 @@ void StreamInputEffects::connect_filters(const bool& bypass) {
   util::debug(std::format("Before: {} -> {}", input_device.id, input_device.name.toStdString()));
 
   while (pm->count_node_ports(input_device.id) < 1) {
+    if (pm->connection_lost) {
+      return;
+    }
+
     std::this_thread::sleep_for(std::chrono::milliseconds(1));
 
     timeout++;
@@ -355,13 +353,11 @@ void StreamInputEffects::connect_filters(const bool& bypass) {
         continue;
       }
 
-      if (name.startsWith(tags::plugin_name::BaseName::echoCanceller)) {
-        if (plugins[name]->connected_to_pw) {
-          auto output_device = pm->model_nodes.get_node_by_name(DbStreamOutputs::outputDevice());
+      if (name.startsWith(tags::plugin_name::BaseName::echoCanceller) && plugins[name]->connected_to_pw) {
+        auto output_device = pm->model_nodes.get_node_by_name(DbStreamOutputs::outputDevice());
 
-          for (const auto& link : pm->link_nodes(output_device.id, plugins[name]->get_node_id(), true)) {
-            list_proxies.push_back(link);
-          }
+        for (const auto& link : pm->link_nodes(output_device.id, plugins[name]->get_node_id(), true)) {
+          list_proxies.push_back(link);
         }
       }
 
@@ -405,7 +401,7 @@ void StreamInputEffects::connect_filters(const bool& bypass) {
 void StreamInputEffects::disconnect_filters() {
   std::set<uint> link_id_list;
 
-  const auto selected_plugins_list = bypass ? QStringList() : DbStreamInputs::plugins();
+  const auto selected_plugins_list = DbMain::bypass() ? QStringList() : DbStreamInputs::plugins();
 
   for (const auto& plugin : plugins | std::views::values) {
     if (plugin == nullptr) {
@@ -418,12 +414,11 @@ void StreamInputEffects::disconnect_filters() {
       }
     }
 
-    if (plugin->connected_to_pw) {
-      if (std::ranges::find(selected_plugins_list, plugin->name) == selected_plugins_list.end()) {
-        util::debug(std::format("Disconnecting the {} filter from PipeWire", plugin->name.toStdString()));
+    if (plugin->connected_to_pw &&
+        std::ranges::find(selected_plugins_list, plugin->name) == selected_plugins_list.end()) {
+      util::debug(std::format("Disconnecting the {} filter from PipeWire", plugin->name.toStdString()));
 
-        plugin->disconnect_from_pw();
-      }
+      plugin->disconnect_from_pw();
     }
 
     plugin->clear_data();
@@ -453,27 +448,10 @@ void StreamInputEffects::disconnect_filters() {
   Q_EMIT filtersLinkedChanged();
 }
 
-void StreamInputEffects::set_bypass(const bool& state) {
-  pending_bypass_state = state;
+void StreamInputEffects::set_bypass() {
+  disconnect_filters();
 
-  if (bypass_transition_active) {
-    bypass_transition_pending = true;
-
-    return;
-  }
-
-  bypass_transition_active = true;
-
-  do {
-    bypass_transition_pending = false;
-    bypass = pending_bypass_state;
-
-    disconnect_filters();
-
-    connect_filters(bypass);
-  } while (bypass_transition_pending);
-
-  bypass_transition_active = false;
+  connect_filters();
 
   Q_EMIT pipelineChanged();
 }

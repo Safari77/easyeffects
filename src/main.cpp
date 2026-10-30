@@ -34,6 +34,7 @@
 #include <KColorSchemeManager>
 #include <KIconTheme>
 #include <KLocalizedString>
+#include <KSignalHandler>
 #include <QApplication>
 #include <QDir>
 #include <QLocalServer>
@@ -70,21 +71,6 @@
 #endif
 
 namespace {
-
-class SignalHandler {
- public:
-  SignalHandler() {
-    std::signal(SIGINT, handle);
-    std::signal(SIGTERM, handle);
-  }
-
- private:
-  static void handle(int s) {
-    std::signal(s, SIG_DFL);
-
-    QCoreApplication::quit();
-  }
-};
 
 struct CoreServices {
   db::Manager* dbm = nullptr;
@@ -157,7 +143,7 @@ struct CoreServices {
   void initGlobalShortcuts() const {
     auto shortcuts = global_shortcuts.get();
 
-    auto bind = [shortcuts]() {
+    auto bind = [shortcuts] {
       util::debug("XDG Global Shortcuts experimental feature is enabled for this session.");
 
       const auto session = qEnvironmentVariable("XDG_SESSION_DESKTOP");
@@ -173,13 +159,13 @@ struct CoreServices {
       }
     };
 
-    QObject::connect(shortcuts, &GlobalShortcuts::bindShortcuts, [bind]() {
+    QObject::connect(shortcuts, &GlobalShortcuts::bindShortcuts, [bind] {
       if (DbMain::xdgGlobalShortcuts()) {
         bind();
       }
     });
 
-    QObject::connect(DbMain::self(), &DbMain::xdgGlobalShortcutsChanged, [bind]() {
+    QObject::connect(DbMain::self(), &DbMain::xdgGlobalShortcutsChanged, [bind] {
       if (DbMain::xdgGlobalShortcuts()) {
         bind();
       } else {
@@ -200,9 +186,9 @@ static void initGlobalBypass(StreamInputEffects& sie, StreamOutputEffects& soe) 
 
   bypass_coalescer->setSingleShot(true);
 
-  auto update_bypass_state = [&]() {
-    soe.set_bypass(DbMain::bypass());
-    sie.set_bypass(DbMain::bypass());
+  auto update_bypass_state = [&] {
+    soe.set_bypass();
+    sie.set_bypass();
 
     util::debug((DbMain::bypass() ? "Enabling global bypass" : "Disabling global bypass"));
   };
@@ -212,7 +198,7 @@ static void initGlobalBypass(StreamInputEffects& sie, StreamOutputEffects& soe) 
   QObject::connect(bypass_coalescer, &QTimer::timeout, DbMain::self(), update_bypass_state);
 
   QObject::connect(DbMain::self(), &DbMain::bypassChanged, bypass_coalescer,
-                   [bypass_coalescer]() { bypass_coalescer->start(0); });
+                   [bypass_coalescer] { bypass_coalescer->start(0); });
 }
 
 static void initQml(QQmlApplicationEngine& engine,
@@ -222,9 +208,11 @@ static void initQml(QQmlApplicationEngine& engine,
                     bool& show_window) {
   KLocalization::setupLocalizedContext(&engine);
 
-  engine.setInitialProperties({{"applicationName", APPLICATION_NAME},
-                               {"applicationId", APPLICATION_ID},
-                               {"canUseSysTray", QSystemTrayIcon::isSystemTrayAvailable()}});
+  engine.setInitialProperties({
+      {"applicationName", APPLICATION_NAME},
+      {"applicationId", APPLICATION_ID},
+      {"canUseSysTray", QSystemTrayIcon::isSystemTrayAvailable()},
+  });
 
   QObject::connect(&engine, &QQmlApplicationEngine::objectCreated, [&](QObject* object, const QUrl& url) {
     if (url.toString() == "qrc:/qt/qml/ee/ui/contents/ui/Main.qml") {
@@ -262,7 +250,7 @@ static void initQml(QQmlApplicationEngine& engine,
              * QQmlVMEResolvedList. Defer the cache trim/GC by one event loop turn so
              * pending deleteLater teardown finishes first.
              */
-            QTimer::singleShot(0, &engine, [&engine]() {
+            QTimer::singleShot(0, &engine, [&engine] {
               engine.trimComponentCache();
               engine.collectGarbage();
 
@@ -276,7 +264,7 @@ static void initQml(QQmlApplicationEngine& engine,
     }
   });
 
-  QObject::connect(&server, &LocalServer::onShowWindow, [&]() {
+  QObject::connect(&server, &LocalServer::onShowWindow, [&] {
     show_window = true;
 
     if (ui.window) {
@@ -286,7 +274,7 @@ static void initQml(QQmlApplicationEngine& engine,
     }
   });
 
-  QObject::connect(&server, &LocalServer::onHideWindow, [&]() {
+  QObject::connect(&server, &LocalServer::onHideWindow, [&] {
     show_window = false;
 
     if (ui.window) {
@@ -308,12 +296,12 @@ static int runSecondaryInstance(const QLockFile& lockFile,
                                 bool& show_window) {
   auto local_client = std::make_unique<LocalClient>();
 
-  QObject::connect(&parser, &CommandLineParser::onQuit, [&]() {
+  QObject::connect(&parser, &CommandLineParser::onQuit, [&] {
     local_client->quit_app();
     show_window = false;
   });
 
-  QObject::connect(&parser, &CommandLineParser::onHideWindow, [&]() {
+  QObject::connect(&parser, &CommandLineParser::onHideWindow, [&] {
     local_client->hide_window();
     show_window = false;
   });
@@ -326,13 +314,13 @@ static int runSecondaryInstance(const QLockFile& lockFile,
     show_window = false;
   });
 
-  QObject::connect(&parser, &CommandLineParser::onGetMicrophoneMonitoring, [&]() {
+  QObject::connect(&parser, &CommandLineParser::onGetMicrophoneMonitoring, [&] {
     auto state = local_client->getMicrophoneMonitoring();
     std::cout << state.toStdString() << '\n';
     show_window = false;
   });
 
-  QObject::connect(&parser, &CommandLineParser::onToggleMicrophoneMonitoring, [&]() {
+  QObject::connect(&parser, &CommandLineParser::onToggleMicrophoneMonitoring, [&] {
     local_client->toggleMicrophoneMonitoring();
     show_window = false;
   });
@@ -342,13 +330,13 @@ static int runSecondaryInstance(const QLockFile& lockFile,
     show_window = false;
   });
 
-  QObject::connect(&parser, &CommandLineParser::onGetAudioSharing, [&]() {
+  QObject::connect(&parser, &CommandLineParser::onGetAudioSharing, [&] {
     auto state = local_client->getAudioSharing();
     std::cout << state.toStdString() << '\n';
     show_window = false;
   });
 
-  QObject::connect(&parser, &CommandLineParser::onToggleAudioSharing, [&]() {
+  QObject::connect(&parser, &CommandLineParser::onToggleAudioSharing, [&] {
     local_client->toggleAudioSharing();
     show_window = false;
   });
@@ -358,13 +346,13 @@ static int runSecondaryInstance(const QLockFile& lockFile,
     show_window = false;
   });
 
-  QObject::connect(&parser, &CommandLineParser::onGetGlobalBypass, [&]() {
+  QObject::connect(&parser, &CommandLineParser::onGetGlobalBypass, [&] {
     auto state = local_client->getGlobalBypass();
     std::cout << state.toStdString() << '\n';
     show_window = false;
   });
 
-  QObject::connect(&parser, &CommandLineParser::onToggleGlobalBypass, [&]() {
+  QObject::connect(&parser, &CommandLineParser::onToggleGlobalBypass, [&] {
     local_client->toggleGlobalBypass();
     show_window = false;
   });
@@ -375,7 +363,7 @@ static int runSecondaryInstance(const QLockFile& lockFile,
     show_window = false;
   });
 
-  QObject::connect(&parser, &CommandLineParser::onGetLastLoadedInputOutputPreset, [&]() {
+  QObject::connect(&parser, &CommandLineParser::onGetLastLoadedInputOutputPreset, [&] {
     auto input_preset = local_client->getLastLoadedPreset(PipelineType::input);
     auto output_preset = local_client->getLastLoadedPreset(PipelineType::output);
 
@@ -415,7 +403,10 @@ int main(int argc, char* argv[]) {
 
   QApplication app(argc, argv);
 
-  SignalHandler signalHandler;
+  auto* signalHandler = KSignalHandler::self();
+  signalHandler->watchSignal(SIGINT);
+  signalHandler->watchSignal(SIGTERM);
+  QObject::connect(signalHandler, &KSignalHandler::signalReceived, &app, &QCoreApplication::quit);
 
   if (DbMain::englishLanguage()) {
     KLocalizedString::setLanguages({QStringLiteral("C")});
@@ -445,7 +436,7 @@ int main(int argc, char* argv[]) {
 
   auto cmd_parser = std::make_unique<CommandLineParser>(about);
 
-  QObject::connect(cmd_parser.get(), &CommandLineParser::onReset, [&]() { db::Manager::self().resetAll(); });
+  QObject::connect(cmd_parser.get(), &CommandLineParser::onReset, [&] { db::Manager::self().resetAll(); });
 
   // Checking if there is already an instance running
 
@@ -492,13 +483,13 @@ int main(int argc, char* argv[]) {
 
   local_server->startServer();  // it has to be done after "QApplication app(argc, argv)"
 
-  QObject::connect(local_server.get(), &LocalServer::onQuitApp, [&]() { QApplication::quit(); });
+  QObject::connect(local_server.get(), &LocalServer::onQuitApp, [&] { QApplication::quit(); });
 
   initGlobalBypass(*core.sie, *core.soe);
 
-  QObject::connect(&app, &QApplication::aboutToQuit, [&]() { db::Manager::self().saveAll(); });
+  QObject::connect(&app, &QApplication::aboutToQuit, [&] { db::Manager::self().saveAll(); });
 
-  QObject::connect(cmd_parser.get(), &CommandLineParser::onHideWindow, [&]() {
+  QObject::connect(cmd_parser.get(), &CommandLineParser::onHideWindow, [&] {
     show_window = false;
 
     if (ui.window) {
@@ -507,7 +498,7 @@ int main(int argc, char* argv[]) {
   });
 
   QObject::connect(cmd_parser.get(), &CommandLineParser::onInitQML,
-                   [&]() { initQml(engine, *autostart, *local_server, ui, show_window); });
+                   [&] { initQml(engine, *autostart, *local_server, ui, show_window); });
 
   cmd_parser->process_events();
 

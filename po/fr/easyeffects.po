@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://github.com/wwmm/easyeffects/issues\n"
-"POT-Creation-Date: 2026-10-26 11:29+0100\n"
-"PO-Revision-Date: 2026-10-25 05:51+0000\n"
+"POT-Creation-Date: 2026-10-30 14:50-0300\n"
+"PO-Revision-Date: 2026-10-29 08:47+0000\n"
 "Last-Translator: Bundy01 <bundy01@users.noreply.hosted.weblate.org>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/easyeffects/main/"
 "fr/>\n"
@@ -178,40 +178,47 @@ msgstr "Référence"
 
 #: src/contents/ui/Autogain.qml:79 src/contents/ui/Autogain.qml:148
 #: src/contents/ui/LevelMeter.qml:199
+msgctxt "EBU R 128 loudness measure"
 msgid "Momentary"
-msgstr "Temporaire"
+msgstr "Momentanée"
 
 #: src/contents/ui/Autogain.qml:79 src/contents/ui/Autogain.qml:158
 #: src/contents/ui/LevelMeter.qml:209
+msgctxt "EBU R 128 loudness measure"
 msgid "Short-term"
 msgstr "Court terme"
 
 #: src/contents/ui/Autogain.qml:79 src/contents/ui/Autogain.qml:168
 #: src/contents/ui/LevelMeter.qml:219
+msgctxt "EBU R 128 loudness measure"
 msgid "Integrated"
 msgstr "Intégrée"
 
 #: src/contents/ui/Autogain.qml:79
+msgctxt "Autogain: mean of Momentary, Short-term and Integrated"
 msgid "Geometric mean (MSI)"
 msgstr "Moyenne géométrique (MSI)"
 
 #: src/contents/ui/Autogain.qml:79
+msgctxt "Autogain: mean of Momentary and Short-term"
 msgid "Geometric mean (MS)"
-msgstr "Moyenne géométrique (MS)"
+msgstr "Moyenne géométrique (MC)"
 
 #: src/contents/ui/Autogain.qml:79
+msgctxt "Autogain: mean of Momentary and Integrated"
 msgid "Geometric mean (MI)"
 msgstr "Moyenne géométrique (MI)"
 
 #: src/contents/ui/Autogain.qml:79
+msgctxt "Autogain: mean of Short-term and Integrated"
 msgid "Geometric mean (SI)"
-msgstr "Moyenne géométrique (SI)"
+msgstr "Moyenne géométrique (CI)"
 
 #: src/contents/ui/Autogain.qml:88
 msgid "Target"
 msgstr "Cible"
 
-#: src/contents/ui/Autogain.qml:104 src/contents/ui/PipeWirePage.qml:420
+#: src/contents/ui/Autogain.qml:104
 msgid "Silence"
 msgstr "Silence"
 
@@ -221,7 +228,6 @@ msgstr "Historique maximal"
 
 #: src/contents/ui/Autogain.qml:143 src/contents/ui/Autogain.qml:198
 #: src/contents/ui/BassLoudness.qml:67 src/contents/ui/LevelMeter.qml:187
-#: src/tags_plugin_name.cpp:70
 msgid "Loudness"
 msgstr "Sonie"
 
@@ -252,12 +258,11 @@ msgstr "Gain de sortie"
 #: src/contents/ui/Maximizer.qml:122 src/contents/ui/MidSideEqualizer.qml:315
 #: src/contents/ui/MultibandCompressor.qml:965
 #: src/contents/ui/MultibandGate.qml:938 src/contents/ui/Pitch.qml:268
-#: src/contents/ui/Reverb.qml:318 src/contents/ui/RNNoise.qml:73
-#: src/contents/ui/RNNoise.qml:84 src/contents/ui/RNNoise.qml:298
-#: src/contents/ui/RNNoise.qml:300 src/contents/ui/RNNoise.qml:320
+#: src/contents/ui/Reverb.qml:318 src/contents/ui/RNNoise.qml:320
 #: src/contents/ui/Speex.qml:177 src/contents/ui/StereoTools.qml:392
+msgctxt "Library in use (plugin credit)"
 msgid "Using %1"
-msgstr "Utilisation de %1"
+msgstr "Utilise %1"
 
 #: src/contents/ui/Autogain.qml:250 src/contents/ui/DeepFilterNet.qml:286
 #: src/contents/ui/LevelMeter.qml:273 src/contents/ui/Pitch.qml:285
@@ -296,11 +301,12 @@ msgid "Mode"
 msgstr "Mode"
 
 #: src/contents/ui/Autotune.qml:111
+msgctxt "Operating mode"
 msgid "Auto"
 msgstr "Auto"
 
-#: src/contents/ui/Autotune.qml:111 src/contents/ui/Main.qml:469
-#: src/contents/ui/TrayIcon.qml:221
+#: src/contents/ui/Autotune.qml:111
+msgctxt "Operating mode"
 msgid "Manual"
 msgstr "Manuel"
 
@@ -309,12 +315,12 @@ msgid "Correction"
 msgstr "Correction"
 
 #: src/contents/ui/Autotune.qml:153
+msgctxt "Autotune preference"
 msgid "Bias"
-msgstr "Polarisation"
+msgstr "Biais"
 
 #: src/contents/ui/Autotune.qml:169 src/contents/ui/Deesser.qml:171
 #: src/contents/ui/Filter.qml:137 src/contents/ui/Reverb.qml:126
-#: src/tags_plugin_name.cpp:66
 msgid "Filter"
 msgstr "Filtre"
 
@@ -327,20 +333,92 @@ msgid "Scale"
 msgstr "Échelle"
 
 #: src/contents/ui/Autotune.qml:218
+msgctxt "Autotune fundamental note"
 msgid "Root"
-msgstr "Racine"
+msgstr "Tonalité"
+
+#: src/contents/ui/Autotune.qml:222 src/contents/ui/Autotune.qml:261
+#: src/contents/ui/Harmonizer.qml:45
+msgctxt "Musical note"
+msgid "C"
+msgstr "Do"
+
+#: src/contents/ui/Autotune.qml:222 src/contents/ui/Autotune.qml:279
+#: src/contents/ui/Harmonizer.qml:51
+msgctxt "Musical note"
+msgid "D"
+msgstr "Ré"
+
+#: src/contents/ui/Autotune.qml:222 src/contents/ui/Autotune.qml:297
+#: src/contents/ui/Harmonizer.qml:57
+msgctxt "Musical note"
+msgid "E"
+msgstr "Mi"
+
+#: src/contents/ui/Autotune.qml:222 src/contents/ui/Autotune.qml:306
+#: src/contents/ui/Harmonizer.qml:60
+msgctxt "Musical note"
+msgid "F"
+msgstr "Fa"
+
+#: src/contents/ui/Autotune.qml:222 src/contents/ui/Autotune.qml:324
+#: src/contents/ui/Harmonizer.qml:66
+msgctxt "Musical note"
+msgid "G"
+msgstr "Sol"
+
+#: src/contents/ui/Autotune.qml:222 src/contents/ui/Autotune.qml:342
+#: src/contents/ui/Harmonizer.qml:72
+msgctxt "Musical note"
+msgid "A"
+msgstr "La"
+
+#: src/contents/ui/Autotune.qml:222 src/contents/ui/Autotune.qml:360
+#: src/contents/ui/Harmonizer.qml:78
+msgctxt "Musical note"
+msgid "B"
+msgstr "Si"
 
 #: src/contents/ui/Autotune.qml:231
+#, fuzzy
+msgctxt "Autotune modified note"
 msgid "Accidental"
-msgstr "Accidentel"
+msgstr "Altération"
 
 #: src/contents/ui/Autotune.qml:248
+msgctxt "Sound scale"
 msgid "Major"
-msgstr "Majeur"
+msgstr "Majeure"
 
 #: src/contents/ui/Autotune.qml:248
+msgctxt "Sound scale"
 msgid "Minor"
-msgstr "Mineur"
+msgstr "Mineure"
+
+#: src/contents/ui/Autotune.qml:270
+msgctxt "Musical note"
+msgid "C♯"
+msgstr ""
+
+#: src/contents/ui/Autotune.qml:288
+msgctxt "Musical note"
+msgid "D♯"
+msgstr ""
+
+#: src/contents/ui/Autotune.qml:315
+msgctxt "Musical note"
+msgid "F♯"
+msgstr ""
+
+#: src/contents/ui/Autotune.qml:333
+msgctxt "Musical note"
+msgid "G♯"
+msgstr ""
+
+#: src/contents/ui/Autotune.qml:351
+msgctxt "Musical note"
+msgid "A♯"
+msgstr ""
 
 #: src/contents/ui/Autotune.qml:377 src/contents/ui/Deesser.qml:276
 msgid "Level"
@@ -359,14 +437,17 @@ msgid "Blend harmonics"
 msgstr "Mélanger les harmoniques"
 
 #: src/contents/ui/BassEnhancer.qml:65 src/contents/ui/Exciter.qml:65
+msgctxt "Blend harmonics"
 msgid "3rd"
-msgstr "3ème"
+msgstr "3e"
 
 #: src/contents/ui/BassEnhancer.qml:87 src/contents/ui/Exciter.qml:87
+msgctxt "Blend harmonics"
 msgid "2nd"
-msgstr "2ème"
+msgstr "2e"
 
 #: src/contents/ui/BassEnhancer.qml:110 src/contents/ui/Exciter.qml:114
+msgctxt "Exciter/Bass enhancer control"
 msgid "Amount"
 msgstr "Quantité"
 
@@ -376,6 +457,7 @@ msgid "Harmonics"
 msgstr "Harmoniques"
 
 #: src/contents/ui/BassEnhancer.qml:141 src/contents/ui/Exciter.qml:145
+msgctxt "Exciter/Bass enhancer control"
 msgid "Scope"
 msgstr "Portée"
 
@@ -384,8 +466,9 @@ msgid "Floor active"
 msgstr "Plancher actif"
 
 #: src/contents/ui/BassEnhancer.qml:168
+msgctxt "Bass enhancer control"
 msgid "Floor"
-msgstr "Limite Inférieure"
+msgstr "Plancher"
 
 #: src/contents/ui/BassEnhancer.qml:223 src/contents/ui/Compressor.qml:891
 #: src/contents/ui/Crusher.qml:254 src/contents/ui/Deesser.qml:337
@@ -431,10 +514,7 @@ msgstr "Réinitialiser"
 msgid "Output"
 msgstr "Sortie"
 
-#: src/contents/ui/BassLoudness.qml:99 src/contents/ui/Compressor.qml:266
-#: src/contents/ui/Expander.qml:226 src/contents/ui/Gate.qml:244
-#: src/contents/ui/Limiter.qml:217 src/contents/ui/MultibandCompressor.qml:427
-#: src/contents/ui/MultibandGate.qml:400
+#: src/contents/ui/BassLoudness.qml:99
 msgid "Link"
 msgstr "Lien"
 
@@ -503,18 +583,21 @@ msgstr "Compresseur"
 
 #: src/contents/ui/Compressor.qml:83 src/contents/ui/Expander.qml:83
 #: src/contents/ui/MultibandCompressor.qml:131
+msgctxt "Compressor mode"
 msgid "Downward"
 msgstr "Descendant"
 
 #: src/contents/ui/Compressor.qml:83 src/contents/ui/Expander.qml:83
 #: src/contents/ui/MultibandCompressor.qml:131
+msgctxt "Compressor mode"
 msgid "Upward"
 msgstr "Ascendant"
 
 #: src/contents/ui/Compressor.qml:83
 #: src/contents/ui/MultibandCompressor.qml:131
+msgctxt "Compressor mode"
 msgid "Boosting"
-msgstr "Renforcement"
+msgstr "Renfort"
 
 #: src/contents/ui/Compressor.qml:93
 #: src/contents/ui/MultibandCompressor.qml:140
@@ -528,11 +611,13 @@ msgstr "Niveau de l'amplification"
 
 #: src/contents/ui/Compressor.qml:132 src/contents/ui/Deesser.qml:119
 #: src/contents/ui/Expander.qml:92 src/contents/ui/MultibandCompressor.qml:363
+msgctxt "Compressor control"
 msgid "Ratio"
 msgstr "Ratio"
 
 #: src/contents/ui/Compressor.qml:148 src/contents/ui/Expander.qml:108
 #: src/contents/ui/Limiter.qml:451 src/contents/ui/MultibandCompressor.qml:378
+msgctxt "Compressor control"
 msgid "Knee"
 msgstr "Genou"
 
@@ -545,7 +630,7 @@ msgstr "Seuil et Durée"
 #: src/contents/ui/Limiter.qml:144 src/contents/ui/Limiter.qml:417
 #: src/contents/ui/MultibandCompressor.qml:260
 #: src/contents/ui/MultibandGate.qml:201
-#: src/contents/ui/PreferencesSheet.qml:780
+msgctxt "Compressor control"
 msgid "Attack"
 msgstr "Attaque"
 
@@ -553,9 +638,10 @@ msgstr "Attaque"
 #: src/contents/ui/Gate.qml:100 src/contents/ui/Gate.qml:865
 #: src/contents/ui/Limiter.qml:161 src/contents/ui/Limiter.qml:434
 #: src/contents/ui/Maximizer.qml:68 src/contents/ui/MultibandCompressor.qml:308
-#: src/contents/ui/MultibandGate.qml:216 src/contents/ui/RNNoise.qml:158
+#: src/contents/ui/MultibandGate.qml:216
+msgctxt "Compressor control"
 msgid "Release"
-msgstr "Relâchement"
+msgstr "Relâche"
 
 #: src/contents/ui/Compressor.qml:250 src/contents/ui/Compressor.qml:348
 #: src/contents/ui/Compressor.qml:683 src/contents/ui/Expander.qml:210
@@ -576,19 +662,24 @@ msgid "Type"
 msgstr "Type"
 
 #: src/contents/ui/Compressor.qml:266
+msgctxt "Sidechain type"
 msgid "Feed-forward"
-msgstr "Retour d'information"
+msgstr "Avant"
 
 #: src/contents/ui/Compressor.qml:266
+msgctxt "Sidechain type"
 msgid "Feed-back"
 msgstr "Retour"
 
-#: src/contents/ui/Compressor.qml:266 src/contents/ui/Expander.qml:226
-#: src/contents/ui/Gate.qml:244 src/contents/ui/Limiter.qml:217
-#: src/contents/ui/MultibandCompressor.qml:427
-#: src/contents/ui/MultibandGate.qml:400
+#: src/contents/ui/Compressor.qml:266
+msgctxt "Sidechain type"
 msgid "External"
 msgstr "Externe"
+
+#: src/contents/ui/Compressor.qml:266
+msgctxt "Sidechain type"
+msgid "Link"
+msgstr "Liaison"
 
 #: src/contents/ui/Compressor.qml:277 src/contents/ui/Expander.qml:237
 #: src/contents/ui/Gate.qml:255 src/contents/ui/Limiter.qml:227
@@ -600,6 +691,7 @@ msgstr "Périphérique d’entrée"
 #: src/contents/ui/Expander.qml:265 src/contents/ui/Gate.qml:283
 #: src/contents/ui/MultibandCompressor.qml:438
 #: src/contents/ui/MultibandGate.qml:411
+msgctxt "Sidechain mode"
 msgid "Peak"
 msgstr "Pic"
 
@@ -607,21 +699,21 @@ msgstr "Pic"
 #: src/contents/ui/Expander.qml:265 src/contents/ui/Gate.qml:283
 #: src/contents/ui/MultibandCompressor.qml:438
 #: src/contents/ui/MultibandGate.qml:411
+msgctxt "Sidechain mode"
 msgid "RMS"
 msgstr "RMS"
 
-#: src/contents/ui/Compressor.qml:305 src/contents/ui/Compressor.qml:426
-#: src/contents/ui/EqualizerBandMenu.qml:51 src/contents/ui/Expander.qml:265
-#: src/contents/ui/Expander.qml:382 src/contents/ui/Filter.qml:69
-#: src/contents/ui/Gate.qml:283 src/contents/ui/Gate.qml:401
-#: src/contents/ui/MultibandCompressor.qml:438
+#: src/contents/ui/Compressor.qml:305 src/contents/ui/Expander.qml:265
+#: src/contents/ui/Gate.qml:283 src/contents/ui/MultibandCompressor.qml:438
 #: src/contents/ui/MultibandGate.qml:411
+msgctxt "Sidechain mode"
 msgid "Low-pass"
 msgstr "Passe-bas"
 
 #: src/contents/ui/Compressor.qml:305 src/contents/ui/Expander.qml:265
 #: src/contents/ui/Gate.qml:283 src/contents/ui/MultibandCompressor.qml:438
 #: src/contents/ui/MultibandGate.qml:411
+msgctxt "Sidechain mode"
 msgid "SMA"
 msgstr "SMA"
 
@@ -637,79 +729,86 @@ msgstr "Source"
 #: src/contents/ui/Compressor.qml:319 src/contents/ui/Expander.qml:279
 #: src/contents/ui/Gate.qml:297 src/contents/ui/MultibandCompressor.qml:449
 #: src/contents/ui/MultibandGate.qml:422
+msgctxt "Sidechain source"
 msgid "Middle"
-msgstr "Central"
+msgstr "Médian"
 
 #: src/contents/ui/Compressor.qml:319 src/contents/ui/Expander.qml:279
-#: src/contents/ui/Gate.qml:297 src/contents/ui/MidSideEqualizer.qml:244
-#: src/contents/ui/MultibandCompressor.qml:449
+#: src/contents/ui/Gate.qml:297 src/contents/ui/MultibandCompressor.qml:449
 #: src/contents/ui/MultibandGate.qml:422
+msgctxt "Sidechain source"
 msgid "Side"
-msgstr "Latéral (side)"
+msgstr "Latéral"
 
-#: src/contents/ui/Compressor.qml:319 src/contents/ui/Convolver.qml:301
-#: src/contents/ui/Delay.qml:59 src/contents/ui/Equalizer.qml:250
-#: src/contents/ui/Expander.qml:279 src/contents/ui/Gate.qml:297
-#: src/contents/ui/HearingTestDialog.qml:141 src/contents/ui/LevelMeter.qml:81
-#: src/contents/ui/LevelMeter.qml:120 src/contents/ui/LevelMeter.qml:159
-#: src/contents/ui/MultibandCompressor.qml:449
-#: src/contents/ui/MultibandGate.qml:422 src/contents/ui/PipeWirePage.qml:346
-#: src/contents/ui/StereoTools.qml:204
+#: src/contents/ui/Compressor.qml:319 src/contents/ui/Expander.qml:279
+#: src/contents/ui/Gate.qml:297 src/contents/ui/MultibandCompressor.qml:449
+#: src/contents/ui/MultibandGate.qml:422
+msgctxt "Sidechain source"
 msgid "Left"
 msgstr "Gauche"
 
-#: src/contents/ui/Compressor.qml:319 src/contents/ui/Convolver.qml:319
-#: src/contents/ui/Delay.qml:212 src/contents/ui/Equalizer.qml:250
-#: src/contents/ui/Expander.qml:279 src/contents/ui/Gate.qml:297
-#: src/contents/ui/HearingTestDialog.qml:141 src/contents/ui/LevelMeter.qml:91
-#: src/contents/ui/LevelMeter.qml:130 src/contents/ui/LevelMeter.qml:169
-#: src/contents/ui/MultibandCompressor.qml:449
-#: src/contents/ui/MultibandGate.qml:422 src/contents/ui/PipeWirePage.qml:357
-#: src/contents/ui/StereoTools.qml:231
+#: src/contents/ui/Compressor.qml:319 src/contents/ui/Expander.qml:279
+#: src/contents/ui/Gate.qml:297 src/contents/ui/MultibandCompressor.qml:449
+#: src/contents/ui/MultibandGate.qml:422
+msgctxt "Sidechain source"
 msgid "Right"
 msgstr "Droite"
 
-#: src/contents/ui/Compressor.qml:319 src/contents/ui/Compressor.qml:334
-#: src/contents/ui/Expander.qml:279 src/contents/ui/Expander.qml:294
-#: src/contents/ui/Gate.qml:297 src/contents/ui/Gate.qml:312
-#: src/contents/ui/MultibandCompressor.qml:449
-#: src/contents/ui/MultibandCompressor.qml:461
-#: src/contents/ui/MultibandGate.qml:422 src/contents/ui/MultibandGate.qml:434
+#: src/contents/ui/Compressor.qml:319 src/contents/ui/Expander.qml:279
+#: src/contents/ui/Gate.qml:297 src/contents/ui/MultibandCompressor.qml:449
+#: src/contents/ui/MultibandGate.qml:422
+msgctxt "Sidechain source"
 msgid "Min"
 msgstr "Min"
 
-#: src/contents/ui/Compressor.qml:319 src/contents/ui/Compressor.qml:334
-#: src/contents/ui/Expander.qml:279 src/contents/ui/Expander.qml:294
-#: src/contents/ui/Gate.qml:297 src/contents/ui/Gate.qml:312
-#: src/contents/ui/MultibandCompressor.qml:449
-#: src/contents/ui/MultibandCompressor.qml:461
-#: src/contents/ui/MultibandGate.qml:422 src/contents/ui/MultibandGate.qml:434
+#: src/contents/ui/Compressor.qml:319 src/contents/ui/Expander.qml:279
+#: src/contents/ui/Gate.qml:297 src/contents/ui/MultibandCompressor.qml:449
+#: src/contents/ui/MultibandGate.qml:422
+msgctxt "Sidechain source"
 msgid "Max"
 msgstr "Max"
 
 #: src/contents/ui/Compressor.qml:334 src/contents/ui/Expander.qml:294
 #: src/contents/ui/Gate.qml:312 src/contents/ui/MultibandCompressor.qml:461
 #: src/contents/ui/MultibandGate.qml:434
+msgctxt "Stereo source"
 msgid "Left/Right"
 msgstr "Gauche/Droite"
 
 #: src/contents/ui/Compressor.qml:334 src/contents/ui/Expander.qml:294
 #: src/contents/ui/Gate.qml:312 src/contents/ui/MultibandCompressor.qml:461
 #: src/contents/ui/MultibandGate.qml:434
+msgctxt "Stereo source"
 msgid "Right/Left"
 msgstr "Droite/Gauche"
 
 #: src/contents/ui/Compressor.qml:334 src/contents/ui/Expander.qml:294
 #: src/contents/ui/Gate.qml:312 src/contents/ui/MultibandCompressor.qml:461
 #: src/contents/ui/MultibandGate.qml:434
+msgctxt "Stereo source"
 msgid "Mid/Side"
-msgstr "Mid/Side"
+msgstr "Central/Latéral"
 
 #: src/contents/ui/Compressor.qml:334 src/contents/ui/Expander.qml:294
 #: src/contents/ui/Gate.qml:312 src/contents/ui/MultibandCompressor.qml:461
 #: src/contents/ui/MultibandGate.qml:434
+msgctxt "Stereo source"
 msgid "Side/Mid"
-msgstr "Side/Mid"
+msgstr "Latéral/Central"
+
+#: src/contents/ui/Compressor.qml:334 src/contents/ui/Expander.qml:294
+#: src/contents/ui/Gate.qml:312 src/contents/ui/MultibandCompressor.qml:461
+#: src/contents/ui/MultibandGate.qml:434
+msgctxt "Stereo source"
+msgid "Min"
+msgstr "Min"
+
+#: src/contents/ui/Compressor.qml:334 src/contents/ui/Expander.qml:294
+#: src/contents/ui/Gate.qml:312 src/contents/ui/MultibandCompressor.qml:461
+#: src/contents/ui/MultibandGate.qml:434
+msgctxt "Stereo source"
+msgid "Max"
+msgstr "Max"
 
 #: src/contents/ui/Compressor.qml:358 src/contents/ui/Expander.qml:314
 #: src/contents/ui/Gate.qml:333 src/contents/ui/Limiter.qml:250
@@ -728,12 +827,14 @@ msgstr "Réactivité"
 #: src/contents/ui/Gate.qml:369 src/contents/ui/Limiter.qml:268
 #: src/contents/ui/MultibandCompressor.qml:500
 #: src/contents/ui/MultibandGate.qml:473
+msgctxt "Compressor control"
 msgid "Lookahead"
 msgstr "Anticipation"
 
 #: src/contents/ui/Compressor.qml:412 src/contents/ui/EqualizerBandMenu.qml:51
 #: src/contents/ui/Expander.qml:368 src/contents/ui/Filter.qml:69
 #: src/contents/ui/Gate.qml:387
+msgctxt "Filter type"
 msgid "High-pass"
 msgstr "Passe-haut"
 
@@ -745,12 +846,20 @@ msgstr "Passe-haut"
 msgid "Off"
 msgstr "Désactivé"
 
+#: src/contents/ui/Compressor.qml:426 src/contents/ui/EqualizerBandMenu.qml:51
+#: src/contents/ui/Expander.qml:382 src/contents/ui/Filter.qml:69
+#: src/contents/ui/Gate.qml:401
+msgctxt "Filter type"
+msgid "Low-pass"
+msgstr "Passe-bas"
+
 #: src/contents/ui/Compressor.qml:484 src/contents/ui/Convolver.qml:475
 #: src/contents/ui/Delay.qml:176 src/contents/ui/Delay.qml:329
 #: src/contents/ui/Expander.qml:444 src/contents/ui/Gate.qml:459
 #: src/contents/ui/MultibandCompressor.qml:624
 #: src/contents/ui/MultibandGate.qml:597 src/contents/ui/Pitch.qml:123
 #: src/contents/ui/Reverb.qml:188 src/contents/ui/StereoTools.qml:345
+msgctxt "Signal type"
 msgid "Dry"
 msgstr "Sec"
 
@@ -760,6 +869,7 @@ msgstr "Sec"
 #: src/contents/ui/MultibandCompressor.qml:642
 #: src/contents/ui/MultibandGate.qml:615 src/contents/ui/Pitch.qml:142
 #: src/contents/ui/Reverb.qml:206 src/contents/ui/StereoTools.qml:363
+msgctxt "Signal type"
 msgid "Wet"
 msgstr "Humide"
 
@@ -767,8 +877,9 @@ msgstr "Humide"
 #: src/contents/ui/Expander.qml:482 src/contents/ui/Gate.qml:497
 #: src/contents/ui/MultibandCompressor.qml:395
 #: src/contents/ui/MultibandGate.qml:265
+msgctxt "Gain level"
 msgid "Makeup"
-msgstr "Retouche"
+msgstr "Compensation"
 
 #: src/contents/ui/Compressor.qml:542 src/contents/ui/Expander.qml:498
 #: src/contents/ui/Gate.qml:517 src/contents/ui/Limiter.qml:289
@@ -825,12 +936,14 @@ msgstr "Gain"
 #: src/contents/ui/Compressor.qml:777 src/contents/ui/Expander.qml:727
 #: src/contents/ui/Gate.qml:755 src/contents/ui/MultibandCompressor.qml:857
 #: src/contents/ui/MultibandGate.qml:294 src/contents/ui/MultibandGate.qml:830
+msgctxt "Compressor parameter"
 msgid "Curve"
 msgstr "Courbe"
 
 #: src/contents/ui/Compressor.qml:786 src/contents/ui/Expander.qml:736
 #: src/contents/ui/Gate.qml:764 src/contents/ui/MultibandCompressor.qml:802
 #: src/contents/ui/MultibandGate.qml:775
+msgctxt "Compressor parameter"
 msgid "Envelope"
 msgstr "Enveloppe"
 
@@ -932,10 +1045,12 @@ msgstr ""
 "Échec du chargement de l'impulsion %1. Le Convolveur est en mode transparent."
 
 #: src/contents/ui/Convolver.qml:151
+msgctxt "Convolver impulse selection"
 msgid "First"
-msgstr "Premier"
+msgstr "Première"
 
 #: src/contents/ui/Convolver.qml:164
+msgctxt "Convolver impulse selection"
 msgid "Second"
 msgstr "Deuxième"
 
@@ -955,9 +1070,28 @@ msgstr "Spectre"
 msgid "Log scale"
 msgstr "Échelle logarithmique"
 
+#: src/contents/ui/Convolver.qml:301 src/contents/ui/Delay.qml:59
+#: src/contents/ui/Equalizer.qml:250 src/contents/ui/HearingTestDialog.qml:141
+#: src/contents/ui/LevelMeter.qml:81 src/contents/ui/LevelMeter.qml:120
+#: src/contents/ui/LevelMeter.qml:159 src/contents/ui/PipeWirePage.qml:346
+#: src/contents/ui/StereoTools.qml:204
+msgctxt "Channel"
+msgid "Left"
+msgstr "Gauche"
+
+#: src/contents/ui/Convolver.qml:319 src/contents/ui/Delay.qml:212
+#: src/contents/ui/Equalizer.qml:250 src/contents/ui/HearingTestDialog.qml:141
+#: src/contents/ui/LevelMeter.qml:91 src/contents/ui/LevelMeter.qml:130
+#: src/contents/ui/LevelMeter.qml:169 src/contents/ui/PipeWirePage.qml:357
+#: src/contents/ui/StereoTools.qml:231
+msgctxt "Channel"
+msgid "Right"
+msgstr "Droite"
+
 #: src/contents/ui/Convolver.qml:380 src/contents/ui/Crusher.qml:208
+msgctxt "Audio sample rate"
 msgid "Rate"
-msgstr "Taux"
+msgstr "Échantillonnage"
 
 #: src/contents/ui/Convolver.qml:385 src/contents/ui/Delay.qml:75
 #: src/contents/ui/Delay.qml:86 src/contents/ui/Delay.qml:228
@@ -974,6 +1108,7 @@ msgid "Channels"
 msgstr "Canaux"
 
 #: src/contents/ui/Convolver.qml:400
+msgctxt "File format"
 msgid "Format"
 msgstr "Format"
 
@@ -981,7 +1116,7 @@ msgstr "Format"
 msgid "Stereo width"
 msgstr "Largeur Stéréo"
 
-#: src/contents/ui/Convolver.qml:537 src/tags_plugin_name.cpp:47
+#: src/contents/ui/Convolver.qml:537
 msgid "Autogain"
 msgstr "Gain Automatique"
 
@@ -1026,12 +1161,14 @@ msgid "Apply"
 msgstr "Appliquer"
 
 #: src/contents/ui/Crossfeed.qml:79
+msgctxt "Crossfeed control"
 msgid "Cutoff"
 msgstr "Coupure"
 
 #: src/contents/ui/Crossfeed.qml:95
+msgctxt "Crossfeed control"
 msgid "Feed"
-msgstr "Flux"
+msgstr "Couplage"
 
 #: src/contents/ui/Crossfeed.qml:114
 msgid "Crossfeed Presets"
@@ -1051,7 +1188,7 @@ msgid "Process only phantom center"
 msgstr "Traiter uniquement le centre fantôme"
 
 #: src/contents/ui/CrosstalkCanceller.qml:75
-#: src/contents/ui/StereoTools.qml:294 src/tags_plugin_name.cpp:60
+#: src/contents/ui/StereoTools.qml:294
 msgid "Delay"
 msgstr "Retard"
 
@@ -1194,12 +1331,14 @@ msgid "Detection"
 msgstr "Détection"
 
 #: src/contents/ui/Deesser.qml:93
+msgctxt "Deesser mode"
 msgid "Wideband"
 msgstr "Large bande"
 
 #: src/contents/ui/Deesser.qml:93
+msgctxt "Deesser mode"
 msgid "Split"
-msgstr "Diviser"
+msgstr "Séparation"
 
 #: src/contents/ui/Deesser.qml:102 src/contents/ui/Gate.qml:135
 #: src/contents/ui/Gate.qml:187 src/contents/ui/Gate.qml:922
@@ -1349,21 +1488,25 @@ msgstr "Suppression du Bruit"
 msgid "Strength"
 msgstr "Puissance"
 
-#: src/contents/ui/EchoCanceller.qml:111 src/contents/ui/Loudness.qml:119
+#: src/contents/ui/EchoCanceller.qml:111
+msgctxt "Echo canceller strength"
 msgid "Low"
 msgstr "Faible"
 
 #: src/contents/ui/EchoCanceller.qml:111
+msgctxt "Echo canceller strength"
 msgid "Moderate"
-msgstr "Modéré"
+msgstr "Modérée"
 
-#: src/contents/ui/EchoCanceller.qml:111 src/contents/ui/Loudness.qml:119
+#: src/contents/ui/EchoCanceller.qml:111
+msgctxt "Echo canceller strength"
 msgid "High"
 msgstr "Élevée"
 
 #: src/contents/ui/EchoCanceller.qml:111
+msgctxt "Echo canceller strength"
 msgid "Very high"
-msgstr "Très élevé"
+msgstr "Très élevée"
 
 #: src/contents/ui/EchoCanceller.qml:121
 msgid "High-Pass Filter"
@@ -1398,71 +1541,88 @@ msgid "Band"
 msgstr "Bande"
 
 #: src/contents/ui/EqualizerBandMenu.qml:51 src/contents/ui/Filter.qml:69
+msgctxt "Filter type"
 msgid "Bell"
 msgstr "Cloche"
 
 #: src/contents/ui/EqualizerBandMenu.qml:51 src/contents/ui/Filter.qml:69
+msgctxt "Filter type"
 msgid "High-shelf"
-msgstr "High-shelf"
+msgstr "Étagère haute"
 
 #: src/contents/ui/EqualizerBandMenu.qml:51 src/contents/ui/Filter.qml:69
+msgctxt "Filter type"
 msgid "Low-shelf"
-msgstr "Low-shelf"
+msgstr "Étagère basse"
 
 #: src/contents/ui/EqualizerBandMenu.qml:51 src/contents/ui/Filter.qml:69
+msgctxt "Filter type"
 msgid "Notch"
-msgstr "Réjection de Bande"
+msgstr "Piège"
 
 #: src/contents/ui/EqualizerBandMenu.qml:51 src/contents/ui/Filter.qml:69
+msgctxt "Filter type"
 msgid "Resonance"
 msgstr "Résonance"
 
 #: src/contents/ui/EqualizerBandMenu.qml:51 src/contents/ui/Filter.qml:69
+msgctxt "Filter type"
 msgid "Allpass"
-msgstr "Allpass"
+msgstr "Passe-tout"
 
 #: src/contents/ui/EqualizerBandMenu.qml:51 src/contents/ui/Filter.qml:69
+msgctxt "Filter type"
 msgid "Bandpass"
-msgstr "Bandpass"
+msgstr "Passe-bande"
 
 #: src/contents/ui/EqualizerBandMenu.qml:51 src/contents/ui/Filter.qml:69
+msgctxt "Filter type"
 msgid "Ladder-pass"
-msgstr "Ladder-pass"
+msgstr "Ladder"
 
 #: src/contents/ui/EqualizerBandMenu.qml:51 src/contents/ui/Filter.qml:69
+msgctxt "Filter type"
 msgid "Ladder-rejection"
-msgstr "Ladder-rejection"
+msgstr "Ladder-piège"
 
 #: src/contents/ui/EqualizerBandMenu.qml:65 src/contents/ui/Filter.qml:83
+msgctxt "Filter mode"
 msgid "RLC (BT)"
 msgstr "RLC (BT)"
 
 #: src/contents/ui/EqualizerBandMenu.qml:65 src/contents/ui/Filter.qml:83
+msgctxt "Filter mode"
 msgid "RLC (MT)"
 msgstr "RLC (MT)"
 
 #: src/contents/ui/EqualizerBandMenu.qml:65 src/contents/ui/Filter.qml:83
+msgctxt "Filter mode"
 msgid "BWC (BT)"
 msgstr "BWC (BT)"
 
 #: src/contents/ui/EqualizerBandMenu.qml:65 src/contents/ui/Filter.qml:83
+msgctxt "Filter mode"
 msgid "BWC (MT)"
 msgstr "BWC (MT)"
 
 #: src/contents/ui/EqualizerBandMenu.qml:65 src/contents/ui/Filter.qml:83
+msgctxt "Filter mode"
 msgid "LRX (BT)"
 msgstr "LRX (BT)"
 
 #: src/contents/ui/EqualizerBandMenu.qml:65 src/contents/ui/Filter.qml:83
+msgctxt "Filter mode"
 msgid "LRX (MT)"
 msgstr "LRX (MT)"
 
 #: src/contents/ui/EqualizerBandMenu.qml:65 src/contents/ui/Filter.qml:83
+msgctxt "Filter mode"
 msgid "APO (DR)"
 msgstr "APO (DR)"
 
 #: src/contents/ui/EqualizerBandMenu.qml:75 src/contents/ui/Filter.qml:121
 #: src/contents/ui/PreferencesSheet.qml:722
+msgctxt "Filter parameter"
 msgid "Slope"
 msgstr "Pente"
 
@@ -1487,6 +1647,7 @@ msgstr "oct"
 #: src/contents/ui/EqualizerBandMenu.qml:199
 #: src/contents/ui/MultibandCompressor.qml:99
 #: src/contents/ui/MultibandGate.qml:99
+msgctxt "Audio isolation"
 msgid "Solo"
 msgstr "Solo"
 
@@ -1560,21 +1721,24 @@ msgstr ""
 
 #: src/contents/ui/Equalizer.qml:148 src/contents/ui/Filter.qml:97
 #: src/contents/ui/Loudness.qml:77 src/contents/ui/MidSideEqualizer.qml:142
+msgctxt "Filter mode"
 msgid "IIR"
 msgstr "IIR"
 
 #: src/contents/ui/Equalizer.qml:148 src/contents/ui/Filter.qml:97
 #: src/contents/ui/MidSideEqualizer.qml:142
+msgctxt "Filter mode"
 msgid "FIR"
 msgstr "FIR"
 
 #: src/contents/ui/Equalizer.qml:148 src/contents/ui/Filter.qml:97
 #: src/contents/ui/Loudness.qml:77 src/contents/ui/MidSideEqualizer.qml:142
+msgctxt "Filter mode"
 msgid "FFT"
 msgstr "FFT"
 
 #: src/contents/ui/Equalizer.qml:148 src/contents/ui/Filter.qml:97
-#: src/contents/ui/MidSideEqualizer.qml:142
+msgctxt "Filter mode"
 msgid "SPM"
 msgstr "SPM"
 
@@ -1622,12 +1786,6 @@ msgstr "Balance"
 msgid "Pitch left"
 msgstr "Hauteur gauche"
 
-#: src/contents/ui/Equalizer.qml:212 src/contents/ui/Equalizer.qml:229
-#: src/contents/ui/MidSideEqualizer.qml:206
-#: src/contents/ui/MidSideEqualizer.qml:223
-msgid "st"
-msgstr "st"
-
 #: src/contents/ui/Equalizer.qml:221
 msgid "Pitch right"
 msgstr "Hauteur droite"
@@ -1669,8 +1827,9 @@ msgid "Ceil active"
 msgstr "Plafond actif"
 
 #: src/contents/ui/Exciter.qml:172
+msgctxt "Exciter control"
 msgid "Ceil"
-msgstr "Plafonner"
+msgstr "Plafond"
 
 #: src/contents/ui/Expander.qml:67 src/tags_plugin_name.cpp:65
 msgid "Expander"
@@ -1679,8 +1838,23 @@ msgstr "Expandeur"
 #: src/contents/ui/Expander.qml:226 src/contents/ui/Gate.qml:244
 #: src/contents/ui/Limiter.qml:217 src/contents/ui/MultibandCompressor.qml:427
 #: src/contents/ui/MultibandGate.qml:400
+msgctxt "Sidchain type"
 msgid "Internal"
 msgstr "Interne"
+
+#: src/contents/ui/Expander.qml:226 src/contents/ui/Gate.qml:244
+#: src/contents/ui/Limiter.qml:217 src/contents/ui/MultibandCompressor.qml:427
+#: src/contents/ui/MultibandGate.qml:400
+msgctxt "Sidchain type"
+msgid "External"
+msgstr "Externe"
+
+#: src/contents/ui/Expander.qml:226 src/contents/ui/Gate.qml:244
+#: src/contents/ui/Limiter.qml:217 src/contents/ui/MultibandCompressor.qml:427
+#: src/contents/ui/MultibandGate.qml:400
+msgctxt "Sidchain type"
+msgid "Link"
+msgstr "Liaison"
 
 #: src/contents/ui/Filter.qml:79
 msgid "Filter mode"
@@ -1690,7 +1864,7 @@ msgstr "Mode filtre"
 msgid "Equalizer mode"
 msgstr "Mode égaliseur"
 
-#: src/contents/ui/Gate.qml:71 src/tags_plugin_name.cpp:67
+#: src/contents/ui/Gate.qml:71
 msgid "Gate"
 msgstr "Porte"
 
@@ -1714,278 +1888,197 @@ msgstr "Début"
 msgid "Harmony"
 msgstr "Harmonie"
 
-#: src/contents/ui/Harmonizer.qml:45
-#, fuzzy
-msgctxt "Musical note"
-msgid "C"
-msgstr "C"
-
 #: src/contents/ui/Harmonizer.qml:48
-#, fuzzy
 msgctxt "Musical note"
 msgid "C♯ / D♭"
-msgstr "C♯ / D♭"
-
-#: src/contents/ui/Harmonizer.qml:51
-#, fuzzy
-msgctxt "Musical note"
-msgid "D"
-msgstr "D"
+msgstr "Do♯ / Ré♭"
 
 #: src/contents/ui/Harmonizer.qml:54
-#, fuzzy
 msgctxt "Musical note"
 msgid "D♯ / E♭"
-msgstr "D♯ / E♭"
-
-#: src/contents/ui/Harmonizer.qml:57
-#, fuzzy
-msgctxt "Musical note"
-msgid "E"
-msgstr "E"
-
-#: src/contents/ui/Harmonizer.qml:60
-#, fuzzy
-msgctxt "Musical note"
-msgid "F"
-msgstr "F"
+msgstr "Ré♯ / Mi♭"
 
 #: src/contents/ui/Harmonizer.qml:63
-#, fuzzy
 msgctxt "Musical note"
 msgid "F♯ / G♭"
-msgstr "F♯ / G♭"
-
-#: src/contents/ui/Harmonizer.qml:66
-#, fuzzy
-msgctxt "Musical note"
-msgid "G"
-msgstr "G"
+msgstr "Fa♯ / Sol♭"
 
 #: src/contents/ui/Harmonizer.qml:69
-#, fuzzy
 msgctxt "Musical note"
 msgid "G♯ / A♭"
-msgstr "G♯ / A♭"
-
-#: src/contents/ui/Harmonizer.qml:72
-#, fuzzy
-msgctxt "Musical note"
-msgid "A"
-msgstr "A"
+msgstr "Sol♯ / La♭"
 
 #: src/contents/ui/Harmonizer.qml:75
-#, fuzzy
 msgctxt "Musical note"
 msgid "A♯ / B♭"
-msgstr "A♯ / B♭"
-
-#: src/contents/ui/Harmonizer.qml:78
-#, fuzzy
-msgctxt "Musical note"
-msgid "B"
-msgstr "B"
+msgstr "La♯ / Si♭"
 
 #: src/contents/ui/Harmonizer.qml:90
-#, fuzzy
 msgctxt "Musical chord"
 msgid "No chord"
-msgstr "Aucun accord"
+msgstr "Sans accord"
 
 #: src/contents/ui/Harmonizer.qml:93
-#, fuzzy
 msgctxt "Musical chord"
 msgid "6"
 msgstr "6"
 
 #: src/contents/ui/Harmonizer.qml:96
-#, fuzzy
 msgctxt "Musical chord"
 msgid "Major 7"
 msgstr "Majeur 7"
 
 #: src/contents/ui/Harmonizer.qml:99
-#, fuzzy
 msgctxt "Musical chord"
 msgid "Lydian"
 msgstr "Lydien"
 
 #: src/contents/ui/Harmonizer.qml:102
-#, fuzzy
 msgctxt "Musical chord"
 msgid "Major 9"
 msgstr "Majeur 9"
 
 #: src/contents/ui/Harmonizer.qml:105
-#, fuzzy
 msgctxt "Musical chord"
 msgid "Major 7/9"
 msgstr "Majeur 7/9"
 
 #: src/contents/ui/Harmonizer.qml:108
-#, fuzzy
 msgctxt "Musical chord"
 msgid "6/9"
 msgstr "6/9"
 
 #: src/contents/ui/Harmonizer.qml:111
-#, fuzzy
 msgctxt "Musical chord"
 msgid "Augmented"
 msgstr "Augmenté"
 
 #: src/contents/ui/Harmonizer.qml:114
-#, fuzzy
 msgctxt "Musical chord"
 msgid "Minor"
 msgstr "Mineur"
 
 #: src/contents/ui/Harmonizer.qml:117
-#, fuzzy
 msgctxt "Musical chord"
 msgid "Minor 6"
 msgstr "Mineur 6"
 
 #: src/contents/ui/Harmonizer.qml:120
-#, fuzzy
 msgctxt "Musical chord"
 msgid "Minor 7"
 msgstr "Mineur 7"
 
 #: src/contents/ui/Harmonizer.qml:123
-#, fuzzy
 msgctxt "Musical chord"
 msgid "Minor 7 flat 5"
 msgstr "Mineur 7 bémol 5"
 
 #: src/contents/ui/Harmonizer.qml:126
-#, fuzzy
 msgctxt "Musical chord"
 msgid "Minor 9"
 msgstr "Mineur 9"
 
 #: src/contents/ui/Harmonizer.qml:129
-#, fuzzy
 msgctxt "Musical chord"
 msgid "Minor 7/9"
 msgstr "Mineur 7/9"
 
 #: src/contents/ui/Harmonizer.qml:132
-#, fuzzy
 msgctxt "Musical chord"
 msgid "Minor 7/11"
 msgstr "Mineur 7/11"
 
 #: src/contents/ui/Harmonizer.qml:135
-#, fuzzy
 msgctxt "Musical chord"
 msgid "Minor major 7"
 msgstr "Mineur majeur 7"
 
 #: src/contents/ui/Harmonizer.qml:138
-#, fuzzy
 msgctxt "Musical chord"
 msgid "Minor major 7/9"
 msgstr "Mineur majeur 7/9"
 
 #: src/contents/ui/Harmonizer.qml:141
-#, fuzzy
 msgctxt "Musical chord"
 msgid "Diminished"
 msgstr "Diminué"
 
 #: src/contents/ui/Harmonizer.qml:144
-#, fuzzy
 msgctxt "Musical chord"
 msgid "Diminished 7"
 msgstr "Diminué 7"
 
 #: src/contents/ui/Harmonizer.qml:147
-#, fuzzy
 msgctxt "Musical chord"
 msgid "Dominant 7"
-msgstr "Dominante 7"
+msgstr "7ème de dominante"
 
 #: src/contents/ui/Harmonizer.qml:150
-#, fuzzy
 msgctxt "Musical chord"
 msgid "Dominant 7 sus4"
-msgstr "Dominante 7 sus4"
+msgstr "7ème de dominante sus4"
 
 #: src/contents/ui/Harmonizer.qml:153
-#, fuzzy
 msgctxt "Musical chord"
 msgid "Dominant 7 flat 5"
-msgstr "Dominante 7 bémol 5"
+msgstr "7ème de dominante bémol 5"
 
 #: src/contents/ui/Harmonizer.qml:156
-#, fuzzy
 msgctxt "Musical chord"
 msgid "Dominant 9"
-msgstr "Dominante 9"
+msgstr "9ème de dominante"
 
 #: src/contents/ui/Harmonizer.qml:159
-#, fuzzy
 msgctxt "Musical chord"
 msgid "Dominant 7 sharp 11"
-msgstr "Dominante 7 dièse 11"
+msgstr "7ème de dominante dièse 11"
 
 #: src/contents/ui/Harmonizer.qml:162
-#, fuzzy
 msgctxt "Musical chord"
 msgid "Dominant 13"
-msgstr "Dominante 13"
+msgstr "13ème de dominante"
 
 #: src/contents/ui/Harmonizer.qml:165
-#, fuzzy
 msgctxt "Musical chord"
 msgid "Dominant 7 flat 9"
-msgstr "Dominante 7 bémol 9"
+msgstr "7ème de dominante bémol 9"
 
 #: src/contents/ui/Harmonizer.qml:168
-#, fuzzy
 msgctxt "Musical chord"
 msgid "Dominant 7 flat 13"
-msgstr "Dominante 7 bémol 13"
+msgstr "7ème de dominante bémol 13"
 
 #: src/contents/ui/Harmonizer.qml:171
-#, fuzzy
 msgctxt "Musical chord"
 msgid "Dominant 7 sharp 9"
-msgstr "Dominante 7 dièse 9"
+msgstr "7ème de dominante dièse 9"
 
 #: src/contents/ui/Harmonizer.qml:174
-#, fuzzy
 msgctxt "Musical chord"
 msgid "Augmented major 7"
-msgstr "Majeur 7 augmenté"
+msgstr "Augmenté majeur 7"
 
 #: src/contents/ui/Harmonizer.qml:177
-#, fuzzy
 msgctxt "Musical chord"
 msgid "Augmented 7"
-msgstr "7 augmenté"
+msgstr "Augmenté 7"
 
-#: src/contents/ui/Harmonizer.qml:180
-#, fuzzy
+#: src/contents/ui/Harmonizer.qml:180 src/contents/ui/Pitch.qml:175
 msgctxt "Musical interval"
 msgid "Octaves"
 msgstr "Octaves"
 
 #: src/contents/ui/Harmonizer.qml:183
-#, fuzzy
 msgctxt "Musical interval"
 msgid "Fifths"
 msgstr "Quintes"
 
 #: src/contents/ui/Harmonizer.qml:186
-#, fuzzy
 msgctxt "Musical interval"
 msgid "Suspended 4"
-msgstr "4 suspendu"
+msgstr "Suspendu 4"
 
 #: src/contents/ui/Harmonizer.qml:189
-#, fuzzy
 msgctxt "Musical interval"
 msgid "Seconds"
 msgstr "Secondes"
@@ -2011,6 +2104,7 @@ msgid "Right voice level"
 msgstr "Niveau de la voix droite"
 
 #: src/contents/ui/Harmonizer.qml:245
+msgctxt "Signal type"
 msgid "Dry/wet"
 msgstr "Sec/humide"
 
@@ -2055,8 +2149,9 @@ msgstr ""
 "signaux de test habituels avant de commencer."
 
 #: src/contents/ui/HearingTestDialog.qml:141
+msgctxt "Left/right ear: frequency Hz (number of total)"
 msgid "%1 ear: %2 Hz (%3 of %4)"
-msgstr "Oreille %1 : %2 Hz (%3 de %4)"
+msgstr "Oreille %1 : %2 Hz (%3 sur %4)"
 
 #: src/contents/ui/HearingTestDialog.qml:147
 msgid "Tone level"
@@ -2108,56 +2203,66 @@ msgid "Sample Peak"
 msgstr "Pic de l'Échantillon"
 
 #: src/contents/ui/Limiter.qml:76
+msgctxt "Limiter mode"
 msgid "Herm thin"
-msgstr "Herm thin"
+msgstr "Herm étroit"
 
 #: src/contents/ui/Limiter.qml:76
+msgctxt "Limiter mode"
 msgid "Herm wide"
-msgstr "Herm wide"
+msgstr "Herm large"
 
 #: src/contents/ui/Limiter.qml:76
+msgctxt "Limiter mode"
 msgid "Herm tail"
-msgstr "Herm tail"
+msgstr "Herm queue"
 
 #: src/contents/ui/Limiter.qml:76
+msgctxt "Limiter mode"
 msgid "Herm duck"
-msgstr "Herm duck"
+msgstr "Herm creux"
 
 #: src/contents/ui/Limiter.qml:76
+msgctxt "Limiter mode"
 msgid "Exp thin"
-msgstr "Exp thin"
+msgstr "Exp étroit"
 
 #: src/contents/ui/Limiter.qml:76
+msgctxt "Limiter mode"
 msgid "Exp wide"
-msgstr "Exp wide"
+msgstr "Exp large"
 
 #: src/contents/ui/Limiter.qml:76
+msgctxt "Limiter mode"
 msgid "Exp tail"
-msgstr "Exp tail"
+msgstr "Exp queue"
 
 #: src/contents/ui/Limiter.qml:76
+msgctxt "Limiter mode"
 msgid "Exp duck"
-msgstr "Exp duck"
+msgstr "Exp creux"
 
 #: src/contents/ui/Limiter.qml:76
+msgctxt "Limiter mode"
 msgid "Line thin"
-msgstr "Line thin"
+msgstr "Line étroit"
 
 #: src/contents/ui/Limiter.qml:76
+msgctxt "Limiter mode"
 msgid "Line wide"
-msgstr "Line wide"
+msgstr "Line large"
 
 #: src/contents/ui/Limiter.qml:76
+msgctxt "Limiter mode"
 msgid "Line tail"
-msgstr "Line tail"
+msgstr "Line queue"
 
 #: src/contents/ui/Limiter.qml:76
+msgctxt "Limiter mode"
 msgid "Line duck"
-msgstr "Line duck"
+msgstr "Line creux"
 
 #: src/contents/ui/Limiter.qml:90 src/contents/ui/Limiter.qml:104
-#: src/contents/ui/MultibandCompressor.qml:591
-#: src/contents/ui/MultibandGate.qml:564
 msgid "None"
 msgstr "Aucun"
 
@@ -2278,22 +2383,27 @@ msgid "Contour"
 msgstr "Contour"
 
 #: src/contents/ui/Loudness.qml:91
+msgctxt "Loudness contour"
 msgid "Flat"
 msgstr "Plat"
 
 #: src/contents/ui/Loudness.qml:91
+msgctxt "Loudness contour"
 msgid "ISO226-2003"
 msgstr "ISO226-2003"
 
 #: src/contents/ui/Loudness.qml:91
+msgctxt "Loudness contour"
 msgid "Fletcher-Munson"
 msgstr "Fletcher-Munson"
 
 #: src/contents/ui/Loudness.qml:91
+msgctxt "Loudness contour"
 msgid "Robinson-Dadson"
 msgstr "Robinson-Dadson"
 
 #: src/contents/ui/Loudness.qml:91
+msgctxt "Loudness contour"
 msgid "ISO226-2023"
 msgstr "ISO226-2023"
 
@@ -2307,14 +2417,27 @@ msgid "IIR approximation"
 msgstr "Approximation IIR"
 
 #: src/contents/ui/Loudness.qml:119
+msgctxt "Loudness IIR approximation"
 msgid "Fastest"
-msgstr "Plus Rapide"
+msgstr "La Plus Rapide"
 
 #: src/contents/ui/Loudness.qml:119
+msgctxt "Loudness IIR approximation"
+msgid "Low"
+msgstr "Basse"
+
+#: src/contents/ui/Loudness.qml:119
+msgctxt "Loudness IIR approximation"
 msgid "Normal"
 msgstr "Normale"
 
 #: src/contents/ui/Loudness.qml:119
+msgctxt "Loudness IIR approximation"
+msgid "High"
+msgstr "Élevée"
+
+#: src/contents/ui/Loudness.qml:119
+msgctxt "Loudness IIR approximation"
 msgid "Best"
 msgstr "Meilleure"
 
@@ -2324,11 +2447,11 @@ msgstr "Volume"
 
 #: src/contents/ui/Loudness.qml:146
 msgid "Clipping range"
-msgstr "Plage de coupure"
+msgstr "Plage d'écrêtage"
 
 #: src/contents/ui/Loudness.qml:206
 msgid "Clipping"
-msgstr "Coupure"
+msgstr "Écrêtage"
 
 #: src/contents/ui/Main.qml:307
 msgid "Reset Settings?"
@@ -2361,10 +2484,12 @@ msgid "Audio effects are disabled."
 msgstr "Les effets audio sont désactivés."
 
 #: src/contents/ui/Main.qml:405 src/contents/ui/PageStreamsEffects.qml:491
+msgctxt "Applications reproducing audio"
 msgid "Players"
 msgstr "Lecteurs"
 
 #: src/contents/ui/Main.qml:421 src/contents/ui/PageStreamsEffects.qml:500
+msgctxt "Devices recording audio"
 msgid "Recorders"
 msgstr "Enregistreurs"
 
@@ -2376,6 +2501,11 @@ msgstr "Préférences"
 #: src/contents/ui/TrayIcon.qml:212
 msgid "Shortcuts"
 msgstr "Raccourcis"
+
+#: src/contents/ui/Main.qml:469 src/contents/ui/TrayIcon.qml:221
+msgctxt "Usage guide"
+msgid "Manual"
+msgstr "Manuel"
 
 #: src/contents/ui/Main.qml:493
 msgid "About Easy Effects"
@@ -2446,6 +2576,10 @@ msgstr ""
 "Exportation des paramètres actuels de l'Égaliseur Mid-Side du canal latéral "
 "vers un fichier de préréglage APO externe."
 
+#: src/contents/ui/MidSideEqualizer.qml:142
+msgid "SPM"
+msgstr "SPM"
+
 #: src/contents/ui/MidSideEqualizer.qml:198
 msgid "Pitch mid"
 msgstr "Hauteur centrale (mid)"
@@ -2455,8 +2589,14 @@ msgid "Pitch side"
 msgstr "Hauteur latérale (side)"
 
 #: src/contents/ui/MidSideEqualizer.qml:244
+msgctxt "Stereo component"
 msgid "Mid"
-msgstr "Central (mid)"
+msgstr "Central"
+
+#: src/contents/ui/MidSideEqualizer.qml:244
+msgctxt "Stereo component"
+msgid "Side"
+msgstr "Latéral"
 
 #: src/contents/ui/MidSideEqualizer.qml:346
 msgid "Split mid/side"
@@ -2473,11 +2613,13 @@ msgstr "Fin"
 
 #: src/contents/ui/MultibandCompressor.qml:517
 #: src/contents/ui/MultibandGate.qml:490
+msgctxt "Filter type"
 msgid "Low-cut"
 msgstr "Coupe-bas"
 
 #: src/contents/ui/MultibandCompressor.qml:542
 #: src/contents/ui/MultibandGate.qml:515
+msgctxt "Filter type"
 msgid "High-cut"
 msgstr "Coupe-haut"
 
@@ -2488,16 +2630,19 @@ msgstr "Mode opératoire"
 
 #: src/contents/ui/MultibandCompressor.qml:578
 #: src/contents/ui/MultibandGate.qml:551
+msgctxt "Compressor mode"
 msgid "Classic"
 msgstr "Classique"
 
 #: src/contents/ui/MultibandCompressor.qml:578
 #: src/contents/ui/MultibandGate.qml:551
+msgctxt "Compressor mode"
 msgid "Modern"
 msgstr "Moderne"
 
 #: src/contents/ui/MultibandCompressor.qml:578
 #: src/contents/ui/MultibandGate.qml:551
+msgctxt "Compressor mode"
 msgid "Linear phase"
 msgstr "Phase linéaire"
 
@@ -2508,23 +2653,33 @@ msgstr "Amplification de la chaîne latérale"
 
 #: src/contents/ui/MultibandCompressor.qml:591
 #: src/contents/ui/MultibandGate.qml:564
+msgctxt "Sidechain boost"
+msgid "None"
+msgstr "Aucune"
+
+#: src/contents/ui/MultibandCompressor.qml:591
+#: src/contents/ui/MultibandGate.qml:564
+msgctxt "Sidechain boost"
 msgid "Pink BT"
 msgstr "Rose BT"
 
 #: src/contents/ui/MultibandCompressor.qml:591
 #: src/contents/ui/MultibandGate.qml:564
+msgctxt "Sidechain boost"
 msgid "Pink MT"
 msgstr "Rose MT"
 
 #: src/contents/ui/MultibandCompressor.qml:591
 #: src/contents/ui/MultibandGate.qml:564
+msgctxt "Sidechain boost"
 msgid "Brown BT"
-msgstr "Marron BT"
+msgstr "Brun BT"
 
 #: src/contents/ui/MultibandCompressor.qml:591
 #: src/contents/ui/MultibandGate.qml:564
+msgctxt "Sidechain boost"
 msgid "Brown MT"
-msgstr "Marron MT"
+msgstr "Brun MT"
 
 #: src/contents/ui/MultibandCompressor.qml:601
 #: src/contents/ui/MultibandGate.qml:574
@@ -2688,6 +2843,7 @@ msgid "Enabled"
 msgstr "Activé"
 
 #: src/contents/ui/PipeWirePage.qml:368
+msgctxt "Channel selection"
 msgid "Both"
 msgstr "Les deux"
 
@@ -2707,6 +2863,11 @@ msgstr "Bruit blanc"
 msgid "Pink noise"
 msgstr "Bruit rose"
 
+#: src/contents/ui/PipeWirePage.qml:420
+msgctxt "Waveform"
+msgid "Silence"
+msgstr "Silence"
+
 #: src/contents/ui/Pitch.qml:70
 msgid "Sequence length"
 msgstr "Longueur de séquence"
@@ -2719,19 +2880,17 @@ msgstr "Fenêtre de recherche"
 msgid "Overlap length"
 msgstr "Longueur de recouvrement"
 
-#: src/contents/ui/Pitch.qml:164 src/tags_plugin_name.cpp:74
+#: src/contents/ui/Pitch.qml:164
 msgid "Pitch"
 msgstr "Hauteur"
 
-#: src/contents/ui/Pitch.qml:175
-msgid "Octaves"
-msgstr "Octaves"
-
 #: src/contents/ui/Pitch.qml:191
+msgctxt "Musical interval"
 msgid "Cents"
 msgstr "Cents"
 
 #: src/contents/ui/Pitch.qml:207
+msgctxt "Musical interval"
 msgid "Semitones"
 msgstr "Demi-tons"
 
@@ -3006,26 +3165,31 @@ msgid "Graph"
 msgstr "Graphique"
 
 #: src/contents/ui/PreferencesSheet.qml:558
+msgctxt "Spectrum shape"
 msgid "Bars"
 msgstr "Barres"
 
 #: src/contents/ui/PreferencesSheet.qml:558
+msgctxt "Spectrum shape"
 msgid "Lines"
 msgstr "Lignes"
 
 #: src/contents/ui/PreferencesSheet.qml:558
+msgctxt "Spectrum shape"
 msgid "Dots"
-msgstr "Points"
+msgstr "Pastilles"
 
 #: src/contents/ui/PreferencesSheet.qml:558
+msgctxt "Spectrum shape"
 msgid "Area"
-msgstr "Zone"
+msgstr "Surface"
 
 #: src/contents/ui/PreferencesSheet.qml:568
 msgid "Logarithmic frequency axis"
 msgstr "Axe de la fréquence logarithmique"
 
 #: src/contents/ui/PreferencesSheet.qml:580
+msgctxt "Spectrum control"
 msgid "Points"
 msgstr "Points"
 
@@ -3064,7 +3228,6 @@ msgid "Level Range"
 msgstr "Plage de Niveau"
 
 #: src/contents/ui/PreferencesSheet.qml:668
-#: src/contents/ui/PreferencesSheet.qml:924
 msgid "Automatic"
 msgstr "Automatique"
 
@@ -3104,28 +3267,39 @@ msgid "Window function"
 msgstr "Fonction fenêtrage"
 
 #: src/contents/ui/PreferencesSheet.qml:772
+msgctxt "Spectrum function"
 msgid "Rectangular"
 msgstr "Rectangulaire"
 
 #: src/contents/ui/PreferencesSheet.qml:772
+msgctxt "Spectrum function"
 msgid "Hann"
 msgstr "Hann"
 
 #: src/contents/ui/PreferencesSheet.qml:772
+msgctxt "Spectrum function"
 msgid "Hamming"
 msgstr "Hamming"
 
 #: src/contents/ui/PreferencesSheet.qml:772
+msgctxt "Spectrum function"
 msgid "Blackman"
 msgstr "Blackman"
 
 #: src/contents/ui/PreferencesSheet.qml:772
+msgctxt "Spectrum function"
 msgid "Blackman-Harris"
 msgstr "Blackman-Harris"
 
 #: src/contents/ui/PreferencesSheet.qml:772
+msgctxt "Spectrum function"
 msgid "Flat top"
 msgstr "Sommet plat"
+
+#: src/contents/ui/PreferencesSheet.qml:780
+msgctxt "Spectrum control"
+msgid "Attack"
+msgstr "Attaque"
 
 #: src/contents/ui/PreferencesSheet.qml:816
 msgid "Database autosave interval"
@@ -3187,10 +3361,17 @@ msgid "Graphs"
 msgstr "Graphiques"
 
 #: src/contents/ui/PreferencesSheet.qml:924
+msgctxt "Color scheme"
+msgid "Automatic"
+msgstr "Automatique"
+
+#: src/contents/ui/PreferencesSheet.qml:924
+msgctxt "Color scheme"
 msgid "Light"
 msgstr "Clair"
 
 #: src/contents/ui/PreferencesSheet.qml:924
+msgctxt "Color scheme"
 msgid "Dark"
 msgstr "Sombre"
 
@@ -3227,6 +3408,7 @@ msgid "Grey"
 msgstr "Gris"
 
 #: src/contents/ui/PreferencesSheet.qml:939
+msgctxt "Color theme"
 msgid "User"
 msgstr "Utilisateur"
 
@@ -3348,6 +3530,7 @@ msgid "Description"
 msgstr "Description"
 
 #: src/contents/ui/PresetsCommunityPage.qml:78
+msgctxt "Update data"
 msgid "Refresh"
 msgstr "Actualiser"
 
@@ -3373,14 +3556,17 @@ msgstr ""
 "préréglages locaux."
 
 #: src/contents/ui/PresetsDialog.qml:99 src/contents/ui/PresetsDialog.qml:156
+msgctxt "Preset type"
 msgid "Local"
 msgstr "Local"
 
 #: src/contents/ui/PresetsDialog.qml:107 src/contents/ui/PresetsDialog.qml:156
+msgctxt "Preset type"
 msgid "Community"
 msgstr "Communauté"
 
 #: src/contents/ui/PresetsDialog.qml:115
+msgctxt "Preset type"
 msgid "Autoload"
 msgstr "Chargement automatique"
 
@@ -3513,28 +3699,34 @@ msgid "Room size"
 msgstr "Taille de la salle"
 
 #: src/contents/ui/Reverb.qml:70
+msgctxt "Reverb room size"
 msgid "Small"
 msgstr "Petite"
 
 #: src/contents/ui/Reverb.qml:70
+msgctxt "Reverb room size"
 msgid "Medium"
 msgstr "Moyenne"
 
 #: src/contents/ui/Reverb.qml:70
+msgctxt "Reverb room size"
 msgid "Large"
 msgstr "Grande"
 
 #: src/contents/ui/Reverb.qml:70
+msgctxt "Reverb room size"
 msgid "Tunnel-like"
-msgstr "Comme un Tunnel"
+msgstr "Tunnel"
 
 #: src/contents/ui/Reverb.qml:70
+msgctxt "Reverb room size"
 msgid "Large/smooth"
 msgstr "Grande/lisse"
 
 #: src/contents/ui/Reverb.qml:70
+msgctxt "Reverb room size"
 msgid "Experimental"
-msgstr "Expérimental"
+msgstr "Expérimentale"
 
 #: src/contents/ui/Reverb.qml:79
 msgid "Decay time"
@@ -3565,29 +3757,35 @@ msgid "Reverberation Presets"
 msgstr "Préréglages de Réverbération"
 
 #: src/contents/ui/Reverb.qml:232
+msgctxt "Reverb preset"
 msgid "Ambience"
 msgstr "Ambiance"
 
 #: src/contents/ui/Reverb.qml:247
+msgctxt "Reverb preset"
 msgid "Empty walls"
-msgstr "Murs vides"
+msgstr "Murs nus"
 
 # Taking lingual shortcuts to squeeze it in the text box
 #: src/contents/ui/Reverb.qml:262
+msgctxt "Reverb preset"
 msgid "Room"
 msgstr "Salle"
 
 #: src/contents/ui/Reverb.qml:277
+msgctxt "Reverb preset"
 msgid "Large empty hall"
-msgstr "Grande salle vide"
+msgstr "Grand hall vide"
 
 #: src/contents/ui/Reverb.qml:287
+msgctxt "Reverb preset"
 msgid "Disco"
 msgstr "Disco"
 
 #: src/contents/ui/Reverb.qml:297
+msgctxt "Reverb preset"
 msgid "Large occupied hall"
-msgstr "Grande salle occupée"
+msgstr "Grand hall occupé"
 
 #: src/contents/ui/RNNoise.qml:60
 msgid "Imported a new RNNoise model file."
@@ -3601,6 +3799,12 @@ msgstr "Échec de l'importation du fichier de modèle RNNoise."
 #: src/contents/ui/RNNoise.qml:298 src/contents/ui/RNNoise.qml:300
 msgid "Standard RNNoise model"
 msgstr "Modèle RNNoise standard"
+
+#: src/contents/ui/RNNoise.qml:73 src/contents/ui/RNNoise.qml:84
+#: src/contents/ui/RNNoise.qml:298 src/contents/ui/RNNoise.qml:300
+msgctxt "RNNoise model in use"
+msgid "Using %1"
+msgstr "Utilise %1"
 
 #: src/contents/ui/RNNoise.qml:75
 msgid "Standard RNNoise model loaded."
@@ -3625,6 +3829,11 @@ msgstr "Détection de la voix"
 #: src/contents/ui/RNNoise.qml:142
 msgid "Wet level"
 msgstr "Niveau des signaux humides"
+
+#: src/contents/ui/RNNoise.qml:158
+msgctxt "Noise reduction control"
+msgid "Release"
+msgstr "Relâche"
 
 #: src/contents/ui/RNNoise.qml:182
 msgid "Use the Standard model"
@@ -3841,29 +4050,29 @@ msgstr "Fréquence instantanée maximale"
 msgid "Inverted mode"
 msgstr "Mode inversé"
 
-#: src/main.cpp:427
+#: src/main.cpp:418
 msgid "Global audio effects"
 msgstr "Effets audio globaux"
 
-#: src/main.cpp:428
+#: src/main.cpp:419
 msgid "© 2017-2026 Easy Effects Team"
 msgstr "© 2017-2026 Équipe d'Easy Effects"
 
-#: src/main.cpp:430
+#: src/main.cpp:421
 msgid "Wellington Wallace"
 msgstr "Wellington Wallace"
 
-#: src/main.cpp:430
+#: src/main.cpp:421
 msgctxt "@info:credit"
 msgid "Developer"
 msgstr "Développeur"
 
-#: src/main.cpp:433
+#: src/main.cpp:424
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
 msgstr "Vos noms"
 
-#: src/main.cpp:433
+#: src/main.cpp:424
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "Vos courriels"
@@ -3911,31 +4120,43 @@ msgstr "Un ou plusieurs paramètres ont un format incorrect"
 msgid "Generic error while loading the effect"
 msgstr "Erreur générique lors du chargement de l'effet"
 
-#: src/pw_model_nodes.cpp:508
+#: src/pw_model_nodes.cpp:510
+msgctxt "Status of PipeWire stream"
 msgid "Running"
 msgstr "En cours"
 
-#: src/pw_model_nodes.cpp:510
-msgid "Suspended"
-msgstr "En pause"
-
 #: src/pw_model_nodes.cpp:512
+msgctxt "Status of PipeWire stream"
+msgid "Suspended"
+msgstr "Suspendu"
+
+#: src/pw_model_nodes.cpp:514
+msgctxt "Status of PipeWire stream"
 msgid "Idle"
 msgstr "Inactif"
 
-#: src/pw_model_nodes.cpp:514
-msgid "Creating"
-msgstr "Génération"
-
 #: src/pw_model_nodes.cpp:516
+msgctxt "Status of PipeWire stream"
+msgid "Creating"
+msgstr "En cours de création"
+
+#: src/pw_model_nodes.cpp:518
+msgctxt "Status of PipeWire stream"
 msgid "Error"
 msgstr "Erreur"
 
-#: src/pw_model_nodes.cpp:518
+#: src/pw_model_nodes.cpp:520
+msgctxt "Status of PipeWire stream"
 msgid "Unknown"
 msgstr "Inconnu"
 
+#: src/tags_plugin_name.cpp:47
+msgctxt "Effect title"
+msgid "Autogain"
+msgstr "Gain Automatique"
+
 #: src/tags_plugin_name.cpp:48
+msgctxt "Effect title"
 msgid "Autotune"
 msgstr "Autotune"
 
@@ -3975,6 +4196,11 @@ msgstr "Cristalliseur"
 msgid "Deep Noise Remover"
 msgstr "Enlèvement du Bruit Profond"
 
+#: src/tags_plugin_name.cpp:60
+msgctxt "Effect title"
+msgid "Delay"
+msgstr "Retard"
+
 #: src/tags_plugin_name.cpp:62
 msgid "Equalizer"
 msgstr "Égaliseur"
@@ -3987,9 +4213,24 @@ msgstr "Égaliseur Mid-Side"
 msgid "Exciter"
 msgstr "Excitateur"
 
+#: src/tags_plugin_name.cpp:66
+msgctxt "Effect title"
+msgid "Filter"
+msgstr "Filtre"
+
+#: src/tags_plugin_name.cpp:67
+msgctxt "Effect title"
+msgid "Gate"
+msgstr "Porte"
+
 #: src/tags_plugin_name.cpp:68
 msgid "Level Meter"
 msgstr "Indicateur de Niveau"
+
+#: src/tags_plugin_name.cpp:70
+msgctxt "Effect title"
+msgid "Loudness"
+msgstr "Sonie"
 
 #: src/tags_plugin_name.cpp:71
 msgid "Maximizer"
@@ -4002,6 +4243,11 @@ msgstr "Compresseur Multibande"
 #: src/tags_plugin_name.cpp:73
 msgid "Multiband Gate"
 msgstr "Porte Multibande"
+
+#: src/tags_plugin_name.cpp:74
+msgctxt "Effect title"
+msgid "Pitch"
+msgstr "Hauteur"
 
 #: src/tags_plugin_name.cpp:75
 msgid "Reverberation"
@@ -4023,70 +4269,65 @@ msgstr "Outils Stéréo"
 msgid "Voice Suppressor"
 msgstr "Suppresseur de Voix"
 
-#: src/units.hpp:60
+#: src/units.hpp:61
 msgctxt "left channel abbreviation (single letter)"
 msgid "L"
 msgstr "G"
 
-#: src/units.hpp:61
+#: src/units.hpp:62
 msgctxt "left channel abbreviation (single letter)"
 msgid "R"
 msgstr "D"
 
-#: src/units.hpp:64
+#: src/units.hpp:65
 msgctxt "The SOFA audio file format"
 msgid "SOFA"
 msgstr "SOFA"
 
-#: src/units.hpp:65
+#: src/units.hpp:66
 msgctxt "The WAV audio file format"
 msgid "WAV"
 msgstr "WAV"
 
-#: src/units.hpp:68
+#: src/units.hpp:69
 msgctxt "decibel unit abbreviation"
 msgid "dB"
 msgstr "dB"
 
-#: src/units.hpp:69
+#: src/units.hpp:70
 msgctxt "decibel full scale unit abbreviation"
 msgid "dBFS"
 msgstr "dB FS"
 
-#: src/units.hpp:70
+#: src/units.hpp:71
 msgctxt "decibel per octaves unit abbreviation"
 msgid "dB/oct"
 msgstr "dB/oct"
 
-#: src/units.hpp:71
+#: src/units.hpp:72
 msgctxt "seconds unit abbreviation"
 msgid "s"
 msgstr "s"
 
-#: src/units.hpp:72
+#: src/units.hpp:73
 msgctxt "milliseconds unit abbreviation"
 msgid "ms"
 msgstr "ms"
 
-#: src/units.hpp:73
+#: src/units.hpp:74
 msgctxt "microseconds unit abbreviation"
 msgid "μs"
 msgstr "μs"
 
-#: src/units.hpp:74
+#: src/units.hpp:75
 msgctxt "Hertz unit abbreviation"
 msgid "Hz"
 msgstr "Hz"
 
-#: src/units.hpp:75
+#: src/units.hpp:76
 msgctxt "kiloHertz unit abbreviation"
 msgid "kHz"
 msgstr "kHz"
-
-#: src/units.hpp:76
-msgctxt "loudness full scale unit abbreviation"
-msgid "LUFS"
-msgstr "LUFS"
 
 #: src/units.hpp:77
 msgctxt "loudness unit abbreviation"
@@ -4094,51 +4335,61 @@ msgid "LU"
 msgstr "LU"
 
 #: src/units.hpp:78
+msgctxt "loudness full scale unit abbreviation"
+msgid "LUFS"
+msgstr "LUFS"
+
+#: src/units.hpp:79
+msgctxt "semitone unit (music interval) abbreviation"
+msgid "st"
+msgstr "dt"
+
+#: src/units.hpp:80
 msgctxt "meter unit abbreviation"
 msgid "m"
 msgstr "m"
 
-#: src/units.hpp:79
+#: src/units.hpp:81
 msgctxt "centimeter unit abbreviation"
 msgid "cm"
 msgstr "cm"
 
-#: src/units.hpp:80
+#: src/units.hpp:82
 msgctxt "degrees Celsius unit abbreviation"
 msgid "°C"
 msgstr "°C"
 
-#: src/units.hpp:81
+#: src/units.hpp:83
 msgctxt "bit unit (plural)"
 msgid "bits"
 msgstr "bits"
 
-#: src/units.hpp:82
+#: src/units.hpp:84
 msgctxt "frame unit (plural)"
 msgid "frames"
 msgstr "images"
 
-#: src/units.hpp:83
+#: src/units.hpp:85
 msgctxt "frames per second abbreviation"
 msgid "fps"
 msgstr "ips"
 
-#: src/units.hpp:86
+#: src/units.hpp:88
 msgctxt "thousand abbreviation (single letter)"
 msgid "k"
 msgstr "m"
 
-#: src/units.hpp:87
+#: src/units.hpp:89
 msgctxt "percentage symbol"
 msgid "%"
 msgstr "%"
 
-#: src/units.hpp:88
+#: src/units.hpp:90
 msgctxt "degrees (angle) symbol"
 msgid "°"
 msgstr "°"
 
-#: src/units.hpp:89
+#: src/units.hpp:91
 msgctxt "minus infinity abbreviation"
 msgid "-inf"
 msgstr "-inf"
@@ -4150,6 +4401,29 @@ msgstr "Égaliseur, Compresseur et Autres Effets Audio"
 #: com.github.wwmm.easyeffects.desktop.in.template.h:2
 msgid "Simple audio effects"
 msgstr "Effets audio simples"
+
+#~ msgctxt "Musical note"
+#~ msgid "C#"
+#~ msgstr "Do dièse"
+
+#~ msgctxt "Musical note"
+#~ msgid "D#"
+#~ msgstr "Ré dièse"
+
+#~ msgctxt "Musical note"
+#~ msgid "F#"
+#~ msgstr "Fa dièse"
+
+#~ msgctxt "Musical note"
+#~ msgid "G#"
+#~ msgstr "Sol dièse"
+
+#~ msgctxt "Musical note"
+#~ msgid "A#"
+#~ msgstr "La dièse"
+
+#~ msgid "Octaves"
+#~ msgstr "Octaves"
 
 #~ msgid "Enable the inactivity timeout"
 #~ msgstr "Activer le délai d’inactivité"

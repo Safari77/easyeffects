@@ -234,7 +234,7 @@ auto NodeManager::registerNode(pw_registry* registry, uint32_t id, const char* t
   nd->nd_info->proxy = proxy;
   nd->nd_info->serial = serial;
   nd->nd_info->id = id;
-  nd->nd_info->media_role = media_role;
+  nd->nd_info->media_role = std::move(media_role);
   nd->nd_info->media_class = media_class;
   nd->nd_info->name = node_name;
 
@@ -515,7 +515,7 @@ void NodeManager::onNodeInfo(void* object, const pw_node_info* info) {
     }
   }
 
-  auto connect_to_ee_sink = [&]() {
+  auto connect_to_ee_sink = [&] {
     if (DbMain::processAllOutputs() && !nd->nd_info->is_blocklisted &&
         !DbMain::outputSinkBlocklist().contains(DbStreamOutputs::outputDevice())) {
       // target.node for backward compatibility with old PW session managers
@@ -527,7 +527,7 @@ void NodeManager::onNodeInfo(void* object, const pw_node_info* info) {
     }
   };
 
-  auto connect_to_ee_source = [&]() {
+  auto connect_to_ee_source = [&] {
     if (DbMain::processAllInputs() && !nd->nd_info->is_blocklisted &&
         !DbMain::inputSourceBlocklist().contains(DbStreamInputs::inputDevice())) {
       // target.node for backward compatibility with old PW session managers
