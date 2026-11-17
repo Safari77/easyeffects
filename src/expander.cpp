@@ -66,6 +66,7 @@ Expander::Expander(const std::string& tag, pw::Manager* pipe_manager, PipelineTy
   connect(settings, &DbExpander::sidechainInputDeviceChanged, [&] { update_sidechain_links(); });
 
   BIND_LV2_PORT("em", mode, setMode, DbExpander::modeChanged);
+  BIND_LV2_PORT("cdw", dryWetBalance, setDryWetBalance, DbExpander::dryWetBalanceChanged);
   BIND_LV2_PORT("sci", sidechainType, setSidechainType, DbExpander::sidechainTypeChanged);
   BIND_LV2_PORT("scm", sidechainMode, setSidechainMode, DbExpander::sidechainModeChanged);
   BIND_LV2_PORT("scs", sidechainSource, setSidechainSource, DbExpander::sidechainSourceChanged);
@@ -76,6 +77,7 @@ Expander::Expander(const std::string& tag, pw::Manager* pipe_manager, PipelineTy
   BIND_LV2_PORT("scl", sidechainListen, setSidechainListen, DbExpander::sidechainListenChanged);
   BIND_LV2_PORT("at", attack, setAttack, DbExpander::attackChanged);
   BIND_LV2_PORT("rt", release, setRelease, DbExpander::releaseChanged);
+  BIND_LV2_PORT("hold", hold, setHold, DbExpander::holdChanged);
   BIND_LV2_PORT("er", ratio, setRatio, DbExpander::ratioChanged);
   BIND_LV2_PORT("scr", sidechainReactivity, setSidechainReactivity, DbExpander::sidechainReactivityChanged);
   BIND_LV2_PORT("sla", sidechainLookahead, setSidechainLookahead, DbExpander::sidechainLookaheadChanged);

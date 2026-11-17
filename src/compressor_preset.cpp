@@ -41,6 +41,8 @@ void CompressorPreset::save(nlohmann::json& json) {
 
   json[section][instance_name]["wet"] = settings->wet();
 
+  json[section][instance_name]["dry-wet-balance"] = settings->dryWetBalance();
+
   json[section][instance_name]["mode"] = settings->defaultModeLabelsValue()[settings->mode()].toStdString();
 
   json[section][instance_name]["attack"] = settings->attack();
@@ -50,6 +52,8 @@ void CompressorPreset::save(nlohmann::json& json) {
   json[section][instance_name]["release-threshold"] = settings->releaseThreshold();
 
   json[section][instance_name]["threshold"] = settings->threshold();
+
+  json[section][instance_name]["hold"] = settings->hold();
 
   json[section][instance_name]["ratio"] = settings->ratio();
 
@@ -108,10 +112,12 @@ void CompressorPreset::load(const nlohmann::json& json) {
   UPDATE_PROPERTY("output-gain", OutputGain);
   UPDATE_PROPERTY("dry", Dry);
   UPDATE_PROPERTY("wet", Wet);
+  UPDATE_PROPERTY("dry-wet-balance", DryWetBalance)
   UPDATE_PROPERTY("attack", Attack);
   UPDATE_PROPERTY("release", Release);
   UPDATE_PROPERTY("release-threshold", ReleaseThreshold);
   UPDATE_PROPERTY("threshold", Threshold);
+  UPDATE_PROPERTY("hold", Hold);
   UPDATE_PROPERTY("ratio", Ratio);
   UPDATE_PROPERTY("knee", Knee);
   UPDATE_PROPERTY("makeup", Makeup);

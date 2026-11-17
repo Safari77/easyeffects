@@ -114,7 +114,6 @@ Kirigami.ScrollablePage {
                     EeSpinBox {
                         id: reduction
 
-                        Layout.columnSpan: 2
                         label: i18n("Reduction") // qmllint disable
                         labelAbove: true
                         spinboxLayoutFillWidth: true
@@ -126,6 +125,23 @@ Kirigami.ScrollablePage {
                         unit: Units.dB
                         onValueModified: v => {
                             gatePage.pluginDB.reduction = v;
+                        }
+                    }
+
+                    EeSpinBox {
+                        id: hold
+
+                        label: i18nc("Compressor control", "Hold") // qmllint disable
+                        labelAbove: true
+                        spinboxLayoutFillWidth: true
+                        from: gatePage.pluginDB.getMinValue("hold")
+                        to: gatePage.pluginDB.getMaxValue("hold")
+                        value: gatePage.pluginDB.hold
+                        decimals: 2
+                        stepSize: 0.01
+                        unit: Units.ms
+                        onValueModified: v => {
+                            gatePage.pluginDB.hold = v;
                         }
                     }
 
@@ -452,64 +468,82 @@ Kirigami.ScrollablePage {
             EeCard {
                 title: i18n("Output") // qmllint disable
 
-                EeSpinBox {
-                    id: dry
+                GridLayout {
+                    columns: 2
+                    rowSpacing: 0
+                    uniformCellWidths: true
 
-                    Layout.alignment: Qt.AlignTop
-                    label: i18nc("Signal type", "Dry") // qmllint disable
-                    labelAbove: true
-                    spinboxLayoutFillWidth: true
-                    from: gatePage.pluginDB.getMinValue("dry")
-                    to: gatePage.pluginDB.getMaxValue("dry")
-                    value: gatePage.pluginDB.dry
-                    decimals: 2 // Required to show "-inf"
-                    stepSize: 0.01
-                    unit: Units.dB
-                    minusInfinityMode: true
-                    onValueModified: v => {
-                        gatePage.pluginDB.dry = v;
+                    EeSpinBox {
+                        id: dry
+
+                        label: i18nc("Signal type", "Dry") // qmllint disable
+                        labelAbove: true
+                        spinboxLayoutFillWidth: true
+                        from: gatePage.pluginDB.getMinValue("dry")
+                        to: gatePage.pluginDB.getMaxValue("dry")
+                        value: gatePage.pluginDB.dry
+                        decimals: 2 // Required to show "-inf"
+                        stepSize: 0.01
+                        unit: Units.dB
+                        minusInfinityMode: true
+                        onValueModified: v => {
+                            gatePage.pluginDB.dry = v;
+                        }
                     }
-                }
 
-                EeSpinBox {
-                    id: wet
+                    EeSpinBox {
+                        id: wet
 
-                    Layout.alignment: Qt.AlignTop
-                    label: i18nc("Signal type", "Wet") // qmllint disable
-                    labelAbove: true
-                    spinboxLayoutFillWidth: true
-                    from: gatePage.pluginDB.getMinValue("wet")
-                    to: gatePage.pluginDB.getMaxValue("wet")
-                    value: gatePage.pluginDB.wet
-                    decimals: 2 // Required to show "-inf"
-                    stepSize: 0.01
-                    unit: Units.dB
-                    minusInfinityMode: true
-                    onValueModified: v => {
-                        gatePage.pluginDB.wet = v;
+                        label: i18nc("Signal type", "Wet") // qmllint disable
+                        labelAbove: true
+                        spinboxLayoutFillWidth: true
+                        from: gatePage.pluginDB.getMinValue("wet")
+                        to: gatePage.pluginDB.getMaxValue("wet")
+                        value: gatePage.pluginDB.wet
+                        decimals: 2 // Required to show "-inf"
+                        stepSize: 0.01
+                        unit: Units.dB
+                        minusInfinityMode: true
+                        onValueModified: v => {
+                            gatePage.pluginDB.wet = v;
+                        }
                     }
-                }
 
-                EeSpinBox {
-                    id: makeup
+                    EeSpinBox {
+                        id: dryWetBalance
 
-                    Layout.alignment: Qt.AlignTop
-                    label: i18nc("Gain level", "Makeup") // qmllint disable
-                    labelAbove: true
-                    spinboxLayoutFillWidth: true
-                    from: gatePage.pluginDB.getMinValue("makeup")
-                    to: gatePage.pluginDB.getMaxValue("makeup")
-                    value: gatePage.pluginDB.makeup
-                    decimals: 2
-                    stepSize: 0.01
-                    unit: Units.dB
-                    onValueModified: v => {
-                        gatePage.pluginDB.makeup = v;
+                        Layout.columnSpan: 2
+                        label: i18n("Dry/Wet balance") // qmllint disable
+                        labelAbove: true
+                        spinboxLayoutFillWidth: true
+                        from: gatePage.pluginDB.getMinValue("dryWetBalance")
+                        to: gatePage.pluginDB.getMaxValue("dryWetBalance")
+                        value: gatePage.pluginDB.dryWetBalance
+                        decimals: 1
+                        stepSize: 0.1
+                        unit: Units.percent
+                        onValueModified: v => {
+                            gatePage.pluginDB.dryWetBalance = v;
+                        }
                     }
-                }
 
-                Item {
-                    Layout.fillHeight: true
+                    EeSpinBox {
+                        id: makeup
+
+                        Layout.columnSpan: 2
+                        label: i18nc("Gain level", "Makeup") // qmllint disable
+                        labelAbove: true
+                        spinboxLayoutFillWidth: true
+                        from: gatePage.pluginDB.getMinValue("makeup")
+                        to: gatePage.pluginDB.getMaxValue("makeup")
+                        value: gatePage.pluginDB.makeup
+                        decimals: 2
+                        stepSize: 0.01
+                        unit: Units.dB
+                        onValueModified: v => {
+                            gatePage.pluginDB.makeup = v;
+                        }
+                    }
                 }
             }
 

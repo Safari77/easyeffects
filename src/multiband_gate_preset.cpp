@@ -46,11 +46,15 @@ void MultibandGatePreset::save(nlohmann::json& json) {
 
   json[section][instance_name]["wet"] = settings->wet();
 
+  json[section][instance_name]["dry-wet-balance"] = settings->dryWetBalance();
+
   json[section][instance_name]["gate-mode"] =
       settings->defaultGateModeLabelsValue()[settings->gateMode()].toStdString();
 
   json[section][instance_name]["envelope-boost"] =
       settings->defaultEnvelopeBoostLabelsValue()[settings->envelopeBoost()].toStdString();
+
+  json[section][instance_name]["slope"] = settings->defaultSlopeLabelsValue()[settings->slope()].toStdString();
 
   json[section][instance_name]["stereo-split"] = settings->stereoSplit();
 
@@ -87,6 +91,8 @@ void MultibandGatePreset::save(nlohmann::json& json) {
 
     json[section][instance_name][bandn]["release-time"] =
         settings->property(band_release_time[n].data()).value<double>();
+
+    json[section][instance_name][bandn]["hold-time"] = settings->property(band_hold_time[n].data()).value<double>();
 
     json[section][instance_name][bandn]["hysteresis"] = settings->property(band_hysteresis[n].data()).value<bool>();
 
@@ -150,6 +156,7 @@ void MultibandGatePreset::load(const nlohmann::json& json) {
   UPDATE_PROPERTY("output-gain", OutputGain);
   UPDATE_PROPERTY("dry", Dry);
   UPDATE_PROPERTY("wet", Wet);
+  UPDATE_PROPERTY("dry-wet-balance", DryWetBalance)
   UPDATE_PROPERTY("stereo-split", StereoSplit);
   UPDATE_PROPERTY("input-to-sidechain", InputToSidechain);
   UPDATE_PROPERTY("input-to-link", InputToLink);
@@ -160,6 +167,7 @@ void MultibandGatePreset::load(const nlohmann::json& json) {
 
   UPDATE_ENUM_LIKE_PROPERTY("gate-mode", GateMode);
   UPDATE_ENUM_LIKE_PROPERTY("envelope-boost", EnvelopeBoost);
+  UPDATE_ENUM_LIKE_PROPERTY("slope", Slope);
 
   for (uint n = 0U; n < tags::multiband_gate::n_bands; n++) {
     const auto nstr = util::to_string(n);
@@ -192,6 +200,10 @@ void MultibandGatePreset::load(const nlohmann::json& json) {
     settings->setProperty(
         band_release_time[n].data(),
         jbandn.value("release-time", settings->getDefaultValue(band_release_time[n].data()).value<double>()));
+
+    settings->setProperty(
+        band_hold_time[n].data(),
+        jbandn.value("hold-time", settings->getDefaultValue(band_hold_time[n].data()).value<double>()));
 
     settings->setProperty(
         band_hysteresis[n].data(),

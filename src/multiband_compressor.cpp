@@ -92,6 +92,8 @@ MultibandCompressor::MultibandCompressor(const std::string& tag,
   BIND_LV2_PORT("mode", compressorMode, setCompressorMode, DbMultibandCompressor::compressorModeChanged);
   BIND_LV2_PORT("envb", envelopeBoost, setEnvelopeBoost, DbMultibandCompressor::envelopeBoostChanged);
   BIND_LV2_PORT("ssplit", stereoSplit, setStereoSplit, DbMultibandCompressor::stereoSplitChanged);
+  BIND_LV2_PORT("slope", slope, setSlope, DbMultibandCompressor::slopeChanged);
+  BIND_LV2_PORT("drywet", dryWetBalance, setDryWetBalance, DbMultibandCompressor::dryWetBalanceChanged);
 
   // dB controls with -inf mode.
   BIND_LV2_PORT_DB("g_dry", dry, setDry, DbMultibandCompressor::dryChanged, true);
@@ -181,6 +183,7 @@ void MultibandCompressor::bind_bands() {
   BIND_BANDS_PROPERTY(schf, SidechainHighcutFrequency, DbMultibandCompressor);
   BIND_BANDS_PROPERTY(at, AttackTime, DbMultibandCompressor);
   BIND_BANDS_PROPERTY(rt, ReleaseTime, DbMultibandCompressor);
+  BIND_BANDS_PROPERTY(ht, HoldTime, DbMultibandCompressor);
   BIND_BANDS_PROPERTY(cr, Ratio, DbMultibandCompressor);
 
   BIND_BANDS_PROPERTY_DB(al, AttackThreshold, DbMultibandCompressor, false);

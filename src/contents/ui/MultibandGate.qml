@@ -125,15 +125,14 @@ Kirigami.ScrollablePage {
                     Layout.fillWidth: true
 
                     GridLayout {
-                        columns: 2
+                        columns: 1
                         uniformCellWidths: true
                         anchors.fill: parent
 
                         Controls.Label {
-                            Layout.columnSpan: 2
                             Layout.alignment: Qt.AlignHCenter
                             Layout.fillWidth: false
-                            text: i18n("Frequency") // qmllint disable
+                            text: i18n("Frequency Range") // qmllint disable
                         }
 
                         /**
@@ -165,16 +164,17 @@ Kirigami.ScrollablePage {
                         }
 
                         ColumnLayout {
+                            Layout.leftMargin: Kirigami.Units.smallSpacing * 3
+                            Layout.bottomMargin: Kirigami.Units.smallSpacing * 3
+
                             Controls.Label {
                                 Layout.fillWidth: true
-                                horizontalAlignment: Text.AlignHCenter
                                 text: i18n("End") // qmllint disable
                             }
 
                             Controls.Label {
                                 id: bandEndFrequency
                                 Layout.fillWidth: true
-                                horizontalAlignment: Text.AlignHCenter
                                 text: Common.toLocaleLabel(multibandGatePage.bandFrequencyEnd[bandsListview.currentIndex], 0, Units.hz)
                             }
                         }
@@ -186,12 +186,11 @@ Kirigami.ScrollablePage {
                     Layout.fillWidth: true
 
                     GridLayout {
-                        columns: 2
+                        columns: 1
                         uniformCellWidths: true
                         anchors.fill: parent
 
                         Controls.Label {
-                            Layout.columnSpan: 2
                             Layout.alignment: Qt.AlignHCenter
                             Layout.fillWidth: false
                             text: i18n("Reaction") // qmllint disable
@@ -226,6 +225,21 @@ Kirigami.ScrollablePage {
                                 multibandGatePage.pluginDB[multibandGatePage.bandId + "ReleaseTime"] = v;
                             }
                         }
+
+                        EeSpinBox {
+                            label: i18nc("Compressor control", "Hold") // qmllint disable
+                            labelAbove: true
+                            spinboxLayoutFillWidth: true
+                            from: multibandGatePage.pluginDB.getMinValue(multibandGatePage.bandId + "HoldTime")
+                            to: multibandGatePage.pluginDB.getMaxValue(multibandGatePage.bandId + "HoldTime")
+                            value: multibandGatePage.pluginDB[multibandGatePage.bandId + "HoldTime"]
+                            decimals: 2
+                            stepSize: 0.01
+                            unit: Units.ms
+                            onValueModified: v => {
+                                multibandGatePage.pluginDB[multibandGatePage.bandId + "HoldTime"] = v;
+                            }
+                        }
                     }
                 }
 
@@ -234,15 +248,14 @@ Kirigami.ScrollablePage {
                     Layout.fillWidth: true
 
                     GridLayout {
-                        columns: 2
+                        columns: 1
                         uniformCellWidths: true
                         anchors.fill: parent
 
                         Controls.Label {
-                            Layout.columnSpan: 2
                             Layout.alignment: Qt.AlignHCenter
                             Layout.fillWidth: false
-                            text: i18n("Gain") // qmllint disable
+                            text: i18n("Level") // qmllint disable
                         }
 
                         EeSpinBox {
@@ -283,12 +296,11 @@ Kirigami.ScrollablePage {
                     Layout.fillWidth: true
 
                     GridLayout {
-                        columns: 2
+                        columns: 1
                         uniformCellWidths: true
                         anchors.fill: parent
 
                         Controls.Label {
-                            Layout.columnSpan: 2
                             Layout.alignment: Qt.AlignHCenter
                             Layout.fillWidth: false
                             text: i18nc("Compressor parameter", "Curve") // qmllint disable
@@ -331,12 +343,11 @@ Kirigami.ScrollablePage {
                     Layout.fillWidth: true
 
                     GridLayout {
-                        columns: 2
+                        columns: 1
                         uniformCellWidths: true
                         anchors.fill: parent
 
                         Controls.Button {
-                            Layout.columnSpan: 2
                             Layout.alignment: Qt.AlignCenter
                             text: i18n("Hysteresis") // qmllint disable
                             checkable: true
@@ -555,6 +566,19 @@ Kirigami.ScrollablePage {
             }
 
             FormCard.FormComboBoxDelegate {
+                id: slope
+
+                text: i18nc("Filter parameter", "Crossover slope") // qmllint disable
+                displayMode: FormCard.FormComboBoxDelegate.ComboBox
+                currentIndex: multibandGatePage.pluginDB.slope
+                editable: false
+                model: [`6 ${Units.dBoct}`, `12 ${Units.dBoct}`, `18 ${Units.dBoct}`, `24 ${Units.dBoct}`, `48 ${Units.dBoct}`, `72 ${Units.dBoct}`] // qmllint disable
+                onActivated: idx => {
+                    multibandGatePage.pluginDB.slope = idx;
+                }
+            }
+
+            FormCard.FormComboBoxDelegate {
                 id: envelopeBoost
 
                 text: i18n("Sidechain boost") // qmllint disable
@@ -626,6 +650,23 @@ Kirigami.ScrollablePage {
                     multibandGatePage.pluginDB.wet = v;
                 }
             }
+
+            EeSpinBox {
+                id: dryWetBalance
+
+                label: i18n("Dry/Wet balance") // qmllint disable
+                labelAbove: true
+                spinboxLayoutFillWidth: true
+                from: multibandGatePage.pluginDB.getMinValue("dryWetBalance")
+                to: multibandGatePage.pluginDB.getMaxValue("dryWetBalance")
+                value: multibandGatePage.pluginDB.dryWetBalance
+                decimals: 1
+                stepSize: 0.1
+                unit: Units.percent
+                onValueModified: v => {
+                    multibandGatePage.pluginDB.dryWetBalance = v;
+                }
+            }
         }
 
         RowLayout {
@@ -638,8 +679,8 @@ Kirigami.ScrollablePage {
 
                 header: RowLayout {
                     Kirigami.Heading {
-                        readonly property string bandTitleTag: multibandGatePage.pluginDB.viewSidechain ? " - " + i18n("Sidechain") : "" // qmllint disable
-                        text: i18n("Band") + " " + (bandsListview.currentIndex + 1) + bandTitleTag // qmllint disable
+                        readonly property string bandTitleTag: multibandGatePage.pluginDB.viewSidechain ? i18n("Sidechain") : i18n("Controls") // qmllint disable
+                        text: i18nc("Number of the band", "Band %1", bandsListview.currentIndex + 1) + ` - ${bandTitleTag}` // qmllint disable
                         level: 2
                     }
 
@@ -898,7 +939,7 @@ Kirigami.ScrollablePage {
                         contentItem: RowLayout {
                             Controls.Label {
                                 Layout.fillWidth: true
-                                text: i18n("Band") + " " + (listItemDelegate.index + 1) // qmllint disable
+                                text: i18nc("Number of the band", "Band %1", listItemDelegate.index + 1) // qmllint disable
                             }
 
                             Controls.CheckBox {

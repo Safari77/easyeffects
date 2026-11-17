@@ -42,9 +42,13 @@ void GatePreset::save(nlohmann::json& json) {
 
   json[section][instance_name]["wet"] = settings->wet();
 
+  json[section][instance_name]["dry-wet-balance"] = settings->dryWetBalance();
+
   json[section][instance_name]["attack"] = settings->attack();
 
   json[section][instance_name]["release"] = settings->release();
+
+  json[section][instance_name]["hold"] = settings->hold();
 
   json[section][instance_name]["curve-threshold"] = settings->curveThreshold();
 
@@ -107,8 +111,10 @@ void GatePreset::load(const nlohmann::json& json) {
   UPDATE_PROPERTY("output-gain", OutputGain);
   UPDATE_PROPERTY("dry", Dry);
   UPDATE_PROPERTY("wet", Wet);
+  UPDATE_PROPERTY("dry-wet-balance", DryWetBalance)
   UPDATE_PROPERTY("attack", Attack);
   UPDATE_PROPERTY("release", Release);
+  UPDATE_PROPERTY("hold", Hold);
   UPDATE_PROPERTY("curve-threshold", CurveThreshold);
   UPDATE_PROPERTY("curve-zone", CurveZone);
   UPDATE_PROPERTY("hysteresis", Hysteresis);

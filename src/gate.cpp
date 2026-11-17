@@ -67,6 +67,7 @@ Gate::Gate(const std::string& tag, pw::Manager* pipe_manager, PipelineType pipe_
   connect(settings, &DbGate::sidechainTypeChanged, [&] { update_sidechain_links(); });
   connect(settings, &DbGate::sidechainInputDeviceChanged, [&] { update_sidechain_links(); });
 
+  BIND_LV2_PORT("cdw", dryWetBalance, setDryWetBalance, DbGate::dryWetBalanceChanged);
   BIND_LV2_PORT("sci", sidechainType, setSidechainType, DbGate::sidechainTypeChanged);
   BIND_LV2_PORT("scm", sidechainMode, setSidechainMode, DbGate::sidechainModeChanged);
   BIND_LV2_PORT("scl", sidechainListen, setSidechainListen, DbGate::sidechainListenChanged);
@@ -81,6 +82,7 @@ Gate::Gate(const std::string& tag, pw::Manager* pipe_manager, PipelineType pipe_
   BIND_LV2_PORT("slpf", lpfFrequency, setLpfFrequency, DbGate::lpfFrequencyChanged);
   BIND_LV2_PORT("at", attack, setAttack, DbGate::attackChanged);
   BIND_LV2_PORT("rt", release, setRelease, DbGate::releaseChanged);
+  BIND_LV2_PORT("hold", hold, setHold, DbGate::holdChanged);
   BIND_LV2_PORT("gh", hysteresis, setHysteresis, DbGate::hysteresisChanged);
   BIND_LV2_PORT_DB("mk", makeup, setMakeup, DbGate::makeupChanged, false);
   BIND_LV2_PORT_DB("gr", reduction, setReduction, DbGate::reductionChanged, false);
