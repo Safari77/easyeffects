@@ -28,6 +28,7 @@
 #include <pipewire/node.h>
 #include <pipewire/properties.h>
 #include <pipewire/proxy.h>
+#include <qcoreapplication.h>
 #include <qobject.h>
 #include <qtmetamacros.h>
 #include <qtypes.h>
@@ -379,7 +380,10 @@ void NodeManager::onNodeInfo(void* object, const pw_node_info* info) {
 
   if (ignore_node) {
     // Just in case the previous tests returned false in the first callback iteration
-    nm->model_nodes.remove_by_serial(nd->nd_info->serial);
+    const auto serial = nd->nd_info->serial;
+
+    QMetaObject::invokeMethod(
+        QCoreApplication::instance(), [nm, serial] { nm->model_nodes.remove_by_serial(serial); }, Qt::QueuedConnection);
 
     if (nd->proxy != nullptr) {
       pw_proxy_destroy(nd->proxy);
@@ -542,9 +546,11 @@ void NodeManager::onNodeInfo(void* object, const pw_node_info* info) {
   // update NodeInfo or add it if it is not in the model yet
 
   if (!nm->model_nodes.has_serial(nd->nd_info->serial)) {
-    nm->model_nodes.append(*nd->nd_info);
-
     auto nd_info_copy = *nd->nd_info;
+
+    QMetaObject::invokeMethod(
+        QCoreApplication::instance(), [nm, nd_info_copy] { nm->model_nodes.append(nd_info_copy); },
+        Qt::QueuedConnection);
 
     if ((nd_info_copy.media_class == tags::pipewire::media_class::source ||
          nd_info_copy.media_class == tags::pipewire::media_class::virtual_source) &&
@@ -570,7 +576,13 @@ void NodeManager::onNodeInfo(void* object, const pw_node_info* info) {
     nd->nd_info->device_route_name = nm->model_nodes.get_node_by_id(nd->nd_info->id).device_route_name;
     nd->nd_info->device_route_description = nm->model_nodes.get_node_by_id(nd->nd_info->id).device_route_description;
 
-    nm->model_nodes.update_info(*nd->nd_info);
+    // nm->model_nodes.update_info(*nd->nd_info);
+
+    auto nd_info_copy = *nd->nd_info;
+
+    QMetaObject::invokeMethod(
+        QCoreApplication::instance(), [nm, nd_info_copy] { nm->model_nodes.update_info(nd_info_copy); },
+        Qt::QueuedConnection);
 
     if (nd->nd_info->media_class == tags::pipewire::media_class::output_stream) {
       connect_to_ee_sink();
@@ -634,19 +646,22 @@ void NodeManager::onNodeParam(void* data,
         QString format_str = "unknown";
 
         for (const auto type_info : std::to_array(spa_type_audio_format)) {
-          if (format == type_info.type) {
-            if (type_info.name != nullptr) {
-              QString long_name = type_info.name;
+          if (format == type_info.type && type_info.name != nullptr) {
+            QString long_name = type_info.name;
 
-              format_str = long_name.sliced(long_name.lastIndexOf(":") + 1);
-            }
+            format_str = long_name.sliced(long_name.lastIndexOf(":") + 1);
           }
         }
 
         if (format_str != nd->nd_info->format) {
           nd->nd_info->format = format_str;
 
-          nm->model_nodes.update_field(rowIndex, pw::models::Nodes::Roles::Format, format_str);
+          QMetaObject::invokeMethod(
+              QCoreApplication::instance(),
+              [nm, rowIndex, format_str] {
+                nm->model_nodes.update_field(rowIndex, pw::models::Nodes::Roles::Format, format_str);
+              },
+              Qt::QueuedConnection);
         }
 
         break;
@@ -664,7 +679,10 @@ void NodeManager::onNodeParam(void* data,
 
         nd->nd_info->rate = rate;
 
-        nm->model_nodes.update_field(rowIndex, pw::models::Nodes::Roles::Rate, rate);
+        QMetaObject::invokeMethod(
+            QCoreApplication::instance(),
+            [nm, rowIndex, rate] { nm->model_nodes.update_field(rowIndex, pw::models::Nodes::Roles::Rate, rate); },
+            Qt::QueuedConnection);
 
         break;
       }
@@ -681,7 +699,10 @@ void NodeManager::onNodeParam(void* data,
 
         nd->nd_info->mute = v;
 
-        nm->model_nodes.update_field(rowIndex, pw::models::Nodes::Roles::Mute, v);
+        QMetaObject::invokeMethod(
+            QCoreApplication::instance(),
+            [nm, rowIndex, v] { nm->model_nodes.update_field(rowIndex, pw::models::Nodes::Roles::Mute, v); },
+            Qt::QueuedConnection);
 
         break;
       }
@@ -703,8 +724,13 @@ void NodeManager::onNodeParam(void* data,
           nd->nd_info->n_volume_channels = n_volumes;
           nd->nd_info->volume = max;
 
-          nm->model_nodes.update_field(rowIndex, pw::models::Nodes::Roles::NvolumeChannels, n_volumes);
-          nm->model_nodes.update_field(rowIndex, pw::models::Nodes::Roles::Volume, max);
+          QMetaObject::invokeMethod(
+              QCoreApplication::instance(),
+              [nm, rowIndex, n_volumes, max] {
+                nm->model_nodes.update_field(rowIndex, pw::models::Nodes::Roles::NvolumeChannels, n_volumes);
+                nm->model_nodes.update_field(rowIndex, pw::models::Nodes::Roles::Volume, max);
+              },
+              Qt::QueuedConnection);
         }
 
         break;
@@ -732,7 +758,10 @@ void NodeManager::onDestroyNodeProxy(void* data) {
 
   nd->nd_info->proxy = nullptr;
 
-  nm->model_nodes.remove_by_serial(nd->nd_info->serial);
+  const auto serial = nd->nd_info->serial;
+
+  QMetaObject::invokeMethod(
+      QCoreApplication::instance(), [nm, serial] { nm->model_nodes.remove_by_serial(serial); }, Qt::QueuedConnection);
 
   util::debug(std::format("{} {} {} has been removed", nd->nd_info->media_class.toStdString(), nd->nd_info->id,
                           nd->nd_info->name.toStdString()));
